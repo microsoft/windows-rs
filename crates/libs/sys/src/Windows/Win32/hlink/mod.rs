@@ -97,10 +97,16 @@ pub const HLINK_S_DONTHIDE: windows_sys::core::HRESULT = 0x40100_u32 as _;
 pub const HLINK_S_FIRST: windows_sys::core::HRESULT = 0x40100_u32 as _;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HLITEM {
     pub uHLID: super::ULONG,
     pub pwzFriendlyName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for HLITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type HLNF = i32;
 pub const HLNF_CREATENOHISTORY: HLNF = 32;

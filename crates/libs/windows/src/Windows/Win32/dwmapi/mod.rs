@@ -255,12 +255,18 @@ pub const DWM_BB_ENABLE: i32 = 1;
 pub const DWM_BB_TRANSITIONONMAXIMIZED: i32 = 4;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWM_BLURBEHIND {
     pub dwFlags: super::DWORD,
     pub fEnable: windows_core::BOOL,
     pub hRgnBlur: super::HRGN,
     pub fTransitionOnMaximized: windows_core::BOOL,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DWM_BLURBEHIND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DWM_CLOAKED_APP: i32 = 1;
 pub const DWM_CLOAKED_INHERITED: i32 = 4;

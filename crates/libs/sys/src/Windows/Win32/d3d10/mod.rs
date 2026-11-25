@@ -520,7 +520,7 @@ pub struct D3D10_EFFECT_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *const super::BYTE,
     pub IsInline: windows_sys::core::BOOL,
@@ -530,10 +530,16 @@ pub struct D3D10_EFFECT_SHADER_DESC {
     pub NumInputSignatureEntries: super::UINT,
     pub NumOutputSignatureEntries: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for D3D10_EFFECT_SHADER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D10_EFFECT_SINGLE_THREADED: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_EFFECT_TYPE_DESC {
     pub TypeName: windows_sys::core::PCSTR,
     pub Class: D3D10_SHADER_VARIABLE_CLASS,
@@ -546,10 +552,16 @@ pub struct D3D10_EFFECT_TYPE_DESC {
     pub UnpackedSize: super::UINT,
     pub Stride: super::UINT,
 }
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+impl Default for D3D10_EFFECT_TYPE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub Semantic: windows_sys::core::PCSTR,
@@ -557,6 +569,12 @@ pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub Annotations: super::UINT,
     pub BufferOffset: super::UINT,
     pub ExplicitBindPoint: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D10_EFFECT_VARIABLE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const D3D10_EFFECT_VARIABLE_EXPLICIT_BIND_POINT: i32 = 4;
 pub const D3D10_EFFECT_VARIABLE_POOLED: i32 = 1;
@@ -673,7 +691,7 @@ pub struct D3D10_INFO_QUEUE_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: super::UINT,
     pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
@@ -682,10 +700,16 @@ pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumIDs: super::UINT,
     pub pIDList: *mut D3D10_MESSAGE_ID,
 }
+#[cfg(feature = "shared")]
+impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type D3D10_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
 #[cfg(all(feature = "dxgi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_sys::core::PCSTR,
     pub SemanticIndex: super::UINT,
@@ -694,6 +718,12 @@ pub struct D3D10_INPUT_ELEMENT_DESC {
     pub AlignedByteOffset: super::UINT,
     pub InputSlotClass: D3D10_INPUT_CLASSIFICATION,
     pub InstanceDataStepRate: super::UINT,
+}
+#[cfg(all(feature = "dxgi", feature = "shared"))]
+impl Default for D3D10_INPUT_ELEMENT_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const D3D10_INPUT_PER_INSTANCE_DATA: D3D10_INPUT_CLASSIFICATION = 1;
 pub const D3D10_INPUT_PER_VERTEX_DATA: D3D10_INPUT_CLASSIFICATION = 0;
@@ -704,18 +734,30 @@ pub const D3D10_MAG_FILTER_SHIFT: i32 = 2;
 pub type D3D10_MAP = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_MAPPED_TEXTURE2D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for D3D10_MAPPED_TEXTURE2D {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_MAPPED_TEXTURE3D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: super::UINT,
     pub DepthPitch: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D10_MAPPED_TEXTURE3D {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type D3D10_MAP_FLAG = i32;
 pub const D3D10_MAP_FLAG_DO_NOT_WAIT: D3D10_MAP_FLAG = 1048576;
@@ -732,13 +774,19 @@ pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: i32 = 17;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
     pub ID: D3D10_MESSAGE_ID,
     pub pDescription: *const i8,
     pub DescriptionByteLength: super::SIZE_T,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D10_MESSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type D3D10_MESSAGE_CATEGORY = i32;
 pub const D3D10_MESSAGE_CATEGORY_APPLICATION_DEFINED: D3D10_MESSAGE_CATEGORY = 0;
@@ -1304,10 +1352,16 @@ impl Default for D3D10_PASS_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_PASS_SHADER_DESC {
     pub pShaderVariable: *mut core::ffi::c_void,
     pub ShaderIndex: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D10_PASS_SHADER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const D3D10_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 13;
 pub const D3D10_PRE_SCISSOR_PIXEL_ADDRESS_RANGE_BIT_COUNT: i32 = 15;
@@ -1518,13 +1572,19 @@ pub const D3D10_SDK_VERSION: i32 = 29;
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: i32 = 512;
 #[repr(C)]
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SHADER_BUFFER_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub Type: D3D10_CBUFFER_TYPE,
     pub Variables: super::UINT,
     pub Size: super::UINT,
     pub uFlags: super::UINT,
+}
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+impl Default for D3D10_SHADER_BUFFER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "d3dcommon")]
 pub type D3D10_SHADER_CBUFFER_FLAGS = super::D3D_SHADER_CBUFFER_FLAGS;
@@ -1706,7 +1766,7 @@ pub struct D3D10_SHADER_DEBUG_VAR_INFO {
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = 0;
 #[repr(C)]
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SHADER_DESC {
     pub Version: super::UINT,
     pub Creator: windows_sys::core::PCSTR,
@@ -1737,6 +1797,12 @@ pub struct D3D10_SHADER_DESC {
     pub GSOutputTopology: D3D10_PRIMITIVE_TOPOLOGY,
     pub GSMaxOutputVertexCount: super::UINT,
 }
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+impl Default for D3D10_SHADER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D10_SHADER_ENABLE_BACKWARDS_COMPATIBILITY: i32 = 4096;
 pub const D3D10_SHADER_ENABLE_STRICTNESS: i32 = 2048;
 pub const D3D10_SHADER_FLAGS2_FORCE_ROOT_SIGNATURE_1_0: i32 = 16;
@@ -1747,7 +1813,7 @@ pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: i32 = 64;
 pub const D3D10_SHADER_IEEE_STRICTNESS: i32 = 8192;
 #[repr(C)]
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub Type: D3D10_SHADER_INPUT_TYPE,
@@ -1757,6 +1823,12 @@ pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub ReturnType: D3D10_RESOURCE_RETURN_TYPE,
     pub Dimension: D3D10_SRV_DIMENSION,
     pub NumSamples: super::UINT,
+}
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+impl Default for D3D10_SHADER_INPUT_BIND_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "d3dcommon")]
 pub type D3D10_SHADER_INPUT_FLAGS = super::D3D_SHADER_INPUT_FLAGS;
@@ -1863,13 +1935,19 @@ pub struct D3D10_SHADER_TYPE_DESC {
 pub type D3D10_SHADER_VARIABLE_CLASS = super::D3D_SHADER_VARIABLE_CLASS;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub StartOffset: super::UINT,
     pub Size: super::UINT,
     pub uFlags: super::UINT,
     pub DefaultValue: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for D3D10_SHADER_VARIABLE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "d3dcommon")]
 pub type D3D10_SHADER_VARIABLE_FLAGS = super::D3D_SHADER_VARIABLE_FLAGS;
@@ -1880,7 +1958,7 @@ pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: i32 = 0;
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: i32 = 5;
 #[repr(C)]
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_sys::core::PCSTR,
     pub SemanticIndex: super::UINT,
@@ -1890,6 +1968,12 @@ pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub Mask: super::BYTE,
     pub ReadWriteMask: super::BYTE,
 }
+#[cfg(all(feature = "d3dcommon", feature = "shared"))]
+impl Default for D3D10_SIGNATURE_PARAMETER_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D10_SIMULTANEOUS_RENDER_TARGET_COUNT: i32 = 8;
 pub const D3D10_SO_BUFFER_MAX_STRIDE_IN_BYTES: i32 = 2048;
 pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: i32 = 256;
@@ -1897,13 +1981,19 @@ pub const D3D10_SO_BUFFER_SLOT_COUNT: i32 = 4;
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SO_DECLARATION_ENTRY {
     pub SemanticName: windows_sys::core::PCSTR,
     pub SemanticIndex: super::UINT,
     pub StartComponent: super::BYTE,
     pub ComponentCount: super::BYTE,
     pub OutputSlot: super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D10_SO_DECLARATION_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const D3D10_SO_MULTIPLE_BUFFER_ELEMENTS_PER_BUFFER: i32 = 1;
 pub const D3D10_SO_SINGLE_BUFFER_COMPONENT_LIMIT: i32 = 64;
@@ -1975,20 +2065,32 @@ pub const D3D10_STENCIL_OP_ZERO: D3D10_STENCIL_OP = 2;
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: super::UINT,
     pub SysMemSlicePitch: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for D3D10_SUBRESOURCE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D10_TECHNIQUE_DESC {
     pub Name: windows_sys::core::PCSTR,
     pub Passes: super::UINT,
     pub Annotations: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D10_TECHNIQUE_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

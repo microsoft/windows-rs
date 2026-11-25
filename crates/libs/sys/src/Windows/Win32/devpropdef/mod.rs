@@ -1,18 +1,29 @@
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_sys::core::PCWSTR,
 }
+impl Default for DEVPROPCOMPKEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
     pub BufferSize: super::ULONG,
     pub Buffer: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DEVPROPERTY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DEVPROPGUID = windows_sys::core::GUID;
 pub type DEVPROPID = u32;

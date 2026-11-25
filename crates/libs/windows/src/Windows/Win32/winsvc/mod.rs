@@ -793,7 +793,7 @@ pub const SERVICE_ENUMERATE_DEPENDENTS: i32 = 8;
 pub type SERVICE_FAILURE_ACTIONS = SERVICE_FAILURE_ACTIONSA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSA {
     pub dwResetPeriod: super::DWORD,
     pub lpRebootMsg: windows_core::PSTR,
@@ -801,15 +801,27 @@ pub struct SERVICE_FAILURE_ACTIONSA {
     pub cActions: super::DWORD,
     pub lpsaActions: *mut SC_ACTION,
 }
+#[cfg(feature = "shared")]
+impl Default for SERVICE_FAILURE_ACTIONSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSW {
     pub dwResetPeriod: super::DWORD,
     pub lpRebootMsg: windows_core::PWSTR,
     pub lpCommand: windows_core::PWSTR,
     pub cActions: super::DWORD,
     pub lpsaActions: *mut SC_ACTION,
+}
+#[cfg(feature = "shared")]
+impl Default for SERVICE_FAILURE_ACTIONSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -840,7 +852,7 @@ pub type SERVICE_NOTIFYA = SERVICE_NOTIFY_2A;
 pub type SERVICE_NOTIFYW = SERVICE_NOTIFY_2W;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: super::DWORD,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -849,10 +861,16 @@ pub struct SERVICE_NOTIFY_1 {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SERVICE_NOTIFY_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
 pub type SERVICE_NOTIFY_2 = SERVICE_NOTIFY_2A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_2A {
     pub dwVersion: super::DWORD,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -862,9 +880,15 @@ pub struct SERVICE_NOTIFY_2A {
     pub dwNotificationTriggered: super::DWORD,
     pub pszServiceNames: windows_core::PSTR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SERVICE_NOTIFY_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct SERVICE_NOTIFY_2W {
     pub dwVersion: super::DWORD,
     pub pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK,
@@ -873,6 +897,12 @@ pub struct SERVICE_NOTIFY_2W {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
     pub dwNotificationTriggered: super::DWORD,
     pub pszServiceNames: windows_core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SERVICE_NOTIFY_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_NOTIFY_CONTINUE_PENDING: i32 = 16;
 pub const SERVICE_NOTIFY_CREATED: i32 = 128;
@@ -1054,13 +1084,19 @@ impl Default for SERVICE_TIMECHANGE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: super::DWORD,
     pub dwAction: super::DWORD,
     pub pTriggerSubtype: *mut windows_core::GUID,
     pub cDataItems: super::DWORD,
     pub pDataItems: PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
+}
+#[cfg(feature = "shared")]
+impl Default for SERVICE_TRIGGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_TRIGGER_ACTION_SERVICE_START: i32 = 1;
 pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: i32 = 2;
@@ -1083,19 +1119,31 @@ pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: i32 = 3;
 pub const SERVICE_TRIGGER_DATA_TYPE_STRING: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: super::DWORD,
     pub pTriggers: PSERVICE_TRIGGER,
     pub pReserved: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for SERVICE_TRIGGER_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: super::DWORD,
     pub cbData: super::DWORD,
     pub pData: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SERVICE_TRIGGER_STARTED_ARGUMENT: windows_core::PCWSTR = windows_core::w!("TriggerStarted");
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: i32 = 30;

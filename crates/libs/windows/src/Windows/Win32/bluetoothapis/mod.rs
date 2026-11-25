@@ -348,7 +348,7 @@ impl Default for BLUETOOTH_DEVICE_INFO_STRUCT {
 pub const BLUETOOTH_DEVICE_NAME_SIZE: i32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub dwSize: super::DWORD,
     pub fReturnAuthenticated: windows_core::BOOL,
@@ -358,6 +358,12 @@ pub struct BLUETOOTH_DEVICE_SEARCH_PARAMS {
     pub fIssueInquiry: windows_core::BOOL,
     pub cTimeoutMultiplier: super::UCHAR,
     pub hRadio: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for BLUETOOTH_DEVICE_SEARCH_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -456,7 +462,7 @@ impl Default for BLUETOOTH_RADIO_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub dwSize: super::DWORD,
     pub cNumOfClasses: super::ULONG,
@@ -473,6 +479,12 @@ pub struct BLUETOOTH_SELECT_DEVICE_PARAMS {
     pub pvParam: super::LPVOID,
     pub cNumDevices: super::DWORD,
     pub pDevices: PBLUETOOTH_DEVICE_INFO,
+}
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for BLUETOOTH_SELECT_DEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const BLUETOOTH_SERVICE_DISABLE: i32 = 0;
 pub const BLUETOOTH_SERVICE_ENABLE: i32 = 1;
@@ -557,31 +569,55 @@ impl Default for SDP_ELEMENT_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: super::LPBYTE,
     pub length: super::ULONG,
 }
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
+impl Default for SDP_ELEMENT_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: super::LPBYTE,
     pub length: super::ULONG,
 }
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
+impl Default for SDP_ELEMENT_DATA_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: super::LPBYTE,
     pub length: super::ULONG,
 }
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
+impl Default for SDP_ELEMENT_DATA_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "bthsdpdef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: super::LPBYTE,
     pub length: super::ULONG,
+}
+#[cfg(all(feature = "bthsdpdef", feature = "shared"))]
+impl Default for SDP_ELEMENT_DATA_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

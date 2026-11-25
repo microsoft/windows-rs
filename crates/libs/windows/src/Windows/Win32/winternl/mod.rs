@@ -215,10 +215,16 @@ pub unsafe fn RtlUniform(seed: super::PULONG) -> super::ULONG {
 pub type ANSI_STRING = STRING;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLIENT_ID {
     pub UniqueProcess: super::HANDLE,
     pub UniqueThread: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for CLIENT_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CODEINTEGRITY_OPTION_DEBUGMODE_ENABLED: i32 = 128;
 pub const CODEINTEGRITY_OPTION_ENABLED: i32 = 1;
@@ -301,12 +307,18 @@ impl Default for IO_STATUS_BLOCK_0 {
 pub type KEY_SET_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_ENTRY {
     pub ValueName: PUNICODE_STRING,
     pub DataLength: super::ULONG,
     pub DataOffset: super::ULONG,
     pub Type: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for KEY_VALUE_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type KPRIORITY = i32;
 pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = 2;
@@ -354,7 +366,7 @@ pub const LOGONID_CURRENT: super::ULONG = 4294967295;
 pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = 6;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_ATTRIBUTES {
     pub Length: super::ULONG,
     pub RootDirectory: super::HANDLE,
@@ -362,6 +374,12 @@ pub struct OBJECT_ATTRIBUTES {
     pub Attributes: super::ULONG,
     pub SecurityDescriptor: super::PVOID,
     pub SecurityQualityOfService: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for OBJECT_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type OBJECT_INFORMATION_CLASS = i32;
 pub const OBJ_CASE_INSENSITIVE: i32 = 64;
@@ -561,21 +579,33 @@ impl Default for RTL_USER_PROCESS_PARAMETERS {
 pub const SERVERNAME_CURRENT: super::HANDLE = 0 as _;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STRING {
     pub Length: super::USHORT,
     pub MaximumLength: super::USHORT,
     pub Buffer: super::PCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BASICPROCESS_INFORMATION {
     pub NextEntryOffset: super::ULONG,
     pub UniqueProcessId: super::HANDLE,
     pub InheritedFromUniqueProcessId: super::HANDLE,
     pub SequenceNumber: super::ULONG64,
     pub ImageName: UNICODE_STRING,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SYSTEM_BASICPROCESS_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -720,11 +750,17 @@ impl Default for SYSTEM_PROCESS_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_REGISTRY_QUOTA_INFORMATION {
     pub RegistryQuotaAllowed: super::ULONG,
     pub RegistryQuotaUsed: super::ULONG,
     pub Reserved1: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SYSTEM_REGISTRY_QUOTA_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]

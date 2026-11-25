@@ -16,7 +16,7 @@ pub type VHFHANDLE = *mut core::ffi::c_void;
 pub type VHFOPERATIONHANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct VHF_CONFIG {
     pub Size: super::ULONG,
     pub VhfClientContext: super::PVOID,
@@ -38,4 +38,10 @@ pub struct VHF_CONFIG {
     pub EvtVhfCleanup: PEVT_VHF_CLEANUP,
     pub HardwareIDsLength: super::USHORT,
     pub HardwareIDs: windows_core::PWSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for VHF_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

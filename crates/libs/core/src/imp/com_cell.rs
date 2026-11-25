@@ -191,12 +191,12 @@ impl<const N: usize, B: ComBase, T> ComCell<N, B, T> {
                 return marshaler(IUnknown::from_raw(self.interface(0)), interface);
             }
 
-            if *iid == DYNAMIC_CAST_IID
-                && let Some(any) = any
-            {
-                // Writes a two-pointer `&dyn Any` without adding a reference.
-                interface.cast::<*const dyn Any>().write(any);
-                return HRESULT(0);
+            if *iid == DYNAMIC_CAST_IID {
+                if let Some(any) = any {
+                    // Writes a two-pointer `&dyn Any` without adding a reference.
+                    interface.cast::<*const dyn Any>().write(any);
+                    return HRESULT(0);
+                }
             }
 
             let tear_off = self.count().query(iid, self.interface(0));

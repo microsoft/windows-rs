@@ -1332,21 +1332,33 @@ pub type KSCAMERA_PERFRAMESETTING_ITEM_TYPE = i32;
 pub const KSCAMERA_PERFRAMESETTING_MANUAL: i64 = 8589934592;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
     pub ReferenceGuid: windows_sys::core::GUID,
     pub Reserved: super::UINT32,
     pub ProfileCount: super::UINT32,
     pub Profiles: PKSCAMERA_PROFILE_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for KSCAMERA_PROFILE_CONCURRENCYINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSCAMERA_PROFILE_INFO {
     pub ProfileId: windows_sys::core::GUID,
     pub Index: super::UINT32,
     pub PinCount: super::UINT32,
     pub Pins: PKSCAMERA_PROFILE_PININFO,
+}
+#[cfg(feature = "shared")]
+impl Default for KSCAMERA_PROFILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1659,12 +1671,18 @@ impl Default for KSDEVICE_PROFILE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSDEVICE_PROFILE_INFO_0_0 {
     pub Info: KSCAMERA_PROFILE_INFO,
     pub Reserved: super::UINT32,
     pub ConcurrencyCount: super::UINT32,
     pub Concurrency: PKSCAMERA_PROFILE_CONCURRENCYINFO,
+}
+#[cfg(feature = "shared")]
+impl Default for KSDEVICE_PROFILE_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KSDEVICE_PROFILE_TYPE_CAMERA: i32 = 1;
 pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: i32 = 0;
@@ -1981,10 +1999,16 @@ pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = 3;
 pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = 15;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSMIDILOOPED_BUFFER {
     pub BufferAddress: super::PVOID,
     pub ActualBufferSize: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSMIDILOOPED_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ks", feature = "shared"))]
@@ -2001,23 +2025,41 @@ impl Default for KSMIDILOOPED_BUFFER_PROPERTY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSMIDILOOPED_EVENT {
     pub WriteEvent: super::HANDLE,
 }
+#[cfg(feature = "winnt")]
+impl Default for KSMIDILOOPED_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSMIDILOOPED_EVENT2 {
     pub WriteEvent: super::HANDLE,
     pub ReadEvent: super::HANDLE,
 }
+#[cfg(feature = "winnt")]
+impl Default for KSMIDILOOPED_EVENT2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSMIDILOOPED_REGISTERS {
     pub WritePosition: super::PVOID,
     pub ReadPosition: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for KSMIDILOOPED_REGISTERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KSMPEGVIDMODE_LTRBOX: i32 = 2;
 pub const KSMPEGVIDMODE_PANSCAN: i32 = 1;
@@ -3911,11 +3953,17 @@ pub const KSPROPSETID_VramCapture: windows_sys::core::GUID = windows_sys::core::
 pub const KSPROPSETID_Wave: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_BUFFER {
     pub BufferAddress: super::PVOID,
     pub ActualBufferSize: super::ULONG,
     pub CallMemoryBarrier: windows_sys::core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSRTAUDIO_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4002,13 +4050,19 @@ pub struct KSRTAUDIO_HWLATENCY {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_HWREGISTER {
     pub Register: super::PVOID,
     pub Width: super::ULONG,
     pub Numerator: super::ULONGLONG,
     pub Denominator: super::ULONGLONG,
     pub Accuracy: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSRTAUDIO_HWREGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4074,11 +4128,17 @@ impl Default for KSRTAUDIO_NOTIFICATION_EVENT_PROPERTY32 {
 }
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSRTAUDIO_PACKETVREGISTER {
     pub CompletedPacketCount: super::PULONG64,
     pub CompletedPacketQPC: super::PULONG64,
     pub CompletedPacketHash: super::PULONG64,
+}
+#[cfg(feature = "basetsd")]
+impl Default for KSRTAUDIO_PACKETVREGISTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ks", feature = "shared", feature = "winnt"))]
@@ -4200,11 +4260,17 @@ impl Default for KSWAVETABLE_WAVE_DESC {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct KSWAVE_BUFFER {
     pub Attributes: super::ULONG,
     pub BufferSize: super::ULONG,
     pub BufferAddress: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSWAVE_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: i32 = 1;
 pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: i32 = 2;

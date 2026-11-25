@@ -16,10 +16,16 @@ pub const APPIDREGFLAGS_RESERVED9: i32 = 16384;
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BLOB {
     pub cbSize: super::ULONG,
     pub pBlobData: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "shared"))]
@@ -36,10 +42,16 @@ impl Default for BYTE_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BYTE_SIZEDARR {
     pub clSize: super::ULONG,
     pub pData: *mut super::byte,
+}
+#[cfg(all(feature = "rpc", feature = "shared"))]
+impl Default for BYTE_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLSCTX = i32;
 pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = 262144;
@@ -75,7 +87,7 @@ pub const CLSCTX_SERVER_MUST_BE_EQUAL_OR_GREATER_PRIVILEGE: CLSCTX = 134217728;
 pub const CLSCTX_VALID_MASK: CLSCTX = -1612712929;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COAUTHIDENTITY {
     pub User: *mut super::USHORT,
     pub UserLength: super::ULONG,
@@ -85,9 +97,15 @@ pub struct COAUTHIDENTITY {
     pub PasswordLength: super::ULONG,
     pub Flags: super::ULONG,
 }
+#[cfg(feature = "shared")]
+impl Default for COAUTHIDENTITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COAUTHINFO {
     pub dwAuthnSvc: super::DWORD,
     pub dwAuthzSvc: super::DWORD,
@@ -96,6 +114,12 @@ pub struct COAUTHINFO {
     pub dwImpersonationLevel: super::DWORD,
     pub pAuthIdentityData: *mut COAUTHIDENTITY,
     pub dwCapabilities: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for COAUTHINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: i32 = 2;
 pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: i32 = 1;
@@ -119,10 +143,16 @@ impl Default for DWORD_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DWORD_SIZEDARR {
     pub clSize: super::ULONG,
     pub pData: *mut super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for DWORD_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "shared"))]
@@ -154,10 +184,16 @@ impl Default for FLAGGED_WORD_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HYPER_SIZEDARR {
     pub clSize: super::ULONG,
     pub pData: *mut i64,
+}
+#[cfg(feature = "shared")]
+impl Default for HYPER_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type LPBLOB = *mut BLOB;
@@ -214,8 +250,14 @@ impl Default for WORD_BLOB {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WORD_SIZEDARR {
     pub clSize: super::ULONG,
     pub pData: *mut u16,
+}
+#[cfg(feature = "shared")]
+impl Default for WORD_SIZEDARR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

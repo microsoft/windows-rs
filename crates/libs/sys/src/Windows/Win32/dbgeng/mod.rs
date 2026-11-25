@@ -856,7 +856,7 @@ pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: i32 = 128;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: super::ULONG,
     pub Flags: super::ULONG,
@@ -864,6 +864,12 @@ pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub Buffer: super::PVOID,
     pub BufferSize: super::ULONG,
     pub BufferUsed: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DEBUG_READ_USER_MINIDUMP_STREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEBUG_REGISTERS_ALL: i32 = 7;
 pub const DEBUG_REGISTERS_DEFAULT: i32 = 0;
@@ -1474,7 +1480,7 @@ pub const STACK_FRAME_TYPE_RA: i32 = 128;
 pub const STACK_FRAME_TYPE_STACK: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_sys::core::PCWSTR,
     pub ModuleName: windows_sys::core::PCWSTR,
@@ -1482,6 +1488,12 @@ pub struct STACK_SRC_INFO {
     pub Displacement: super::ULONG,
     pub Row: super::ULONG,
     pub Column: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for STACK_SRC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

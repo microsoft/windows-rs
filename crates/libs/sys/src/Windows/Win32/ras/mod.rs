@@ -306,10 +306,16 @@ pub struct RASCTRYINFO {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: super::DWORD,
     pub pbDevSpecificInfo: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for RASDEVSPECIFICINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RASDIALEVENT: windows_sys::core::PCSTR = windows_sys::core::s!("RasDialEvent");
 #[cfg(feature = "shared")]
@@ -631,13 +637,19 @@ pub const VS_SstpOnly: i32 = 5;
 pub const WM_RASDIALEVENT: i32 = 52429;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct tagRASADPARAMS {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
     pub dwFlags: super::DWORD,
     pub xDlg: super::LONG,
     pub yDlg: super::LONG,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for tagRASADPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
@@ -864,7 +876,7 @@ impl Default for tagRASDEVINFOW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct tagRASDIALEXTENSIONS {
     pub dwSize: super::DWORD,
     pub dwfOptions: super::DWORD,
@@ -874,6 +886,12 @@ pub struct tagRASDIALEXTENSIONS {
     pub RasEapInfo: tagRASEAPINFO,
     pub fSkipPppAuth: windows_sys::core::BOOL,
     pub RasDevSpecificInfo: RASDEVSPECIFICINFO,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for tagRASDIALEXTENSIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
@@ -921,10 +939,16 @@ impl Default for tagRASDIALPARAMSW {
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct tagRASEAPINFO {
     pub dwSizeofEapInfo: super::DWORD,
     pub pbEapInfo: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for tagRASEAPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]

@@ -188,15 +188,21 @@ pub struct USE_INFO_3 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USE_INFO_4 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: super::DWORD,
     pub ui4_auth_identity: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for USE_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USE_INFO_5 {
     pub ui4_ui3: USE_INFO_3,
     pub ui4_auth_identity_length: super::DWORD,
@@ -205,6 +211,12 @@ pub struct USE_INFO_5 {
     pub ui5_security_descriptor: super::PBYTE,
     pub ui5_use_options_length: super::DWORD,
     pub ui5_use_options: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for USE_INFO_5 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USE_IPC: i32 = 3;
 pub const USE_LOCAL_PARMNUM: i32 = 1;
@@ -239,11 +251,17 @@ pub struct USE_OPTION_GENERIC {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USE_OPTION_PROPERTIES {
     pub Tag: super::ULONG,
     pub pInfo: super::PVOID,
     pub Length: super::size_t,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USE_OPTION_PROPERTIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USE_OPTION_SMB_COMPRESSION_PARAMS: i32 = 1349349187;
 #[repr(C)]

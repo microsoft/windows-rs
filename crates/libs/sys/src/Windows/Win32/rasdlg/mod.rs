@@ -46,7 +46,7 @@ pub type RasCustomDialDlgFn = Option<unsafe extern "system" fn(hinstdll: super::
 pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super::HINSTANCE, lpszphonebook: windows_sys::core::PWSTR, lpszentry: windows_sys::core::PWSTR, lpinfo: *mut tagRASENTRYDLGA, dwflags: super::DWORD) -> windows_sys::core::BOOL>;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct tagRASDIALDLG {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -57,6 +57,12 @@ pub struct tagRASDIALDLG {
     pub dwError: super::DWORD,
     pub reserved: super::ULONG_PTR,
     pub reserved2: super::ULONG_PTR,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for tagRASDIALDLG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
@@ -134,7 +140,7 @@ impl Default for tagRASNOUSERW {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct tagRASPBDLGA {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -147,9 +153,15 @@ pub struct tagRASPBDLGA {
     pub reserved: super::ULONG_PTR,
     pub reserved2: super::ULONG_PTR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for tagRASPBDLGA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct tagRASPBDLGW {
     pub dwSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -161,4 +173,10 @@ pub struct tagRASPBDLGW {
     pub dwError: super::DWORD,
     pub reserved: super::ULONG_PTR,
     pub reserved2: super::ULONG_PTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for tagRASPBDLGW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

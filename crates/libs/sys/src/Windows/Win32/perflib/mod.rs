@@ -212,7 +212,7 @@ pub struct PERF_MULTI_INSTANCES {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: super::DWORD,
     pub Reserved: super::DWORD,
@@ -220,6 +220,12 @@ pub struct PERF_PROVIDER_CONTEXT {
     pub MemAllocRoutine: PERF_MEM_ALLOC,
     pub MemFreeRoutine: PERF_MEM_FREE,
     pub pMemContext: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PERF_PROVIDER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PERF_PROVIDER_DRIVER: i32 = 2;
 pub const PERF_PROVIDER_KERNEL_MODE: i32 = 1;

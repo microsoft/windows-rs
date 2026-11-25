@@ -69,11 +69,17 @@ pub const STGM_TRANSACTED: i32 = 65536;
 pub const STGM_WRITE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STGOPTIONS {
     pub usVersion: super::USHORT,
     pub reserved: super::USHORT,
     pub ulSectorSize: super::ULONG,
     pub pwcsTemplateFile: *const super::WCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for STGOPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STGOPTIONS_VERSION: i32 = 2;

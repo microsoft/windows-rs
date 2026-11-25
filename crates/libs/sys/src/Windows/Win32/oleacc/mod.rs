@@ -90,11 +90,17 @@ pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super
 pub type LPMSAAMENUINFO = *mut MSAAMENUINFO;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MSAAMENUINFO {
     pub dwMSAASignature: super::DWORD,
     pub cchWText: super::DWORD,
     pub pszWText: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for MSAAMENUINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MSAAPROPID = windows_sys::core::GUID;
 pub const MSAA_MENU_SIG: u32 = 2853040141;

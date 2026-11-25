@@ -20,10 +20,16 @@ pub const CARET_ROTATE90: CARET_FLAGS = 128;
 pub const CARET_RTL: CARET_FLAGS = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CHANGENOTIFY {
     pub dwChangeType: super::DWORD,
     pub pvCookieData: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CHANGENOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CHANGETYPE = i32;
 pub const CN_GENERIC: CHANGETYPE = 0;

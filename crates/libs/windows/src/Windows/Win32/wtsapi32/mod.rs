@@ -1141,21 +1141,33 @@ pub const WTS_LISTENER_NAME_LENGTH: i32 = 32;
 pub const WTS_LISTENER_UPDATE: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFOA {
     pub SessionId: super::DWORD,
     pub ProcessId: super::DWORD,
     pub pProcessName: windows_core::PSTR,
     pub pUserSid: super::PSID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WTS_PROCESS_INFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WTS_PROCESS_INFOW {
     pub SessionId: super::DWORD,
     pub ProcessId: super::DWORD,
     pub pProcessName: windows_core::PWSTR,
     pub pUserSid: super::PSID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WTS_PROCESS_INFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1333,8 +1345,14 @@ pub const WTS_WSD_REBOOT: i32 = 4;
 pub const WTS_WSD_SHUTDOWN: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _WTS_SERIALIZED_USER_CREDENTIAL {
     pub SerializationLength: super::ULONG,
     pub Serialization: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for _WTS_SERIALIZED_USER_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

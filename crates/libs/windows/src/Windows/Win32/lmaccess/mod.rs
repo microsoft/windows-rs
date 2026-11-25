@@ -601,12 +601,18 @@ pub struct GROUP_INFO_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: windows_core::PWSTR,
     pub grpi3_comment: windows_core::PWSTR,
     pub grpi3_group_sid: super::PSID,
     pub grpi3_attributes: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for GROUP_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GROUP_NAME_INFOLEVEL: i32 = 1001;
 pub const GROUP_NAME_PARMNUM: i32 = 1;
@@ -647,25 +653,43 @@ pub struct LOCALGROUP_INFO_1002 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
     pub lgrmi0_sid: super::PSID,
 }
+#[cfg(feature = "winnt")]
+impl Default for LOCALGROUP_MEMBERS_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::PSID,
     pub lgrmi1_sidusage: super::SID_NAME_USE,
     pub lgrmi1_name: windows_core::PWSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for LOCALGROUP_MEMBERS_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::PSID,
     pub lgrmi2_sidusage: super::SID_NAME_USE,
     pub lgrmi2_domainandname: windows_core::PWSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for LOCALGROUP_MEMBERS_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -944,10 +968,16 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_HASH {
     pub Length: super::ULONG,
     pub Hash: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for NET_VALIDATE_PASSWORD_HASH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NET_VALIDATE_PASSWORD_HISTORY: i32 = 32;
 pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: i32 = 16;
@@ -966,7 +996,7 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 pub type NET_VALIDATE_PASSWORD_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub PresentFields: super::ULONG,
     pub PasswordLastSet: super::FILETIME,
@@ -975,6 +1005,12 @@ pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub BadPasswordCount: super::ULONG,
     pub PasswordHistoryLength: super::ULONG,
     pub PasswordHistory: PNET_VALIDATE_PASSWORD_HASH,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for NET_VALIDATE_PERSISTED_FIELDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NON_VALIDATED_LOGON: i32 = 3;
 pub const NULL_USERSETINFO_PASSWD: windows_core::PCSTR = windows_core::s!("              ");
@@ -1274,10 +1310,16 @@ pub struct USER_INFO_1018 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_1020 {
     pub usri1020_units_per_week: super::DWORD,
     pub usri1020_logon_hours: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for USER_INFO_1020 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1314,7 +1356,7 @@ pub struct USER_INFO_1053 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_11 {
     pub usri11_name: windows_core::PWSTR,
     pub usri11_comment: windows_core::PWSTR,
@@ -1337,9 +1379,15 @@ pub struct USER_INFO_11 {
     pub usri11_logon_hours: super::PBYTE,
     pub usri11_code_page: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for USER_INFO_11 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_2 {
     pub usri2_name: windows_core::PWSTR,
     pub usri2_password: windows_core::PWSTR,
@@ -1365,6 +1413,12 @@ pub struct USER_INFO_2 {
     pub usri2_logon_server: windows_core::PWSTR,
     pub usri2_country_code: super::DWORD,
     pub usri2_code_page: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for USER_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1425,7 +1479,7 @@ impl Default for USER_INFO_22 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_23 {
     pub usri23_name: windows_core::PWSTR,
     pub usri23_full_name: windows_core::PWSTR,
@@ -1433,9 +1487,15 @@ pub struct USER_INFO_23 {
     pub usri23_flags: super::DWORD,
     pub usri23_user_sid: super::PSID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USER_INFO_23 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: windows_core::BOOL,
     pub usri24_flags: super::DWORD,
@@ -1443,9 +1503,15 @@ pub struct USER_INFO_24 {
     pub usri24_internet_principal_name: windows_core::PWSTR,
     pub usri24_user_sid: super::PSID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USER_INFO_24 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_3 {
     pub usri3_name: windows_core::PWSTR,
     pub usri3_password: windows_core::PWSTR,
@@ -1477,9 +1543,15 @@ pub struct USER_INFO_3 {
     pub usri3_home_dir_drive: windows_core::PWSTR,
     pub usri3_password_expired: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for USER_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_4 {
     pub usri4_name: windows_core::PWSTR,
     pub usri4_password: windows_core::PWSTR,
@@ -1510,6 +1582,12 @@ pub struct USER_INFO_4 {
     pub usri4_profile: windows_core::PWSTR,
     pub usri4_home_dir_drive: windows_core::PWSTR,
     pub usri4_password_expired: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USER_INFO_4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USER_LAST_LOGOFF_INFOLEVEL: i32 = 1016;
 pub const USER_LAST_LOGOFF_PARMNUM: i32 = 16;
@@ -1582,10 +1660,16 @@ pub struct USER_MODALS_INFO_1007 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_core::PWSTR,
     pub usrmod2_domain_id: super::PSID,
+}
+#[cfg(feature = "winnt")]
+impl Default for USER_MODALS_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

@@ -443,12 +443,18 @@ pub struct ENDCOMPOSITIONNOTIFY {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
     pub hDrop: super::HANDLE,
     pub cp: super::LONG,
     pub fProtected: windows_sys::core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt", feature = "winuser"))]
+impl Default for ENDROPFILES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
@@ -462,10 +468,16 @@ pub struct ENLINK {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
     pub szControl: *mut i8,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for ENLOWFIRTF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ENM_CHANGE: i32 = 1;
 pub const ENM_CLIPFORMAT: i32 = 128;
@@ -556,43 +568,73 @@ pub const ES_SUNKEN: i32 = 16384;
 pub const ES_VERTICAL: i32 = 4194304;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for FINDTEXTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCSTR,
     pub chrgText: CHARRANGE,
 }
+#[cfg(feature = "shared")]
+impl Default for FINDTEXTEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCWSTR,
     pub chrgText: CHARRANGE,
 }
+#[cfg(feature = "shared")]
+impl Default for FINDTEXTEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for FINDTEXTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORMATRANGE {
     pub hdc: super::HDC,
     pub hdcTarget: super::HDC,
     pub rc: super::RECT,
     pub rcPage: super::RECT,
     pub chrg: CHARRANGE,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for FORMATRANGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GCMF_GRIPPER: i32 = 1;
 pub const GCMF_MOUSEMENU: i32 = 8192;
@@ -603,22 +645,34 @@ pub const GCM_RIGHTMOUSEDROP: i32 = 32768;
 pub const GCM_TOUCHMENU: i32 = 16384;
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
     pub dwFlags: super::DWORD,
     pub pt: super::POINT,
     pub pvReserved: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for GETCONTEXTMENUEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct GETTEXTEX {
     pub cb: super::DWORD,
     pub flags: super::DWORD,
     pub codepage: super::UINT,
     pub lpDefaultChar: windows_sys::core::PCSTR,
     pub lpUsedDefChar: super::LPBOOL,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for GETTEXTEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
@@ -714,11 +768,17 @@ pub struct MSGFILTER {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
     pub cObjectCount: super::LONG,
     pub pcpPositions: *mut super::LONG,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for OBJECTPOSITIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OLEOP_DOVERB: i32 = 1;
 #[repr(C, packed(4))]
@@ -855,10 +915,16 @@ pub const PFN_UCLETTER: i32 = 4;
 pub const PFN_UCROMAN: i32 = 6;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PUNCTUATION {
     pub iSize: super::UINT,
     pub szPunctuation: windows_sys::core::PSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for PUNCTUATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
@@ -881,7 +947,7 @@ pub const RICHEDIT_CLASSA: windows_sys::core::PCSTR = windows_sys::core::s!("Ric
 pub const RICHEDIT_CLASSW: windows_sys::core::PCWSTR = windows_sys::core::w!("RichEdit20W");
 #[repr(C, packed(4))]
 #[cfg(all(feature = "objidlbase", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: super::LONG,
     pub yHeight: super::LONG,
@@ -889,6 +955,12 @@ pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub Type: super::LONG,
     pub pwszAlternateText: windows_sys::core::PCWSTR,
     pub pIStream: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "objidlbase", feature = "shared"))]
+impl Default for RICHEDIT_IMAGE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RTO_DISABLEHANDLES: i32 = 2;
 pub const RTO_READINGMODE: i32 = 3;
@@ -1024,17 +1096,29 @@ pub struct TABLEROWPARMS {
 pub type TEXTMODE = i32;
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for TEXTRANGEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(4))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for TEXTRANGEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TM_MULTICODEPAGE: TEXTMODE = 32;
 pub const TM_MULTILEVELUNDO: TEXTMODE = 8;

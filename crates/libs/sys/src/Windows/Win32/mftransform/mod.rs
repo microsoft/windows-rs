@@ -97,12 +97,18 @@ pub const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: super::LONGLONG = -92233720368547758
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i64 = 9223372036854775807;
 #[repr(C)]
 #[cfg(all(feature = "mfobjects", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: super::DWORD,
     pub pSample: *mut core::ffi::c_void,
     pub dwStatus: super::DWORD,
     pub pEvents: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "mfobjects", feature = "shared"))]
+impl Default for MFT_OUTPUT_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MFT_OUTPUT_DATA_BUFFER_FORMAT_CHANGE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = 256;
 pub const MFT_OUTPUT_DATA_BUFFER_INCOMPLETE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = 16777216;

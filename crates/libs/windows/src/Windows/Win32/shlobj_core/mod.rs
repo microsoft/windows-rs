@@ -1133,7 +1133,7 @@ pub const BIF_USENEWUI: i32 = 80;
 pub const BIF_VALIDATE: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BROWSEINFOA {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
@@ -1144,9 +1144,15 @@ pub struct BROWSEINFOA {
     pub lParam: super::LPARAM,
     pub iImage: i32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
+impl Default for BROWSEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BROWSEINFOW {
     pub hwndOwner: super::HWND,
     pub pidlRoot: super::LPCITEMIDLIST,
@@ -1156,6 +1162,12 @@ pub struct BROWSEINFOW {
     pub lpfn: BFFCALLBACK,
     pub lParam: super::LPARAM,
     pub iImage: i32,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shtypes", feature = "windef"))]
+impl Default for BROWSEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
@@ -1363,7 +1375,6 @@ pub const COMP_TYPE_PICTURE: i32 = 1;
 pub const COMP_TYPE_WEBSITE: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Default)]
 pub struct CSFV {
     pub cbSize: super::UINT,
     pub pshf: core::mem::ManuallyDrop<Option<super::IShellFolder>>,
@@ -1372,6 +1383,12 @@ pub struct CSFV {
     pub lEvents: super::LONG,
     pub pfnCallback: LPFNVIEWCALLBACK,
     pub fvm: super::FOLDERVIEWMODE,
+}
+#[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+impl Default for CSFV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CSIDL_ADMINTOOLS: i32 = 48;
 pub const CSIDL_ALTSTARTUP: i32 = 29;
@@ -1445,7 +1462,6 @@ pub struct DATABLOCK_HEADER {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Default)]
 pub struct DEFCONTEXTMENU {
     pub hwnd: super::HWND,
     pub pcmcb: core::mem::ManuallyDrop<Option<super::IContextMenuCB>>,
@@ -1456,6 +1472,12 @@ pub struct DEFCONTEXTMENU {
     pub punkAssociationInfo: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub cKeys: super::UINT,
     pub aKeys: *const super::HKEY,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+impl Default for DEFCONTEXTMENU {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
@@ -1475,7 +1497,6 @@ impl Default for DETAILSINFO {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
-#[derive(Default)]
 pub struct DFMICS {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -1484,6 +1505,12 @@ pub struct DFMICS {
     pub idDefMax: super::UINT,
     pub pici: super::LPCMINVOKECOMMANDINFO,
     pub punkSite: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
+impl Default for DFMICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const DFM_CMD_COPY: super::UINT = 4294967293;
@@ -4109,13 +4136,19 @@ impl Default for PROPPRG {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct QCMINFO {
     pub hmenu: super::HMENU,
     pub indexMenu: super::UINT,
     pub idCmdFirst: super::UINT,
     pub idCmdLast: super::UINT,
     pub pIdMap: *const QCMINFO_IDMAP,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for QCMINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
@@ -4390,10 +4423,16 @@ pub struct SHARDAPPIDINFO {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHARDAPPIDINFOIDLIST {
     pub pidl: super::LPCITEMIDLIST,
     pub pszAppID: windows_core::PCWSTR,
+}
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+impl Default for SHARDAPPIDINFOIDLIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shobjidl_core")]
@@ -4466,10 +4505,16 @@ pub struct SHChangeDWORDAsIDList {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHChangeNotifyEntry {
     pub pidl: super::LPCITEMIDLIST,
     pub fRecursive: windows_core::BOOL,
+}
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+impl Default for SHChangeNotifyEntry {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -4976,7 +5021,7 @@ pub const SHFMT_OPT_FULL: i32 = 1;
 pub const SHFMT_OPT_SYSONLY: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHFOLDERCUSTOMSETTINGS {
     pub dwSize: super::DWORD,
     pub dwMask: super::DWORD,
@@ -4993,6 +5038,12 @@ pub struct SHFOLDERCUSTOMSETTINGS {
     pub iIconIndex: i32,
     pub pszLogo: windows_core::PWSTR,
     pub cchLogo: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "shobjidl_core"))]
+impl Default for SHFOLDERCUSTOMSETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SHGDFIL_DESCRIPTIONID: i32 = 3;
 pub const SHGDFIL_FINDDATA: i32 = 1;

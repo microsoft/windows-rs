@@ -12,20 +12,32 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: su
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: *const super::CHAR,
     pub pszPhysicalPath: *const super::CHAR,
     pub dwReason: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for HTTP_FILTER_ACCESS_DENIED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: *mut super::CHAR,
     pub cbUserBuff: super::DWORD,
     pub pszPassword: *mut super::CHAR,
     pub cbPasswordBuff: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_FILTER_AUTHENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -41,7 +53,7 @@ pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: super::DWORD,
     pub Revision: super::DWORD,
@@ -55,9 +67,15 @@ pub struct HTTP_FILTER_CONTEXT {
     pub AllocMem: Option<unsafe extern "system" fn(*mut Self, super::DWORD, super::DWORD) -> *mut core::ffi::c_void>,
     pub ServerSupportFunction: Option<unsafe extern "system" fn(*mut Self, SF_REQ_TYPE, super::PVOID, super::ULONG_PTR, super::ULONG_PTR) -> windows_core::BOOL>,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for HTTP_FILTER_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: *const super::CHAR,
     pub pszClientUserName: *const super::CHAR,
@@ -71,6 +89,12 @@ pub struct HTTP_FILTER_LOG {
     pub dwBytesRecvd: super::DWORD,
     pub msTimeForProcessing: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for HTTP_FILTER_LOG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default)]
@@ -83,12 +107,18 @@ pub struct HTTP_FILTER_PREPROC_HEADERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: super::PVOID,
     pub cbInData: super::DWORD,
     pub cbInBuffer: super::DWORD,
     pub dwReserved: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HTTP_FILTER_RAW_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const HTTP_FILTER_REVISION: super::LONG = 0xA0000_u32 as _;
@@ -96,15 +126,21 @@ pub const HTTP_FILTER_REVISION: super::LONG = 0xA0000_u32 as _;
 pub type HTTP_FILTER_SEND_RESPONSE = HTTP_FILTER_PREPROC_HEADERS;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: *const super::CHAR,
     pub pszPhysicalPath: *mut super::CHAR,
     pub cbPathBuff: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for HTTP_FILTER_URL_MAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: *const super::CHAR,
     pub pszPhysicalPath: *mut super::CHAR,
@@ -113,6 +149,12 @@ pub struct HTTP_FILTER_URL_MAP_EX {
     pub cchMatchingPath: super::DWORD,
     pub cchMatchingURL: super::DWORD,
     pub pszScriptMapEntry: *const super::CHAR,
+}
+#[cfg(feature = "shared")]
+impl Default for HTTP_FILTER_URL_MAP_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

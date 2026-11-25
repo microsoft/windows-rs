@@ -178,7 +178,7 @@ impl Default for DUMP_POINTERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
     pub DumpData: super::PVOID,
@@ -196,6 +196,12 @@ pub struct DUMP_POINTERS_EX {
     pub DeviceReady: super::PBOOLEAN,
     pub DumpDevicePowerOn: PDUMP_DEVICE_POWERON_ROUTINE,
     pub DumpDevicePowerOnContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DUMP_POINTERS_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
@@ -558,11 +564,17 @@ pub const NRB_OUTPUT_DATA_UNDERRUN: i32 = 6;
 pub const NRB_SUCCESS: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: super::USHORT,
     pub MaximumLength: super::USHORT,
     pub Buffer: super::PWCH,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for NTSCSI_UNICODE_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]

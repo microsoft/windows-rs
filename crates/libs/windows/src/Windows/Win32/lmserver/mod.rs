@@ -1367,7 +1367,7 @@ pub struct SERVER_INFO_599 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_numberofvcs: super::DWORD,
     pub svti0_transportname: windows_core::PWSTR,
@@ -1375,9 +1375,15 @@ pub struct SERVER_TRANSPORT_INFO_0 {
     pub svti0_transportaddresslength: super::DWORD,
     pub svti0_networkaddress: windows_core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for SERVER_TRANSPORT_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_numberofvcs: super::DWORD,
     pub svti1_transportname: windows_core::PWSTR,
@@ -1386,9 +1392,15 @@ pub struct SERVER_TRANSPORT_INFO_1 {
     pub svti1_networkaddress: windows_core::PWSTR,
     pub svti1_domain: windows_core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for SERVER_TRANSPORT_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_numberofvcs: super::DWORD,
     pub svti2_transportname: windows_core::PWSTR,
@@ -1397,6 +1409,12 @@ pub struct SERVER_TRANSPORT_INFO_2 {
     pub svti2_networkaddress: windows_core::PWSTR,
     pub svti2_domain: windows_core::PWSTR,
     pub svti2_flags: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for SERVER_TRANSPORT_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

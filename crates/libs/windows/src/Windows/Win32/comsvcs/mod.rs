@@ -152,7 +152,7 @@ pub struct CLSIDDATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLSIDDATA2 {
     pub m_clsid: super::CLSID,
     pub m_appid: windows_core::GUID,
@@ -168,11 +168,17 @@ pub struct CLSIDDATA2 {
     pub m_cCallsCompleted: super::DWORD,
     pub m_cCallsFailed: super::DWORD,
 }
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "winnt"))]
+impl Default for CLSIDDATA2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const COMEvents: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 pub type COMPLUS_APPTYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: super::DWORD,
     pub dwPid: super::DWORD,
@@ -181,6 +187,12 @@ pub struct COMSVCSEVENTINFO {
     pub perfCount: super::LONGLONG,
     pub guidApp: windows_core::GUID,
     pub sMachineName: super::LPOLESTR,
+}
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for COMSVCSEVENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRMClerk: windows_core::GUID = windows_core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
 pub type CRMFLAGS = i32;

@@ -69,13 +69,19 @@ pub const DDBD_4: i32 = 4096;
 pub const DDBD_8: i32 = 2048;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DDBLTBATCH {
     pub lprDest: super::LPRECT,
     pub lpDDSSrc: Option<LPDIRECTDRAWSURFACE>,
     pub lprSrc: super::LPRECT,
     pub dwFlags: super::DWORD,
     pub lpDDBltFx: LPDDBLTFX,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for DDBLTBATCH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DDBLTFAST_DESTCOLORKEY: i32 = 2;
 pub const DDBLTFAST_DONOTWAIT: i32 = 32;

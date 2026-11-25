@@ -3265,10 +3265,16 @@ pub type PPARSEDURLA = *mut PARSEDURLA;
 pub type PPARSEDURLW = *mut PARSEDURLW;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct QITAB {
     pub piid: *const super::IID,
     pub dwOffset: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for QITAB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SFBS_FLAGS = i32;
 pub const SFBS_FLAGS_ROUND_TO_NEAREST_DISPLAYED_DIGIT: tagSFBS_FLAGS = 1;

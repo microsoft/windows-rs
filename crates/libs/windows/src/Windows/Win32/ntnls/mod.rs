@@ -24,12 +24,18 @@ impl Default for CPTABLEINFO {
 pub const MAXIMUM_LEADBYTES: i32 = 12;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLSTABLEINFO {
     pub OemTableInfo: CPTABLEINFO,
     pub AnsiTableInfo: CPTABLEINFO,
     pub UpperCaseTable: super::PUSHORT,
     pub LowerCaseTable: super::PUSHORT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for NLSTABLEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type PCPTABLEINFO = *mut CPTABLEINFO;
@@ -39,7 +45,7 @@ pub type PNLSTABLEINFO = *mut NLSTABLEINFO;
 pub type PRTL_NLS_STATE = *mut RTL_NLS_STATE;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_NLS_STATE {
     pub DefaultAcpTableInfo: CPTABLEINFO,
     pub DefaultOemTableInfo: CPTABLEINFO,
@@ -50,4 +56,10 @@ pub struct RTL_NLS_STATE {
     pub CaseMappingData: super::PUSHORT,
     pub UnicodeUpcaseTable844: super::PUSHORT,
     pub UnicodeLowercaseTable844: super::PUSHORT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for RTL_NLS_STATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

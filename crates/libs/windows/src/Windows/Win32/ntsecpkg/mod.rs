@@ -11,13 +11,19 @@ pub type KSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: P
 pub type KSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: super::PVOID, entry: PKSEC_LIST_ENTRY)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSEC_LIST_ENTRY {
     pub List: super::LIST_ENTRY,
     pub RefCount: super::LONG,
     pub Signature: super::ULONG,
     pub OwningList: super::PVOID,
     pub Reserved: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSEC_LIST_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type KSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: super::ULONG) -> super::PVOID>;
@@ -699,17 +705,29 @@ pub struct SAM_REGISTER_MAPPING_ELEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_LIST {
     pub Count: super::ULONG,
     pub Elements: PSAM_REGISTER_MAPPING_ELEMENT,
 }
+#[cfg(feature = "shared")]
+impl Default for SAM_REGISTER_MAPPING_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_TABLE {
     pub Count: super::ULONG,
     pub Lists: PSAM_REGISTER_MAPPING_LIST,
+}
+#[cfg(feature = "shared")]
+impl Default for SAM_REGISTER_MAPPING_TABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECBUFFER_KERNEL_MAP: i32 = 536870912;
 pub const SECBUFFER_UNMAPPED: i32 = 1073741824;
@@ -733,13 +751,19 @@ pub const SECPKG_CALL_CLEANUP: i32 = 32;
 pub const SECPKG_CALL_CLOUDAP_CONNECT: i32 = 262144;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CALL_INFO {
     pub ProcessId: super::ULONG,
     pub ThreadId: super::ULONG,
     pub Attributes: super::ULONG,
     pub CallCount: super::ULONG,
     pub MechOid: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECPKG_CALL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECPKG_CALL_IN_PROC: i32 = 16;
 pub const SECPKG_CALL_IS_TCB: i32 = 512;
@@ -789,7 +813,7 @@ pub const SECPKG_CALL_WOWCLIENT: i32 = 64;
 pub const SECPKG_CALL_WOWX86: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::LUID,
     pub ProcessID: super::ULONG,
@@ -801,9 +825,15 @@ pub struct SECPKG_CLIENT_INFO {
     pub ImpersonationLevel: super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECPKG_CLIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::LUID,
     pub ProcessID: super::ULONG,
@@ -816,6 +846,12 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub ClientToken: super::HANDLE,
     pub IdentificationLogonId: super::LUID,
     pub IdentificationToken: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECPKG_CLIENT_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECPKG_CLIENT_PROCESS_TERMINATED: i32 = 1;
 pub const SECPKG_CLIENT_THREAD_TERMINATED: i32 = 2;
@@ -834,7 +870,7 @@ impl Default for SECPKG_CONTEXT_THUNKS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CREDENTIAL {
     pub Version: super::ULONG64,
     pub cbHeaderLength: super::USHORT,
@@ -850,6 +886,12 @@ pub struct SECPKG_CREDENTIAL {
     pub PrincipalName: SECPKG_BYTE_VECTOR,
     pub PackageList: SECPKG_BYTE_VECTOR,
     pub MarshaledSuppliedCreds: SECPKG_BYTE_VECTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECPKG_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECPKG_CREDENTIAL_ATTRIBUTE: i32 = 0;
 pub const SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB: i32 = 1;
@@ -868,13 +910,19 @@ pub struct SECPKG_DLL_FUNCTIONS {
 pub type SECPKG_EVENT_DOMAIN_CHANGE = SECPKG_PARAMETERS;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_EVENT_NOTIFY {
     pub EventClass: super::ULONG,
     pub Reserved: super::ULONG,
     pub EventDataSize: super::ULONG,
     pub EventData: super::PVOID,
     pub PackageParameter: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECPKG_EVENT_NOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "sspi"))]
@@ -1091,7 +1139,7 @@ pub const SECPKG_PACKAGE_CHANGE_SELECT: i32 = 2;
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_PARAMETERS {
     pub Version: super::ULONG,
     pub MachineState: super::ULONG,
@@ -1100,6 +1148,12 @@ pub struct SECPKG_PARAMETERS {
     pub DomainName: super::UNICODE_STRING,
     pub DnsDomainName: super::UNICODE_STRING,
     pub DomainGuid: windows_core::GUID,
+}
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for SECPKG_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1111,7 +1165,7 @@ pub struct SECPKG_POST_LOGON_USER_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::LUID,
     pub DownlevelName: super::UNICODE_STRING,
@@ -1128,9 +1182,15 @@ pub struct SECPKG_PRIMARY_CRED {
     pub Spare3: super::UNICODE_STRING,
     pub Spare4: super::UNICODE_STRING,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for SECPKG_PRIMARY_CRED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::LUID,
     pub DownlevelName: super::UNICODE_STRING,
@@ -1150,10 +1210,16 @@ pub struct SECPKG_PRIMARY_CRED_EX {
     pub PrevLogonId: super::LUID,
     pub FlagsEx: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for SECPKG_PRIMARY_CRED_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub RedirectedLogonGuid: windows_core::GUID,
     pub RedirectedLogonHandle: super::HANDLE,
@@ -1163,6 +1229,12 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub GetLogonCreds: PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS,
     pub GetSupplementalCreds: PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS,
     pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt", feature = "winternl"))]
+impl Default for SECPKG_REDIRECTED_LOGON_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1195,11 +1267,17 @@ pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: i32 = 2;
 pub const SECPKG_STATE_WORKSTATION: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub PackageName: super::UNICODE_STRING,
     pub CredentialSize: super::ULONG,
     pub Credentials: super::PUCHAR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
+impl Default for SECPKG_SUPPLEMENTAL_CRED {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winternl"))]
@@ -1227,27 +1305,45 @@ pub struct SECPKG_SUPPLIED_CREDENTIAL {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON {
     pub Version: super::ULONG,
     pub SurrogateLogonID: super::LUID,
     pub EntryCount: super::ULONG,
     pub Entries: PSECPKG_SURROGATE_LOGON_ENTRY,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SECPKG_SURROGATE_LOGON {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON_ENTRY {
     pub Type: windows_core::GUID,
     pub Data: super::PVOID,
 }
+#[cfg(feature = "winnt")]
+impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_TARGETINFO {
     pub DomainSid: super::PSID,
     pub ComputerName: windows_core::PCWSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for SECPKG_TARGETINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SECPKG_UNICODE_ATTRIBUTE: u32 = 2147483648;
 pub const SECPKG_USERMODEINIT_NAME: windows_core::PCSTR = windows_core::s!("SpUserModeInitialize");
@@ -1279,12 +1375,18 @@ pub struct SECPKG_WOW_CLIENT_DLL {
 }
 #[repr(C)]
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_USER_DATA {
     pub UserName: super::SECURITY_STRING,
     pub LogonDomainName: super::SECURITY_STRING,
     pub LogonServer: super::SECURITY_STRING,
     pub pSid: super::PSID,
+}
+#[cfg(all(feature = "sspi", feature = "winnt"))]
+impl Default for SECURITY_USER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared"))]
 pub type SEC_ATTRS = *mut super::SECURITY_ATTRIBUTES;
@@ -1331,9 +1433,15 @@ pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE
 pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_SaslContext {
     pub SaslContext: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for SecPkgContext_SaslContext {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = 0;
 pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = 2;

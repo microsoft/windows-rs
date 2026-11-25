@@ -6683,7 +6683,7 @@ pub type UCharDirection = i32;
 pub type UCharEnumTypeRange = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, start: UChar32, limit: UChar32, r#type: UCharCategory) -> UBool>;
 #[repr(C)]
 #[cfg(feature = "stdint")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct UCharIterator {
     pub context: *const core::ffi::c_void,
     pub length: super::int32_t,
@@ -6701,6 +6701,12 @@ pub struct UCharIterator {
     pub reservedFn: UCharIteratorReserved,
     pub getState: UCharIteratorGetState,
     pub setState: UCharIteratorSetState,
+}
+#[cfg(feature = "stdint")]
+impl Default for UCharIterator {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "stdint")]
 pub type UCharIteratorCurrent = Option<unsafe extern "C" fn(iter: *mut UCharIterator) -> UChar32>;
@@ -6754,7 +6760,7 @@ pub type UConverterCallbackReason = i32;
 pub type UConverterFromUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const UChar, length: super::int32_t, codepoint: UChar32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
 #[cfg(feature = "stdint")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UConverterFromUnicodeArgs {
     pub size: super::uint16_t,
     pub flush: UBool,
@@ -6765,6 +6771,12 @@ pub struct UConverterFromUnicodeArgs {
     pub targetLimit: *const i8,
     pub offsets: *mut super::int32_t,
 }
+#[cfg(feature = "stdint")]
+impl Default for UConverterFromUnicodeArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type UConverterPlatform = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6773,7 +6785,7 @@ pub struct UConverterSelector(pub u8);
 pub type UConverterToUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: *const i8, length: super::int32_t, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
 #[cfg(feature = "stdint")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UConverterToUnicodeArgs {
     pub size: super::uint16_t,
     pub flush: UBool,
@@ -6783,6 +6795,12 @@ pub struct UConverterToUnicodeArgs {
     pub target: *mut UChar,
     pub targetLimit: *const UChar,
     pub offsets: *mut super::int32_t,
+}
+#[cfg(feature = "stdint")]
+impl Default for UConverterToUnicodeArgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type UConverterType = i32;
 pub type UConverterUnicodeSet = i32;
@@ -7865,7 +7883,7 @@ pub const UTSV_TO_MIN_VALUE: UTimeScaleValue = 4;
 pub const UTSV_UNITS_VALUE: UTimeScaleValue = 0;
 #[repr(C)]
 #[cfg(feature = "stdint")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UText {
     pub magic: super::uint32_t,
     pub flags: super::int32_t,
@@ -7891,6 +7909,12 @@ pub struct UText {
     pub privA: super::int64_t,
     pub privB: super::int32_t,
     pub privC: super::int32_t,
+}
+#[cfg(feature = "stdint")]
+impl Default for UText {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "stdint")]
 pub type UTextAccess = Option<unsafe extern "C" fn(ut: *mut UText, nativeindex: super::int64_t, forward: UBool) -> UBool>;

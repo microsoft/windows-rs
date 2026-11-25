@@ -469,7 +469,7 @@ pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CODEBASEHOLD {
     pub cbSize: super::ULONG,
     pub szDistUnit: windows_sys::core::PWSTR,
@@ -478,13 +478,25 @@ pub struct CODEBASEHOLD {
     pub dwVersionLS: super::DWORD,
     pub dwStyle: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CODEBASEHOLD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CONFIRMSAFETY {
     pub clsid: super::CLSID,
     pub pUnk: *mut core::ffi::c_void,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for CONFIRMSAFETY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: i32 = 1;
 #[repr(C, packed(8))]
@@ -548,13 +560,19 @@ pub const GET_FEATURE_FROM_THREAD_RESTRICTED: i32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: super::DWORD,
     pub lpszLoggedUrlName: windows_sys::core::PSTR,
     pub StartTime: super::SYSTEMTIME,
     pub EndTime: super::SYSTEMTIME,
     pub lpszExtendedInfo: windows_sys::core::PSTR,
+}
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
+impl Default for HIT_LOGGING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IEObjectType = i32;
 pub const IE_EPM_OBJECT_EVENT: IEObjectType = 0;
@@ -733,16 +751,22 @@ pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROTOCOLDATA {
     pub grfFlags: super::DWORD,
     pub dwState: super::DWORD,
     pub pData: super::LPVOID,
     pub cbData: super::ULONG,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PROTOCOLDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: super::DWORD,
     pub pProtocolSink: *mut core::ffi::c_void,
@@ -750,12 +774,23 @@ pub struct PROTOCOLFILTERDATA {
     pub pUnk: *mut core::ffi::c_void,
     pub dwFilterFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PROTOCOLFILTERDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PROTOCOLFLAG_NO_PICS_CHECK: i32 = 1;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_sys::core::PCWSTR,
     pub szTargetUrl: windows_sys::core::PCWSTR,
+}
+impl Default for PROTOCOL_ARGUMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PSUACTION = i32;
 pub const PSU_DEFAULT: PSUACTION = 1;
@@ -812,7 +847,7 @@ pub struct REMSECURITY_ATTRIBUTES {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RemBINDINFO {
     pub cbSize: super::ULONG,
     pub szExtraInfo: windows_sys::core::PWSTR,
@@ -827,6 +862,12 @@ pub struct RemBINDINFO {
     pub iid: super::IID,
     pub pUnk: *mut core::ffi::c_void,
     pub dwReserved: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for RemBINDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
@@ -850,7 +891,7 @@ pub const SET_FEATURE_ON_THREAD_RESTRICTED: i32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: i32 = 32;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SOFTDISTINFO {
     pub cbSize: super::ULONG,
     pub dwFlags: super::DWORD,
@@ -865,6 +906,12 @@ pub struct SOFTDISTINFO {
     pub dwAdvertisedVersionMS: super::DWORD,
     pub dwAdvertisedVersionLS: super::DWORD,
     pub dwReserved: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for SOFTDISTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SOFTDIST_ADSTATE_AVAILABLE: i32 = 1;
 pub const SOFTDIST_ADSTATE_DOWNLOADED: i32 = 2;
@@ -882,11 +929,17 @@ pub const SZ_URLCONTEXT: windows_sys::core::PCWSTR = windows_sys::core::w!("URL 
 pub const S_ASYNCHRONOUS: windows_sys::core::HRESULT = 0x401E8_u32 as _;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "objidl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct StartParam {
     pub iid: super::IID,
     pub pIBindCtx: *mut core::ffi::c_void,
     pub pItf: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "guiddef", feature = "objidl"))]
+impl Default for StartParam {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TRUSTEDDOWNLOADPROP: MONIKERPROPERTY = 3;
 pub const UAS_EXACTLEGACY: i32 = 4096;

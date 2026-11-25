@@ -187,10 +187,16 @@ pub const DEVICE_NOTIFY_CALLBACK: i32 = 2;
 pub type DEVICE_NOTIFY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(context: super::PVOID, r#type: super::ULONG, setting: super::PVOID) -> super::ULONG>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EnableMultiBatteryDisplay: i32 = 2;
 pub const EnablePasswordLogon: i32 = 4;
@@ -317,7 +323,7 @@ pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: super::
 pub type PWRSCHEMESENUMPROC_V2 = Option<unsafe extern "system" fn(index: super::UINT, namesize: super::DWORD, name: windows_sys::core::PCWSTR, descriptionsize: super::DWORD, description: windows_sys::core::PCWSTR, policy: PPOWER_POLICY, context: super::LPARAM) -> super::BOOLEAN>;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct THERMAL_EVENT {
     pub Version: super::ULONG,
     pub Size: super::ULONG,
@@ -325,6 +331,12 @@ pub struct THERMAL_EVENT {
     pub Temperature: super::ULONG,
     pub TripPointTemperature: super::ULONG,
     pub Initiator: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for THERMAL_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const THERMAL_EVENT_VERSION: i32 = 1;
 #[repr(C)]

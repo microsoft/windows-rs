@@ -170,12 +170,18 @@ pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflow
 pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::HANDLE, clifcctx: super::HANDLE, event: super::ULONG, subcode: super::HANDLE, bufsize: super::ULONG, buffer: super::PVOID)>;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TC_GEN_FILTER {
     pub AddressType: super::USHORT,
     pub PatternSize: super::ULONG,
     pub Pattern: super::PVOID,
     pub Mask: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for TC_GEN_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "qos", feature = "shared"))]
@@ -194,12 +200,18 @@ impl Default for TC_GEN_FLOW {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddndis", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: super::ULONG,
     pub pInterfaceName: windows_sys::core::PWSTR,
     pub pInterfaceID: windows_sys::core::PWSTR,
     pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+#[cfg(all(feature = "ntddndis", feature = "shared"))]
+impl Default for TC_IFC_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "winnt")]
 pub const TC_INVALID_HANDLE: super::HANDLE = 0 as _;

@@ -37,7 +37,7 @@ pub struct WIA_DATA_TRANSFER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_sys::core::GUID,
     pub ulFlags: super::ULONG,
@@ -46,9 +46,15 @@ pub struct WIA_DEV_CAP {
     pub bstrIcon: windows_sys::core::BSTR,
     pub bstrCommandline: windows_sys::core::BSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for WIA_DEV_CAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: super::LONG,
     pub bstrPatternName: windows_sys::core::BSTR,
@@ -56,6 +62,12 @@ pub struct WIA_DITHER_PATTERN_DATA {
     pub lPatternLength: super::LONG,
     pub cbPattern: super::LONG,
     pub pbPattern: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WIA_DITHER_PATTERN_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type WIA_EVENT_HANDLER = WIA_DEV_CAP;
@@ -78,10 +90,16 @@ pub struct WIA_FORMAT_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::PROPID,
     pub pszName: super::LPOLESTR,
+}
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+impl Default for WIA_PROPID_TO_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WiaDevMgr: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xa1f4e726_8cf1_11d1_bf92_0060081ed811);
 pub const WiaDevMgr2: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);

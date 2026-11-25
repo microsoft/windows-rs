@@ -11,7 +11,7 @@ pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLA
 pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DMO_MEDIA_TYPE {
     pub majortype: windows_sys::core::GUID,
     pub subtype: windows_sys::core::GUID,
@@ -23,14 +23,26 @@ pub struct DMO_MEDIA_TYPE {
     pub cbFormat: super::ULONG,
     pub pbFormat: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for DMO_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: *mut core::ffi::c_void,
     pub dwStatus: super::DWORD,
     pub rtTimestamp: super::REFERENCE_TIME,
     pub rtTimelength: super::REFERENCE_TIME,
+}
+#[cfg(feature = "shared")]
+impl Default for DMO_OUTPUT_DATA_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 8;
 pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 16777216;

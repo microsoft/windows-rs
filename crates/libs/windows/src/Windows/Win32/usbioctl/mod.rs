@@ -758,12 +758,18 @@ pub struct USB_HUB_PORT_INFORMATION {
 pub type USB_HUB_TYPE = i32;
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_ID_STRING {
     pub LanguageId: super::USHORT,
     pub Pad: super::USHORT,
     pub LengthInBytes: super::ULONG,
     pub Buffer: super::PWCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USB_ID_STRING {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
@@ -1103,16 +1109,28 @@ impl Default for USB_ROOT_HUB_NAME {
 }
 #[repr(C, packed(1))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::HANDLE,
     pub IsStartupDelayTolerable: super::BOOLEAN,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1144,23 +1162,40 @@ pub struct USB_TRANSPORT_CHARACTERISTICS {
 pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
     pub UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
 }
+#[cfg(feature = "shared")]
+impl Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
     pub ChangeNotificationInputFlags: super::ULONG,
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
     pub UsbTransportCharacteristics: USB_TRANSPORT_CHARACTERISTICS,
 }
+#[cfg(feature = "shared")]
+impl Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
     pub Handle: USB_CHANGE_REGISTRATION_HANDLE,
+}
+impl Default for USB_TRANSPORT_CHARACTERISTICS_CHANGE_UNREGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: i32 = 1;
 pub const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: i32 = 1;

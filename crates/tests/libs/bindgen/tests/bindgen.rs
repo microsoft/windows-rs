@@ -993,6 +993,12 @@ fn generated_bindings_support_runtime_msrv() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("runtime-msrv");
     std::fs::create_dir_all(&scratch).unwrap();
     let libraries = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../../libs");
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/struct_pointer_default.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
     let mut dependencies = String::new();
     for name in [
         "core",
@@ -1022,6 +1028,7 @@ fn generated_bindings_support_runtime_msrv() {
         let mut builder = windows_bindgen::builder();
         builder
             .filter("Windows.Win32::{SECURITY_ATTRIBUTES,HANDLE,WNDCLASSA}")
+            .derive("SECURITY_ATTRIBUTES=Default")
             .output(scratch.join(format!("{style}.rs")));
         if style != "sys" {
             builder
@@ -1041,6 +1048,19 @@ fn generated_bindings_support_runtime_msrv() {
             _ => {}
         }
         builder.write();
+        let mut pointers = windows_bindgen::builder();
+        pointers
+            .input(&winmd)
+            .filter("Test")
+            .derive("Test.PointerDefault=Default")
+            .derive("Test.HandleDefault=Default")
+            .output(scratch.join(format!("pointer_{style}.rs")));
+        if style == "full" {
+            pointers.full();
+        } else if style == "sys" {
+            pointers.sys();
+        }
+        pointers.write();
         if style != "sys" {
             let generated = std::fs::read_to_string(scratch.join(format!("{style}.rs"))).unwrap();
             for name in [
@@ -1064,6 +1084,9 @@ fn generated_bindings_support_runtime_msrv() {
 pub mod minimal;
 pub mod full;
 pub mod sys;
+pub mod pointer_minimal;
+pub mod pointer_full;
+pub mod pointer_sys;
 
 #[cfg(test)]
 mod tests {
@@ -1076,6 +1099,15 @@ mod tests {
         assert!(full::SECURITY_ATTRIBUTES::default().lpSecurityDescriptor.is_null());
         assert!(sys::SECURITY_ATTRIBUTES::default().lpSecurityDescriptor.is_null());
         assert!(sys::WNDCLASSA::default().lpszClassName.is_null());
+        assert!(pointer_full::MutableHandle::default().0.is_null());
+        assert!(pointer_full::ConstHandle::default().0.is_null());
+        assert!(pointer_minimal::PointerDefault::default().alias.is_null());
+        assert!(pointer_full::PointerDefault::default().constant.is_null());
+        assert!(pointer_sys::PointerDefault::default().raw.is_null());
+        assert!(pointer_minimal::HandleDefault::default().mutable.is_null());
+        assert!(pointer_full::HandleDefault::default().constant.0.is_null());
+        assert!(pointer_sys::HandleDefault::default().constant.is_null());
+        assert!(pointer_sys::InterfaceDefault::default().object.is_null());
     }
 
     #[windows_core::interface("bc192da2-54c5-4923-8ef8-f5be2e1cd8a3")]

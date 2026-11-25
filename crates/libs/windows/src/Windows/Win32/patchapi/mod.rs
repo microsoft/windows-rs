@@ -283,7 +283,7 @@ impl Default for PATCH_OLD_FILE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_A {
     pub SizeOfThisStruct: super::ULONG,
     pub OldFileName: windows_core::PCSTR,
@@ -292,9 +292,15 @@ pub struct PATCH_OLD_FILE_INFO_A {
     pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
+#[cfg(feature = "shared")]
+impl Default for PATCH_OLD_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_H {
     pub SizeOfThisStruct: super::ULONG,
     pub OldFileHandle: super::HANDLE,
@@ -303,9 +309,15 @@ pub struct PATCH_OLD_FILE_INFO_H {
     pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PATCH_OLD_FILE_INFO_H {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PATCH_OLD_FILE_INFO_W {
     pub SizeOfThisStruct: super::ULONG,
     pub OldFileName: windows_core::PCWSTR,
@@ -314,9 +326,15 @@ pub struct PATCH_OLD_FILE_INFO_W {
     pub RetainRangeCount: super::ULONG,
     pub RetainRangeArray: PPATCH_RETAIN_RANGE,
 }
+#[cfg(feature = "shared")]
+impl Default for PATCH_OLD_FILE_INFO_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PATCH_OPTION_DATA {
     pub SizeOfThisStruct: super::ULONG,
     pub SymbolOptionFlags: super::ULONG,
@@ -327,6 +345,12 @@ pub struct PATCH_OPTION_DATA {
     pub SymLoadContext: super::PVOID,
     pub InterleaveMapArray: *mut PPATCH_INTERLEAVE_MAP,
     pub MaxLzxWindowSize: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PATCH_OPTION_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PATCH_OPTION_FAIL_IF_BIGGER: i32 = 1048576;
 pub const PATCH_OPTION_FAIL_IF_SAME_FILE: i32 = 524288;

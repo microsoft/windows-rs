@@ -73,17 +73,28 @@ pub type PREPL_INFO_1002 = *mut REPL_INFO_1002;
 #[cfg(feature = "shared")]
 pub type PREPL_INFO_1003 = *mut REPL_INFO_1003;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_0 {
     pub rped0_dirname: windows_sys::core::PWSTR,
 }
+impl Default for REPL_EDIR_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_1 {
     pub rped1_dirname: windows_sys::core::PWSTR,
     pub rped1_integrity: super::DWORD,
     pub rped1_extent: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for REPL_EDIR_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -99,7 +110,7 @@ pub struct REPL_EDIR_INFO_1001 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPL_EDIR_INFO_2 {
     pub rped2_dirname: windows_sys::core::PWSTR,
     pub rped2_integrity: super::DWORD,
@@ -107,19 +118,30 @@ pub struct REPL_EDIR_INFO_2 {
     pub rped2_lockcount: super::DWORD,
     pub rped2_locktime: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for REPL_EDIR_INFO_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const REPL_EXPORT_EXTENT_INFOLEVEL: i32 = 1001;
 pub const REPL_EXPORT_INTEGRITY_INFOLEVEL: i32 = 1000;
 pub const REPL_EXTENT_FILE: i32 = 1;
 pub const REPL_EXTENT_TREE: i32 = 2;
 pub const REPL_GUARDTIME_INFOLEVEL: i32 = 1002;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_0 {
     pub rpid0_dirname: windows_sys::core::PWSTR,
 }
+impl Default for REPL_IDIR_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPL_IDIR_INFO_1 {
     pub rpid1_dirname: windows_sys::core::PWSTR,
     pub rpid1_state: super::DWORD,
@@ -128,9 +150,15 @@ pub struct REPL_IDIR_INFO_1 {
     pub rpid1_lockcount: super::DWORD,
     pub rpid1_locktime: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for REPL_IDIR_INFO_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPL_INFO_0 {
     pub rp0_role: super::DWORD,
     pub rp0_exportpath: windows_sys::core::PWSTR,
@@ -142,6 +170,12 @@ pub struct REPL_INFO_0 {
     pub rp0_pulse: super::DWORD,
     pub rp0_guardtime: super::DWORD,
     pub rp0_random: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for REPL_INFO_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

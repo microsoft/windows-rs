@@ -35,10 +35,16 @@ pub const APPX_COMPRESSION_OPTION_NORMAL: APPX_COMPRESSION_OPTION = 1;
 pub const APPX_COMPRESSION_OPTION_SUPERFAST: APPX_COMPRESSION_OPTION = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPX_ENCRYPTED_EXEMPTIONS {
     pub count: super::UINT32,
     pub plainTextFiles: *mut windows_core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for APPX_ENCRYPTED_EXEMPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type APPX_ENCRYPTED_PACKAGE_OPTIONS = i32;
 pub const APPX_ENCRYPTED_PACKAGE_OPTION_DIFFUSION: APPX_ENCRYPTED_PACKAGE_OPTIONS = 1;
@@ -70,12 +76,18 @@ pub const APPX_FOOTPRINT_FILE_TYPE_MANIFEST: APPX_FOOTPRINT_FILE_TYPE = 0;
 pub const APPX_FOOTPRINT_FILE_TYPE_SIGNATURE: APPX_FOOTPRINT_FILE_TYPE = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APPX_KEY_INFO {
     pub keyLength: super::UINT32,
     pub keyIdLength: super::UINT32,
     pub key: *mut super::BYTE,
     pub keyId: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for APPX_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type APPX_PACKAGE_ARCHITECTURE = i32;
 pub type APPX_PACKAGE_ARCHITECTURE2 = i32;

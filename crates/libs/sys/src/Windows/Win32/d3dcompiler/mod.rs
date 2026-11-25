@@ -123,10 +123,16 @@ pub const D3D_DISASM_PRINT_HEX_LITERALS: i32 = 128;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: super::LPCVOID,
     pub BytecodeLength: super::SIZE_T,
+}
+#[cfg(feature = "shared")]
+impl Default for D3D_SHADER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "d3dcommon", feature = "shared"))]
 pub type pD3DCompile = Option<unsafe extern "system" fn(psrcdata: super::LPCVOID, srcdatasize: super::SIZE_T, pfilename: windows_sys::core::PCSTR, pdefines: *const super::D3D_SHADER_MACRO, pinclude: *mut core::ffi::c_void, pentrypoint: windows_sys::core::PCSTR, ptarget: windows_sys::core::PCSTR, flags1: super::UINT, flags2: super::UINT, ppcode: *mut *mut core::ffi::c_void, pperrormsgs: *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;

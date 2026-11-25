@@ -131,10 +131,16 @@ pub const DSBPLAY_TERMINATEBY_TIME: i32 = 8;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: super::DWORD,
     pub hEventNotify: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for DSBPOSITIONNOTIFY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DSBSIZE_FX_MIN: i32 = 150;
 pub const DSBSIZE_MAX: i32 = 268435455;
@@ -147,7 +153,7 @@ pub const DSBSTATUS_PLAYING: i32 = 1;
 pub const DSBSTATUS_TERMINATED: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DSBUFFERDESC {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -156,15 +162,27 @@ pub struct DSBUFFERDESC {
     pub lpwfxFormat: super::LPWAVEFORMATEX,
     pub guid3DAlgorithm: windows_sys::core::GUID,
 }
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+impl Default for DSBUFFERDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DSBUFFERDESC1 {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
     pub dwBufferBytes: super::DWORD,
     pub dwReserved: super::DWORD,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
+}
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+impl Default for DSBUFFERDESC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DSBVOLUME_MAX: i32 = 0;
 pub const DSBVOLUME_MIN: i32 = -10000;
@@ -225,7 +243,7 @@ pub const DSCBSTATUS_CAPTURING: i32 = 1;
 pub const DSCBSTATUS_LOOPING: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DSCBUFFERDESC {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -235,15 +253,27 @@ pub struct DSCBUFFERDESC {
     pub dwFXCount: super::DWORD,
     pub lpDSCFXDesc: LPDSCEFFECTDESC,
 }
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+impl Default for DSCBUFFERDESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "mmeapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: super::DWORD,
     pub dwFlags: super::DWORD,
     pub dwBufferBytes: super::DWORD,
     pub dwReserved: super::DWORD,
     pub lpwfxFormat: super::LPWAVEFORMATEX,
+}
+#[cfg(all(feature = "mmeapi", feature = "shared"))]
+impl Default for DSCBUFFERDESC1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

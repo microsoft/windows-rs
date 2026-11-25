@@ -52,7 +52,7 @@ impl MixedUnion {
     }
 }
 #[repr(C, packed(1))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct Packed {
     pub tag: u8,
     pub bits: i32,
@@ -70,6 +70,11 @@ impl Packed {
     }
     pub fn set_Flag(&mut self, value: bool) {
         self.bits = (self.bits & !(1 << 5)) | ((value as i32) << 5);
+    }
+}
+impl Default for Packed {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]

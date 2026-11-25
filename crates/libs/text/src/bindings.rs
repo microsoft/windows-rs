@@ -57,7 +57,7 @@ impl DWRITE_CLUSTER_METRICS {
 }
 pub type DWRITE_COLOR_F = D3DCOLORVALUE;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_COLOR_GLYPH_RUN {
     pub glyphRun: DWRITE_GLYPH_RUN,
     pub glyphRunDescription: *mut DWRITE_GLYPH_RUN_DESCRIPTION,
@@ -65,6 +65,11 @@ pub struct DWRITE_COLOR_GLYPH_RUN {
     pub baselineOriginY: FLOAT,
     pub runColor: DWRITE_COLOR_F,
     pub paletteIndex: UINT16,
+}
+impl Default for DWRITE_COLOR_GLYPH_RUN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DWRITE_E_NOCOLOR: windows_core::HRESULT = windows_core::HRESULT(0x8898500C_u32 as _);
 pub type DWRITE_FACTORY_TYPE = i32;
@@ -145,7 +150,7 @@ pub const DWRITE_GLYPH_ORIENTATION_ANGLE_180_DEGREES: DWRITE_GLYPH_ORIENTATION_A
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_270_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 3;
 pub const DWRITE_GLYPH_ORIENTATION_ANGLE_90_DEGREES: DWRITE_GLYPH_ORIENTATION_ANGLE = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct DWRITE_GLYPH_RUN {
     pub fontFace: core::mem::ManuallyDrop<Option<IDWriteFontFace>>,
     pub fontEmSize: FLOAT,
@@ -156,14 +161,24 @@ pub struct DWRITE_GLYPH_RUN {
     pub isSideways: windows_core::BOOL,
     pub bidiLevel: UINT32,
 }
+impl Default for DWRITE_GLYPH_RUN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DWRITE_GLYPH_RUN_DESCRIPTION {
     pub localeName: *const WCHAR,
     pub string: *const WCHAR,
     pub stringLength: UINT32,
     pub clusterMap: *const UINT16,
     pub textPosition: UINT32,
+}
+impl Default for DWRITE_GLYPH_RUN_DESCRIPTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DWRITE_GRID_FIT_MODE = i32;
 #[repr(C)]
@@ -232,7 +247,7 @@ pub type DWRITE_RENDERING_MODE1 = i32;
 pub const DWRITE_RENDERING_MODE1_NATURAL_SYMMETRIC: DWRITE_RENDERING_MODE1 = 5;
 pub const DWRITE_RENDERING_MODE1_OUTLINE: DWRITE_RENDERING_MODE1 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_STRIKETHROUGH {
     pub width: FLOAT,
     pub thickness: FLOAT,
@@ -241,6 +256,11 @@ pub struct DWRITE_STRIKETHROUGH {
     pub flowDirection: DWRITE_FLOW_DIRECTION,
     pub localeName: *const WCHAR,
     pub measuringMode: DWRITE_MEASURING_MODE,
+}
+impl Default for DWRITE_STRIKETHROUGH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DWRITE_TEXTURE_ALIASED_1x1: DWRITE_TEXTURE_TYPE = 0;
 pub const DWRITE_TEXTURE_CLEARTYPE_3x1: DWRITE_TEXTURE_TYPE = 1;
@@ -290,7 +310,7 @@ pub const DWRITE_TRIMMING_GRANULARITY_CHARACTER: DWRITE_TRIMMING_GRANULARITY = 1
 pub const DWRITE_TRIMMING_GRANULARITY_NONE: DWRITE_TRIMMING_GRANULARITY = 0;
 pub const DWRITE_TRIMMING_GRANULARITY_WORD: DWRITE_TRIMMING_GRANULARITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DWRITE_UNDERLINE {
     pub width: FLOAT,
     pub thickness: FLOAT,
@@ -300,6 +320,11 @@ pub struct DWRITE_UNDERLINE {
     pub flowDirection: DWRITE_FLOW_DIRECTION,
     pub localeName: *const WCHAR,
     pub measuringMode: DWRITE_MEASURING_MODE,
+}
+impl Default for DWRITE_UNDERLINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

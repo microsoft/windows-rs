@@ -17,7 +17,7 @@ pub struct ICMPV6_ECHO_REPLY_LH {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: super::IPAddr,
     pub Status: super::ULONG,
@@ -26,6 +26,12 @@ pub struct ICMP_ECHO_REPLY {
     pub Reserved: super::USHORT,
     pub Data: super::PVOID,
     pub Options: IP_OPTION_INFORMATION,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for ICMP_ECHO_REPLY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
@@ -127,13 +133,19 @@ pub const IP_NEGOTIATING_IPSEC: i32 = 11032;
 pub const IP_NO_RESOURCES: i32 = 11006;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IP_OPTION_INFORMATION {
     pub Ttl: super::UCHAR,
     pub Tos: super::UCHAR,
     pub Flags: super::UCHAR,
     pub OptionsSize: super::UCHAR,
     pub OptionsData: super::PUCHAR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for IP_OPTION_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IP_OPTION_TOO_BIG: i32 = 11017;
 pub const IP_OPT_EOL: i32 = 0;

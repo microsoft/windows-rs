@@ -925,7 +925,7 @@ impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: windows_core::BOOL,
     pub DataIn: super::UCHAR,
@@ -936,6 +936,12 @@ pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub DataBuffer: super::PVOID,
     pub SenseInfo: *mut super::UCHAR,
     pub Cdb: *mut super::UCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

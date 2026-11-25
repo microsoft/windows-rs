@@ -773,10 +773,16 @@ pub const CLUSAPI_NO_ACCESS: i32 = 4;
 pub const CLUSAPI_READ_ACCESS: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSAPI_REASON_HANDLER {
     pub lpParameter: super::LPVOID,
     pub pfnHandler: PCLUSAPI_PFN_REASON_HANDLER,
+}
+#[cfg(feature = "minwindef")]
+impl Default for CLUSAPI_REASON_HANDLER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: i32 = 4;
 pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: i32 = 2;
@@ -1773,13 +1779,19 @@ pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: super::DWORD,
     pub wzName: windows_sys::core::PCWSTR,
     pub lpData: *const super::BYTE,
     pub cbData: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CLUSTER_BATCH_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUSTER_CHANGE = i32;
 pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = -1;
@@ -1948,7 +1960,7 @@ pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = 8;
 pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = -2147483648;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_ENUM_ITEM {
     pub dwVersion: super::DWORD,
     pub dwType: super::DWORD,
@@ -1956,6 +1968,12 @@ pub struct CLUSTER_ENUM_ITEM {
     pub lpszId: windows_sys::core::PWSTR,
     pub cbName: super::DWORD,
     pub lpszName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CLUSTER_ENUM_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSTER_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_ENUM_ITEM_VERSION_1: i32 = 1;
@@ -1972,7 +1990,7 @@ pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = 3;
 pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub dwVersion: super::DWORD,
     pub cbId: super::DWORD,
@@ -1988,6 +2006,12 @@ pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub cbRoProperties: super::DWORD,
     pub pRoProperties: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CLUSTER_GROUP_ENUM_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: i32 = 1;
 pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = 2;
@@ -1999,10 +2023,16 @@ pub const CLUSTER_HANG_TIMEOUT_KEYNAME: windows_sys::core::PCWSTR = windows_sys:
 pub const CLUSTER_INSTALLED: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_sys::core::PCWSTR,
     pub dwPrefixLength: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CLUSTER_IP_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2073,7 +2103,7 @@ pub type CLUSTER_QUORUM_TYPE = i32;
 pub type CLUSTER_QUORUM_VALUE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: super::DWORD,
@@ -2081,6 +2111,12 @@ pub struct CLUSTER_READ_BATCH_COMMAND {
     pub wzValueName: windows_sys::core::PCWSTR,
     pub lpData: *const super::BYTE,
     pub cbData: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CLUSTER_READ_BATCH_COMMAND {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CLUSTER_REG_COMMAND = i32;
 pub const CLUSTER_REQUEST_REPLY_TIMEOUT: windows_sys::core::PCWSTR = windows_sys::core::w!("RequestReplyTimeout");
@@ -2093,7 +2129,7 @@ pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = 7;
 pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub dwVersion: super::DWORD,
     pub cbId: super::DWORD,
@@ -2108,6 +2144,12 @@ pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub pProperties: super::PVOID,
     pub cbRoProperties: super::DWORD,
     pub pRoProperties: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CLUSTER_RESOURCE_ENUM_ITEM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: i32 = 1;
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: i32 = 1;
@@ -2810,7 +2852,7 @@ pub type CLUS_VS_TOKEN_INFO = CLUS_NETNAME_VS_TOKEN_INFO;
 pub const CREATEDC_PRESENT: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: super::DWORD,
     pub lpszClusterName: windows_sys::core::PCWSTR,
@@ -2825,10 +2867,16 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub pszPassword: windows_sys::core::PCWSTR,
     pub pszDomain: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CREATE_CLUSTER_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub dwVersion: super::DWORD,
     pub lpszClusterName: windows_sys::core::PCWSTR,
@@ -2839,6 +2887,12 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
     pub bUpgradeVCOs: super::BOOLEAN,
+}
+#[cfg(feature = "shared")]
+impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREATE_CLUSTER_VERSION: i32 = 1536;
 pub type CRRA = CLUSTER_RESOURCE_RESTART_ACTION;
@@ -3831,13 +3885,19 @@ pub const PriorityLow: CLUSTER_GROUP_PRIORITY = 1000;
 pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = 2000;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
     pub dwVersion: super::DWORD,
     pub dwFlags: super::DWORD,
     pub pszUserName: windows_sys::core::PCWSTR,
     pub pszPassword: windows_sys::core::PCWSTR,
     pub pszDomain: windows_sys::core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

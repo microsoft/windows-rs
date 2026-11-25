@@ -797,7 +797,7 @@ pub struct BY_HANDLE_FILE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: super::DWORD,
     pub dwFileAttributes: super::DWORD,
@@ -806,9 +806,15 @@ pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub lpSecurityAttributes: super::LPSECURITY_ATTRIBUTES,
     pub hTemplateFile: super::HANDLE,
 }
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for CREATEFILE2_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATEFILE3_EXTENDED_PARAMETERS {
     pub dwSize: super::DWORD,
     pub dwFileAttributes: super::DWORD,
@@ -816,6 +822,12 @@ pub struct CREATEFILE3_EXTENDED_PARAMETERS {
     pub dwSecurityQosFlags: super::DWORD,
     pub lpSecurityAttributes: super::LPSECURITY_ATTRIBUTES,
     pub hTemplateFile: super::HANDLE,
+}
+#[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for CREATEFILE3_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREATE_ALWAYS: i32 = 2;
 pub const CREATE_NEW: i32 = 1;

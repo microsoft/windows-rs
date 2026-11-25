@@ -255,13 +255,19 @@ pub type D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = i32;
 pub type D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: D3DKMDT_MONITOR_DESCRIPTOR_ID,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
     pub DataSize: super::SIZE_T,
     pub pData: *mut core::ffi::c_void,
     pub Origin: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN,
+}
+#[cfg(feature = "shared")]
+impl Default for D3DKMDT_MONITOR_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type D3DKMDT_MONITOR_DESCRIPTOR_ID = u32;
 pub type D3DKMDT_MONITOR_DESCRIPTOR_TYPE = i32;
@@ -1033,12 +1039,18 @@ pub type DXGKARG_FENCESTORAGEVALUETYPE = i32;
 pub type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: super::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub FirstEntry: super::UINT,
     pub NumEntries: super::UINT,
     pub pLookupTable: *mut D3DKMDT_PALETTEDATA,
+}
+#[cfg(all(feature = "d3dukmdt", feature = "shared"))]
+impl Default for DXGKARG_SETPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DXGKDT_OPM_DVI_CHARACTERISTICS = i32;
 pub type DXGKMDT_CERTIFICATE_TYPE = i32;

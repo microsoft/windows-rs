@@ -1,8 +1,13 @@
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COMDLG_FILTERSPEC {
     pub pszName: windows_sys::core::PCWSTR,
     pub pszSpec: windows_sys::core::PCWSTR,
+}
+impl Default for COMDLG_FILTERSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DEVICE_SCALE_FACTOR = i32;
 pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = 0;

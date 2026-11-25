@@ -419,10 +419,16 @@ pub struct SHARE_INFO_1006 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: super::DWORD,
     pub shi1501_security_descriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SHARE_INFO_1501 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -453,7 +459,7 @@ pub struct SHARE_INFO_501 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: windows_core::PWSTR,
     pub shi502_type: super::DWORD,
@@ -466,9 +472,15 @@ pub struct SHARE_INFO_502 {
     pub shi502_reserved: super::DWORD,
     pub shi502_security_descriptor: super::PSECURITY_DESCRIPTOR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SHARE_INFO_502 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: windows_core::PWSTR,
     pub shi503_type: super::DWORD,
@@ -481,6 +493,12 @@ pub struct SHARE_INFO_503 {
     pub shi503_servername: windows_core::PWSTR,
     pub shi503_reserved: super::DWORD,
     pub shi503_security_descriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SHARE_INFO_503 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SHARE_MAX_USES_INFOLEVEL: i32 = 1006;
 pub const SHARE_MAX_USES_PARMNUM: i32 = 6;

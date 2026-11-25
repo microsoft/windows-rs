@@ -305,7 +305,7 @@ pub struct BIND_OPTS {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BIND_OPTS2 {
     pub base: BIND_OPTS,
     pub dwTrackFlags: super::DWORD,
@@ -313,12 +313,24 @@ pub struct BIND_OPTS2 {
     pub locale: super::LCID,
     pub pServerInfo: *mut super::COSERVERINFO,
 }
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "wtypesbase"))]
+impl Default for BIND_OPTS2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BIND_OPTS3 {
     pub base: BIND_OPTS2,
     pub hwnd: super::HWND,
+}
+#[cfg(all(feature = "objidlbase", feature = "shared", feature = "windef", feature = "wtypesbase"))]
+impl Default for BIND_OPTS3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type CALLTYPE = i32;
 pub const CALLTYPE_ASYNC: CALLTYPE = 3;
@@ -367,13 +379,19 @@ impl Default for FLAG_STGMEDIUM {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORMATETC {
     pub cfFormat: super::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
     pub dwAspect: super::DWORD,
     pub lindex: super::LONG,
     pub tymed: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for FORMATETC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ForcedShutdown: ShutdownType = 1;
 #[repr(C, packed(8))]

@@ -1,156 +1,288 @@
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CABOOL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::VARIANT_BOOL,
 }
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for CABOOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CABSTR {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_sys::core::BSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CABSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CABSTRBLOB {
     pub cElems: super::ULONG,
     pub pElems: *mut super::BSTRBLOB,
 }
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for CABSTRBLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAC {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CHAR,
 }
+#[cfg(feature = "shared")]
+impl Default for CAC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CACLIPDATA {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CLIPDATA,
 }
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for CACLIPDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CACLSID {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CLSID,
 }
+#[cfg(all(feature = "guiddef", feature = "shared"))]
+impl Default for CACLSID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CACY {
     pub cElems: super::ULONG,
     pub pElems: *mut super::CY,
 }
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for CACY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CADATE {
     pub cElems: super::ULONG,
     pub pElems: *mut super::DATE,
 }
+#[cfg(all(feature = "shared", feature = "wtypes"))]
+impl Default for CADATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CADBL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::DOUBLE,
 }
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for CADBL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAFILETIME {
     pub cElems: super::ULONG,
     pub pElems: *mut super::FILETIME,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CAFILETIME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAFLT {
     pub cElems: super::ULONG,
     pub pElems: *mut super::FLOAT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CAFLT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAH {
     pub cElems: super::ULONG,
     pub pElems: *mut super::LARGE_INTEGER,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CAH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAI {
     pub cElems: super::ULONG,
     pub pElems: *mut super::SHORT,
 }
+#[cfg(feature = "shared")]
+impl Default for CAI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::LONG,
 }
+#[cfg(feature = "shared")]
+impl Default for CAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CALPSTR {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CALPSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CALPWSTR {
     pub cElems: super::ULONG,
     pub pElems: *mut windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CALPWSTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAPROPVARIANT {
     pub cElems: super::ULONG,
     pub pElems: *mut PROPVARIANT,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
+impl Default for CAPROPVARIANT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CASCODE {
     pub cElems: super::ULONG,
     pub pElems: *mut super::SCODE,
 }
+#[cfg(all(feature = "shared", feature = "wtypesbase"))]
+impl Default for CASCODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAUB {
     pub cElems: super::ULONG,
     pub pElems: *mut super::UCHAR,
 }
+#[cfg(feature = "shared")]
+impl Default for CAUB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAUH {
     pub cElems: super::ULONG,
     pub pElems: *mut super::ULARGE_INTEGER,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CAUH {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAUI {
     pub cElems: super::ULONG,
     pub pElems: *mut super::USHORT,
 }
+#[cfg(feature = "shared")]
+impl Default for CAUI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAUL {
     pub cElems: super::ULONG,
     pub pElems: *mut super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for CAUL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type LPENUMSTATPROPSETSTG = *mut core::ffi::c_void;
 pub type LPENUMSTATPROPSTG = *mut core::ffi::c_void;
@@ -226,18 +358,30 @@ pub struct STATPROPSETSTG {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STATPROPSTG {
     pub lpwstrName: super::LPOLESTR,
     pub propid: super::PROPID,
     pub vt: super::VARTYPE,
 }
+#[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
+impl Default for STATPROPSTG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "objidlbase")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: windows_sys::core::GUID,
     pub pStream: *mut core::ffi::c_void,
+}
+#[cfg(feature = "objidlbase")]
+impl Default for VERSIONEDSTREAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "shared", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]

@@ -41,7 +41,7 @@ pub const VDS_IA_SCSI: VDS_INTERCONNECT_ADDRESS_TYPE = 5;
 pub const VDS_IA_UNKNOWN: VDS_INTERCONNECT_ADDRESS_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_INTERCONNECT {
     pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
     pub m_cbPort: super::ULONG,
@@ -49,10 +49,16 @@ pub struct VDS_INTERCONNECT {
     pub m_cbAddress: super::ULONG,
     pub m_pbAddress: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_INTERCONNECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type VDS_INTERCONNECT_ADDRESS_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_LUN_INFORMATION {
     pub m_version: super::ULONG,
     pub m_DeviceType: super::BYTE,
@@ -68,23 +74,41 @@ pub struct VDS_LUN_INFORMATION {
     pub m_cInterconnects: super::ULONG,
     pub m_rgInterconnects: *mut VDS_INTERCONNECT,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_LUN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type VDS_STORAGE_BUS_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     pub m_version: super::ULONG,
     pub m_cIdentifiers: super::ULONG,
     pub m_rgIdentifiers: *mut VDS_STORAGE_IDENTIFIER,
 }
+#[cfg(feature = "shared")]
+impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER {
     pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
     pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,
     pub m_cbIdentifier: super::ULONG,
     pub m_rgbIdentifier: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for VDS_STORAGE_IDENTIFIER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type VDS_STORAGE_IDENTIFIER_CODE_SET = i32;
 pub type VDS_STORAGE_IDENTIFIER_TYPE = i32;

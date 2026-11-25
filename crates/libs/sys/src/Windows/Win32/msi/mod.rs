@@ -510,21 +510,33 @@ pub type MSIPATCHDATATYPE = i32;
 pub type MSIPATCHSEQUENCEINFO = MSIPATCHSEQUENCEINFOA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOA {
     pub szPatchData: windows_sys::core::PCSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: super::DWORD,
     pub uStatus: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for MSIPATCHSEQUENCEINFOA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MSIPATCHSEQUENCEINFOW {
     pub szPatchData: windows_sys::core::PCWSTR,
     pub ePatchDataType: MSIPATCHDATATYPE,
     pub dwOrder: super::DWORD,
     pub uStatus: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for MSIPATCHSEQUENCEINFOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type MSIPATCHSTATE = i32;
 pub const MSIPATCHSTATE_ALL: MSIPATCHSTATE = 15;

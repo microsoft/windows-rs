@@ -91,10 +91,16 @@ pub const DXC_PART_ROOT_SIGNATURE: super::UINT32 = 810767442;
 pub const DXC_PART_SHADER_HASH: super::UINT32 = 1213415752;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DxcArgPair {
     pub pName: *const super::WCHAR,
     pub pValue: *const super::WCHAR,
+}
+#[cfg(feature = "winnt")]
+impl Default for DxcArgPair {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "objidlbase"))]
 pub type DxcCreateInstance2Proc = Option<unsafe extern "system" fn(pmalloc: windows_core::Ref<super::IMalloc>, rclsid: *const super::IID, riid: *const super::IID, ppv: *mut super::LPVOID) -> windows_core::HRESULT>;
@@ -121,11 +127,17 @@ impl Default for DxcShaderHash {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DxcText {
     pub Ptr: super::LPCVOID,
     pub Size: super::SIZE_T,
     pub Encoding: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for DxcText {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const DxcValidatorFlags_Default: super::UINT32 = 0;

@@ -510,7 +510,7 @@ pub const CT_CTYPE3: i32 = 4;
 pub type CURRENCYFMT = CURRENCYFMTA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CURRENCYFMTA {
     pub NumDigits: super::UINT,
     pub LeadingZero: super::UINT,
@@ -521,9 +521,15 @@ pub struct CURRENCYFMTA {
     pub PositiveOrder: super::UINT,
     pub lpCurrencySymbol: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CURRENCYFMTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CURRENCYFMTW {
     pub NumDigits: super::UINT,
     pub LeadingZero: super::UINT,
@@ -533,6 +539,12 @@ pub struct CURRENCYFMTW {
     pub NegativeOrder: super::UINT,
     pub PositiveOrder: super::UINT,
     pub lpCurrencySymbol: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CURRENCYFMTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type DATEFMT_ENUMPROCA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR) -> windows_sys::core::BOOL>;
 pub type DATEFMT_ENUMPROCEXA = Option<unsafe extern "system" fn(param0: windows_sys::core::PSTR, param1: CALID) -> windows_sys::core::BOOL>;
@@ -947,7 +959,7 @@ pub const NORM_LINGUISTIC_CASING: i32 = 134217728;
 pub type NUMBERFMT = NUMBERFMTA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NUMBERFMTA {
     pub NumDigits: super::UINT,
     pub LeadingZero: super::UINT,
@@ -956,9 +968,15 @@ pub struct NUMBERFMTA {
     pub lpThousandSep: windows_sys::core::PSTR,
     pub NegativeOrder: super::UINT,
 }
+#[cfg(feature = "shared")]
+impl Default for NUMBERFMTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct NUMBERFMTW {
     pub NumDigits: super::UINT,
     pub LeadingZero: super::UINT,
@@ -966,6 +984,12 @@ pub struct NUMBERFMTW {
     pub lpDecimalSep: windows_sys::core::PWSTR,
     pub lpThousandSep: windows_sys::core::PWSTR,
     pub NegativeOrder: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for NUMBERFMTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NormalizationC: NORM_FORM = 1;
 pub const NormalizationD: NORM_FORM = 2;

@@ -225,7 +225,7 @@ pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 }
 #[repr(C, packed(4))]
 #[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::USAGE,
     pub LinkUsagePage: super::USAGE,
@@ -235,6 +235,12 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub FirstChild: super::USHORT,
     pub _bitfield: u32,
     pub UserContext: super::PVOID,
+}
+#[cfg(all(feature = "hidusage", feature = "shared", feature = "winnt"))]
+impl Default for HIDP_LINK_COLLECTION_NODE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const HIDP_LINK_COLLECTION_ROOT: super::USHORT = 65535;

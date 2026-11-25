@@ -208,7 +208,7 @@ pub const AVICOMPRESSF_KEYFRAMES: i32 = 4;
 pub const AVICOMPRESSF_VALID: i32 = 8;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AVICOMPRESSOPTIONS {
     pub fccType: super::DWORD,
     pub fccHandler: super::DWORD,
@@ -221,6 +221,12 @@ pub struct AVICOMPRESSOPTIONS {
     pub lpParms: super::LPVOID,
     pub cbParms: super::DWORD,
     pub dwInterleaveEvery: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for AVICOMPRESSOPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "wtypesbase")]
 pub const AVIERR_BADFLAGS: super::SCODE = 0x80044069_u32 as _;
@@ -433,7 +439,7 @@ pub const BI_1632: i32 = 842217009;
 pub type CAPCONTROLCALLBACK = Option<unsafe extern "system" fn(hwnd: super::HWND, nstate: i32) -> super::LRESULT>;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAPDRIVERCAPS {
     pub wDeviceIndex: super::UINT,
     pub fHasOverlay: windows_sys::core::BOOL,
@@ -447,21 +453,33 @@ pub struct CAPDRIVERCAPS {
     pub hVideoExtIn: super::HANDLE,
     pub hVideoExtOut: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CAPDRIVERCAPS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CAPERRORCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::HWND, nid: i32, lpsz: windows_sys::core::PCSTR) -> super::LRESULT>;
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CAPERRORCALLBACKW = Option<unsafe extern "system" fn(hwnd: super::HWND, nid: i32, lpsz: windows_sys::core::PCWSTR) -> super::LRESULT>;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "mmiscapi", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAPINFOCHUNK {
     pub fccInfoID: super::FOURCC,
     pub lpData: super::LPVOID,
     pub cbData: super::LONG,
 }
+#[cfg(all(feature = "minwindef", feature = "mmiscapi", feature = "shared"))]
+impl Default for CAPINFOCHUNK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CAPSTATUS {
     pub uiImageWidth: super::UINT,
     pub uiImageHeight: super::UINT,
@@ -481,6 +499,12 @@ pub struct CAPSTATUS {
     pub dwReturn: super::DWORD,
     pub wNumVideoAllocated: super::UINT,
     pub wNumAudioAllocated: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CAPSTATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 pub type CAPSTATUSCALLBACKA = Option<unsafe extern "system" fn(hwnd: super::HWND, nid: i32, lpsz: windows_sys::core::PCSTR) -> super::LRESULT>;
@@ -539,7 +563,7 @@ pub const CLSID_AVIFile: windows_sys::core::GUID = windows_sys::core::GUID::from
 pub const CLSID_AVISimpleUnMarshal: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x00020009_0000_0000_c000_000000000046);
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COMPVARS {
     pub cbSize: super::LONG,
     pub dwFlags: super::DWORD,
@@ -557,6 +581,12 @@ pub struct COMPVARS {
     pub lKeyCount: super::LONG,
     pub lpState: super::LPVOID,
     pub cbState: super::LONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
+impl Default for COMPVARS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CONTROLCALLBACK_CAPTURING: i32 = 2;
 pub const CONTROLCALLBACK_PREROLL: i32 = 1;
@@ -662,7 +692,7 @@ pub struct HVIDEO__ {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICCOMPRESS {
     pub dwFlags: super::DWORD,
     pub lpbiOutput: super::LPBITMAPINFOHEADER,
@@ -677,11 +707,17 @@ pub struct ICCOMPRESS {
     pub lpbiPrev: super::LPBITMAPINFOHEADER,
     pub lpPrev: super::LPVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
+impl Default for ICCOMPRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ICCOMPRESSFRAMES_PADDING: i32 = 1;
 pub const ICCOMPRESS_KEYFRAME: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICDECOMPRESS {
     pub dwFlags: super::DWORD,
     pub lpbiInput: super::LPBITMAPINFOHEADER,
@@ -690,9 +726,15 @@ pub struct ICDECOMPRESS {
     pub lpOutput: super::LPVOID,
     pub ckid: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
+impl Default for ICDECOMPRESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICDECOMPRESSEX {
     pub dwFlags: super::DWORD,
     pub lpbiSrc: super::LPBITMAPINFOHEADER,
@@ -708,6 +750,12 @@ pub struct ICDECOMPRESSEX {
     pub dxSrc: i32,
     pub dySrc: i32,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wingdi"))]
+impl Default for ICDECOMPRESSEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ICDECOMPRESS_HURRYUP: u32 = 2147483648;
 pub const ICDECOMPRESS_NOTKEYFRAME: i32 = 134217728;
 pub const ICDECOMPRESS_NULLFRAME: i32 = 268435456;
@@ -715,7 +763,7 @@ pub const ICDECOMPRESS_PREROLL: i32 = 536870912;
 pub const ICDECOMPRESS_UPDATE: i32 = 1073741824;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICDRAW {
     pub dwFlags: super::DWORD,
     pub lpFormat: super::LPVOID,
@@ -723,9 +771,15 @@ pub struct ICDRAW {
     pub cbData: super::DWORD,
     pub lTime: super::LONG,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for ICDRAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICDRAWBEGIN {
     pub dwFlags: super::DWORD,
     pub hpal: super::HPALETTE,
@@ -743,9 +797,15 @@ pub struct ICDRAWBEGIN {
     pub dwRate: super::DWORD,
     pub dwScale: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for ICDRAWBEGIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICDRAWSUGGEST {
     pub lpbiIn: super::LPBITMAPINFOHEADER,
     pub lpbiSuggest: super::LPBITMAPINFOHEADER,
@@ -754,6 +814,12 @@ pub struct ICDRAWSUGGEST {
     pub dxDst: i32,
     pub dyDst: i32,
     pub hicDecompressor: HIC,
+}
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+impl Default for ICDRAWSUGGEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ICDRAW_ANIMATE: i32 = 8;
 pub const ICDRAW_BUFFER: i32 = 256;
@@ -891,7 +957,7 @@ pub const ICM_SET_STATUS_PROC: i32 = 16456;
 pub const ICM_USER: i32 = 16384;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICOPEN {
     pub dwSize: super::DWORD,
     pub fccType: super::DWORD,
@@ -903,14 +969,26 @@ pub struct ICOPEN {
     pub pV2Reserved: super::LPVOID,
     pub dnDevNode: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for ICOPEN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ICPALETTE {
     pub dwFlags: super::DWORD,
     pub iStart: i32,
     pub iLen: i32,
     pub lppe: super::LPPALETTEENTRY,
+}
+#[cfg(all(feature = "shared", feature = "wingdi"))]
+impl Default for ICPALETTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ICQUALITY_DEFAULT: i32 = -1;
 pub const ICQUALITY_HIGH: i32 = 10000;

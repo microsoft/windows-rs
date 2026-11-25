@@ -105,17 +105,29 @@ pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: i32 = 1;
 pub const NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_PROTECT_STREAM_INFO {
     pub pfnStreamOutput: PFNCryptStreamOutputCallback,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+impl Default for NCRYPT_PROTECT_STREAM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct NCRYPT_PROTECT_STREAM_INFO_EX {
     pub pfnStreamOutput: PFNCryptStreamOutputCallbackEx,
     pub pvCallbackCtxt: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+impl Default for NCRYPT_PROTECT_STREAM_INFO_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type NCRYPT_STREAM_HANDLE = *mut NCRYPT_STREAM_HANDLE__;
 #[repr(C)]

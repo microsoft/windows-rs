@@ -199,7 +199,7 @@ pub const PI_APPLYPOLICY: i32 = 2;
 pub const PI_NOUI: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: windows_sys::core::PWSTR,
     pub szEventSource: windows_sys::core::PWSTR,
@@ -208,6 +208,12 @@ pub struct POLICYSETTINGSTATUSINFO {
     pub dwErrorCode: super::DWORD,
     pub status: SETTINGSTATUS,
     pub timeLogged: super::SYSTEMTIME,
+}
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
+impl Default for POLICYSETTINGSTATUSINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PRSOPTOKEN = *mut core::ffi::c_void;
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
@@ -227,7 +233,7 @@ pub const RSOPUnspecified: SETTINGSTATUS = 0;
 pub const RSOP_COMPUTER_ACCESS_DENIED: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct RSOP_TARGET {
     pub pwszAccountName: *mut super::WCHAR,
     pub pwszNewSOM: *mut super::WCHAR,
@@ -235,6 +241,12 @@ pub struct RSOP_TARGET {
     pub pRsopToken: PRSOPTOKEN,
     pub pGPOList: PGROUP_POLICY_OBJECT,
     pub pWbemServices: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "minwindef", feature = "oaidl", feature = "shared", feature = "wbemcli", feature = "winnt"))]
+impl Default for RSOP_TARGET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RSOP_TEMPNAMESPACE_EXISTS: i32 = 4;
 pub const RSOP_USER_ACCESS_DENIED: i32 = 1;

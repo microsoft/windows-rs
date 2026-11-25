@@ -152,7 +152,7 @@ pub const CPD_UISTATE_MODE_PROMPT: i32 = 0;
 pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_CERT {
     pub cbStruct: super::DWORD,
     pub pCert: super::PCCERT_CONTEXT,
@@ -169,6 +169,12 @@ pub struct CRYPT_PROVIDER_CERT {
     pub dwCtlError: super::DWORD,
     pub fIsCyclic: windows_core::BOOL,
     pub pChainElement: super::PCERT_CHAIN_ELEMENT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for CRYPT_PROVIDER_CERT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "windef", feature = "winnt"))]
@@ -228,16 +234,22 @@ impl Default for CRYPT_PROVIDER_DATA_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_DEFUSAGE {
     pub cbStruct: super::DWORD,
     pub gActionID: windows_core::GUID,
     pub pDefPolicyCallbackData: super::LPVOID,
     pub pDefSIPClientData: super::LPVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_PROVIDER_DEFUSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub cbStruct: super::DWORD,
     pub pfnAlloc: PFN_CPD_MEM_ALLOC,
@@ -256,18 +268,30 @@ pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub psUIpfns: *mut CRYPT_PROVUI_FUNCS,
     pub pfnCleanupPolicy: PFN_PROVIDER_CLEANUP_CALL,
 }
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+impl Default for CRYPT_PROVIDER_FUNCTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_PRIVDATA {
     pub cbStruct: super::DWORD,
     pub gProviderID: windows_core::GUID,
     pub cbProvData: super::DWORD,
     pub pvProvData: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_PROVIDER_PRIVDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_REGDEFUSAGE {
     pub cbStruct: super::DWORD,
     pub pgActionID: *mut windows_core::GUID,
@@ -275,9 +299,15 @@ pub struct CRYPT_PROVIDER_REGDEFUSAGE {
     pub pwszLoadCallbackDataFunctionName: *mut i8,
     pub pwszFreeCallbackDataFunctionName: *mut i8,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CRYPT_PROVIDER_REGDEFUSAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_SGNR {
     pub cbStruct: super::DWORD,
     pub sftVerifyAsOf: super::FILETIME,
@@ -290,9 +320,15 @@ pub struct CRYPT_PROVIDER_SGNR {
     pub pasCounterSigners: *mut Self,
     pub pChainContext: super::PCCERT_CHAIN_CONTEXT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for CRYPT_PROVIDER_SGNR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVIDER_SIGSTATE {
     pub cbStruct: super::DWORD,
     pub rhSecondarySigs: *mut super::HCRYPTMSG,
@@ -307,9 +343,15 @@ pub struct CRYPT_PROVIDER_SIGSTATE {
     pub fCheckedSealing: windows_core::BOOL,
     pub pSealingSignature: *mut SEALING_SIGNATURE_ATTRIBUTE,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for CRYPT_PROVIDER_SIGSTATE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVUI_DATA {
     pub cbStruct: super::DWORD,
     pub dwFinalError: super::DWORD,
@@ -321,9 +363,15 @@ pub struct CRYPT_PROVUI_DATA {
     pub pCopyActionTextNoTS: *mut super::WCHAR,
     pub pCopyActionTextNotSigned: *mut super::WCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CRYPT_PROVUI_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_PROVUI_FUNCS {
     pub cbStruct: super::DWORD,
     pub psUIData: *mut CRYPT_PROVUI_DATA,
@@ -331,6 +379,12 @@ pub struct CRYPT_PROVUI_FUNCS {
     pub pfnOnMoreInfoClickDefault: PFN_PROVUI_CALL,
     pub pfnOnAdvancedClick: PFN_PROVUI_CALL,
     pub pfnOnAdvancedClickDefault: PFN_PROVUI_CALL,
+}
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "windef", feature = "winnt"))]
+impl Default for CRYPT_PROVUI_FUNCS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -348,11 +402,17 @@ pub struct CRYPT_REGISTER_ACTIONID {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPT_TRUST_REG_ENTRY {
     pub cbStruct: super::DWORD,
     pub pwszDLLName: *mut super::WCHAR,
     pub pwszFunctionName: *mut super::WCHAR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CRYPT_TRUST_REG_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DWACTION_ALLOCANDFILL: i32 = 1;
 pub const DWACTION_FREE: i32 = 2;
@@ -444,7 +504,7 @@ pub type PINTENT_TO_SEAL_ATTRIBUTE = *mut INTENT_TO_SEAL_ATTRIBUTE;
 pub type PPROVDATA_SIP = *mut PROVDATA_SIP;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROVDATA_SIP {
     pub cbStruct: super::DWORD,
     pub gSubject: windows_core::GUID,
@@ -453,6 +513,12 @@ pub struct PROVDATA_SIP {
     pub psSipSubjectInfo: *mut super::SIP_SUBJECTINFO,
     pub psSipCATSubjectInfo: *mut super::SIP_SUBJECTINFO,
     pub psIndirectData: *mut super::SIP_INDIRECT_DATA,
+}
+#[cfg(all(feature = "minwindef", feature = "mscat", feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for PROVDATA_SIP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
 pub type PSEALING_SIGNATURE_ATTRIBUTE = *mut SEALING_SIGNATURE_ATTRIBUTE;
@@ -535,13 +601,19 @@ pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCS
 pub const SPC_GLUE_RDN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.25");
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SPC_IMAGE {
     pub pImageLink: *mut SPC_LINK,
     pub Bitmap: super::CRYPT_DATA_BLOB,
     pub Metafile: super::CRYPT_DATA_BLOB,
     pub EnhancedMetafile: super::CRYPT_DATA_BLOB,
     pub GifFile: super::CRYPT_DATA_BLOB,
+}
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for SPC_IMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
@@ -591,10 +663,16 @@ pub const SPC_MONIKER_LINK_CHOICE: i32 = 2;
 pub const SPC_NATURAL_AUTH_PLUGIN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.96.1.1");
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SPC_PE_IMAGE_DATA {
     pub Flags: super::CRYPT_BIT_BLOB,
     pub pFile: PSPC_LINK,
+}
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for SPC_PE_IMAGE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SPC_PE_IMAGE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.15");
 pub const SPC_PE_IMAGE_DATA_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2004 as _);
@@ -631,31 +709,49 @@ pub const SPC_SIGINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1
 pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130 as _);
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SPC_SP_AGENCY_INFO {
     pub pPolicyInformation: *mut SPC_LINK,
     pub pwszPolicyDisplayText: windows_core::PWSTR,
     pub pLogoImage: PSPC_IMAGE,
     pub pLogoLink: *mut SPC_LINK,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for SPC_SP_AGENCY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SPC_SP_AGENCY_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.10");
 pub const SPC_SP_AGENCY_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2000 as _);
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SPC_SP_OPUS_INFO {
     pub pwszProgramName: windows_core::PCWSTR,
     pub pMoreInfo: *mut SPC_LINK,
     pub pPublisherInfo: *mut SPC_LINK,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for SPC_SP_OPUS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const SPC_SP_OPUS_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.12");
 pub const SPC_SP_OPUS_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2007 as _);
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SPC_STATEMENT_TYPE {
     pub cKeyPurposeId: super::DWORD,
     pub rgpszKeyPurposeId: *mut windows_core::PSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for SPC_STATEMENT_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SPC_STATEMENT_TYPE_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.11");
 pub const SPC_STATEMENT_TYPE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2006 as _);
@@ -694,7 +790,7 @@ pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: i32 = 19;
 pub const TRUSTERROR_STEP_WVTPARAMS: i32 = 0;
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_BLOB_INFO {
     pub cbStruct: super::DWORD,
     pub gSubject: windows_core::GUID,
@@ -704,9 +800,15 @@ pub struct WINTRUST_BLOB_INFO {
     pub cbMemSignedMsg: super::DWORD,
     pub pbMemSignedMsg: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for WINTRUST_BLOB_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_CATALOG_INFO {
     pub cbStruct: super::DWORD,
     pub dwCatalogVersion: super::DWORD,
@@ -719,9 +821,15 @@ pub struct WINTRUST_CATALOG_INFO {
     pub pcCatalogContext: super::PCCTL_CONTEXT,
     pub hCatAdmin: super::HCATADMIN,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for WINTRUST_CATALOG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_CERT_INFO {
     pub cbStruct: super::DWORD,
     pub pcwszDisplayName: windows_core::PCWSTR,
@@ -730,6 +838,12 @@ pub struct WINTRUST_CERT_INFO {
     pub pahStores: *mut super::HCERTSTORE,
     pub dwFlags: super::DWORD,
     pub psftVerifyAsOf: *mut super::FILETIME,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "wincrypt"))]
+impl Default for WINTRUST_CERT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINTRUST_CONFIG_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Cryptography\\Wintrust\\Config");
 #[repr(C, packed(8))]
@@ -792,10 +906,16 @@ pub const WINTRUST_DETACHED_SIG_CHOICE_BLOB: i32 = 2;
 pub const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_DETACHED_SIG_FILE_HANDLES {
     pub hContentFile: super::HANDLE,
     pub hSignatureFile: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for WINTRUST_DETACHED_SIG_FILE_HANDLES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -826,12 +946,18 @@ impl Default for WINTRUST_DETACHED_SIG_INFO_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_FILE_INFO {
     pub cbStruct: super::DWORD,
     pub pcwszFilePath: windows_core::PCWSTR,
     pub hFile: super::HANDLE,
     pub pgKnownSubject: *mut windows_core::GUID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WINTRUST_FILE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: i32 = 1048576;
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("MaxHashBytesToMap");
@@ -839,7 +965,7 @@ pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: i32 = 10485760;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("MaxHeaderBytesToMap");
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_SGNR_INFO {
     pub cbStruct: super::DWORD,
     pub pcwszDisplayName: windows_core::PCWSTR,
@@ -847,9 +973,15 @@ pub struct WINTRUST_SGNR_INFO {
     pub chStores: super::DWORD,
     pub pahStores: *mut super::HCERTSTORE,
 }
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for WINTRUST_SGNR_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub cbStruct: super::DWORD,
     pub dwIndex: super::DWORD,
@@ -857,6 +989,12 @@ pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub cSecondarySigs: super::DWORD,
     pub dwVerifiedSigIndex: super::DWORD,
     pub pCryptoPolicy: super::PCERT_STRONG_SIGN_PARA,
+}
+#[cfg(all(feature = "shared", feature = "wincrypt"))]
+impl Default for WINTRUST_SIGNATURE_SETTINGS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -881,40 +1019,69 @@ pub const WIN_CERT_TYPE_TS_STACK_SIGNED: i32 = 4;
 pub const WIN_CERT_TYPE_X509: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     pub hClientToken: super::HANDLE,
     pub lpCertificate: LPWIN_CERTIFICATE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     pub hClientToken: super::HANDLE,
     pub SubjectType: *mut windows_core::GUID,
     pub Subject: WIN_TRUST_SUBJECT,
 }
+#[cfg(feature = "winnt")]
+impl Default for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     pub SubjectType: *mut windows_core::GUID,
     pub Subject: WIN_TRUST_SUBJECT,
 }
+impl Default for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type WIN_TRUST_SUBJECT = *mut core::ffi::c_void;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE {
     pub hFile: super::HANDLE,
     pub lpPath: windows_core::PCWSTR,
 }
+#[cfg(feature = "winnt")]
+impl Default for WIN_TRUST_SUBJECT_FILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub hFile: super::HANDLE,
     pub lpPath: windows_core::PCWSTR,
     pub lpDisplayName: windows_core::PCWSTR,
+}
+#[cfg(feature = "winnt")]
+impl Default for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WSS_CERTTRUST_SUPPORT: i32 = 4;
 pub const WSS_GET_SECONDARY_SIG_COUNT: i32 = 2;

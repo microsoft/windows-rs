@@ -94,15 +94,15 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
 
     // Reg-free activation should only be attempted if the class is not registered.
     // It should not be attempted if the class is registered but fails to activate.
-    if code == REGDB_E_CLASSNOTREG
-        && let Some(i) = search_path(C::NAME, |library| unsafe {
+    if code == REGDB_E_CLASSNOTREG {
+        if let Some(i) = search_path(C::NAME, |library| unsafe {
             get_activation_factory(library, &name)
-        })
-    {
-        if I::IID == IGenericFactory::IID {
-            return Ok(unsafe { I::from_raw(i.into_raw()) });
+        }) {
+            if I::IID == IGenericFactory::IID {
+                return Ok(unsafe { I::from_raw(i.into_raw()) });
+            }
+            return i.cast();
         }
-        return i.cast();
     }
 
     Err(crate::Error::from_hresult(code))

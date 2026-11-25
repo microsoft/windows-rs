@@ -88,17 +88,29 @@ impl Default for SecPkgCred_SessionTicketKey {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCred_SessionTicketKeys {
     pub cSessionTicketKeys: super::DWORD,
     pub pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
 }
+#[cfg(feature = "shared")]
+impl Default for SecPkgCred_SessionTicketKeys {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: super::DWORD,
     pub palgSupportedAlgs: *mut super::ALG_ID,
+}
+#[cfg(feature = "shared")]
+impl Default for SecPkgCred_SupportedAlgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

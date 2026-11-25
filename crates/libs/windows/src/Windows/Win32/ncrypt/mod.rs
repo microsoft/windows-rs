@@ -329,7 +329,7 @@ pub const NCRYPT_CIPHER_OPERATION: i32 = 1;
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: super::ULONG,
     pub dwFlags: super::DWORD,
@@ -337,6 +337,12 @@ pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbIV: super::ULONG,
     pub pbOtherInfo: super::PUCHAR,
     pub cbOtherInfo: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for NCRYPT_CIPHER_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT: i32 = 3;
 pub const NCRYPT_CLAIM_AUTHORITY_ONLY: i32 = 1;
@@ -461,13 +467,19 @@ pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: i32 = 1;
 pub const NCRYPT_KEY_ATTEST_MAGIC: i32 = 1146110283;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: super::ULONG,
     pub pbKeyBlob: super::PUCHAR,
     pub cbKeyBlob: super::ULONG,
     pub pbKeyAuth: super::PUCHAR,
     pub cbKeyAuth: super::ULONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for NCRYPT_KEY_ATTEST_PADDING_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

@@ -112,7 +112,7 @@ pub const DIAG_LOGGER_NAMEW: windows_sys::core::PCWSTR = windows_sys::core::w!("
 pub const DefaultTraceSecurityGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x0811c1af_7a07_4a06_82ed_869455cdf713);
 #[repr(C)]
 #[cfg(all(feature = "evntprov", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: super::ULONG,
     pub EnableProperty: super::ULONG,
@@ -121,15 +121,27 @@ pub struct ENABLE_TRACE_PARAMETERS {
     pub EnableFilterDesc: super::PEVENT_FILTER_DESCRIPTOR,
     pub FilterDescCount: super::ULONG,
 }
+#[cfg(all(feature = "evntprov", feature = "shared"))]
+impl Default for ENABLE_TRACE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "evntprov", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: super::ULONG,
     pub EnableProperty: super::ULONG,
     pub ControlFlags: super::ULONG,
     pub SourceId: windows_sys::core::GUID,
     pub EnableFilterDesc: super::PEVENT_FILTER_DESCRIPTOR,
+}
+#[cfg(all(feature = "evntprov", feature = "shared"))]
+impl Default for ENABLE_TRACE_PARAMETERS_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ENABLE_TRACE_PARAMETERS_VERSION: i32 = 1;
 pub const ENABLE_TRACE_PARAMETERS_VERSION_2: i32 = 2;
@@ -139,11 +151,17 @@ pub const ETW_BOOLEAN_TYPE_VALUE: i32 = 14;
 pub const ETW_BOOL_TYPE_VALUE: i32 = 108;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ETW_BUFFER_CALLBACK_INFORMATION {
     pub TraceHandle: PROCESSTRACE_HANDLE,
     pub LogfileHeader: *const TRACE_LOGFILE_HEADER,
     pub BuffersRead: super::ULONG,
+}
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
+impl Default for ETW_BUFFER_CALLBACK_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -215,13 +233,19 @@ pub const ETW_NULL_TYPE_VALUE: i32 = 0;
 pub const ETW_OBJECT_TYPE_VALUE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ETW_OPEN_TRACE_OPTIONS {
     pub ProcessTraceModes: ETW_PROCESS_TRACE_MODES,
     pub EventCallback: PEVENT_RECORD_CALLBACK,
     pub EventCallbackContext: *mut core::ffi::c_void,
     pub BufferCallback: PETW_BUFFER_CALLBACK,
     pub BufferCallbackContext: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "evntcons", feature = "evntprov", feature = "minwinbase", feature = "shared", feature = "timezoneapi", feature = "winnt"))]
+impl Default for ETW_OPEN_TRACE_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -283,12 +307,18 @@ pub struct ETW_TRACE_PARTITION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
     pub QpcOffsetFromRoot: super::LONG64,
     pub PartitionType: super::ULONG,
     pub PartitionId: windows_sys::core::PWSTR,
     pub ParentId: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for ETW_TRACE_PARTITION_INFORMATION_V2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ETW_UINT16_TYPE_VALUE: i32 = 6;
 pub const ETW_UINT32_TYPE_VALUE: i32 = 8;
@@ -391,10 +421,16 @@ pub struct EVENT_INSTANCE_HEADER_2_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::HANDLE,
     pub InstanceId: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for EVENT_INSTANCE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const EVENT_LOGGER_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("EventLog");
 pub const EVENT_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("EventLog");
@@ -1132,10 +1168,16 @@ pub struct TRACE_GUID_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: super::LPCGUID,
     pub RegHandle: super::HANDLE,
+}
+#[cfg(all(feature = "guiddef", feature = "winnt"))]
+impl Default for TRACE_GUID_REGISTRATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const TRACE_HEADER_FLAG_LOG_WNODE: i32 = 262144;
 pub const TRACE_HEADER_FLAG_TRACED_GUID: i32 = 131072;

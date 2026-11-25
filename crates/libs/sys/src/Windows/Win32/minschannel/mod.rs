@@ -59,7 +59,7 @@ pub struct SecPkgCred_CipherStrengths {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SecPkgCred_ClientCertPolicy {
     pub dwFlags: super::DWORD,
     pub guidPolicyId: windows_sys::core::GUID,
@@ -70,6 +70,12 @@ pub struct SecPkgCred_ClientCertPolicy {
     pub fOmitUsageCheck: windows_sys::core::BOOL,
     pub pwszSslCtlStoreName: windows_sys::core::PWSTR,
     pub pwszSslCtlIdentifier: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for SecPkgCred_ClientCertPolicy {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -88,17 +94,29 @@ impl Default for SecPkgCred_SessionTicketKey {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SecPkgCred_SessionTicketKeys {
     pub cSessionTicketKeys: super::DWORD,
     pub pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
 }
+#[cfg(feature = "shared")]
+impl Default for SecPkgCred_SessionTicketKeys {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: super::DWORD,
     pub palgSupportedAlgs: *mut super::ALG_ID,
+}
+#[cfg(feature = "shared")]
+impl Default for SecPkgCred_SupportedAlgs {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

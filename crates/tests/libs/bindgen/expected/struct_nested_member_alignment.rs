@@ -80,9 +80,14 @@ impl Default for Outer_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PointerOnly {
     pub value: *mut PointerOnly_Child,
+}
+impl Default for PointerOnly {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, align(8))]
 #[derive(Clone, Copy)]

@@ -244,10 +244,16 @@ pub const KSDEVICE_THERMAL_STATE_HIGH: KSDEVICE_THERMAL_STATE = 1;
 pub const KSDEVICE_THERMAL_STATE_LOW: KSDEVICE_THERMAL_STATE = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSERROR {
     pub Context: super::PVOID,
     pub Status: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSERROR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type KSEVENT = KSIDENTIFIER;
@@ -293,11 +299,17 @@ impl Default for KSEVENTDATA_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSEVENTDATA_0_1 {
     pub Semaphore: super::HANDLE,
     pub Reserved: super::ULONG,
     pub Adjustment: super::LONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSEVENTDATA_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -575,10 +587,16 @@ pub type KSPIN_INTERFACE = KSIDENTIFIER;
 pub type KSPIN_MDL_CACHING_EVENT = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for KSPIN_MDL_CACHING_NOTIFICATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -930,18 +948,30 @@ impl Default for KSP_TIMEFORMAT {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSQUALITY {
     pub Context: super::PVOID,
     pub Proportion: super::ULONG,
     pub DeltaTime: super::LONGLONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSQUALITY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::HANDLE,
     pub Context: super::PVOID,
+}
+#[cfg(feature = "winnt")]
+impl Default for KSQUALITY_MANAGER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -1066,7 +1096,7 @@ impl Default for KSSTREAMALLOCATOR_STATUS_EX {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSSTREAM_HEADER {
     pub Size: super::ULONG,
     pub TypeSpecificFlags: super::ULONG,
@@ -1077,10 +1107,17 @@ pub struct KSSTREAM_HEADER {
     pub Data: super::PVOID,
     pub OptionsFlags: super::ULONG,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSSTREAM_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSSTREAM_HEADER {
     pub Size: super::ULONG,
     pub TypeSpecificFlags: super::ULONG,
@@ -1091,6 +1128,13 @@ pub struct KSSTREAM_HEADER {
     pub Data: super::PVOID,
     pub OptionsFlags: super::ULONG,
     pub Reserved: super::ULONG,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSSTREAM_HEADER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: i32 = 1024;
 pub const KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY: i32 = 4;
@@ -1113,7 +1157,7 @@ pub const KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER: i32 = 2048;
 pub const KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS: i32 = 131072;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSSTREAM_METADATA_INFO {
     pub BufferSize: super::ULONG,
     pub UsedSize: super::ULONG,
@@ -1121,6 +1165,12 @@ pub struct KSSTREAM_METADATA_INFO {
     pub SystemVa: super::PVOID,
     pub Flags: super::ULONG,
     pub Reserved: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for KSSTREAM_METADATA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1208,7 +1258,7 @@ pub const KSTIME_FORMAT_NONE: windows_core::GUID = windows_core::GUID::from_u128
 pub const KSTIME_FORMAT_SAMPLE: windows_core::GUID = windows_core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: super::ULONG,
     pub Categories: *const windows_core::GUID,
@@ -1218,6 +1268,12 @@ pub struct KSTOPOLOGY {
     pub TopologyConnections: *const KSTOPOLOGY_CONNECTION,
     pub TopologyNodesNames: *const windows_core::GUID,
     pub Reserved: super::ULONG,
+}
+#[cfg(feature = "shared")]
+impl Default for KSTOPOLOGY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

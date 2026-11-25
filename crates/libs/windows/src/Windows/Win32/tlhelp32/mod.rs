@@ -96,7 +96,7 @@ pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: super::DWORD, lpbaseadd
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAPENTRY32 {
     pub dwSize: super::SIZE_T,
     pub hHandle: super::HANDLE,
@@ -107,6 +107,12 @@ pub struct HEAPENTRY32 {
     pub dwResvd: super::DWORD,
     pub th32ProcessID: super::DWORD,
     pub th32HeapID: super::ULONG_PTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for HEAPENTRY32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

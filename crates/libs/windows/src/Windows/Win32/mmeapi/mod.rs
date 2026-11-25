@@ -1952,7 +1952,7 @@ pub struct WAVEFORMATEX {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WAVEHDR {
     pub lpData: windows_core::PSTR,
     pub dwBufferLength: super::DWORD,
@@ -1962,6 +1962,12 @@ pub struct WAVEHDR {
     pub dwLoops: super::DWORD,
     pub lpNext: *mut Self,
     pub reserved: super::DWORD_PTR,
+}
+#[cfg(feature = "shared")]
+impl Default for WAVEHDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "mmsyscom", feature = "shared"))]
 pub type WAVEINCAPS = WAVEINCAPSA;

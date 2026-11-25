@@ -467,7 +467,7 @@ pub const CMIC_MASK_SHIFT_DOWN: i32 = 268435456;
 pub const CMIC_MASK_UNICODE: i32 = 16384;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -479,9 +479,15 @@ pub struct CMINVOKECOMMANDINFO {
     pub dwHotKey: super::DWORD,
     pub hIcon: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for CMINVOKECOMMANDINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -499,9 +505,15 @@ pub struct CMINVOKECOMMANDINFOEX {
     pub lpTitleW: windows_core::PCWSTR,
     pub ptInvoke: super::POINT,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for CMINVOKECOMMANDINFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: super::DWORD,
     pub fMask: super::DWORD,
@@ -519,6 +531,12 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub ptInvoke: super::POINT,
     pub lpVerbInt: super::UINT,
     pub lpVerbWInt: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for CMINVOKECOMMANDINFOEX_REMOTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
@@ -19686,10 +19704,16 @@ pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
 pub type PLACEHOLDER_STATES = i32;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::HACCEL,
     pub cAccelEntries: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PREVIEWHANDLERFRAMEINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PROPERTYUI_FLAGS = u32;
 pub type PROPERTYUI_FORMAT_FLAGS = u32;
@@ -19811,12 +19835,18 @@ pub const SHCONTF_SHAREABLE: _SHCONTF = 1024;
 pub const SHCONTF_STORAGE: _SHCONTF = 2048;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::SIZE,
     pub ptOffset: super::POINT,
     pub hbmpDragImage: super::HBITMAP,
     pub crColorKey: super::COLORREF,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for SHDRAGIMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SHELLVIEWID = windows_core::GUID;
 #[repr(C)]
@@ -19906,11 +19936,17 @@ pub const SMAE_USER: i32 = 4;
 pub const SMAE_VALID: i32 = 7;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shtypes"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: super::LPCITEMIDLIST,
     pub pidl2: super::LPCITEMIDLIST,
+}
+#[cfg(all(feature = "shared", feature = "shtypes"))]
+impl Default for SMCSHCHANGENOTIFYSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SMC_AUTOEXPANDCHANGE: i32 = 66;
 pub const SMC_CHEVRONEXPAND: i32 = 25;
@@ -19940,7 +19976,6 @@ pub const SMC_SFSELECTITEM: i32 = 10;
 pub const SMC_SHCHANGENOTIFY: i32 = 46;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
-#[derive(Default)]
 pub struct SMDATA {
     pub dwMask: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -19954,6 +19989,12 @@ pub struct SMDATA {
     pub pidlItem: super::LPITEMIDLIST,
     pub psf: core::mem::ManuallyDrop<Option<IShellFolder>>,
     pub pvUserData: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "shared", feature = "shtypes", feature = "windef"))]
+impl Default for SMDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SMDM_HMENU: i32 = 2;
 pub const SMDM_SHELLFOLDER: i32 = 1;
@@ -20113,7 +20154,6 @@ pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
-#[derive(Default)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: super::DWORD,
     pub psvPrev: core::mem::ManuallyDrop<Option<IShellView>>,
@@ -20122,6 +20162,12 @@ pub struct SV2CVW2_PARAMS {
     pub prcView: *mut super::RECT,
     pub pvid: *const SHELLVIEWID,
     pub hwndView: super::HWND,
+}
+#[cfg(all(feature = "oleidl", feature = "shared", feature = "windef"))]
+impl Default for SV2CVW2_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const SV2GV_CURRENTVIEW: super::UINT = 4294967295;

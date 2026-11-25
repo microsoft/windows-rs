@@ -406,11 +406,17 @@ pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3;
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: super::DWORD,
     pub pComponentId: *const SLID,
     pub hResultUI: windows_core::HRESULT,
+}
+#[cfg(feature = "shared")]
+impl Default for SL_NONGENUINE_UI_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SL_PKEY_DETECT: windows_core::PCWSTR = windows_core::w!("msft:rm/algorithm/pkey/detect");
 pub const SL_PKEY_MS2005: windows_core::PCWSTR = windows_core::w!("msft:rm/algorithm/pkey/2005");

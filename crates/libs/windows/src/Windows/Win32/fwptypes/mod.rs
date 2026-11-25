@@ -1,8 +1,13 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWPM_DISPLAY_DATA0 {
     pub name: *mut u16,
     pub description: *mut u16,
+}
+impl Default for FWPM_DISPLAY_DATA0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWP_ACTION_BLOCK: i32 = 4097;
 pub const FWP_ACTION_CALLOUT_INSPECTION: i32 = 24580;
@@ -52,10 +57,16 @@ pub const FWP_BYTE_ARRAY6_SIZE: i32 = 6;
 pub const FWP_BYTE_ARRAY6_TYPE: FWP_DATA_TYPE = 18;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWP_BYTE_BLOB {
     pub size: super::UINT32,
     pub data: *mut super::UINT8,
+}
+#[cfg(feature = "shared")]
+impl Default for FWP_BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWP_BYTE_BLOB_TYPE: FWP_DATA_TYPE = 12;
 pub const FWP_CALLOUT_FLAG_ALLOW_L2_BATCH_CLASSIFY: i32 = 128;
@@ -250,12 +261,18 @@ pub const FWP_SINGLE_DATA_TYPE_MAX: FWP_DATA_TYPE = 255;
 pub const FWP_TOKEN_ACCESS_INFORMATION_TYPE: FWP_DATA_TYPE = 16;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FWP_TOKEN_INFORMATION {
     pub sidCount: super::ULONG,
     pub sids: super::PSID_AND_ATTRIBUTES,
     pub restrictedSidCount: super::ULONG,
     pub restrictedSids: super::PSID_AND_ATTRIBUTES,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for FWP_TOKEN_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FWP_TOKEN_INFORMATION_TYPE: FWP_DATA_TYPE = 15;
 pub const FWP_UINT16: FWP_DATA_TYPE = 2;

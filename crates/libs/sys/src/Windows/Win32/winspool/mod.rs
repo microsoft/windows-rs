@@ -308,17 +308,29 @@ windows_link::link!("winspool.drv" "system" fn XcvDataW(hxcv : super::HANDLE, ps
 pub type ADDJOB_INFO_1 = ADDJOB_INFO_1A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ADDJOB_INFO_1A {
     pub Path: windows_sys::core::PSTR,
     pub JobId: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for ADDJOB_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ADDJOB_INFO_1W {
     pub Path: windows_sys::core::PWSTR,
     pub JobId: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for ADDJOB_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const APD_COPY_ALL_FILES: i32 = 4;
 pub const APD_COPY_FROM_DIRECTORY: i32 = 16;
@@ -431,10 +443,16 @@ pub const BIDI_TEXT: BIDI_TYPE = 5;
 pub type BIDI_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct BINARY_CONTAINER {
     pub cbBuf: super::DWORD,
     pub pData: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for BINARY_CONTAINER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type CORE_PRINTER_DRIVER = CORE_PRINTER_DRIVERA;
@@ -470,14 +488,24 @@ impl Default for CORE_PRINTER_DRIVERW {
 }
 pub type DATATYPES_INFO_1 = DATATYPES_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DATATYPES_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for DATATYPES_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DATATYPES_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for DATATYPES_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DEF_PRIORITY: i32 = 1;
 pub const DI_CHANNEL: i32 = 1;
@@ -485,24 +513,34 @@ pub const DI_MEMORYMAP_WRITE: i32 = 1;
 pub const DI_READ_SPOOL_JOB: i32 = 3;
 pub type DOC_INFO_1 = DOC_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_1A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
 }
+impl Default for DOC_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_1W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pDatatype: windows_sys::core::PWSTR,
 }
+impl Default for DOC_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "shared")]
 pub type DOC_INFO_2 = DOC_INFO_2A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_2A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
@@ -510,9 +548,15 @@ pub struct DOC_INFO_2A {
     pub dwMode: super::DWORD,
     pub JobId: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DOC_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_2W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
@@ -521,44 +565,72 @@ pub struct DOC_INFO_2W {
     pub JobId: super::DWORD,
 }
 #[cfg(feature = "shared")]
+impl Default for DOC_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type DOC_INFO_3 = DOC_INFO_3A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_3A {
     pub pDocName: windows_sys::core::PSTR,
     pub pOutputFile: windows_sys::core::PSTR,
     pub pDatatype: windows_sys::core::PSTR,
     pub dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DOC_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DOC_INFO_3W {
     pub pDocName: windows_sys::core::PWSTR,
     pub pOutputFile: windows_sys::core::PWSTR,
     pub pDatatype: windows_sys::core::PWSTR,
     pub dwFlags: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DOC_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const DPD_DELETE_ALL_FILES: i32 = 4;
 pub const DPD_DELETE_SPECIFIC_VERSION: i32 = 2;
 pub const DPD_DELETE_UNUSED_FILES: i32 = 1;
 pub type DRIVER_INFO_1 = DRIVER_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for DRIVER_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for DRIVER_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type DRIVER_INFO_2 = DRIVER_INFO_2A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_2A {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PSTR,
@@ -567,9 +639,15 @@ pub struct DRIVER_INFO_2A {
     pub pDataFile: windows_sys::core::PSTR,
     pub pConfigFile: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_2W {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -579,10 +657,16 @@ pub struct DRIVER_INFO_2W {
     pub pConfigFile: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type DRIVER_INFO_3 = DRIVER_INFO_3A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_3A {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PSTR,
@@ -595,9 +679,15 @@ pub struct DRIVER_INFO_3A {
     pub pMonitorName: windows_sys::core::PSTR,
     pub pDefaultDataType: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_3W {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -611,10 +701,16 @@ pub struct DRIVER_INFO_3W {
     pub pDefaultDataType: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type DRIVER_INFO_4 = DRIVER_INFO_4A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_4A {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PSTR,
@@ -628,9 +724,15 @@ pub struct DRIVER_INFO_4A {
     pub pDefaultDataType: windows_sys::core::PSTR,
     pub pszzPreviousNames: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_4W {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -645,10 +747,16 @@ pub struct DRIVER_INFO_4W {
     pub pszzPreviousNames: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type DRIVER_INFO_5 = DRIVER_INFO_5A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_5A {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PSTR,
@@ -660,9 +768,15 @@ pub struct DRIVER_INFO_5A {
     pub dwConfigVersion: super::DWORD,
     pub dwDriverVersion: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_5A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_5W {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -674,11 +788,17 @@ pub struct DRIVER_INFO_5W {
     pub dwConfigVersion: super::DWORD,
     pub dwDriverVersion: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for DRIVER_INFO_5W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type DRIVER_INFO_6 = DRIVER_INFO_6A;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_6A {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PSTR,
@@ -698,9 +818,15 @@ pub struct DRIVER_INFO_6A {
     pub pszHardwareID: windows_sys::core::PSTR,
     pub pszProvider: windows_sys::core::PSTR,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DRIVER_INFO_6A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_6W {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -721,10 +847,16 @@ pub struct DRIVER_INFO_6W {
     pub pszProvider: windows_sys::core::PWSTR,
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DRIVER_INFO_6W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type DRIVER_INFO_8 = DRIVER_INFO_8A;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_8A {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PSTR,
@@ -752,9 +884,15 @@ pub struct DRIVER_INFO_8A {
     pub ftMinInboxDriverVerDate: super::FILETIME,
     pub dwlMinInboxDriverVerVersion: super::DWORDLONG,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DRIVER_INFO_8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRIVER_INFO_8W {
     pub cVersion: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -781,6 +919,12 @@ pub struct DRIVER_INFO_8W {
     pub pszzCoreDriverDependencies: windows_sys::core::PWSTR,
     pub ftMinInboxDriverVerDate: super::FILETIME,
     pub dwlMinInboxDriverVerVersion: super::DWORDLONG,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for DRIVER_INFO_8W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRIVER_KERNELMODE: i32 = 1;
 pub const DRIVER_USERMODE: i32 = 2;
@@ -818,16 +962,22 @@ pub const FORM_BUILTIN: i32 = 1;
 pub type FORM_INFO_1 = FORM_INFO_1A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_1A {
     pub Flags: super::DWORD,
     pub pName: windows_sys::core::PSTR,
     pub Size: super::SIZEL,
     pub ImageableArea: super::RECTL,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for FORM_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_1W {
     pub Flags: super::DWORD,
     pub pName: windows_sys::core::PWSTR,
@@ -835,10 +985,16 @@ pub struct FORM_INFO_1W {
     pub ImageableArea: super::RECTL,
 }
 #[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for FORM_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
 pub type FORM_INFO_2 = FORM_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_2A {
     pub Flags: super::DWORD,
     pub pName: windows_sys::core::PCSTR,
@@ -851,9 +1007,15 @@ pub struct FORM_INFO_2A {
     pub pDisplayName: windows_sys::core::PCSTR,
     pub wLangId: super::LANGID,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for FORM_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct FORM_INFO_2W {
     pub Flags: super::DWORD,
     pub pName: windows_sys::core::PCWSTR,
@@ -865,6 +1027,12 @@ pub struct FORM_INFO_2W {
     pub dwResourceId: super::DWORD,
     pub pDisplayName: windows_sys::core::PCWSTR,
     pub wLangId: super::LANGID,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for FORM_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const FORM_PRINTER: i32 = 2;
 pub const FORM_USER: i32 = 0;
@@ -888,7 +1056,7 @@ pub const JOB_EXECUTE: i32 = 131088;
 pub type JOB_INFO_1 = JOB_INFO_1A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_1A {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -904,9 +1072,15 @@ pub struct JOB_INFO_1A {
     pub PagesPrinted: super::DWORD,
     pub Submitted: super::SYSTEMTIME,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
+impl Default for JOB_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_1W {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -922,11 +1096,17 @@ pub struct JOB_INFO_1W {
     pub PagesPrinted: super::DWORD,
     pub Submitted: super::SYSTEMTIME,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared"))]
+impl Default for JOB_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub type JOB_INFO_2 = JOB_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_2A {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -952,9 +1132,15 @@ pub struct JOB_INFO_2A {
     pub Time: super::DWORD,
     pub PagesPrinted: super::DWORD,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_2W {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -980,6 +1166,12 @@ pub struct JOB_INFO_2W {
     pub Time: super::DWORD,
     pub PagesPrinted: super::DWORD,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
 #[derive(Clone, Copy, Default)]
@@ -992,7 +1184,7 @@ pub struct JOB_INFO_3 {
 pub type JOB_INFO_4 = JOB_INFO_4A;
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_4A {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -1019,9 +1211,15 @@ pub struct JOB_INFO_4A {
     pub PagesPrinted: super::DWORD,
     pub SizeHigh: super::LONG,
 }
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct JOB_INFO_4W {
     pub JobId: super::DWORD,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -1047,6 +1245,12 @@ pub struct JOB_INFO_4W {
     pub Time: super::DWORD,
     pub PagesPrinted: super::DWORD,
     pub SizeHigh: super::LONG,
+}
+#[cfg(all(feature = "minwinbase", feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for JOB_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const JOB_NOTIFY_FIELD_BYTES_PRINTED: i32 = 23;
 pub const JOB_NOTIFY_FIELD_DATATYPE: i32 = 5;
@@ -1304,29 +1508,49 @@ pub const MAX_PRIORITY: i32 = 99;
 pub const MIN_PRIORITY: i32 = 1;
 pub type MONITOR_INFO_1 = MONITOR_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for MONITOR_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
 }
+impl Default for MONITOR_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type MONITOR_INFO_2 = MONITOR_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_2A {
     pub pName: windows_sys::core::PSTR,
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
+impl Default for MONITOR_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MONITOR_INFO_2W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
+}
+impl Default for MONITOR_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MS_PRINT_JOB_OUTPUT_FILE: windows_sys::core::PCWSTR = windows_sys::core::w!("MsPrintJobOutputFile");
 pub const NORMAL_PRINT: i32 = 0;
@@ -1452,20 +1676,30 @@ pub type PMONITOR_INFO_2A = *mut MONITOR_INFO_2A;
 pub type PMONITOR_INFO_2W = *mut MONITOR_INFO_2W;
 pub type PORT_INFO_1 = PORT_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for PORT_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for PORT_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type PORT_INFO_2 = PORT_INFO_2A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_2A {
     pub pPortName: windows_sys::core::PSTR,
     pub pMonitorName: windows_sys::core::PSTR,
@@ -1473,9 +1707,15 @@ pub struct PORT_INFO_2A {
     pub fPortType: super::DWORD,
     pub Reserved: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PORT_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_2W {
     pub pPortName: windows_sys::core::PWSTR,
     pub pMonitorName: windows_sys::core::PWSTR,
@@ -1484,22 +1724,40 @@ pub struct PORT_INFO_2W {
     pub Reserved: super::DWORD,
 }
 #[cfg(feature = "shared")]
+impl Default for PORT_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type PORT_INFO_3 = PORT_INFO_3A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_3A {
     pub dwStatus: super::DWORD,
     pub pszStatus: windows_sys::core::PSTR,
     pub dwSeverity: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PORT_INFO_3A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PORT_INFO_3W {
     pub dwStatus: super::DWORD,
     pub pszStatus: windows_sys::core::PWSTR,
     pub dwSeverity: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for PORT_INFO_3W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PORT_STATUS_DOOR_OPEN: i32 = 7;
 pub const PORT_STATUS_NO_TONER: i32 = 6;
@@ -1694,17 +1952,29 @@ pub const PRINTER_CHANGE_WRITE_JOB: i32 = 2048;
 pub type PRINTER_CONNECTION_INFO_1 = PRINTER_CONNECTION_INFO_1A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_CONNECTION_INFO_1A {
     pub dwFlags: super::DWORD,
     pub pszDriverName: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_CONNECTION_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_CONNECTION_INFO_1W {
     pub dwFlags: super::DWORD,
     pub pszDriverName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for PRINTER_CONNECTION_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_CONNECTION_MISMATCH: i32 = 32;
 pub const PRINTER_CONNECTION_NO_UI: i32 = 64;
@@ -1716,19 +1986,31 @@ pub const PRINTER_CONTROL_SET_STATUS: i32 = 4;
 pub type PRINTER_DEFAULTS = PRINTER_DEFAULTSA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: windows_sys::core::PSTR,
     pub pDevMode: super::LPDEVMODEA,
     pub DesiredAccess: super::ACCESS_MASK,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for PRINTER_DEFAULTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: windows_sys::core::PWSTR,
     pub pDevMode: super::LPDEVMODEW,
     pub DesiredAccess: super::ACCESS_MASK,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_DEFAULTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_DRIVER_CATEGORY_3D: i32 = 4096;
 pub const PRINTER_DRIVER_CATEGORY_CLOUD: i32 = 8192;
@@ -1770,7 +2052,7 @@ pub const PRINTER_ENUM_SHARED: i32 = 32;
 pub type PRINTER_ENUM_VALUES = PRINTER_ENUM_VALUESA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_ENUM_VALUESA {
     pub pValueName: windows_sys::core::PSTR,
     pub cbValueName: super::DWORD,
@@ -1778,15 +2060,27 @@ pub struct PRINTER_ENUM_VALUESA {
     pub pData: super::LPBYTE,
     pub cbData: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_ENUM_VALUESA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_ENUM_VALUESW {
     pub pValueName: windows_sys::core::PWSTR,
     pub cbValueName: super::DWORD,
     pub dwType: super::DWORD,
     pub pData: super::LPBYTE,
     pub cbData: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for PRINTER_ENUM_VALUESW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_ERROR_INFORMATION: u32 = 2147483648;
 pub const PRINTER_ERROR_JAM: i32 = 2;
@@ -1799,27 +2093,39 @@ pub const PRINTER_EXECUTE: i32 = 131080;
 pub type PRINTER_INFO_1 = PRINTER_INFO_1A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1A {
     pub Flags: super::DWORD,
     pub pDescription: windows_sys::core::PSTR,
     pub pName: windows_sys::core::PSTR,
     pub pComment: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1W {
     pub Flags: super::DWORD,
     pub pDescription: windows_sys::core::PWSTR,
     pub pName: windows_sys::core::PWSTR,
     pub pComment: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
 pub type PRINTER_INFO_2 = PRINTER_INFO_2A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_2A {
     pub pServerName: windows_sys::core::PSTR,
     pub pPrinterName: windows_sys::core::PSTR,
@@ -1843,9 +2149,15 @@ pub struct PRINTER_INFO_2A {
     pub cJobs: super::DWORD,
     pub AveragePPM: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_2W {
     pub pServerName: windows_sys::core::PWSTR,
     pub pPrinterName: windows_sys::core::PWSTR,
@@ -1869,35 +2181,59 @@ pub struct PRINTER_INFO_2W {
     pub cJobs: super::DWORD,
     pub AveragePPM: super::DWORD,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_3 {
     pub pSecurityDescriptor: super::PSECURITY_DESCRIPTOR,
+}
+#[cfg(feature = "winnt")]
+impl Default for PRINTER_INFO_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub type PRINTER_INFO_4 = PRINTER_INFO_4A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_4A {
     pub pPrinterName: windows_sys::core::PSTR,
     pub pServerName: windows_sys::core::PSTR,
     pub Attributes: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_4A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_4W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pServerName: windows_sys::core::PWSTR,
     pub Attributes: super::DWORD,
 }
 #[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_4W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub type PRINTER_INFO_5 = PRINTER_INFO_5A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_5A {
     pub pPrinterName: windows_sys::core::PSTR,
     pub pPortName: windows_sys::core::PSTR,
@@ -1905,15 +2241,27 @@ pub struct PRINTER_INFO_5A {
     pub DeviceNotSelectedTimeout: super::DWORD,
     pub TransmissionRetryTimeout: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_5A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_5W {
     pub pPrinterName: windows_sys::core::PWSTR,
     pub pPortName: windows_sys::core::PWSTR,
     pub Attributes: super::DWORD,
     pub DeviceNotSelectedTimeout: super::DWORD,
     pub TransmissionRetryTimeout: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_5W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -1925,45 +2273,81 @@ pub struct PRINTER_INFO_6 {
 pub type PRINTER_INFO_7 = PRINTER_INFO_7A;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_7A {
     pub pszObjectGUID: windows_sys::core::PSTR,
     pub dwAction: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_7A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_7W {
     pub pszObjectGUID: windows_sys::core::PWSTR,
     pub dwAction: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for PRINTER_INFO_7W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 pub type PRINTER_INFO_8 = PRINTER_INFO_8A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_8A {
     pub pDevMode: super::LPDEVMODEA,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for PRINTER_INFO_8A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_8W {
     pub pDevMode: super::LPDEVMODEW,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_8W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
 pub type PRINTER_INFO_9 = PRINTER_INFO_9A;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_9A {
     pub pDevMode: super::LPDEVMODEA,
 }
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi"))]
+impl Default for PRINTER_INFO_9A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_INFO_9W {
     pub pDevMode: super::LPDEVMODEW,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "wingdi", feature = "winnt"))]
+impl Default for PRINTER_INFO_9W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_NOTIFY_CATEGORY_3D: i32 = 8192;
 pub const PRINTER_NOTIFY_CATEGORY_ALL: i32 = 4096;
@@ -2042,25 +2426,37 @@ impl Default for PRINTER_NOTIFY_INFO_DATA_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_INFO_DATA_0_0 {
     pub cbBuf: super::DWORD,
     pub pBuf: super::LPVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PRINTER_NOTIFY_INFO_DATA_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_INFO_DISCARDED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_OPTIONS {
     pub Version: super::DWORD,
     pub Flags: super::DWORD,
     pub Count: super::DWORD,
     pub pTypes: PPRINTER_NOTIFY_OPTIONS_TYPE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PRINTER_NOTIFY_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const PRINTER_NOTIFY_OPTIONS_REFRESH: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Type: super::WORD,
     pub Reserved0: super::WORD,
@@ -2068,6 +2464,12 @@ pub struct PRINTER_NOTIFY_OPTIONS_TYPE {
     pub Reserved2: super::DWORD,
     pub Count: super::DWORD,
     pub pFields: super::PWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PRINTER_NOTIFY_OPTIONS_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PRINTER_NOTIFY_TYPE: i32 = 0;
 #[cfg(feature = "shared")]
@@ -2145,14 +2547,24 @@ pub struct PRINTPROCESSOR_CAPS_2 {
 }
 pub type PRINTPROCESSOR_INFO_1 = PRINTPROCESSOR_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
 }
+impl Default for PRINTPROCESSOR_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PRINTPROCESSOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
+}
+impl Default for PRINTPROCESSOR_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type PRINT_EXECUTION_CONTEXT = i32;
 pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0;
@@ -2169,29 +2581,49 @@ pub struct PRINT_EXECUTION_DATA {
 }
 pub type PROVIDOR_INFO_1 = PROVIDOR_INFO_1A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_1A {
     pub pName: windows_sys::core::PSTR,
     pub pEnvironment: windows_sys::core::PSTR,
     pub pDLLName: windows_sys::core::PSTR,
 }
+impl Default for PROVIDOR_INFO_1A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_1W {
     pub pName: windows_sys::core::PWSTR,
     pub pEnvironment: windows_sys::core::PWSTR,
     pub pDLLName: windows_sys::core::PWSTR,
 }
+impl Default for PROVIDOR_INFO_1W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type PROVIDOR_INFO_2 = PROVIDOR_INFO_2A;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_2A {
     pub pOrder: windows_sys::core::PSTR,
 }
+impl Default for PROVIDOR_INFO_2A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PROVIDOR_INFO_2W {
     pub pOrder: windows_sys::core::PWSTR,
+}
+impl Default for PROVIDOR_INFO_2W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -2208,10 +2640,16 @@ impl Default for PrintNamedProperty {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PrintPropertiesCollection {
     pub numberOfProperties: super::ULONG,
     pub propertiesCollection: *mut PrintNamedProperty,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PrintPropertiesCollection {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -2244,10 +2682,16 @@ impl Default for PrintPropertyValue_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: super::DWORD,
     pub pBuf: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PrintPropertyValue_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const REVERSE_PRINT: i32 = 1;
 pub const SERVER_ACCESS_ADMINISTER: i32 = 1;

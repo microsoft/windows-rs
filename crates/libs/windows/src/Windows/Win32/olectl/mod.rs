@@ -364,7 +364,7 @@ pub const OCM_VSCROLL: i32 = 8469;
 pub const OCM__BASE: i32 = 8192;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OCPFIPARAMS {
     pub cbStructSize: super::ULONG,
     pub hWndOwner: super::HWND,
@@ -377,6 +377,12 @@ pub struct OCPFIPARAMS {
     pub lpPages: *mut super::CLSID,
     pub lcid: super::LCID,
     pub dispidInitialProperty: super::DISPID,
+}
+#[cfg(all(feature = "guiddef", feature = "shared", feature = "unknwnbase", feature = "windef", feature = "wtypesbase"))]
+impl Default for OCPFIPARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OLEIVERB_PROPERTIES: i32 = -7;
 pub const OLEMISC_ACTSLIKEBUTTON: i32 = 4096;
@@ -441,30 +447,54 @@ impl Default for PICTDESC_0 {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::HBITMAP,
     pub hpal: super::HPALETTE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for PICTDESC_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_1 {
     pub hmeta: super::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
-#[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
-pub struct PICTDESC_0_2 {
-    pub hicon: super::HICON,
+impl Default for PICTDESC_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
+pub struct PICTDESC_0_2 {
+    pub hicon: super::HICON,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for PICTDESC_0_2 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(8))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+#[derive(Clone, Copy)]
 pub struct PICTDESC_0_3 {
     pub hemf: super::HENHMETAFILE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef"))]
+impl Default for PICTDESC_0_3 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PICTYPE_BITMAP: i32 = 1;
 pub const PICTYPE_ENHMETAFILE: i32 = 4;

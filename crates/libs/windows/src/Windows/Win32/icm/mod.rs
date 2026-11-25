@@ -809,15 +809,21 @@ impl Default for COLOR {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COLOR_0 {
     pub reserved1: super::DWORD,
     pub reserved2: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for COLOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type COLORDATATYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct COLORMATCHSETUPA {
     pub dwSize: super::DWORD,
     pub dwVersion: super::DWORD,
@@ -839,9 +845,15 @@ pub struct COLORMATCHSETUPA {
     pub lpfnApplyCallback: PCMSCALLBACKA,
     pub lParamApplyCallback: super::LPARAM,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for COLORMATCHSETUPA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct COLORMATCHSETUPW {
     pub dwSize: super::DWORD,
     pub dwVersion: super::DWORD,
@@ -862,6 +874,12 @@ pub struct COLORMATCHSETUPW {
     pub lParam: super::LPARAM,
     pub lpfnApplyCallback: PCMSCALLBACKW,
     pub lParamApplyCallback: super::LPARAM,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winuser"))]
+impl Default for COLORMATCHSETUPW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type COLORPROFILESUBTYPE = i32;
 pub type COLORPROFILETYPE = i32;
@@ -1121,11 +1139,17 @@ pub type PPROFILEHEADER = *mut PROFILEHEADER;
 pub const PRESERVEBLACK: i32 = 1048576;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROFILE {
     pub dwType: super::DWORD,
     pub pProfileData: super::PVOID,
     pub cbDataSize: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PROFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wingdi"))]

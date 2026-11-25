@@ -88,7 +88,7 @@ pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserveri
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
     pub dwVersion: super::DWORD,
     pub cbContactId: super::DWORD,
@@ -101,6 +101,12 @@ pub struct CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
     pub pbPublicKey: super::PBYTE,
     pub pwszAuthenticatorName: windows_core::PCWSTR,
     pub wEncodedTunnelServerDomain: super::WORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CTAPCBOR_HYBRID_STORAGE_LINKED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_CURRENT_VERSION: i32 = 1;
 pub const CTAPCBOR_HYBRID_STORAGE_LINKED_DATA_VERSION_1: i32 = 1;
@@ -170,7 +176,7 @@ pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS_CURRENT_VERSION: 
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_AUTHENTICATOR_OPTIONS_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY {
     pub dwVersion: super::DWORD,
     pub lKty: super::LONG,
@@ -181,11 +187,17 @@ pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY {
     pub cbY: super::DWORD,
     pub pbY: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY_CURRENT_VERSION: i32 = 1;
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST {
     pub dwVersion: super::DWORD,
     pub pwszRpId: windows_core::PCWSTR,
@@ -213,11 +225,17 @@ pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST {
     pub cbJsonExt: super::DWORD,
     pub pbJsonExt: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST_CURRENT_VERSION: i32 = 1;
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_REQUEST_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_RESPONSE {
     pub WebAuthNAssertion: WEBAUTHN_ASSERTION,
     pub pUserInformation: PCWEBAUTHN_USER_ENTITY_INFORMATION,
@@ -228,9 +246,15 @@ pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_RESPONSE {
     pub cbUnsignedExtensionOutputs: super::DWORD,
     pub pbUnsignedExtensionOutputs: super::PBYTE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for EXPERIMENTAL_WEBAUTHN_CTAPCBOR_GET_ASSERTION_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION {
     pub dwVersion: super::DWORD,
     pub pKeyAgreement: EXPERIMENTAL_PWEBAUTHN_CTAPCBOR_ECC_PUBLIC_KEY,
@@ -239,11 +263,17 @@ pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION {
     pub cbSaltAuth: super::DWORD,
     pub pbSaltAuth: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION_CURRENT_VERSION: i32 = 1;
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_HMAC_SALT_EXTENSION_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST {
     pub dwVersion: super::DWORD,
     pub cbRpId: super::DWORD,
@@ -276,11 +306,17 @@ pub struct EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST {
     pub cbJsonExt: super::DWORD,
     pub pbJsonExt: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST_CURRENT_VERSION: i32 = 1;
 pub const EXPERIMENTAL_WEBAUTHN_CTAPCBOR_MAKE_CREDENTIAL_REQUEST_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS {
     pub pwszAuthenticatorName: windows_core::PCWSTR,
     pub pwszPluginClsId: windows_core::PCWSTR,
@@ -290,16 +326,28 @@ pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS {
     pub cbAuthenticatorInfo: super::DWORD,
     pub pbAuthenticatorInfo: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_RESPONSE {
     pub cbOpSignPubKey: super::DWORD,
     pub pbOpSignPubKey: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_ADD_AUTHENTICATOR_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS {
     pub cbCredentialId: super::DWORD,
     pub pbCredentialId: super::PBYTE,
@@ -310,17 +358,29 @@ pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS {
     pub pwszUserName: windows_core::PWSTR,
     pub pwszUserDisplayName: windows_core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS_LIST {
     pub pwszPluginClsId: windows_core::PWSTR,
     pub cCredentialDetails: super::DWORD,
     pub pCredentialDetails: *mut EXPERIMENTAL_PWEBAUTHN_PLUGIN_CREDENTIAL_DETAILS,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_CREDENTIAL_DETAILS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
     pub hwnd: super::HWND,
     pub transactionId: *mut windows_core::GUID,
@@ -328,18 +388,30 @@ pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
     pub pwszUsername: windows_core::PCWSTR,
     pub pwszContext: windows_core::PCWSTR,
 }
+#[cfg(feature = "windef")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_OPERATION_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_RESPONSE {
     pub cbResponse: super::DWORD,
     pub pbResponse: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type EXPERIMENTAL_WEBAUTHN_PLUGIN_STATUS_CHANGE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS {
     pub pwszAuthenticatorName: windows_core::PCWSTR,
     pub pwszPluginClsId: windows_core::PCWSTR,
@@ -348,6 +420,12 @@ pub struct EXPERIMENTAL_WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS {
     pub pwszDarkThemeLogo: windows_core::PCWSTR,
     pub cbAuthenticatorInfo: super::DWORD,
     pub pbAuthenticatorInfo: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for EXPERIMENTAL_WEBAUTHN_PLUGIN_UPDATE_AUTHENTICATOR_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GetPubKey: EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_OPERATION_TYPE = 3;
 pub const GetUvCount: EXPERIMENTAL_WEBAUTHN_PLUGIN_PERFORM_UV_OPERATION_TYPE = 2;
@@ -481,7 +559,7 @@ pub const WEBAUTHN_API_VERSION_8: i32 = 8;
 pub const WEBAUTHN_API_VERSION_9: i32 = 9;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_ASSERTION {
     pub dwVersion: super::DWORD,
     pub cbAuthenticatorData: super::DWORD,
@@ -503,6 +581,12 @@ pub struct WEBAUTHN_ASSERTION {
     pub pbClientDataJSON: super::PBYTE,
     pub cbAuthenticationResponseJSON: super::DWORD,
     pub pbAuthenticationResponseJSON: super::PBYTE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WEBAUTHN_ASSERTION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: i32 = 6;
 pub const WEBAUTHN_ASSERTION_VERSION_1: i32 = 1;
@@ -528,7 +612,7 @@ pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: i32 = 3;
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_DETAILS {
     pub dwVersion: super::DWORD,
     pub cbAuthenticatorId: super::DWORD,
@@ -538,13 +622,25 @@ pub struct WEBAUTHN_AUTHENTICATOR_DETAILS {
     pub pbAuthenticatorLogo: super::PBYTE,
     pub bLocked: windows_core::BOOL,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_AUTHENTICATOR_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_AUTHENTICATOR_DETAILS_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_DETAILS_LIST {
     pub cAuthenticatorDetails: super::DWORD,
     pub ppAuthenticatorDetails: *mut PWEBAUTHN_AUTHENTICATOR_DETAILS,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_AUTHENTICATOR_DETAILS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -557,7 +653,7 @@ pub const WEBAUTHN_AUTHENTICATOR_DETAILS_OPTIONS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_AUTHENTICATOR_DETAILS_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub dwVersion: super::DWORD,
     pub dwTimeoutMilliseconds: super::DWORD,
@@ -587,6 +683,12 @@ pub struct WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
     pub cbAuthenticatorId: super::DWORD,
     pub pbAuthenticatorId: super::PBYTE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: i32 = 9;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: i32 = 2;
@@ -600,7 +702,7 @@ pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_9: i32 = 9;
 pub const WEBAUTHN_AUTHENTICATOR_HMAC_SECRET_VALUES_FLAG: i32 = 1048576;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub dwVersion: super::DWORD,
     pub dwTimeoutMilliseconds: super::DWORD,
@@ -631,6 +733,12 @@ pub struct WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
     pub cbAuthenticatorId: super::DWORD,
     pub pbAuthenticatorId: super::PBYTE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: i32 = 9;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: i32 = 2;
@@ -643,17 +751,23 @@ pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_8: i32 = 8;
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_9: i32 = 9;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CLIENT_DATA {
     pub dwVersion: super::DWORD,
     pub cbClientDataJSON: super::DWORD,
     pub pbClientDataJSON: super::PBYTE,
     pub pwszHashAlgId: windows_core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CLIENT_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_COMMON_ATTESTATION {
     pub dwVersion: super::DWORD,
     pub pwszAlg: windows_core::PCWSTR,
@@ -667,6 +781,12 @@ pub struct WEBAUTHN_COMMON_ATTESTATION {
     pub pbCertInfo: super::PBYTE,
     pub cbPubArea: super::DWORD,
     pub pbPubArea: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_COMMON_ATTESTATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: i32 = 1;
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7;
@@ -691,31 +811,49 @@ pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
     pub cCredentialParameters: super::DWORD,
     pub pCredentialParameters: PWEBAUTHN_COSE_CREDENTIAL_PARAMETER,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL {
     pub dwVersion: super::DWORD,
     pub cbId: super::DWORD,
     pub pbId: super::PBYTE,
     pub pwszCredentialType: windows_core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CREDENTIAL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIALS {
     pub cCredentials: super::DWORD,
     pub pCredentials: PWEBAUTHN_CREDENTIAL,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CREDENTIALS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub dwVersion: super::DWORD,
     pub pwszFormatType: windows_core::PCWSTR,
@@ -745,6 +883,12 @@ pub struct WEBAUTHN_CREDENTIAL_ATTESTATION {
     pub cbRegistrationResponseJSON: super::DWORD,
     pub pbRegistrationResponseJSON: super::PBYTE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: i32 = 8;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: i32 = 1;
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: i32 = 2;
@@ -757,7 +901,7 @@ pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_8: i32 = 8;
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_DETAILS {
     pub dwVersion: super::DWORD,
     pub cbCredentialID: super::DWORD,
@@ -772,13 +916,25 @@ pub struct WEBAUTHN_CREDENTIAL_DETAILS {
     pub bThirdPartyPayment: windows_core::BOOL,
     pub dwTransports: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CREDENTIAL_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_CREDENTIAL_DETAILS_CURRENT_VERSION: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_DETAILS_LIST {
     pub cCredentialDetails: super::DWORD,
     pub ppCredentialDetails: *mut PWEBAUTHN_CREDENTIAL_DETAILS,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CREDENTIAL_DETAILS_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_1: i32 = 1;
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_2: i32 = 2;
@@ -786,7 +942,7 @@ pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_3: i32 = 3;
 pub const WEBAUTHN_CREDENTIAL_DETAILS_VERSION_4: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_EX {
     pub dwVersion: super::DWORD,
     pub cbId: super::DWORD,
@@ -794,24 +950,42 @@ pub struct WEBAUTHN_CREDENTIAL_EX {
     pub pwszCredentialType: windows_core::PCWSTR,
     pub dwTransports: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CREDENTIAL_EX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: i32 = 1;
 pub const WEBAUTHN_CREDENTIAL_HINT_CLIENT_DEVICE: windows_core::PCWSTR = windows_core::w!("client-device");
 pub const WEBAUTHN_CREDENTIAL_HINT_HYBRID: windows_core::PCWSTR = windows_core::w!("hybrid");
 pub const WEBAUTHN_CREDENTIAL_HINT_SECURITY_KEY: windows_core::PCWSTR = windows_core::w!("security-key");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CREDENTIAL_LIST {
     pub cCredentials: super::DWORD,
     pub ppCredentials: *mut PWEBAUTHN_CREDENTIAL_EX,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CREDENTIAL_LIST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const WEBAUTHN_CREDENTIAL_TYPE_PUBLIC_KEY: windows_core::PCWSTR = windows_core::w!("public-key");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CRED_BLOB_EXTENSION {
     pub cbCredBlob: super::DWORD,
     pub pbCredBlob: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CRED_BLOB_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: i32 = 3;
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: i32 = 1;
@@ -836,11 +1010,17 @@ pub struct WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
     pub cbCredID: super::DWORD,
     pub pbCredID: super::PBYTE,
     pub pHmacSecretSalt: PWEBAUTHN_HMAC_SECRET_SALT,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_CRED_WITH_HMAC_SECRET_SALT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_CTAP_ONE_HMAC_SECRET_LENGTH: i32 = 32;
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: i32 = 4;
@@ -862,18 +1042,30 @@ pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: i32 = 2;
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_EXTENSION {
     pub pwszExtensionIdentifier: windows_core::PCWSTR,
     pub cbExtension: super::DWORD,
     pub pvExtension: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WEBAUTHN_EXTENSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_EXTENSIONS {
     pub cExtensions: super::DWORD,
     pub pExtensions: PWEBAUTHN_EXTENSION,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for WEBAUTHN_EXTENSIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_BLOB: windows_core::PCWSTR = windows_core::w!("credBlob");
 pub const WEBAUTHN_EXTENSIONS_IDENTIFIER_CRED_PROTECT: windows_core::PCWSTR = windows_core::w!("credProtect");
@@ -894,20 +1086,32 @@ pub const WEBAUTHN_HASH_ALGORITHM_SHA_384: windows_core::PCWSTR = windows_core::
 pub const WEBAUTHN_HASH_ALGORITHM_SHA_512: windows_core::PCWSTR = windows_core::w!("SHA-512");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_HMAC_SECRET_SALT {
     pub cbFirst: super::DWORD,
     pub pbFirst: super::PBYTE,
     pub cbSecond: super::DWORD,
     pub pbSecond: super::PBYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_HMAC_SECRET_SALT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_HMAC_SECRET_SALT_VALUES {
     pub pGlobalHmacSalt: PWEBAUTHN_HMAC_SECRET_SALT,
     pub cCredWithHmacSecretSaltList: super::DWORD,
     pub pCredWithHmacSecretSaltList: PWEBAUTHN_CRED_WITH_HMAC_SECRET_SALT,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_HMAC_SECRET_SALT_VALUES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: i32 = 0;
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: i32 = 2;
@@ -926,7 +1130,7 @@ pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: i32 = 1;
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_VERSION_1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
     pub dwVersion: super::DWORD,
     pub cbId: super::DWORD,
@@ -934,6 +1138,12 @@ pub struct WEBAUTHN_USER_ENTITY_INFORMATION {
     pub pwszName: windows_core::PCWSTR,
     pub pwszIcon: windows_core::PCWSTR,
     pub pwszDisplayName: windows_core::PCWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_USER_ENTITY_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: i32 = 1;
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_VERSION_1: i32 = 1;
@@ -947,8 +1157,14 @@ pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: i32 = 2;
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEBAUTHN_X5C {
     pub cbData: super::DWORD,
     pub pbData: super::PBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WEBAUTHN_X5C {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }

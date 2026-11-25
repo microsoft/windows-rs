@@ -74,10 +74,15 @@ pub const REG_OPTION_VOLATILE: i32 = 1;
 pub const REG_QWORD: u32 = 11;
 pub const REG_SZ: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: DWORD,
     pub lpSecurityDescriptor: LPVOID,
     pub bInheritHandle: BOOL,
+}
+impl Default for SECURITY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type SIZE_T = usize;

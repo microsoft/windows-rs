@@ -68,20 +68,32 @@ pub const DRVCNF_OK: i32 = 1;
 pub const DRVCNF_RESTART: i32 = 2;
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRVCONFIGINFO {
     pub dwDCISize: super::DWORD,
     pub lpszDCISectionName: windows_sys::core::PCWSTR,
     pub lpszDCIAliasName: windows_sys::core::PCWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for DRVCONFIGINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DRVCONFIGINFOEX {
     pub dwDCISize: super::DWORD,
     pub lpszDCISectionName: windows_sys::core::PCWSTR,
     pub lpszDCIAliasName: windows_sys::core::PCWSTR,
     pub dnDevNode: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for DRVCONFIGINFOEX {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRV_CANCEL: i32 = 0;
 pub const DRV_CLOSE: i32 = 4;

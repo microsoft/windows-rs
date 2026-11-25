@@ -268,12 +268,18 @@ impl Default for WICBitmapPattern {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WICBitmapPlane {
     pub Format: WICPixelFormatGUID,
     pub pbBuffer: *mut super::BYTE,
     pub cbStride: super::UINT,
     pub cbBufferSize: super::UINT,
+}
+#[cfg(feature = "shared")]
+impl Default for WICBitmapPlane {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

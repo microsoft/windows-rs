@@ -94,10 +94,16 @@ pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: super::WORD,
     pub rgIds: *mut windows_core::GUID,
+}
+#[cfg(feature = "shared")]
+impl Default for DRM_OPL_OUTPUT_IDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DRM_OPL_TYPES: i32 = 1;
 #[repr(C)]
@@ -131,10 +137,16 @@ impl Default for DRM_VAL16 {
 pub type DRM_VIDEO_OUTPUT_PROTECTION = DRM_OUTPUT_PROTECTION;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: super::WORD,
     pub rgVop: *mut DRM_VIDEO_OUTPUT_PROTECTION,
+}
+#[cfg(feature = "shared")]
+impl Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const IID_IWMAddressAccess: windows_core::GUID = windows_core::GUID::from_u128(0xbb3c6389_1633_4e92_af14_9f3173ba39d0);
 pub const IID_IWMAddressAccess2: windows_core::GUID = windows_core::GUID::from_u128(0x65a83fc2_3e98_4d4d_81b5_2a742886b33d);
@@ -9673,13 +9685,19 @@ pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
 pub const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: super::DWORD,
     pub cbEncryptedSessionKeyMessage: super::DWORD,
     pub pbEncryptedSessionKeyMessage: *mut super::BYTE,
     pub cbEncryptedKeyMessage: super::DWORD,
     pub pbEncryptedKeyMessage: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WMDRM_IMPORT_INIT_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: i32 = 1;
 pub const WMFORMAT_MPEG2Video: windows_core::GUID = windows_core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
@@ -9817,13 +9835,19 @@ pub const WMT_ERROR: WMT_STATUS = 0;
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "wmsbuffer"))]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: super::DWORD,
     pub pPayloadHeaderBuffers: *mut WMT_BUFFER_SEGMENT,
     pub cPayloadDataFragments: super::DWORD,
     pub pPayloadDataFragments: *mut WMT_PAYLOAD_FRAGMENT,
+}
+#[cfg(all(feature = "shared", feature = "wmsbuffer"))]
+impl Default for WMT_FILESINK_DATA_UNIT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type WMT_FILESINK_MODE = i32;
 pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = 2;
@@ -10166,7 +10190,7 @@ pub const WM_MAX_STREAMS: i32 = 63;
 pub const WM_MAX_VIDEO_STREAMS: i32 = 63;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -10178,15 +10202,27 @@ pub struct WM_MEDIA_TYPE {
     pub cbFormat: super::ULONG,
     pub pbFormat: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for WM_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WM_PICTURE {
     pub pwszMIMEType: windows_core::PWSTR,
     pub bPictureType: super::BYTE,
     pub pwszDescription: windows_core::PWSTR,
     pub dwDataLen: super::DWORD,
     pub pbData: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WM_PICTURE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WM_PLAYBACK_DRC_HIGH: i32 = 0;
 pub const WM_PLAYBACK_DRC_LOW: i32 = 2;
@@ -10200,7 +10236,7 @@ pub struct WM_PORT_NUMBER_RANGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: super::DWORD,
     pub wszLang: *mut super::WCHAR,
@@ -10211,6 +10247,12 @@ pub struct WM_READER_CLIENTINFO {
     pub wszHostExe: *mut super::WCHAR,
     pub qwHostVersion: super::QWORD,
     pub wszPlayerUserAgent: *mut super::WCHAR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for WM_READER_CLIENTINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -10248,13 +10290,19 @@ pub struct WM_STREAM_TYPE_INFO {
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: super::BYTE,
     pub bContentType: super::BYTE,
     pub pwszContentDescriptor: windows_core::PWSTR,
     pub dwLyricsLen: super::DWORD,
     pub pbLyrics: *mut super::BYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for WM_SYNCHRONISED_LYRICS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WM_SampleExtensionGUID_ChromaLocation: windows_core::GUID = windows_core::GUID::from_u128(0x4c5acca0_9276_4b2c_9e4c_a0edefdd217e);
 pub const WM_SampleExtensionGUID_ColorSpaceInfo: windows_core::GUID = windows_core::GUID::from_u128(0xf79ada56_30eb_4f2b_9f7a_f24b139a1157);

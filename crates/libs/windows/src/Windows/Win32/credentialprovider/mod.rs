@@ -43,12 +43,18 @@ pub type CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = i32;
 pub type CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = i32;
 #[repr(C)]
 #[cfg(all(feature = "rpc", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
     pub ulAuthenticationPackage: super::ULONG,
     pub clsidCredentialProvider: windows_core::GUID,
     pub cbSerialization: super::ULONG,
     pub rgbSerialization: *mut super::byte,
+}
+#[cfg(all(feature = "rpc", feature = "shared"))]
+impl Default for CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

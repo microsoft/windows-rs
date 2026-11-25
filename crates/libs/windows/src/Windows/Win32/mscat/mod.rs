@@ -255,7 +255,7 @@ impl Default for CATALOG_INFO {
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: super::DWORD,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -264,9 +264,15 @@ pub struct CRYPTCATATTRIBUTE {
     pub pbValue: *mut super::BYTE,
     pub dwReserved: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPTCATATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATCDF {
     pub cbStruct: super::DWORD,
     pub hFile: super::HANDLE,
@@ -276,9 +282,15 @@ pub struct CRYPTCATCDF {
     pub pwszResultDir: windows_core::PWSTR,
     pub hCATStore: super::HANDLE,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for CRYPTCATCDF {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: super::DWORD,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -292,9 +304,15 @@ pub struct CRYPTCATMEMBER {
     pub sEncodedIndirectData: super::CRYPT_ATTR_BLOB,
     pub sEncodedMemberInfo: super::CRYPT_ATTR_BLOB,
 }
+#[cfg(all(feature = "mssip", feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for CRYPTCATMEMBER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: super::DWORD,
     pub dwPublicVersion: super::DWORD,
@@ -306,6 +324,12 @@ pub struct CRYPTCATSTORE {
     pub hAttrs: super::HANDLE,
     pub hCryptMsg: super::HCRYPTMSG,
     pub hSorted: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "wincrypt", feature = "winnt"))]
+impl Default for CRYPTCATSTORE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPTCAT_ADDCATALOG_HARDLINK: i32 = 1;
 pub const CRYPTCAT_ADDCATALOG_NONE: i32 = 0;

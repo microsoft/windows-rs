@@ -144,10 +144,16 @@ pub const CPSUICB_REASON_SETACTIVE: i32 = 10;
 pub const CPSUICB_REASON_UNDO_CHANGES: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPSUIDATABLOCK {
     pub cbData: super::DWORD,
     pub pbData: super::LPBYTE,
+}
+#[cfg(feature = "shared")]
+impl Default for CPSUIDATABLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CPSUIF_ABOUT_CALLBACK: i32 = 4;
 pub const CPSUIF_ICONID_AS_HICON: i32 = 2;
@@ -898,7 +904,7 @@ pub type PPROPSHEETUI_INFO_HEADER = *mut PROPSHEETUI_INFO_HEADER;
 pub type PPSPINFO = *mut PSPINFO;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROPSHEETUI_GETICON_INFO {
     pub cbSize: super::WORD,
     pub Flags: super::WORD,
@@ -906,9 +912,15 @@ pub struct PROPSHEETUI_GETICON_INFO {
     pub cyIcon: super::WORD,
     pub hIcon: super::HICON,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PROPSHEETUI_GETICON_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PROPSHEETUI_INFO {
     pub cbSize: super::WORD,
     pub Version: super::WORD,
@@ -919,6 +931,12 @@ pub struct PROPSHEETUI_INFO {
     pub lParamInit: super::LPARAM,
     pub UserData: super::ULONG_PTR,
     pub Result: super::ULONG_PTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PROPSHEETUI_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
@@ -961,13 +979,19 @@ pub const PROPSHEETUI_REASON_SET_RESULT: i32 = 3;
 pub type PSETRESULT_INFO = *mut SETRESULT_INFO;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct PSPINFO {
     pub cbSize: super::WORD,
     pub wReserved: super::WORD,
     pub hComPropSheet: super::HANDLE,
     pub hCPSUIPage: super::HANDLE,
     pub pfnComPropSheet: PFNCOMPROPSHEET,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PSPINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PSUIHDRF_DEFTITLE: i32 = 16;
 pub const PSUIHDRF_EXACT_PTITLE: i32 = 32;
@@ -988,12 +1012,18 @@ pub const PUSHBUTTON_TYPE_HTCLRADJ: i32 = 2;
 pub const PUSHBUTTON_TYPE_HTSETUP: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SETRESULT_INFO {
     pub cbSize: super::WORD,
     pub wReserved: super::WORD,
     pub hSetResult: super::HANDLE,
     pub Result: super::LRESULT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for SETRESULT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const SR_OWNER: i32 = 0;
 pub const SR_OWNER_PARENT: i32 = 1;

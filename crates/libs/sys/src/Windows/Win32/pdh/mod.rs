@@ -194,7 +194,7 @@ pub const MAX_TIME_VALUE: super::LONGLONG = 9223372036854775807;
 pub const MIN_TIME_VALUE: super::LONGLONG = 0;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -207,9 +207,15 @@ pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub dwDefaultDetailLevel: super::DWORD,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -222,9 +228,15 @@ pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub dwDefaultDetailLevel: super::DWORD,
     pub szDialogBoxCaption: windows_sys::core::PSTR,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_HA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -237,9 +249,15 @@ pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub dwDefaultDetailLevel: super::DWORD,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_HW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
     pub hWndOwner: super::HWND,
@@ -251,6 +269,12 @@ pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub CallBackStatus: PDH_STATUS,
     pub dwDefaultDetailLevel: super::DWORD,
     pub szDialogBoxCaption: windows_sys::core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for PDH_BROWSE_DLG_CONFIG_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -291,7 +315,7 @@ impl Default for PDH_COUNTER_INFO_A_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -299,6 +323,12 @@ pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szParentInstance: windows_sys::core::PSTR,
     pub dwInstanceIndex: super::DWORD,
     pub szCounterName: windows_sys::core::PSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for PDH_COUNTER_INFO_A_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -339,7 +369,7 @@ impl Default for PDH_COUNTER_INFO_W_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -348,9 +378,15 @@ pub struct PDH_COUNTER_INFO_W_0_0 {
     pub dwInstanceIndex: super::DWORD,
     pub szCounterName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for PDH_COUNTER_INFO_W_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub szObjectName: windows_sys::core::PSTR,
@@ -359,9 +395,15 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub dwInstanceIndex: super::DWORD,
     pub szCounterName: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for PDH_COUNTER_PATH_ELEMENTS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub szObjectName: windows_sys::core::PWSTR,
@@ -371,26 +413,44 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szCounterName: windows_sys::core::PWSTR,
 }
 #[cfg(feature = "shared")]
+impl Default for PDH_COUNTER_PATH_ELEMENTS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "shared")]
 pub const PDH_CVERSION_WIN40: super::DWORD = 1024;
 #[cfg(feature = "shared")]
 pub const PDH_CVERSION_WIN50: super::DWORD = 1280;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: windows_sys::core::PSTR,
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: super::DWORD,
     pub szInstanceName: windows_sys::core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: windows_sys::core::PWSTR,
     pub ObjectGUID: windows_sys::core::GUID,
     pub dwItemId: super::DWORD,
     pub szInstanceName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const PDH_FLAGS_CLOSE_QUERY: super::DWORD = 1;
@@ -533,7 +593,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: super::DWORD,
     pub PdlAutoNameUnits: super::DWORD,
@@ -544,9 +604,15 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlLogStartTime: super::FILETIME,
     pub PdlLogEndTime: super::FILETIME,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: super::DWORD,
     pub TlMinimumBuffers: super::DWORD,
@@ -558,6 +624,12 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlBuffersWritten: super::DWORD,
     pub TlLogHandle: super::DWORD,
     pub TlLogFileName: windows_sys::core::PSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -594,7 +666,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: super::DWORD,
     pub PdlAutoNameUnits: super::DWORD,
@@ -605,9 +677,15 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlLogStartTime: super::FILETIME,
     pub PdlLogEndTime: super::FILETIME,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: super::DWORD,
     pub TlMinimumBuffers: super::DWORD,
@@ -619,6 +697,12 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlBuffersWritten: super::DWORD,
     pub TlLogHandle: super::DWORD,
     pub TlLogFileName: windows_sys::core::PWSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PDH_LOG_TYPE_BINARY: i32 = 8;
 pub const PDH_LOG_TYPE_CSV: i32 = 1;
@@ -659,17 +743,29 @@ pub struct PDH_RAW_COUNTER {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_sys::core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PDH_RAW_COUNTER_ITEM_A {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_sys::core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for PDH_RAW_COUNTER_ITEM_W {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

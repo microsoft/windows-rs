@@ -568,10 +568,15 @@ pub const CBA_SYMBOLS_UNLOADED: i32 = 4;
 pub const CBA_UPDATE_STATUS_BAR: i32 = 1342177280;
 pub const CBA_XML_LOG: u32 = 2415919104;
 #[repr(C, packed(8))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: windows_sys::core::PCWSTR,
     pub pSymbolPathNonExist: windows_sys::core::PCWSTR,
+}
+impl Default for DBGHELP_DATA_REPORT_STRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const DBHHEADER_CVMISC: i32 = 2;
 pub const DBHHEADER_DEBUGDIRS: i32 = 1;
@@ -608,30 +613,48 @@ pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: i32 = 8;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: i32 = 16;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: super::DWORD,
     pub code: super::DWORD,
     pub desc: super::PCHAR,
     pub object: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_CBA_EVENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: super::DWORD,
     pub code: super::DWORD,
     pub desc: windows_sys::core::PCWSTR,
     pub object: super::PVOID,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_CBA_EVENTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: super::DWORD64,
     pub buf: super::PVOID,
     pub bytes: super::DWORD,
     pub bytesread: *mut super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_CBA_READ_MEMORY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type IMAGEHLP_CONTEXT = core::ffi::c_void;
 #[repr(C, packed(8))]
@@ -695,27 +718,40 @@ impl Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: super::DWORD,
     pub NumberOfDups: super::DWORD,
     pub Symbol: PIMAGEHLP_SYMBOL,
     pub SelectedSymbol: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "shared")]
+impl Default for IMAGEHLP_DUPLICATE_SYMBOL {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: super::DWORD,
     pub NumberOfDups: super::DWORD,
     pub Symbol: PIMAGEHLP_SYMBOL64,
     pub SelectedSymbol: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: i32 = 2;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: super::ULONG,
     pub Flags: super::ULONG,
@@ -736,6 +772,12 @@ pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub NumReqsValid: super::ULONG,
     pub ReqsValid: super::PULONG64,
 }
+#[cfg(all(feature = "basetsd", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: i32 = 1;
 pub type IMAGEHLP_HD_TYPE = i32;
 #[repr(C, packed(8))]
@@ -749,7 +791,7 @@ pub struct IMAGEHLP_JIT_SYMBOLMAP {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -757,9 +799,16 @@ pub struct IMAGEHLP_LINE {
     pub FileName: super::PCHAR,
     pub Address: super::DWORD,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_LINE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -767,10 +816,16 @@ pub struct IMAGEHLP_LINE64 {
     pub FileName: super::PCHAR,
     pub Address: super::DWORD64,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_LINE64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
@@ -778,15 +833,28 @@ pub struct IMAGEHLP_LINEW {
     pub FileName: super::PCHAR,
     pub Address: super::DWORD64,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_LINEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: super::DWORD,
     pub Key: super::PVOID,
     pub LineNumber: super::DWORD,
     pub FileName: windows_sys::core::PWSTR,
     pub Address: super::DWORD64,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for IMAGEHLP_LINEW64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
@@ -1213,7 +1281,7 @@ impl Default for KDHELP64 {
 #[repr(C, packed(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
     pub hFile: super::HANDLE,
@@ -1230,10 +1298,17 @@ pub struct LOADED_IMAGE {
     pub Links: super::LIST_ENTRY,
     pub SizeOfImage: super::ULONG,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for LOADED_IMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct LOADED_IMAGE {
     pub ModuleName: windows_sys::core::PSTR,
     pub hFile: super::HANDLE,
@@ -1249,6 +1324,13 @@ pub struct LOADED_IMAGE {
     pub Version: super::UCHAR,
     pub Links: super::LIST_ENTRY,
     pub SizeOfImage: super::ULONG,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for LOADED_IMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "shared")]
@@ -1280,13 +1362,19 @@ pub struct MODLOAD_CVMISC {
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct MODLOAD_DATA {
     pub ssize: super::DWORD,
     pub ssig: super::DWORD,
     pub data: super::PVOID,
     pub size: super::DWORD,
     pub flags: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MODLOAD_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
@@ -1583,17 +1671,29 @@ pub const SLMFLAG_NO_SYMBOLS: i32 = 4;
 pub const SLMFLAG_VIRTUAL: i32 = 1;
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SOURCEFILE {
     pub ModBase: super::DWORD64,
     pub FileName: super::PCHAR,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for SOURCEFILE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(8))]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct SOURCEFILEW {
     pub ModBase: super::DWORD64,
     pub FileName: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for SOURCEFILEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C, packed(8))]
 #[cfg(all(feature = "shared", feature = "winnt"))]

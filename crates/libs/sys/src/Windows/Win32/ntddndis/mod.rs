@@ -1973,16 +1973,28 @@ pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = 0;
 pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::HANDLE,
 }
+#[cfg(feature = "winnt")]
+impl Default for OFFLOAD_IPSEC_DELETE_SA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::HANDLE,
     pub EncapTypeEntryOffldHandle: super::HANDLE,
+}
+#[cfg(feature = "winnt")]
+impl Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OFFLOAD_IPSEC_INTEGRITY_MAX: OFFLOAD_INTEGRITY_ALGO = 3;
 pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = 1;
@@ -2970,13 +2982,19 @@ pub const WAN_PROTOCOL_KEEPS_STATS: i32 = 1;
 pub type _NDIS_802_11_WEP_STATUS = i32;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct _NDIS_PORT {
     pub Next: PNDIS_PORT,
     pub NdisReserved: super::PVOID,
     pub MiniportReserved: super::PVOID,
     pub ProtocolReserved: super::PVOID,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
+}
+#[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader", feature = "shared", feature = "winnt"))]
+impl Default for _NDIS_PORT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const fNDIS_GUID_ALLOW_READ: i32 = 32;
 pub const fNDIS_GUID_ALLOW_WRITE: i32 = 64;

@@ -216,7 +216,7 @@ pub struct CONVCONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONVINFO {
     pub cb: super::DWORD,
     pub hUser: super::DWORD_PTR,
@@ -234,6 +234,12 @@ pub struct CONVINFO {
     pub ConvCtxt: CONVCONTEXT,
     pub hwnd: super::HWND,
     pub hwndPartner: super::HWND,
+}
+#[cfg(all(feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for CONVINFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CP_WINANSI: i32 = 1004;
 pub const CP_WINNEUTRAL: i32 = 1004;
@@ -317,10 +323,15 @@ pub struct HDDEDATA__ {
 }
 pub type HSZ = *mut HSZ__;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HSZPAIR {
     pub hszSvc: HSZ,
     pub hszTopic: HSZ,
+}
+impl Default for HSZPAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -368,7 +379,7 @@ impl Default for MONCBSTRUCT {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONCONVSTRUCT {
     pub cb: super::UINT,
     pub fConnect: windows_core::BOOL,
@@ -379,14 +390,26 @@ pub struct MONCONVSTRUCT {
     pub hConvClient: HCONV,
     pub hConvServer: HCONV,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MONCONVSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONERRSTRUCT {
     pub cb: super::UINT,
     pub wLastError: super::UINT,
     pub dwTime: super::DWORD,
     pub hTask: super::HANDLE,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MONERRSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type MONHSZSTRUCT = MONHSZSTRUCTA;
@@ -426,7 +449,7 @@ impl Default for MONHSZSTRUCTW {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONLINKSTRUCT {
     pub cb: super::UINT,
     pub dwTime: super::DWORD,
@@ -441,9 +464,15 @@ pub struct MONLINKSTRUCT {
     pub hConvServer: HCONV,
     pub hConvClient: HCONV,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for MONLINKSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MONMSGSTRUCT {
     pub cb: super::UINT,
     pub hwndTo: super::HWND,
@@ -453,6 +482,12 @@ pub struct MONMSGSTRUCT {
     pub wParam: super::WPARAM,
     pub lParam: super::LPARAM,
     pub dmhd: DDEML_MSG_HOOK_DATA,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for MONMSGSTRUCT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const MSGF_DDEMGR: i32 = 32769;
 #[cfg(all(feature = "shared", feature = "winnt"))]

@@ -634,7 +634,7 @@ pub type LPSCARD_READERSTATEW = *mut SCARD_READERSTATEW;
 pub type OPENCARDNAME = OPENCARDNAMEA;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEA {
     pub dwStructSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -660,9 +660,15 @@ pub struct OPENCARDNAMEA {
     pub lpfnDisconnect: LPOCNDSCPROC,
     pub hCardHandle: SCARDHANDLE,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for OPENCARDNAMEA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAMEW {
     pub dwStructSize: super::DWORD,
     pub hwndOwner: super::HWND,
@@ -689,10 +695,16 @@ pub struct OPENCARDNAMEW {
     pub hCardHandle: SCARDHANDLE,
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for OPENCARDNAMEW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type OPENCARDNAME_EX = OPENCARDNAME_EXA;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAME_EXA {
     pub dwStructSize: super::DWORD,
     pub hSCardContext: SCARDCONTEXT,
@@ -713,9 +725,15 @@ pub struct OPENCARDNAME_EXA {
     pub dwActiveProtocol: super::DWORD,
     pub hCardHandle: SCARDHANDLE,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for OPENCARDNAME_EXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARDNAME_EXW {
     pub dwStructSize: super::DWORD,
     pub hSCardContext: SCARDCONTEXT,
@@ -736,11 +754,17 @@ pub struct OPENCARDNAME_EXW {
     pub dwActiveProtocol: super::DWORD,
     pub hCardHandle: SCARDHANDLE,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
+impl Default for OPENCARDNAME_EXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
 pub type OPENCARD_SEARCH_CRITERIA = OPENCARD_SEARCH_CRITERIAA;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwStructSize: super::DWORD,
     pub lpstrGroupNames: windows_core::PSTR,
@@ -756,9 +780,15 @@ pub struct OPENCARD_SEARCH_CRITERIAA {
     pub dwShareMode: super::DWORD,
     pub dwPreferredProtocols: super::DWORD,
 }
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for OPENCARD_SEARCH_CRITERIAA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct OPENCARD_SEARCH_CRITERIAW {
     pub dwStructSize: super::DWORD,
     pub lpstrGroupNames: windows_core::PWSTR,
@@ -773,6 +803,12 @@ pub struct OPENCARD_SEARCH_CRITERIAW {
     pub pvUserData: super::LPVOID,
     pub dwShareMode: super::DWORD,
     pub dwPreferredProtocols: super::DWORD,
+}
+#[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for OPENCARD_SEARCH_CRITERIAW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef", feature = "shared", feature = "windef", feature = "winnt"))]
 pub type POPENCARDNAME = *mut OPENCARDNAMEA;

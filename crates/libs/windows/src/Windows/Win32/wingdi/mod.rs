@@ -2406,7 +2406,7 @@ pub type BCHAR = u8;
 pub const BEGIN_PATH: i32 = 4096;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BITMAP {
     pub bmType: super::LONG,
     pub bmWidth: super::LONG,
@@ -2415,6 +2415,12 @@ pub struct BITMAP {
     pub bmPlanes: super::WORD,
     pub bmBitsPixel: super::WORD,
     pub bmBits: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for BITMAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -5520,7 +5526,7 @@ pub const GCP_REORDER: i32 = 2;
 pub type GCP_RESULTS = GCP_RESULTSA;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GCP_RESULTSA {
     pub lStructSize: super::DWORD,
     pub lpOutString: windows_core::PSTR,
@@ -5532,9 +5538,15 @@ pub struct GCP_RESULTSA {
     pub nGlyphs: super::UINT,
     pub nMaxFit: i32,
 }
+#[cfg(feature = "shared")]
+impl Default for GCP_RESULTSA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GCP_RESULTSW {
     pub lStructSize: super::DWORD,
     pub lpOutString: windows_core::PWSTR,
@@ -5545,6 +5557,12 @@ pub struct GCP_RESULTSW {
     pub lpGlyphs: windows_core::PWSTR,
     pub nGlyphs: super::UINT,
     pub nMaxFit: i32,
+}
+#[cfg(feature = "shared")]
+impl Default for GCP_RESULTSW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const GCP_SYMSWAPOFF: i32 = 8388608;
 pub const GCP_USEKERNING: i32 = 8;
@@ -6164,12 +6182,18 @@ pub const MERGECOPY: super::DWORD = 12583114;
 pub const MERGEPAINT: super::DWORD = 12255782;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct METAFILEPICT {
     pub mm: super::LONG,
     pub xExt: super::LONG,
     pub yExt: super::LONG,
     pub hMF: super::HMETAFILE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for METAFILEPICT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const METAFILE_DRIVER: i32 = 2049;
 #[repr(C, packed(2))]
@@ -7176,7 +7200,7 @@ pub const POLYGONALCAPS: i32 = 32;
 pub type POLYTEXT = POLYTEXTA;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLYTEXTA {
     pub x: i32,
     pub y: i32,
@@ -7186,9 +7210,15 @@ pub struct POLYTEXTA {
     pub rcl: super::RECT,
     pub pdx: *mut i32,
 }
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for POLYTEXTA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLYTEXTW {
     pub x: i32,
     pub y: i32,
@@ -7197,6 +7227,12 @@ pub struct POLYTEXTW {
     pub uiFlags: super::UINT,
     pub rcl: super::RECT,
     pub pdx: *mut i32,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for POLYTEXTW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const POSTSCRIPT_DATA: i32 = 37;
 pub const POSTSCRIPT_IDENTIFY: i32 = 4117;
@@ -7702,10 +7738,16 @@ pub struct WCRANGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WGLSWAP {
     pub hdc: super::HDC,
     pub uiFlags: super::UINT,
+}
+#[cfg(all(feature = "shared", feature = "windef"))]
+impl Default for WGLSWAP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const WGL_FONT_LINES: i32 = 0;
 pub const WGL_FONT_POLYGONS: i32 = 1;

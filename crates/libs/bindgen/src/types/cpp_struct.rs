@@ -152,25 +152,6 @@ impl CppStruct {
         field.name() == "Value" && fields.next().is_none()
     }
 
-    // Native typedef chains to fixed arrays prevent deriving `Default`.
-    fn resolves_to_fixed_array(&self, reader: &Reader) -> bool {
-        if !self.is_native_typedef() {
-            return false;
-        }
-
-        match self
-            .def
-            .fields()
-            .next()
-            .unwrap()
-            .field_type(Some(self), reader)
-        {
-            Type::ArrayFixed(..) => true,
-            Type::CppStruct(inner) => inner.resolves_to_fixed_array(reader),
-            _ => false,
-        }
-    }
-
     fn write_native_object(&self, config: &Config) -> TokenStream {
         assert!(
             !self.def.flags().contains(TypeAttributes::ExplicitLayout)
@@ -456,6 +437,7 @@ impl CppStruct {
             derive.extend(["Default"]);
             quote! {}
         } else {
+            derive.remove("Default");
             quote! {
                 #cfg
                 impl Default for #name {
@@ -539,23 +521,33 @@ impl CppStruct {
         !self.has_explicit_layout(config.reader)
             && !self.has_member_alignment(config.reader)
             && !self.def.fields().any(|field| {
-                let ty = field.field_type(Some(self), config.reader);
-
-                // Resolve transparent native-typedef aliases to a fixed-size array,
-                // which has no derivable `Default`; treat like a directly-spelled array.
-                if let Type::CppStruct(inner) = &ty
-                    && inner.resolves_to_fixed_array(config.reader)
+                let mut ty = field
+                    .field_type(Some(self), config.reader)
+                    .projection_type(config.reader);
+                while let Type::CppStruct(inner) = &ty
+                    && inner.is_handle(config.reader)
+                    && config.typedef_emits_bare(inner.def)
                 {
-                    return true;
+                    ty = inner
+                        .def
+                        .underlying_type_ext(config.reader)
+                        .projection_type(config.reader);
                 }
 
-                if config.bindgen.style.is_sys()
-                    && let Type::CppEnum(inner) = &ty
-                    && inner.def.has_attribute("ScopedEnumAttribute")
-                {
-                    return true;
+                match ty {
+                    Type::ArrayFixed(..) | Type::PtrMut(..) | Type::PtrConst(..) => true,
+                    ty if config.bindgen.style.is_sys() && ty.is_interface() => true,
+                    Type::CppEnum(inner) if config.bindgen.style.is_sys() => {
+                        inner.def.has_attribute("ScopedEnumAttribute")
+                    }
+                    Type::PSTR
+                    | Type::PCSTR
+                    | Type::PWSTR
+                    | Type::PCWSTR
+                    | Type::BSTR
+                    | Type::String => config.bindgen.style.is_sys(),
+                    _ => false,
                 }
-                matches!(&ty, Type::ArrayFixed(..))
             })
     }
 

@@ -60,16 +60,35 @@ impl Config<'_> {
             // Arch-divergent handles are separate rows; each emitted item needs its own gate.
             let arches = self.write_reached_arches(owner, def);
             let arches = quote! { #arches #cfg };
-            let derives = if ty.is_eq(self.reader) {
-                quote! { #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)] }
+            let mut derives = vec!["Clone", "Copy", "Debug", "PartialEq"];
+            if ty.is_eq(self.reader) {
+                derives.push("Eq");
+            }
+            let default = if ty.is_pointer() {
+                let null = if matches!(ty, Type::PtrConst(..)) {
+                    quote! { core::ptr::null() }
+                } else {
+                    quote! { core::ptr::null_mut() }
+                };
+                quote! {
+                    #arches
+                    impl Default for #name {
+                        fn default() -> Self {
+                            Self(#null)
+                        }
+                    }
+                }
             } else {
-                quote! { #[derive(Clone, Copy, Debug, PartialEq, Default)] }
+                derives.push("Default");
+                quote! {}
             };
+            let derives = derives.into_iter().map(to_ident);
             quote! {
                 #arches
                 #[repr(transparent)]
-                #derives
+                #[derive(#(#derives),*)]
                 pub struct #name(pub #ty_name);
+                #default
             }
         }
     }

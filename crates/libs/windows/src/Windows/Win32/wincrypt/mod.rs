@@ -1871,11 +1871,17 @@ pub const AT_KEYEXCHANGE: i32 = 1;
 pub const AT_SIGNATURE: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
     pub cbSize: super::DWORD,
     pub dwRegPolicySettings: super::DWORD,
     pub pSignerInfo: PCMSG_SIGNER_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2012,10 +2018,16 @@ pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK: i32 = 255;
 pub const CERT_ALT_NAME_ENTRY_ERR_INDEX_SHIFT: i32 = 16;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_ALT_NAME_INFO {
     pub cAltEntry: super::DWORD,
     pub rgAltEntry: PCERT_ALT_NAME_ENTRY,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_ALT_NAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_ALT_NAME_IP_ADDRESS: i32 = 8;
 pub const CERT_ALT_NAME_OTHER_NAME: i32 = 1;
@@ -2077,13 +2089,19 @@ pub struct CERT_BASIC_CONSTRAINTS2_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BASIC_CONSTRAINTS_INFO {
     pub SubjectType: CRYPT_BIT_BLOB,
     pub fPathLenConstraint: windows_core::BOOL,
     pub dwPathLenConstraint: super::DWORD,
     pub cSubtreesConstraint: super::DWORD,
     pub rgSubtreesConstraint: *mut CERT_NAME_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_BASIC_CONSTRAINTS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2114,10 +2132,16 @@ impl Default for CERT_BIOMETRIC_DATA_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_BIOMETRIC_EXT_INFO {
     pub cBiometricData: super::DWORD,
     pub rgBiometricData: PCERT_BIOMETRIC_DATA,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_BIOMETRIC_EXT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_BIOMETRIC_OID_DATA_CHOICE: i32 = 2;
 pub const CERT_BIOMETRIC_PICTURE_TYPE: i32 = 0;
@@ -2134,11 +2158,17 @@ pub const CERT_CA_SUBJECT_FLAG: i32 = 128;
 pub const CERT_CEP_PROP_ID: i32 = 87;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN {
     pub cCerts: super::DWORD,
     pub certs: PCERT_BLOB,
     pub keyLocatorInfo: CRYPT_KEY_PROV_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_CHAIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_CHAIN_AUTO_CURRENT_USER: i32 = 1;
 pub const CERT_CHAIN_AUTO_FLAGS_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("AutoFlags");
@@ -2199,7 +2229,7 @@ pub const CERT_CHAIN_DISABLE_UNSUPPORTED_CRITICAL_EXTENSIONS_VALUE_NAME: windows
 pub const CERT_CHAIN_DISABLE_WEAK_FLAGS: i32 = 215285776;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ELEMENT {
     pub cbSize: super::DWORD,
     pub pCertContext: PCCERT_CONTEXT,
@@ -2208,6 +2238,12 @@ pub struct CERT_CHAIN_ELEMENT {
     pub pIssuanceUsage: PCERT_ENHKEY_USAGE,
     pub pApplicationUsage: PCERT_ENHKEY_USAGE,
     pub pwszExtendedErrorInfo: windows_core::PCWSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_CHAIN_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_CHAIN_ENABLE_ALL_EKU_HYGIENE_FLAG: i32 = 131072;
 pub const CERT_CHAIN_ENABLE_CACHE_AUTO_UPDATE: i32 = 16;
@@ -2228,7 +2264,7 @@ pub const CERT_CHAIN_ENABLE_WEAK_SETTINGS_FLAG: u32 = 2147483648;
 pub const CERT_CHAIN_ENABLE_WEAK_SIGNATURE_FLAGS_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("EnableWeakSignatureFlags");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub cbSize: super::DWORD,
     pub hRestrictedRoot: HCERTSTORE,
@@ -2243,6 +2279,12 @@ pub struct CERT_CHAIN_ENGINE_CONFIG {
     pub hExclusiveRoot: HCERTSTORE,
     pub hExclusiveTrustedPeople: HCERTSTORE,
     pub dwExclusiveFlags: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_CHAIN_ENGINE_CONFIG {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG: i32 = 1;
 pub const CERT_CHAIN_FIND_BY_ISSUER: i32 = 1;
@@ -2355,11 +2397,17 @@ pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: windows_core::PCSTR = windows_core::
 pub const CERT_CHAIN_POLICY_NT_AUTH: windows_core::PCSTR = windows_core::PCSTR(6 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_PARA {
     pub cbSize: super::DWORD,
     pub dwFlags: super::DWORD,
     pub pvExtraPolicyPara: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_CHAIN_POLICY_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_CHAIN_POLICY_SSL: windows_core::PCSTR = windows_core::PCSTR(4 as _);
 pub const CERT_CHAIN_POLICY_SSL_F12: windows_core::PCSTR = windows_core::PCSTR(9 as _);
@@ -2378,13 +2426,19 @@ pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: i32 = 1;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CHAIN_POLICY_STATUS {
     pub cbSize: super::DWORD,
     pub dwError: super::DWORD,
     pub lChainIndex: super::LONG,
     pub lElementIndex: super::LONG,
     pub pvExtraPolicyStatus: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_CHAIN_POLICY_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: windows_core::PCSTR = windows_core::PCSTR(11 as _);
 pub const CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: i32 = 16384;
@@ -2451,7 +2505,7 @@ pub const CERT_COMPARE_SUBJECT_CERT: i32 = 11;
 pub const CERT_COMPARE_SUBJECT_INFO_ACCESS: i32 = 19;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CONTEXT {
     pub dwCertEncodingType: super::DWORD,
     pub pbCertEncoded: *mut super::BYTE,
@@ -2459,13 +2513,19 @@ pub struct CERT_CONTEXT {
     pub pCertInfo: PCERT_INFO,
     pub hCertStore: HCERTSTORE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CERT_CONTEXT_REVOCATION_TYPE: i32 = 1;
 pub const CERT_CREATE_CONTEXT_NOCOPY_FLAG: i32 = 1;
 pub const CERT_CREATE_CONTEXT_NO_ENTRY_FLAG: i32 = 8;
 pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_CREATE_CONTEXT_PARA {
     pub cbSize: super::DWORD,
     pub pfnFree: PFN_CRYPT_FREE,
@@ -2473,15 +2533,27 @@ pub struct CERT_CREATE_CONTEXT_PARA {
     pub pfnSort: PFN_CERT_CREATE_CONTEXT_SORT_FUNC,
     pub pvSort: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_CREATE_CONTEXT_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: i32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: i32 = 2;
 pub const CERT_CREATE_SELFSIGN_NO_SIGN: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CRL_CONTEXT_PAIR {
     pub pCertContext: PCCERT_CONTEXT,
     pub pCrlContext: PCCRL_CONTEXT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_CRL_CONTEXT_PAIR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_CRL_SIGN_KEY_USAGE: i32 = 2;
 pub const CERT_CROSS_CERT_DIST_POINTS_PROP_ID: i32 = 23;
@@ -2554,10 +2626,16 @@ pub struct CERT_EXTENSION {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_EXTENSIONS {
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_EXTENSIONS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_FILE_HASH_USE_TYPE: i32 = 1;
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: i32 = 65536;
@@ -2683,7 +2761,7 @@ pub const CERT_IE30_RESERVED_PROP_ID: i32 = 7;
 pub const CERT_IE_DIRTY_FLAGS_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\Cryptography\\IEDirtyFlags");
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_INFO {
     pub dwVersion: super::DWORD,
     pub SerialNumber: CRYPT_INTEGER_BLOB,
@@ -2697,6 +2775,12 @@ pub struct CERT_INFO {
     pub SubjectUniqueId: CRYPT_BIT_BLOB,
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_INFO_EXTENSION_FLAG: i32 = 11;
 pub const CERT_INFO_ISSUER_FLAG: i32 = 4;
@@ -2734,11 +2818,17 @@ pub const CERT_KEYGEN_REQUEST_V1: i32 = 0;
 pub const CERT_KEY_AGREEMENT_KEY_USAGE: i32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEY_ATTRIBUTES_INFO {
     pub KeyId: CRYPT_DATA_BLOB,
     pub IntendedKeyUsage: CRYPT_BIT_BLOB,
     pub pPrivateKeyUsagePeriod: PCERT_PRIVATE_KEY_VALIDITY,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_KEY_ATTRIBUTES_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_KEY_CERT_SIGN_KEY_USAGE: i32 = 4;
 pub const CERT_KEY_CLASSIFICATION_PROP_ID: i32 = 120;
@@ -2778,31 +2868,48 @@ pub const CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: i32 = 103;
 pub const CERT_KEY_SPEC_PROP_ID: i32 = 6;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_KEY_USAGE_RESTRICTION_INFO {
     pub cCertPolicyId: super::DWORD,
     pub rgCertPolicyId: PCERT_POLICY_ID,
     pub RestrictedKeyUsage: CRYPT_BIT_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_KEY_USAGE_RESTRICTION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_LAST_RESERVED_PROP_ID: i32 = 32767;
 pub const CERT_LAST_USER_PROP_ID: i32 = 65535;
 pub const CERT_LDAP_STORE_AREC_EXCLUSIVE_FLAG: i32 = 131072;
 pub const CERT_LDAP_STORE_OPENED_FLAG: i32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LDAP_STORE_OPENED_PARA {
     pub pvLdapSessionHandle: *mut core::ffi::c_void,
     pub pwszLdapUrl: windows_core::PCWSTR,
+}
+impl Default for CERT_LDAP_STORE_OPENED_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_LDAP_STORE_SIGN_FLAG: i32 = 65536;
 pub const CERT_LDAP_STORE_UNBIND_FLAG: i32 = 524288;
 pub const CERT_LOCAL_MACHINE_SYSTEM_STORE_REGPATH: windows_core::PCWSTR = windows_core::w!("Software\\Microsoft\\SystemCertificates");
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_AUDIO {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeAudioInfo: PCERT_LOGOTYPE_AUDIO_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_LOGOTYPE_AUDIO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2818,25 +2925,37 @@ pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: i32 = 1;
 pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DATA {
     pub cLogotypeImage: super::DWORD,
     pub rgLogotypeImage: PCERT_LOGOTYPE_IMAGE,
     pub cLogotypeAudio: super::DWORD,
     pub rgLogotypeAudio: PCERT_LOGOTYPE_AUDIO,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_LOGOTYPE_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_DETAILS {
     pub pwszMimeType: windows_core::PWSTR,
     pub cHashedUrl: super::DWORD,
     pub rgHashedUrl: PCERT_HASHED_URL,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_LOGOTYPE_DETAILS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cCommunityLogo: super::DWORD,
     pub rgCommunityLogo: PCERT_LOGOTYPE_INFO,
@@ -2845,13 +2964,25 @@ pub struct CERT_LOGOTYPE_EXT_INFO {
     pub cOtherLogo: super::DWORD,
     pub rgOtherLogo: PCERT_OTHER_LOGOTYPE_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_LOGOTYPE_EXT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_IMAGE {
     pub LogotypeDetails: CERT_LOGOTYPE_DETAILS,
     pub pLogotypeImageInfo: PCERT_LOGOTYPE_IMAGE_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_LOGOTYPE_IMAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -2914,10 +3045,16 @@ impl Default for CERT_LOGOTYPE_INFO_0 {
 pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_LOGOTYPE_REFERENCE {
     pub cHashedUrl: super::DWORD,
     pub rgHashedUrl: PCERT_HASHED_URL,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_LOGOTYPE_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: i32 = 2;
 pub const CERT_MAX_ASN_ENCODED_DSS_SIGNATURE_LEN: i32 = 48;
@@ -2927,12 +3064,18 @@ pub const CERT_NAME_ATTR_TYPE: i32 = 3;
 pub type CERT_NAME_BLOB = _CRYPTOAPI_BLOB;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_CONSTRAINTS_INFO {
     pub cPermittedSubtree: super::DWORD,
     pub rgPermittedSubtree: PCERT_GENERAL_SUBTREE,
     pub cExcludedSubtree: super::DWORD,
     pub rgExcludedSubtree: PCERT_GENERAL_SUBTREE,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_NAME_CONSTRAINTS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_NAME_DISABLE_IE4_UTF8_FLAG: i32 = 65536;
 pub const CERT_NAME_DNS_TYPE: i32 = 6;
@@ -2940,10 +3083,16 @@ pub const CERT_NAME_EMAIL_TYPE: i32 = 1;
 pub const CERT_NAME_FRIENDLY_DISPLAY_TYPE: i32 = 5;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_NAME_INFO {
     pub cRDN: super::DWORD,
     pub rgRDN: PCERT_RDN,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_NAME_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_NAME_ISSUER_FLAG: i32 = 1;
 pub const CERT_NAME_RDN_TYPE: i32 = 2;
@@ -2991,18 +3140,30 @@ pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: i32 = 2;
 pub const CERT_OID_NAME_STR: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BLOB {
     pub dwChoice: super::DWORD,
     pub cbEncoded: super::DWORD,
     pub pbEncoded: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_OR_CRL_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_OR_CRL_BUNDLE {
     pub cItem: super::DWORD,
     pub rgItem: PCERT_OR_CRL_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_OR_CRL_BUNDLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3066,20 +3227,32 @@ pub const CERT_PIN_RULES_CTL_FILENAME_A: windows_core::PCSTR = windows_core::s!(
 pub const CERT_PIN_SHA256_HASH_PROP_ID: i32 = 124;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICIES_INFO {
     pub cPolicyInfo: super::DWORD,
     pub rgPolicyInfo: *mut CERT_POLICY_INFO,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICIES_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY95_QUALIFIER1 {
     pub pszPracticesReference: windows_core::PWSTR,
     pub pszNoticeIdentifier: windows_core::PSTR,
     pub pszNSINoticeIdentifier: windows_core::PSTR,
     pub cCPSURLs: super::DWORD,
     pub rgCPSURLs: *mut CPS_URLS,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICY95_QUALIFIER1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3092,18 +3265,30 @@ pub struct CERT_POLICY_CONSTRAINTS_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_ID {
     pub cCertPolicyElementId: super::DWORD,
     pub rgpszCertPolicyElementId: *mut windows_core::PSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICY_ID {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_INFO {
     pub pszPolicyIdentifier: windows_core::PSTR,
     pub cPolicyQualifier: super::DWORD,
     pub rgPolicyQualifier: *mut CERT_POLICY_QUALIFIER_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3113,10 +3298,16 @@ pub struct CERT_POLICY_MAPPING {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_MAPPINGS_INFO {
     pub cPolicyMapping: super::DWORD,
     pub rgPolicyMapping: PCERT_POLICY_MAPPING,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICY_MAPPINGS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3127,18 +3318,30 @@ pub struct CERT_POLICY_QUALIFIER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
     pub pszOrganization: windows_core::PSTR,
     pub cNoticeNumbers: super::DWORD,
     pub rgNoticeNumbers: *mut i32,
 }
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICY_QUALIFIER_NOTICE_REFERENCE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_POLICY_QUALIFIER_USER_NOTICE {
     pub pNoticeReference: *mut CERT_POLICY_QUALIFIER_NOTICE_REFERENCE,
     pub pszDisplayText: windows_core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_POLICY_QUALIFIER_USER_NOTICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -3180,10 +3383,16 @@ pub struct CERT_QC_STATEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_QC_STATEMENTS_EXT_INFO {
     pub cStatement: super::DWORD,
     pub rgStatement: PCERT_QC_STATEMENT,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_QC_STATEMENTS_EXT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_QUERY_CONTENT_CERT: i32 = 1;
 pub const CERT_QUERY_CONTENT_CERT_PAIR: i32 = 13;
@@ -3226,10 +3435,16 @@ pub const CERT_QUERY_OBJECT_BLOB: i32 = 2;
 pub const CERT_QUERY_OBJECT_FILE: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_RDN {
     pub cRDNAttr: super::DWORD,
     pub rgRDNAttr: PCERT_RDN_ATTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_RDN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_RDN_ANY_TYPE: i32 = 0;
 #[repr(C)]
@@ -3270,10 +3485,16 @@ pub const CERT_RDN_VISIBLE_STRING: i32 = 9;
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
     pub hKeyBase: super::HKEY,
     pub pwszRegPath: windows_core::PWSTR,
+}
+#[cfg(feature = "minwindef")]
+impl Default for CERT_REGISTRY_STORE_CLIENT_GPT_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_REGISTRY_STORE_EXTERNAL_FLAG: i32 = 1048576;
 pub const CERT_REGISTRY_STORE_LM_GPT_FLAG: i32 = 16777216;
@@ -3282,22 +3503,34 @@ pub const CERT_REGISTRY_STORE_REMOTE_FLAG: i32 = 65536;
 pub const CERT_REGISTRY_STORE_ROAMING_FLAG: i32 = 262144;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REGISTRY_STORE_ROAMING_PARA {
     pub hKey: super::HKEY,
     pub pwszStoreDirectory: windows_core::PWSTR,
+}
+#[cfg(feature = "minwindef")]
+impl Default for CERT_REGISTRY_STORE_ROAMING_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_REGISTRY_STORE_SERIALIZED_FLAG: i32 = 131072;
 pub const CERT_RENEWAL_PROP_ID: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REQUEST_INFO {
     pub dwVersion: super::DWORD,
     pub Subject: CERT_NAME_BLOB,
     pub SubjectPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
     pub cAttribute: super::DWORD,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_REQUEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_REQUEST_ORIGINATOR_PROP_ID: i32 = 71;
 pub const CERT_REQUEST_V1: i32 = 0;
@@ -3315,7 +3548,7 @@ pub const CERT_RETR_BEHAVIOR_LDAP_VALUE_NAME: windows_core::PCWSTR = windows_cor
 pub type CERT_REVOCATION_CHAIN_PARA = _CERT_REVOCATION_CHAIN_PARA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_CRL_INFO {
     pub cbSize: super::DWORD,
     pub pBaseCrlContext: PCCRL_CONTEXT,
@@ -3323,9 +3556,15 @@ pub struct CERT_REVOCATION_CRL_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub fDeltaCrlEntry: windows_core::BOOL,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_REVOCATION_CRL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_INFO {
     pub cbSize: super::DWORD,
     pub dwRevocationResult: super::DWORD,
@@ -3335,9 +3574,15 @@ pub struct CERT_REVOCATION_INFO {
     pub dwFreshnessTime: super::DWORD,
     pub pCrlInfo: PCERT_REVOCATION_CRL_INFO,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_REVOCATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_REVOCATION_PARA {
     pub cbSize: super::DWORD,
     pub pIssuerCert: PCCERT_CONTEXT,
@@ -3345,6 +3590,12 @@ pub struct CERT_REVOCATION_PARA {
     pub rgCertStore: *mut HCERTSTORE,
     pub hCrlStore: HCERTSTORE,
     pub pftTimeToUse: super::LPFILETIME,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_REVOCATION_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3395,7 +3646,7 @@ pub const CERT_SELECT_BY_THUMBPRINT: i32 = 14;
 pub const CERT_SELECT_BY_TLS_SIGNATURES: i32 = 11;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CHAIN_PARA {
     pub hChainEngine: HCERTCHAINENGINE,
     pub pTime: super::PFILETIME,
@@ -3403,13 +3654,25 @@ pub struct CERT_SELECT_CHAIN_PARA {
     pub pChainPara: PCERT_CHAIN_PARA,
     pub dwFlags: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_SELECT_CHAIN_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SELECT_CRITERIA {
     pub dwType: super::DWORD,
     pub cPara: super::DWORD,
     pub ppPara: *mut *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_SELECT_CRITERIA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_SELECT_DISALLOW_SELFSIGNED: i32 = 4;
 pub const CERT_SELECT_HARDWARE_ONLY: i32 = 64;
@@ -3429,7 +3692,7 @@ pub const CERT_SERVER_OCSP_RESPONSE_ASYNC_FLAG: i32 = 1;
 pub type CERT_SERVER_OCSP_RESPONSE_CONTEXT = _CERT_SERVER_OCSP_RESPONSE_CONTEXT;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub cbSize: super::DWORD,
     pub dwFlags: super::DWORD,
@@ -3437,6 +3700,12 @@ pub struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
     pub pwszOcspDirectory: windows_core::PWSTR,
     pub pfnUpdateCallback: PFN_CERT_SERVER_OCSP_RESPONSE_UPDATE_CALLBACK,
     pub pvUpdateCallbackArg: super::PVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for CERT_SERVER_OCSP_RESPONSE_OPEN_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG: i32 = 1;
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_WRITE_FLAG: i32 = 2;
@@ -3459,7 +3728,7 @@ pub struct CERT_SIGNED_CONTENT_INFO {
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: i32 = 89;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_SIMPLE_CHAIN {
     pub cbSize: super::DWORD,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -3468,6 +3737,12 @@ pub struct CERT_SIMPLE_CHAIN {
     pub pTrustListInfo: PCERT_TRUST_LIST_INFO,
     pub fHasRevocationFreshnessTime: windows_core::BOOL,
     pub dwRevocationFreshnessTime: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_SIMPLE_CHAIN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_SIMPLE_NAME_STR: i32 = 1;
 pub const CERT_SMART_CARD_DATA_PROP_ID: i32 = 16;
@@ -3543,13 +3818,19 @@ pub const CERT_STORE_PROV_FIND_CRL_FUNC: i32 = 17;
 pub const CERT_STORE_PROV_FIND_CTL_FUNC: i32 = 20;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_FIND_INFO {
     pub cbSize: super::DWORD,
     pub dwMsgAndCertEncodingType: super::DWORD,
     pub dwFindFlags: super::DWORD,
     pub dwFindType: super::DWORD,
     pub pvFindPara: *const core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_STORE_PROV_FIND_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_STORE_PROV_FREE_FIND_CERT_FUNC: i32 = 15;
 pub const CERT_STORE_PROV_FREE_FIND_CRL_FUNC: i32 = 18;
@@ -3560,7 +3841,7 @@ pub const CERT_STORE_PROV_GET_CTL_PROPERTY_FUNC: i32 = 22;
 pub const CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_STORE_PROV_INFO {
     pub cbSize: super::DWORD,
     pub cStoreProvFunc: super::DWORD,
@@ -3568,6 +3849,12 @@ pub struct CERT_STORE_PROV_INFO {
     pub hStoreProv: HCERTSTOREPROV,
     pub dwStoreProvFlags: super::DWORD,
     pub hStoreProvFuncAddr2: HCRYPTOIDFUNCADDR,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_STORE_PROV_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_STORE_PROV_LDAP: windows_core::PCSTR = windows_core::PCSTR(16 as _);
 pub const CERT_STORE_PROV_LDAP_W: windows_core::PCSTR = windows_core::PCSTR(16 as _);
@@ -3809,11 +4096,17 @@ pub const CERT_TRUST_IS_SELF_SIGNED: i32 = 8;
 pub const CERT_TRUST_IS_UNTRUSTED_ROOT: i32 = 32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_TRUST_LIST_INFO {
     pub cbSize: super::DWORD,
     pub pCtlEntry: PCTL_ENTRY,
     pub pCtlContext: PCCTL_CONTEXT,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CERT_TRUST_LIST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CERT_TRUST_NO_ERROR: i32 = 0;
 pub const CERT_TRUST_NO_ISSUANCE_CHAIN_POLICY: i32 = 33554432;
@@ -3871,13 +4164,19 @@ pub const CERT_VERIFY_UPDATED_CTL_FLAG: i32 = 1;
 pub const CERT_X500_NAME_STR: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_X942_DH_PARAMETERS {
     pub p: CRYPT_UINT_BLOB,
     pub g: CRYPT_UINT_BLOB,
     pub q: CRYPT_UINT_BLOB,
     pub j: CRYPT_UINT_BLOB,
     pub pValidationParams: PCERT_X942_DH_VALIDATION_PARAMS,
+}
+#[cfg(feature = "shared")]
+impl Default for CERT_X942_DH_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -3890,7 +4189,7 @@ pub const CERT_XML_NAME_STR: i32 = 4;
 pub const CMC_ADD_ATTRIBUTES: windows_core::PCSTR = windows_core::PCSTR(63 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub dwCmcDataReference: super::DWORD,
     pub cCertReference: super::DWORD,
@@ -3898,10 +4197,16 @@ pub struct CMC_ADD_ATTRIBUTES_INFO {
     pub cAttribute: super::DWORD,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
 }
+#[cfg(feature = "shared")]
+impl Default for CMC_ADD_ATTRIBUTES_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CMC_ADD_EXTENSIONS: windows_core::PCSTR = windows_core::PCSTR(62 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_ADD_EXTENSIONS_INFO {
     pub dwCmcDataReference: super::DWORD,
     pub cCertReference: super::DWORD,
@@ -3909,10 +4214,16 @@ pub struct CMC_ADD_EXTENSIONS_INFO {
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
 }
+#[cfg(feature = "shared")]
+impl Default for CMC_ADD_EXTENSIONS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CMC_DATA: windows_core::PCSTR = windows_core::PCSTR(59 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_DATA_INFO {
     pub cTaggedAttribute: super::DWORD,
     pub rgTaggedAttribute: PCMC_TAGGED_ATTRIBUTE,
@@ -3922,6 +4233,12 @@ pub struct CMC_DATA_INFO {
     pub rgTaggedContentInfo: PCMC_TAGGED_CONTENT_INFO,
     pub cTaggedOtherMsg: super::DWORD,
     pub rgTaggedOtherMsg: PCMC_TAGGED_OTHER_MSG,
+}
+#[cfg(feature = "shared")]
+impl Default for CMC_DATA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMC_FAIL_BAD_ALG: i32 = 0;
 pub const CMC_FAIL_BAD_CERT_ID: i32 = 4;
@@ -3949,7 +4266,7 @@ pub struct CMC_PEND_INFO {
 pub const CMC_RESPONSE: windows_core::PCSTR = windows_core::PCSTR(60 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMC_RESPONSE_INFO {
     pub cTaggedAttribute: super::DWORD,
     pub rgTaggedAttribute: PCMC_TAGGED_ATTRIBUTE,
@@ -3957,6 +4274,12 @@ pub struct CMC_RESPONSE_INFO {
     pub rgTaggedContentInfo: PCMC_TAGGED_CONTENT_INFO,
     pub cTaggedOtherMsg: super::DWORD,
     pub rgTaggedOtherMsg: PCMC_TAGGED_OTHER_MSG,
+}
+#[cfg(feature = "shared")]
+impl Default for CMC_RESPONSE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMC_STATUS: windows_core::PCSTR = windows_core::PCSTR(61 as _);
 pub const CMC_STATUS_CONFIRM_REQUIRED: i32 = 5;
@@ -4059,7 +4382,7 @@ pub const CMSG_AUTH_ENVELOPED: i32 = 7;
 pub const CMSG_AUTH_ENVELOPED_DATA_V0: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_AUTH_ENVELOPED_ENCODE_INFO {
     pub cbSize: super::DWORD,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -4073,6 +4396,12 @@ pub struct CMSG_AUTH_ENVELOPED_ENCODE_INFO {
     pub rgAuthAttr: PCRYPT_ATTRIBUTE,
     pub cUnauthAttr: super::DWORD,
     pub rgUnauthAttr: PCRYPT_ATTRIBUTE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CMSG_AUTH_ENVELOPED_ENCODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_AUTH_ENVELOPED_FLAG: i32 = 128;
 pub const CMSG_BARE_CONTENT_FLAG: i32 = 1;
@@ -4134,7 +4463,7 @@ impl Default for CMSG_CMS_SIGNER_INFO {
 pub const CMSG_CMS_SIGNER_INFO_PARAM: i32 = 39;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "ncrypt", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbSize: super::DWORD,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -4145,6 +4474,12 @@ pub struct CMSG_CNG_CONTENT_DECRYPT_INFO {
     pub cbContentEncryptKey: super::DWORD,
     pub hCNGContentEncryptKey: super::BCRYPT_KEY_HANDLE,
     pub pbCNGContentEncryptKeyObject: *mut super::BYTE,
+}
+#[cfg(all(feature = "bcrypt", feature = "ncrypt", feature = "shared"))]
+impl Default for CMSG_CNG_CONTENT_DECRYPT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_COMPUTED_HASH_PARAM: i32 = 22;
 pub const CMSG_CONTENTS_OCTETS_FLAG: i32 = 16;
@@ -4256,12 +4591,18 @@ pub const CMSG_CTRL_ENABLE_STRONG_SIGNATURE: i32 = 21;
 pub const CMSG_CTRL_KEM_DECRYPT: i32 = 22;
 #[repr(C)]
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_KEM_DECRYPT_PARA {
     pub cbSize: super::DWORD,
     pub hNCryptKey: super::NCRYPT_KEY_HANDLE,
     pub pKem: PCMSG_KEM_RECIPIENT_INFO,
     pub dwRecipientIndex: super::DWORD,
+}
+#[cfg(all(feature = "ncrypt", feature = "shared"))]
+impl Default for CMSG_CTRL_KEM_DECRYPT_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_CTRL_KEY_AGREE_DECRYPT: i32 = 17;
 #[repr(C)]
@@ -4361,13 +4702,19 @@ pub const CMSG_CTRL_VERIFY_SIGNATURE: i32 = 1;
 pub const CMSG_CTRL_VERIFY_SIGNATURE_EX: i32 = 19;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
     pub cbSize: super::DWORD,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub dwSignerIndex: super::DWORD,
     pub dwSignerType: super::DWORD,
     pub pvSigner: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_DATA: i32 = 1;
 pub const CMSG_DATA_FLAG: i32 = 2;
@@ -4382,11 +4729,17 @@ pub const CMSG_ENCRYPTED: i32 = 6;
 pub const CMSG_ENCRYPTED_DIGEST: i32 = 27;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENCRYPTED_ENCODE_INFO {
     pub cbSize: super::DWORD,
     pub ContentEncryptionAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CMSG_ENCRYPTED_ENCODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_ENCRYPTED_FLAG: i32 = 64;
 pub const CMSG_ENCRYPT_PARAM: i32 = 26;
@@ -4399,7 +4752,7 @@ pub const CMSG_ENVELOPED_DATA_V2: i32 = 2;
 pub const CMSG_ENVELOPED_DATA_V3: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub cbSize: super::DWORD,
     pub hCryptProv: HCRYPTPROV_LEGACY,
@@ -4407,6 +4760,12 @@ pub struct CMSG_ENVELOPED_ENCODE_INFO {
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
     pub cRecipients: super::DWORD,
     pub rgpRecipients: *mut PCERT_INFO,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CMSG_ENVELOPED_ENCODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_ENVELOPED_FLAG: i32 = 8;
 pub const CMSG_ENVELOPED_RECIPIENT_V0: i32 = 0;
@@ -4421,12 +4780,18 @@ pub const CMSG_HASHED_DATA_V0: i32 = 0;
 pub const CMSG_HASHED_DATA_V2: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_HASHED_ENCODE_INFO {
     pub cbSize: super::DWORD,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CMSG_HASHED_ENCODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_HASHED_FLAG: i32 = 32;
 pub const CMSG_HASH_ALGORITHM_PARAM: i32 = 20;
@@ -4689,7 +5054,7 @@ impl Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub dwVersion: super::DWORD,
     pub KeyId: CRYPT_DATA_BLOB,
@@ -4697,6 +5062,12 @@ pub struct CMSG_MAIL_LIST_RECIPIENT_INFO {
     pub EncryptedKey: CRYPT_DATA_BLOB,
     pub Date: super::FILETIME,
     pub pOtherAttr: PCRYPT_ATTRIBUTE_TYPE_VALUE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CMSG_MAIL_LIST_RECIPIENT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_MAIL_LIST_VERSION: i32 = 4;
 pub const CMSG_MAX_LENGTH_FLAG: i32 = 32;
@@ -4792,7 +5163,7 @@ pub const CMSG_SIGNED_DATA_V1: i32 = 1;
 pub const CMSG_SIGNED_DATA_V3: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMSG_SIGNED_ENCODE_INFO {
     pub cbSize: super::DWORD,
     pub cSigners: super::DWORD,
@@ -4801,6 +5172,12 @@ pub struct CMSG_SIGNED_ENCODE_INFO {
     pub rgCertEncoded: PCERT_BLOB,
     pub cCrlEncoded: super::DWORD,
     pub rgCrlEncoded: PCRL_BLOB,
+}
+#[cfg(all(feature = "minwindef", feature = "ncrypt", feature = "shared"))]
+impl Default for CMSG_SIGNED_ENCODE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_SIGNED_FLAG: i32 = 4;
 pub const CMSG_SIGNER_AUTH_ATTR_PARAM: i32 = 9;
@@ -4872,11 +5249,17 @@ pub struct CMSG_SP3_COMPATIBLE_AUX_INFO {
 pub const CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG: u32 = 2147483648;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CMSG_STREAM_INFO {
     pub cbContent: super::DWORD,
     pub pfnStreamOutput: PFN_CMSG_STREAM_OUTPUT,
     pub pvArg: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CMSG_STREAM_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMSG_TRUSTED_SIGNER_FLAG: i32 = 1;
 pub const CMSG_TYPE_PARAM: i32 = 1;
@@ -4890,7 +5273,7 @@ pub const CMSG_VERIFY_SIGNER_PUBKEY: i32 = 1;
 pub const CMSG_VERSION_PARAM: i32 = 30;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_DH_KEY_INFO {
     pub dwVersion: super::DWORD,
     pub Algid: super::ALG_ID,
@@ -4898,14 +5281,26 @@ pub struct CMS_DH_KEY_INFO {
     pub PubInfo: CRYPT_DATA_BLOB,
     pub pReserved: *mut core::ffi::c_void,
 }
+#[cfg(feature = "shared")]
+impl Default for CMS_DH_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CMS_KEY_INFO {
     pub dwVersion: super::DWORD,
     pub Algid: super::ALG_ID,
     pub pbOID: *mut super::BYTE,
     pub cbOID: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CMS_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CMS_SIGNER_INFO: windows_core::PCSTR = windows_core::PCSTR(501 as _);
 pub const CNG_RSA_PRIVATE_KEY_BLOB: windows_core::PCSTR = windows_core::PCSTR(83 as _);
@@ -4919,11 +5314,17 @@ pub const CONTEXT_OID_OCSP_RESP: windows_core::PCSTR = windows_core::PCSTR(6 as 
 pub const CONTEXT_OID_PKCS7: windows_core::PCSTR = windows_core::PCSTR(4 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPS_URLS {
     pub pszURL: windows_core::PWSTR,
     pub pAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pDigest: *mut CRYPT_DATA_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CPS_URLS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS: windows_core::PCSTR = windows_core::PCSTR(1 as _);
 pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: windows_core::PCSTR = windows_core::PCSTR(1 as _);
@@ -4932,13 +5333,19 @@ pub const CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: windows_core::PCSTR = windows_c
 pub type CRL_BLOB = _CRYPTOAPI_BLOB;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_CONTEXT {
     pub dwCertEncodingType: super::DWORD,
     pub pbCrlEncoded: *mut super::BYTE,
     pub cbCrlEncoded: super::DWORD,
     pub pCrlInfo: PCRL_INFO,
     pub hCertStore: HCERTSTORE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRL_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -4956,10 +5363,16 @@ impl Default for CRL_DIST_POINT {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_DIST_POINTS_INFO {
     pub cDistPoint: super::DWORD,
     pub rgDistPoint: PCRL_DIST_POINT,
+}
+#[cfg(feature = "shared")]
+impl Default for CRL_DIST_POINTS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: u32 = 2147483648;
 pub const CRL_DIST_POINT_ERR_INDEX_MASK: i32 = 127;
@@ -4994,12 +5407,18 @@ impl Default for CRL_DIST_POINT_NAME_0 {
 pub const CRL_DIST_POINT_NO_NAME: i32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_ENTRY {
     pub SerialNumber: CRYPT_INTEGER_BLOB,
     pub RevocationDate: super::FILETIME,
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRL_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRL_FIND_ANY: i32 = 0;
 pub const CRL_FIND_EXISTING: i32 = 2;
@@ -5011,15 +5430,21 @@ pub const CRL_FIND_ISSUED_BY_SIGNATURE_FLAG: i32 = 2;
 pub const CRL_FIND_ISSUED_FOR: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_FIND_ISSUED_FOR_PARA {
     pub pSubjectCert: PCCERT_CONTEXT,
     pub pIssuerCert: PCCERT_CONTEXT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRL_FIND_ISSUED_FOR_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_INFO {
     pub dwVersion: super::DWORD,
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -5030,6 +5455,12 @@ pub struct CRL_INFO {
     pub rgCRLEntry: PCRL_ENTRY,
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -5068,21 +5499,33 @@ pub const CRL_REASON_UNSPECIFIED: i32 = 0;
 pub const CRL_REASON_UNUSED_FLAG: i32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRL_REVOCATION_INFO {
     pub pCrlEntry: PCRL_ENTRY,
     pub pCrlContext: PCCRL_CONTEXT,
     pub pCrlIssuerChain: PCCERT_CHAIN_CONTEXT,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRL_REVOCATION_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRL_V1: i32 = 0;
 pub const CRL_V2: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CROSS_CERT_DIST_POINTS_INFO {
     pub dwSyncDeltaTime: super::DWORD,
     pub cDistPoint: super::DWORD,
     pub rgDistPoint: PCERT_ALT_NAME_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for CROSS_CERT_DIST_POINTS_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_MASK: i32 = 255;
 pub const CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: i32 = 24;
@@ -5273,25 +5716,43 @@ pub const CRYPT_ASN_ENCODING: i32 = 1;
 pub const CRYPT_ASYNC_RETRIEVAL: i32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_ASYNC_RETRIEVAL_COMPLETION {
     pub pfnCompletion: PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC,
     pub pvCompletion: super::LPVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_ASYNC_RETRIEVAL_COMPLETION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTE {
     pub pszObjId: windows_core::PSTR,
     pub cValue: super::DWORD,
     pub rgValue: PCRYPT_ATTR_BLOB,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ATTRIBUTES {
     pub cAttr: super::DWORD,
     pub rgAttr: PCRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -5304,18 +5765,30 @@ pub struct CRYPT_ATTRIBUTE_TYPE_VALUE {
 pub type CRYPT_ATTR_BLOB = _CRYPTOAPI_BLOB;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BIT_BLOB {
     pub cbData: super::DWORD,
     pub pbData: *mut super::BYTE,
     pub cUnusedBits: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_BIT_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_BLOB_ARRAY {
     pub cBlob: super::DWORD,
     pub rgBlob: PCRYPT_DATA_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_BLOB_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_BLOB_VER3: i32 = 128;
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: i32 = 2;
@@ -5329,22 +5802,34 @@ pub struct CRYPT_CONTENT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
     pub pszObjId: windows_core::PSTR,
     pub cValue: super::DWORD,
     pub rgValue: PCRYPT_DER_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_CREATE_IV: i32 = 512;
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: i32 = 268435456;
 pub const CRYPT_CREATE_SALT: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_CREDENTIALS {
     pub cbSize: super::DWORD,
     pub pszCredentialsOid: windows_core::PCSTR,
     pub pvCredentials: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_CREDENTIALS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -5376,12 +5861,18 @@ pub const CRYPT_DECODE_TO_BE_SIGNED_FLAG: i32 = 2;
 pub const CRYPT_DECRYPT: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DECRYPT_MESSAGE_PARA {
     pub cbSize: super::DWORD,
     pub dwMsgAndCertEncodingType: super::DWORD,
     pub cCertStore: super::DWORD,
     pub rghCertStore: *mut HCERTSTORE,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_DECRYPT_MESSAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: i32 = 32;
 pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: i32 = 128;
@@ -5390,10 +5881,16 @@ pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: i32 = 1;
 pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     pub cOID: super::DWORD,
     pub rgpszOID: *mut windows_core::PSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: i32 = 2;
 pub const CRYPT_DEFAULT_OID: windows_core::PCSTR = windows_core::s!("DEFAULT");
@@ -5472,7 +5969,7 @@ pub struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO {
 pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: i32 = 2;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub cbSize: super::DWORD,
     pub dwMsgEncodingType: super::DWORD,
@@ -5481,6 +5978,12 @@ pub struct CRYPT_ENCRYPT_MESSAGE_PARA {
     pub pvEncryptionAuxInfo: *mut core::ffi::c_void,
     pub dwFlags: super::DWORD,
     pub dwInnerContentType: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_ENCRYPT_MESSAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: i32 = 7;
 #[repr(C)]
@@ -5522,7 +6025,7 @@ pub const CRYPT_FORMAT_X509: i32 = 2;
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub cbSize: super::DWORD,
     pub iDeltaCrlIndicator: i32,
@@ -5531,6 +6034,12 @@ pub struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     pub pMaxAgeTime: super::LPFILETIME,
     pub pChainPara: PCERT_REVOCATION_CHAIN_PARA,
     pub pDeltaCrlIndicator: PCRYPT_INTEGER_BLOB,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: i32 = 8;
 pub const CRYPT_GET_URL_FROM_EXTENSION: i32 = 2;
@@ -5548,13 +6057,19 @@ pub struct CRYPT_HASH_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_HASH_MESSAGE_PARA {
     pub cbSize: super::DWORD,
     pub dwMsgEncodingType: super::DWORD,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub pvHashAuxInfo: *mut core::ffi::c_void,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_HASH_MESSAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_HTTP_POST_RETRIEVAL: i32 = 1048576;
 pub const CRYPT_IMPL_HARDWARE: i32 = 1;
@@ -5578,7 +6093,7 @@ pub const CRYPT_KEYID_MACHINE_FLAG: i32 = 32;
 pub const CRYPT_KEYID_SET_NEW_FLAG: i32 = 8192;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_INFO {
     pub pwszContainerName: windows_core::PWSTR,
     pub pwszProvName: windows_core::PWSTR,
@@ -5588,14 +6103,26 @@ pub struct CRYPT_KEY_PROV_INFO {
     pub rgProvParam: PCRYPT_KEY_PROV_PARAM,
     pub dwKeySpec: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_KEY_PROV_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_KEY_PROV_PARAM {
     pub dwParam: super::DWORD,
     pub pbData: *mut super::BYTE,
     pub cbData: super::DWORD,
     pub dwFlags: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_KEY_PROV_PARAM {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "ncrypt", feature = "shared"))]
@@ -5737,10 +6264,15 @@ pub const CRYPT_OID_FIND_LOCALIZED_NAME_FUNC: windows_core::PCSTR = windows_core
 pub const CRYPT_OID_FIND_OID_INFO_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllFindOIDInfo");
 pub const CRYPT_OID_FORMAT_OBJECT_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllFormatObject");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_OID_FUNC_ENTRY {
     pub pszOID: windows_core::PCSTR,
     pub pvFuncAddr: *mut core::ffi::c_void,
+}
+impl Default for CRYPT_OID_FUNC_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_OID_IMPORT_PRIVATE_KEY_INFO_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllImportPrivateKeyInfoEx");
 pub const CRYPT_OID_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC: windows_core::PCSTR = windows_core::s!("CryptDllImportPublicKeyInfoEx2");
@@ -5863,13 +6395,19 @@ pub struct CRYPT_PKCS12_PBE_PARAMS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_PKCS8_EXPORT_PARAMS {
     pub hCryptProv: HCRYPTPROV,
     pub dwKeySpec: super::DWORD,
     pub pszPrivateKeyObjId: windows_core::PSTR,
     pub pEncryptPrivateKeyFunc: PCRYPT_ENCRYPT_PRIVATE_KEY_FUNC,
     pub pVoidEncryptFunc: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_PKCS8_EXPORT_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type CRYPT_PKCS8_IMPORT_PARAMS = _CRYPT_PKCS8_IMPORT_PARAMS;
@@ -5879,12 +6417,18 @@ pub const CRYPT_PREGEN: i32 = 64;
 pub type CRYPT_PRIVATE_KEY_BLOB_AND_PARAMS = _CRYPT_PKCS8_IMPORT_PARAMS;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PRIVATE_KEY_INFO {
     pub Version: super::DWORD,
     pub Algorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub PrivateKey: CRYPT_DER_BLOB,
     pub pAttributes: PCRYPT_ATTRIBUTES,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_PRIVATE_KEY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: i32 = 2097152;
 #[repr(C)]
@@ -5935,7 +6479,7 @@ pub const CRYPT_REGISTER_FIRST_INDEX: i32 = 0;
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub cbSize: super::DWORD,
     pub pLastSyncTime: *mut super::FILETIME,
@@ -5949,6 +6493,12 @@ pub struct CRYPT_RETRIEVE_AUX_INFO {
     pub dwHttpStatusCode: super::DWORD,
     pub ppwszErrorResponseHeaders: *mut windows_core::PWSTR,
     pub ppErrorContentBlob: *mut PCRYPT_DATA_BLOB,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_RETRIEVE_AUX_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH: i32 = 4096;
 pub const CRYPT_RETRIEVE_MULTIPLE_OBJECTS: i32 = 1;
@@ -5973,10 +6523,16 @@ pub const CRYPT_SECRETDIGEST: i32 = 1;
 pub const CRYPT_SEC_DESCR: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SEQUENCE_OF_ANY {
     pub cValue: super::DWORD,
     pub rgValue: PCRYPT_DER_BLOB,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_SEQUENCE_OF_ANY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_SERVER: i32 = 1024;
 pub const CRYPT_SF: i32 = 256;
@@ -5986,7 +6542,7 @@ pub const CRYPT_SGC_ENUM: i32 = 4;
 pub const CRYPT_SIGN_ALG_OID_GROUP_ID: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub cbSize: super::DWORD,
     pub dwMsgEncodingType: super::DWORD,
@@ -6004,6 +6560,12 @@ pub struct CRYPT_SIGN_MESSAGE_PARA {
     pub dwFlags: super::DWORD,
     pub dwInnerContentType: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_SIGN_MESSAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRYPT_SILENT: i32 = 64;
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -6020,10 +6582,16 @@ impl Default for CRYPT_SMART_CARD_ROOT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_SMIME_CAPABILITIES {
     pub cCapability: super::DWORD,
     pub rgCapability: PCRYPT_SMIME_CAPABILITY,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_SMIME_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -6069,15 +6637,21 @@ pub struct CRYPT_TIMESTAMP_ACCURACY {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_CONTEXT {
     pub cbEncoded: super::DWORD,
     pub pbEncoded: *mut super::BYTE,
     pub pTimeStamp: PCRYPT_TIMESTAMP_INFO,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_TIMESTAMP_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_INFO {
     pub dwVersion: super::DWORD,
     pub pszTSAPolicyId: windows_core::PSTR,
@@ -6092,9 +6666,15 @@ pub struct CRYPT_TIMESTAMP_INFO {
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_TIMESTAMP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_PARA {
     pub pszTSAPolicyId: windows_core::PCSTR,
     pub fRequestCerts: windows_core::BOOL,
@@ -6102,9 +6682,15 @@ pub struct CRYPT_TIMESTAMP_PARA {
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_TIMESTAMP_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_REQUEST {
     pub dwVersion: super::DWORD,
     pub HashAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
@@ -6115,9 +6701,15 @@ pub struct CRYPT_TIMESTAMP_REQUEST {
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_TIMESTAMP_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub dwStatus: super::DWORD,
     pub cFreeText: super::DWORD,
@@ -6125,15 +6717,27 @@ pub struct CRYPT_TIMESTAMP_RESPONSE {
     pub FailureInfo: CRYPT_BIT_BLOB,
     pub ContentInfo: CRYPT_DER_BLOB,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_TIMESTAMP_RESPONSE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TIME_STAMP_REQUEST_INFO {
     pub pszTimeStampAlgorithm: windows_core::PSTR,
     pub pszContentType: windows_core::PSTR,
     pub Content: CRYPT_OBJID_BLOB,
     pub cAttribute: super::DWORD,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_TIME_STAMP_REQUEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_TYPE2_FORMAT: i32 = 2;
 #[cfg(feature = "shared")]
@@ -6147,19 +6751,31 @@ pub const CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: i32 = 268435456;
 pub const CRYPT_UPDATE_KEY: i32 = 8;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_ARRAY {
     pub cUrl: super::DWORD,
     pub rgwszUrl: *mut windows_core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_URL_ARRAY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_URL_INFO {
     pub cbSize: super::DWORD,
     pub dwSyncDeltaTime: super::DWORD,
     pub cGroup: super::DWORD,
     pub rgcGroupEntry: *mut super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for CRYPT_URL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_USERDATA: i32 = 1;
 pub const CRYPT_USER_DEFAULT: i32 = 2;
@@ -6188,23 +6804,35 @@ pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_CRL: i32 = 3;
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
     pub cCNGHashAlgid: super::DWORD,
     pub rgpwszCNGHashAlgid: *mut windows_core::PCWSTR,
     pub dwWeakIndex: super::DWORD,
 }
+#[cfg(feature = "shared")]
+impl Default for CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: i32 = 32;
 pub const CRYPT_VERIFY_DATA_HASH: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CRYPT_VERIFY_MESSAGE_PARA {
     pub cbSize: super::DWORD,
     pub dwMsgAndCertEncodingType: super::DWORD,
     pub hCryptProv: HCRYPTPROV_LEGACY,
     pub pfnGetSignerCertificate: PFN_CRYPT_GET_SIGNER_CERTIFICATE,
     pub pvGetArg: *mut core::ffi::c_void,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CRYPT_VERIFY_MESSAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CRYPT_VOLATILE: i32 = 4096;
 pub const CRYPT_WIRE_ONLY_RETRIEVAL: i32 = 4;
@@ -6240,7 +6868,7 @@ pub const CTL_ANY_SUBJECT_TYPE: i32 = 1;
 pub const CTL_CERT_SUBJECT_TYPE: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_CONTEXT {
     pub dwMsgAndCertEncodingType: super::DWORD,
     pub pbCtlEncoded: *mut super::BYTE,
@@ -6251,13 +6879,25 @@ pub struct CTL_CONTEXT {
     pub pbCtlContent: *mut super::BYTE,
     pub cbCtlContent: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CTL_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_ENTRY {
     pub SubjectIdentifier: CRYPT_DATA_BLOB,
     pub cAttribute: super::DWORD,
     pub rgAttribute: PCRYPT_ATTRIBUTE,
+}
+#[cfg(feature = "shared")]
+impl Default for CTL_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const CTL_ENTRY_FROM_PROP_CHAIN_FLAG: i32 = 1;
 pub const CTL_FIND_ANY: i32 = 0;
@@ -6271,26 +6911,38 @@ pub const CTL_FIND_SHA1_HASH: i32 = 1;
 pub const CTL_FIND_SUBJECT: i32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_SUBJECT_PARA {
     pub cbSize: super::DWORD,
     pub pUsagePara: PCTL_FIND_USAGE_PARA,
     pub dwSubjectType: super::DWORD,
     pub pvSubject: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CTL_FIND_SUBJECT_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CTL_FIND_USAGE: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_FIND_USAGE_PARA {
     pub cbSize: super::DWORD,
     pub SubjectUsage: CTL_USAGE,
     pub ListIdentifier: CRYPT_DATA_BLOB,
     pub pSigner: PCERT_INFO,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CTL_FIND_USAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_INFO {
     pub dwVersion: super::DWORD,
     pub SubjectUsage: CTL_USAGE,
@@ -6304,6 +6956,12 @@ pub struct CTL_INFO {
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CTL_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "shared")]
 pub type CTL_USAGE = _CTL_USAGE;
 #[repr(C)]
@@ -6316,7 +6974,7 @@ pub struct CTL_USAGE_MATCH {
 pub const CTL_V1: i32 = 0;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_PARA {
     pub cbSize: super::DWORD,
     pub ListIdentifier: CRYPT_DATA_BLOB,
@@ -6325,9 +6983,15 @@ pub struct CTL_VERIFY_USAGE_PARA {
     pub cSignerStore: super::DWORD,
     pub rghSignerStore: *mut HCERTSTORE,
 }
+#[cfg(feature = "shared")]
+impl Default for CTL_VERIFY_USAGE_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CTL_VERIFY_USAGE_STATUS {
     pub cbSize: super::DWORD,
     pub dwError: super::DWORD,
@@ -6336,6 +7000,12 @@ pub struct CTL_VERIFY_USAGE_STATUS {
     pub dwCtlEntryIndex: super::DWORD,
     pub ppSigner: *mut PCCERT_CONTEXT,
     pub dwSignerIndex: super::DWORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for CTL_VERIFY_USAGE_STATUS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
@@ -6414,13 +7084,19 @@ pub type HCRYPTPROV_LEGACY = usize;
 pub type HCRYPTPROV_OR_NCRYPT_KEY_HANDLE = usize;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HMAC_INFO {
     pub HashAlgid: super::ALG_ID,
     pub pbInnerString: *mut super::BYTE,
     pub cbInnerString: super::DWORD,
     pub pbOuterString: *mut super::BYTE,
     pub cbOuterString: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for HMAC_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const HP_ALGID: i32 = 1;
 pub const HP_HASHSIZE: i32 = 4;
@@ -6641,15 +7317,21 @@ pub const OCSP_MALFORMED_REQUEST_RESPONSE: i32 = 1;
 pub const OCSP_REQUEST: windows_core::PCSTR = windows_core::PCSTR(66 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_REQUEST_ENTRY {
     pub CertId: OCSP_CERT_ID,
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
 }
+#[cfg(feature = "shared")]
+impl Default for OCSP_REQUEST_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_REQUEST_INFO {
     pub dwVersion: super::DWORD,
     pub pRequestorName: PCERT_ALT_NAME_ENTRY,
@@ -6657,6 +7339,12 @@ pub struct OCSP_REQUEST_INFO {
     pub rgRequestEntry: POCSP_REQUEST_ENTRY,
     pub cExtension: super::DWORD,
     pub rgExtension: PCERT_EXTENSION,
+}
+#[cfg(feature = "shared")]
+impl Default for OCSP_REQUEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OCSP_REQUEST_V1: i32 = 0;
 pub const OCSP_RESPONSE: windows_core::PCSTR = windows_core::PCSTR(67 as _);
@@ -6670,20 +7358,32 @@ pub struct OCSP_RESPONSE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_SIGNATURE_INFO {
     pub SignatureAlgorithm: CRYPT_ALGORITHM_IDENTIFIER,
     pub Signature: CRYPT_BIT_BLOB,
     pub cCertEncoded: super::DWORD,
     pub rgCertEncoded: PCERT_BLOB,
 }
+#[cfg(feature = "shared")]
+impl Default for OCSP_SIGNATURE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OCSP_SIGNED_REQUEST: windows_core::PCSTR = windows_core::PCSTR(65 as _);
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OCSP_SIGNED_REQUEST_INFO {
     pub ToBeSigned: CRYPT_DER_BLOB,
     pub pOptionalSignatureInfo: POCSP_SIGNATURE_INFO,
+}
+#[cfg(feature = "shared")]
+impl Default for OCSP_SIGNED_REQUEST_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const OCSP_SIG_REQUIRED_RESPONSE: i32 = 5;
 pub const OCSP_SUCCESSFUL_RESPONSE: i32 = 0;
@@ -7421,11 +8121,17 @@ pub const PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES: i32 = 2048;
 pub const PKCS12_PBES2_ALG_AES256_SHA256: windows_core::PCWSTR = windows_core::w!("AES256-SHA256");
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PKCS12_PBES2_EXPORT_PARAMS {
     pub dwSize: super::DWORD,
     pub hNcryptDescriptor: super::PVOID,
     pub pwszPbes2Alg: windows_core::PWSTR,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for PKCS12_PBES2_EXPORT_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PKCS12_PBKDF2_ID_HMAC_SHA1: windows_core::PCSTR = windows_core::s!("1.2.840.113549.2.7");
 pub const PKCS12_PBKDF2_ID_HMAC_SHA256: windows_core::PCSTR = windows_core::s!("1.2.840.113549.2.9");
@@ -7822,14 +8528,20 @@ pub const X942_OTHER_INFO: windows_core::PCSTR = windows_core::PCSTR(52 as _);
 pub const ZERO_PADDING: i32 = 3;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _CERT_AUTHORITY_INFO_ACCESS {
     pub cAccDescr: super::DWORD,
     pub rgAccDescr: PCERT_ACCESS_DESCRIPTION,
 }
+#[cfg(feature = "shared")]
+impl Default for _CERT_AUTHORITY_INFO_ACCESS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _CERT_CHAIN_CONTEXT {
     pub cbSize: super::DWORD,
     pub TrustStatus: CERT_TRUST_STATUS,
@@ -7842,9 +8554,15 @@ pub struct _CERT_CHAIN_CONTEXT {
     pub dwCreateFlags: super::DWORD,
     pub ChainId: windows_core::GUID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for _CERT_CHAIN_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub cbSize: super::DWORD,
     pub pszUsageIdentifier: windows_core::PCSTR,
@@ -7855,9 +8573,15 @@ pub struct _CERT_CHAIN_FIND_BY_ISSUER_PARA {
     pub pfnFindCallback: PFN_CERT_CHAIN_FIND_BY_ISSUER_CALLBACK,
     pub pvFindArg: *mut core::ffi::c_void,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for _CERT_CHAIN_FIND_BY_ISSUER_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _CERT_REVOCATION_CHAIN_PARA {
     pub cbSize: super::DWORD,
     pub hChainEngine: HCERTCHAINENGINE,
@@ -7868,13 +8592,25 @@ pub struct _CERT_REVOCATION_CHAIN_PARA {
     pub pftCacheResync: super::LPFILETIME,
     pub cbMaxUrlRetrievalByteCount: super::DWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for _CERT_REVOCATION_CHAIN_PARA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _CERT_SERVER_OCSP_RESPONSE_CONTEXT {
     pub cbSize: super::DWORD,
     pub pbEncodedOcspResponse: *mut super::BYTE,
     pub cbEncodedOcspResponse: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for _CERT_SERVER_OCSP_RESPONSE_CONTEXT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
@@ -7906,14 +8642,20 @@ impl Default for _CMSG_RECIPIENT_ENCODE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _CRYPTOAPI_BLOB {
     pub cbData: super::DWORD,
     pub pbData: *mut super::BYTE,
 }
+#[cfg(feature = "shared")]
+impl Default for _CRYPTOAPI_BLOB {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct _CRYPT_PKCS8_IMPORT_PARAMS {
     pub PrivateKey: CRYPT_DIGEST_BLOB,
     pub pResolvehCryptProvFunc: PCRYPT_RESOLVE_HCRYPTPROV_FUNC,
@@ -7921,12 +8663,24 @@ pub struct _CRYPT_PKCS8_IMPORT_PARAMS {
     pub pDecryptPrivateKeyFunc: PCRYPT_DECRYPT_PRIVATE_KEY_FUNC,
     pub pVoidDecryptFunc: super::LPVOID,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for _CRYPT_PKCS8_IMPORT_PARAMS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _CTL_USAGE {
     pub cUsageIdentifier: super::DWORD,
     pub rgpszUsageIdentifier: *mut windows_core::PSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for _CTL_USAGE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]

@@ -903,7 +903,7 @@ pub const ABOVE_NORMAL_PRIORITY_CLASS: i32 = 32768;
 pub type ACTCTX = ACTCTXA;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACTCTXA {
     pub cbSize: super::ULONG,
     pub dwFlags: super::DWORD,
@@ -915,9 +915,15 @@ pub struct ACTCTXA {
     pub lpApplicationName: windows_sys::core::PCSTR,
     pub hModule: super::HMODULE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for ACTCTXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACTCTXW {
     pub cbSize: super::ULONG,
     pub dwFlags: super::DWORD,
@@ -929,6 +935,12 @@ pub struct ACTCTXW {
     pub lpApplicationName: windows_sys::core::PCWSTR,
     pub hModule: super::HMODULE,
 }
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for ACTCTXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const ACTCTX_FLAG_APPLICATION_NAME_VALID: i32 = 32;
 pub const ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID: i32 = 4;
 pub const ACTCTX_FLAG_HMODULE_VALID: i32 = 128;
@@ -939,7 +951,7 @@ pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: i32 = 16;
 pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: i32 = 64;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA {
     pub cbSize: super::ULONG,
     pub ulDataFormatVersion: super::ULONG,
@@ -954,9 +966,15 @@ pub struct ACTCTX_SECTION_KEYED_DATA {
     pub ulFlags: super::ULONG,
     pub AssemblyMetadata: ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTCTX_SECTION_KEYED_DATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub cbSize: super::ULONG,
     pub ulDataFormatVersion: super::ULONG,
@@ -969,9 +987,15 @@ pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
     pub hActCtx: super::HANDLE,
     pub ulAssemblyRosterIndex: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTCTX_SECTION_KEYED_DATA_2600 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpInformation: super::PVOID,
     pub lpSectionBase: super::PVOID,
@@ -979,12 +1003,24 @@ pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
     pub lpSectionGlobalDataBase: super::PVOID,
     pub ulSectionGlobalDataLength: super::ULONG,
 }
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
     pub hActCtx: super::HANDLE,
     pub dwFlags: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: i32 = 1;
 pub const AC_LINE_BACKUP_POWER: i32 = 2;
@@ -1177,13 +1213,19 @@ pub struct COPYFILE2_CREATE_OPLOCK_KEYS {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: super::DWORD,
     pub dwCopyFlags: super::DWORD,
     pub pfCancel: *mut windows_sys::core::BOOL,
     pub pProgressRoutine: PCOPYFILE2_PROGRESS_ROUTINE,
     pub pvCallbackContext: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for COPYFILE2_EXTENDED_PARAMETERS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
@@ -2789,17 +2831,29 @@ pub const STARTF_USESTDHANDLES: i32 = 256;
 pub type STARTUPINFOEX = STARTUPINFOEXA;
 #[repr(C)]
 #[cfg(all(feature = "processthreadsapi", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STARTUPINFOEXA {
     pub StartupInfo: super::STARTUPINFOA,
     pub lpAttributeList: super::LPPROC_THREAD_ATTRIBUTE_LIST,
 }
+#[cfg(all(feature = "processthreadsapi", feature = "shared", feature = "winnt"))]
+impl Default for STARTUPINFOEXA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "processthreadsapi", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct STARTUPINFOEXW {
     pub StartupInfo: super::STARTUPINFOW,
     pub lpAttributeList: super::LPPROC_THREAD_ATTRIBUTE_LIST,
+}
+#[cfg(all(feature = "processthreadsapi", feature = "shared", feature = "winnt"))]
+impl Default for STARTUPINFOEXW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "shared")]
 pub const STD_ERROR_HANDLE: super::DWORD = 4294967284;
@@ -2885,12 +2939,18 @@ pub const TWOSTOPBITS: i32 = 2;
 pub type UMS_SCHEDULER_REASON = super::RTL_UMS_SCHEDULER_REASON;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub UmsVersion: super::ULONG,
     pub CompletionList: PUMS_COMPLETION_LIST,
     pub SchedulerProc: PUMS_SCHEDULER_ENTRY_POINT,
     pub SchedulerParam: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for UMS_SCHEDULER_STARTUP_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[cfg(feature = "shared")]

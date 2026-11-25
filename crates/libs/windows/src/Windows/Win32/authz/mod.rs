@@ -189,22 +189,34 @@ pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__ {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: super::DWORD,
     pub GrantedAccessMask: super::PACCESS_MASK,
     pub SaclEvaluationResults: super::PDWORD,
     pub Error: super::PDWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_ACCESS_REPLY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::ACCESS_MASK,
     pub PrincipalSelfSid: super::PSID,
     pub ObjectTypeList: super::POBJECT_TYPE_LIST,
     pub ObjectTypeListLength: super::DWORD,
     pub OptionalArguments: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_ACCESS_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE__;
 #[repr(C)]
@@ -321,10 +333,16 @@ pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: super::PVOID,
     pub ValueLength: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2;

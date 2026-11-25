@@ -66,22 +66,34 @@ pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE__ {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: super::DWORD,
     pub GrantedAccessMask: super::PACCESS_MASK,
     pub SaclEvaluationResults: super::PDWORD,
     pub Error: super::PDWORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_ACCESS_REPLY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::ACCESS_MASK,
     pub PrincipalSelfSid: super::PSID,
     pub ObjectTypeList: super::POBJECT_TYPE_LIST,
     pub ObjectTypeListLength: super::DWORD,
     pub OptionalArguments: super::PVOID,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_ACCESS_REQUEST {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUTHZ_AUDIT_EVENT_HANDLE = *mut AUTHZ_AUDIT_EVENT_HANDLE__;
 #[repr(C)]
@@ -115,7 +127,7 @@ pub const AUTHZ_GENERATE_FAILURE_AUDIT: i32 = 2;
 pub const AUTHZ_GENERATE_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_INIT_INFO {
     pub version: super::USHORT,
     pub szResourceManagerName: windows_sys::core::PCWSTR,
@@ -125,16 +137,28 @@ pub struct AUTHZ_INIT_INFO {
     pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
     pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_INIT_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AUTHZ_INIT_INFO_VERSION_V1: i32 = 1;
 pub const AUTHZ_NO_ALLOC_STRINGS: i32 = 4;
 pub const AUTHZ_NO_FAILURE_AUDIT: i32 = 2;
 pub const AUTHZ_NO_SUCCESS_AUDIT: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_sys::core::PWSTR,
     pub dwOffset: super::DWORD,
+}
+#[cfg(feature = "shared")]
+impl Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_REQUIRE_S4U_LOGON: i32 = 4;
 pub type AUTHZ_RESOURCE_MANAGER_HANDLE = *mut AUTHZ_RESOURCE_MANAGER_HANDLE__;
@@ -148,7 +172,7 @@ pub const AUTHZ_RM_FLAG_NO_AUDIT: i32 = 1;
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: i32 = 4;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub version: super::USHORT,
     pub ObjectUuid: windows_sys::core::PWSTR,
@@ -157,6 +181,12 @@ pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub Endpoint: windows_sys::core::PWSTR,
     pub Options: windows_sys::core::PWSTR,
     pub ServerSpn: windows_sys::core::PWSTR,
+}
+#[cfg(feature = "shared")]
+impl Default for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: i32 = 1;
 #[repr(C)]
@@ -190,18 +220,30 @@ pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: i32 = 1;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: i32 = 1;
 #[repr(C)]
 #[cfg(feature = "shared")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: super::ULONG64,
     pub pName: windows_sys::core::PWSTR,
 }
+#[cfg(feature = "shared")]
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: i32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: super::PVOID,
     pub ValueLength: super::ULONG,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub type AUTHZ_SECURITY_ATTRIBUTE_OPERATION = i32;
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 2;

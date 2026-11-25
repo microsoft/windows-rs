@@ -2,7 +2,7 @@ pub const CONTROL_C_EXIT: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000
 pub const CREATE_PROCESS_DEBUG_EVENT: i32 = 3;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::HANDLE,
     pub hProcess: super::HANDLE,
@@ -15,14 +15,26 @@ pub struct CREATE_PROCESS_DEBUG_INFO {
     pub lpImageName: super::LPVOID,
     pub fUnicode: super::WORD,
 }
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for CREATE_PROCESS_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const CREATE_THREAD_DEBUG_EVENT: i32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Copy, Debug)]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::HANDLE,
     pub lpThreadLocalBase: super::LPVOID,
     pub lpStartAddress: LPTHREAD_START_ROUTINE,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for CREATE_THREAD_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type CRITICAL_SECTION = super::RTL_CRITICAL_SECTION;
@@ -169,7 +181,7 @@ pub const LMEM_ZEROINIT: i32 = 64;
 pub const LOAD_DLL_DEBUG_EVENT: i32 = 6;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::HANDLE,
     pub lpBaseOfDll: super::LPVOID,
@@ -177,6 +189,12 @@ pub struct LOAD_DLL_DEBUG_INFO {
     pub nDebugInfoSize: super::DWORD,
     pub lpImageName: super::LPVOID,
     pub fUnicode: super::WORD,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for LOAD_DLL_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const LOCKFILE_EXCLUSIVE_LOCK: i32 = 2;
 pub const LOCKFILE_FAIL_IMMEDIATELY: i32 = 1;
@@ -285,12 +303,18 @@ pub struct OVERLAPPED_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OVERLAPPED_ENTRY {
     pub lpCompletionKey: super::ULONG_PTR,
     pub lpOverlapped: LPOVERLAPPED,
     pub Internal: super::ULONG_PTR,
     pub dwNumberOfBytesTransferred: super::DWORD,
+}
+#[cfg(all(feature = "shared", feature = "winnt"))]
+impl Default for OVERLAPPED_ENTRY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "shared", feature = "winnt"))]
 pub type PCRITICAL_SECTION = *mut super::RTL_CRITICAL_SECTION;
@@ -350,12 +374,18 @@ impl Default for PROCESS_HEAP_ENTRY_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: super::DWORD,
     pub dwUnCommittedSize: super::DWORD,
     pub lpFirstBlock: super::LPVOID,
     pub lpLastBlock: super::LPVOID,
+}
+#[cfg(all(feature = "minwindef", feature = "shared", feature = "winnt"))]
+impl Default for PROCESS_HEAP_ENTRY_0_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const PROCESS_HEAP_ENTRY_BUSY: i32 = 4;
 pub const PROCESS_HEAP_ENTRY_DDESHARE: i32 = 32;
@@ -405,12 +435,18 @@ impl Default for REASON_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::HMODULE,
     pub LocalizedReasonId: super::ULONG,
     pub ReasonStringCount: super::ULONG,
     pub ReasonStrings: *mut windows_core::PWSTR,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for REASON_CONTEXT_0_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const RIP_EVENT: i32 = 9;
 #[repr(C)]
@@ -426,11 +462,17 @@ pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLAS
 pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 4;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "shared"))]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: super::DWORD,
     pub lpSecurityDescriptor: super::LPVOID,
     pub bInheritHandle: windows_core::BOOL,
+}
+#[cfg(all(feature = "minwindef", feature = "shared"))]
+impl Default for SECURITY_ATTRIBUTES {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 pub const STILL_ACTIVE: windows_core::NTSTATUS = windows_core::NTSTATUS(0x103_u32 as _);
 #[repr(C)]
@@ -449,9 +491,15 @@ pub struct SYSTEMTIME {
 pub const UNLOAD_DLL_DEBUG_EVENT: i32 = 7;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: super::LPVOID,
+}
+#[cfg(feature = "minwindef")]
+impl Default for UNLOAD_DLL_DEBUG_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "minwindef", feature = "shared"))]
 pub type WIN32_FIND_DATA = WIN32_FIND_DATAA;
