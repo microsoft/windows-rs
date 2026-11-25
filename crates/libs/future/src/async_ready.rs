@@ -3,23 +3,19 @@ use std::sync::atomic::{AtomicBool, Ordering};
 
 struct ReadyState<T: Async> {
     set_completed: AtomicBool,
-    result: Result<T::Output>,
+    result: AsyncResult<T::Output>,
 }
 
 impl<T: Async> ReadyState<T> {
     fn new(result: Result<T::Output>) -> Self {
         Self {
             set_completed: AtomicBool::new(false),
-            result,
+            result: AsyncResult::new(result),
         }
     }
 
     fn status(&self) -> AsyncStatus {
-        if self.result.is_ok() {
-            AsyncStatus::Completed
-        } else {
-            AsyncStatus::Error
-        }
+        self.result.status()
     }
 
     // Ready operations invoke the handler immediately but still permit only one assignment.
@@ -32,12 +28,8 @@ impl<T: Async> ReadyState<T> {
         }
     }
 
-    // C# projects ErrorCode as an exception and reads the calling thread's error info.
     fn error_code(&self) -> HRESULT {
-        match &self.result {
-            Ok(_) => HRESULT(0),
-            Err(error) => error.clone().into(),
-        }
+        self.result.error_code()
     }
 }
 
@@ -49,14 +41,14 @@ implement_decl! {
 
 struct ReadyOperation<T>(ReadyState<IAsyncOperation<T>>)
 where
-    T: RuntimeType + Send + Sync + 'static;
+    T: RuntimeType + Send + 'static;
 
 implement_decl! {
     impl<T> ReadyOperation as ReadyOperation_Impl: [
         IAsyncOperation<T>,
         IAsyncInfo,
     ]
-    where T: RuntimeType + Send + Sync + 'static
+    where T: RuntimeType + Send + 'static
 }
 
 struct ReadyActionWithProgress<P>(ReadyState<IAsyncActionWithProgress<P>>)
@@ -73,7 +65,7 @@ implement_decl! {
 
 struct ReadyOperationWithProgress<T, P>(ReadyState<IAsyncOperationWithProgress<T, P>>)
 where
-    T: RuntimeType + Send + Sync + 'static,
+    T: RuntimeType + Send + 'static,
     P: RuntimeType + 'static;
 
 implement_decl! {
@@ -81,7 +73,7 @@ implement_decl! {
         IAsyncOperationWithProgress<T, P>,
         IAsyncInfo,
     ]
-    where T: RuntimeType + Send + Sync + 'static, P: RuntimeType + 'static
+    where T: RuntimeType + Send + 'static, P: RuntimeType + 'static
 }
 
 impl IAsyncInfo_Impl for ReadyAction_Impl {
@@ -102,7 +94,7 @@ impl IAsyncInfo_Impl for ReadyAction_Impl {
     }
 }
 
-impl<T: RuntimeType + Send + Sync> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
+impl<T: RuntimeType + Send> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
     fn Id(&self) -> Result<u32> {
         Ok(1)
     }
@@ -138,7 +130,7 @@ impl<P: RuntimeType> IAsyncInfo_Impl for ReadyActionWithProgress_Impl<P> {
     }
 }
 
-impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncInfo_Impl
+impl<T: RuntimeType + Send, P: RuntimeType> IAsyncInfo_Impl
     for ReadyOperationWithProgress_Impl<T, P>
 {
     fn Id(&self) -> Result<u32> {
@@ -166,11 +158,11 @@ impl IAsyncAction_Impl for ReadyAction_Impl {
         Err(Error::empty())
     }
     fn GetResults(&self) -> Result<()> {
-        self.0.result.clone()
+        self.0.result.check()
     }
 }
 
-impl<T: RuntimeType + Send + Sync> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
+impl<T: RuntimeType + Send> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
     fn SetCompleted(&self, handler: Ref<AsyncOperationCompletedHandler<T>>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
@@ -178,7 +170,7 @@ impl<T: RuntimeType + Send + Sync> IAsyncOperation_Impl<T> for ReadyOperation_Im
         Err(Error::empty())
     }
     fn GetResults(&self) -> Result<T> {
-        self.0.result.clone()
+        self.0.result.take()
     }
 }
 
@@ -190,7 +182,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgres
         Err(Error::empty())
     }
     fn GetResults(&self) -> Result<()> {
-        self.0.result.clone()
+        self.0.result.check()
     }
     fn SetProgress(&self, _: Ref<AsyncActionProgressHandler<P>>) -> Result<()> {
         Ok(())
@@ -200,7 +192,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgres
     }
 }
 
-impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
+impl<T: RuntimeType + Send, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
     for ReadyOperationWithProgress_Impl<T, P>
 {
     fn SetCompleted(
@@ -213,7 +205,7 @@ impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncOperationWithProgress_I
         Err(Error::empty())
     }
     fn GetResults(&self) -> Result<T> {
-        self.0.result.clone()
+        self.0.result.take()
     }
     fn SetProgress(&self, _: Ref<AsyncOperationProgressHandler<T, P>>) -> Result<()> {
         Ok(())
@@ -230,10 +222,10 @@ impl IAsyncAction {
     }
 }
 
-impl<T: RuntimeType + Send + Sync> IAsyncOperation<T> {
+impl<T: RuntimeType + Send> IAsyncOperation<T> {
     /// Creates an `IAsyncOperation<T>` that is immediately ready with a value.
     ///
-    /// The stored result must support concurrent access and release from other threads.
+    /// The result is transferred once to the caller of `GetResults`.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperation(ReadyState::new(result)).into()
     }
@@ -246,7 +238,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
     }
 }
 
-impl<T: RuntimeType + Send + Sync, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
+impl<T: RuntimeType + Send, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
     /// Creates an `IAsyncOperationWithProgress<T, P>` that is immediately ready with a value.
     pub fn ready(result: Result<T>) -> Self {
         ReadyOperationWithProgress(ReadyState::new(result)).into()
