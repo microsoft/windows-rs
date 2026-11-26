@@ -9417,6 +9417,10 @@ pub struct ID3D12VideoDecodeCommandList_Vtbl {
     DecodeFrame: usize,
     pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecodeCommandList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList_Impl: super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
@@ -9578,6 +9582,10 @@ pub struct ID3D12VideoDecodeCommandList1_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     DecodeFrame1: usize,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecodeCommandList1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList1_Impl: ID3D12VideoDecodeCommandList_Impl {
     fn DecodeFrame1(&self, pdecoder: windows_core::Ref<ID3D12VideoDecoder>, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS);
@@ -9646,6 +9654,10 @@ pub struct ID3D12VideoDecodeCommandList2_Vtbl {
     pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
     pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecodeCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList2_Impl: ID3D12VideoDecodeCommandList1_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
@@ -9712,6 +9724,10 @@ pub struct ID3D12VideoDecodeCommandList3_Vtbl {
     pub base__: ID3D12VideoDecodeCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecodeCommandList3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecodeCommandList3_Impl: ID3D12VideoDecodeCommandList2_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
@@ -9762,6 +9778,10 @@ pub struct ID3D12VideoDecoder_Vtbl {
     pub GetDesc: unsafe extern "system" fn(*mut core::ffi::c_void, *mut D3D12_VIDEO_DECODER_DESC),
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoDecoder_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_DESC;
 }
@@ -9809,6 +9829,10 @@ pub struct ID3D12VideoDecoder1_Vtbl {
     pub base__: ID3D12VideoDecoder_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecoder1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecoder1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoDecoder1_Impl: ID3D12VideoDecoder_Impl {
     fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -9862,6 +9886,10 @@ pub struct ID3D12VideoDecoderHeap_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetDesc: usize,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecoderHeap {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecoderHeap_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_DECODER_HEAP_DESC;
@@ -9910,6 +9938,10 @@ pub struct ID3D12VideoDecoderHeap1_Vtbl {
     pub base__: ID3D12VideoDecoderHeap_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoDecoderHeap1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoDecoderHeap1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDecoderHeap1_Impl: ID3D12VideoDecoderHeap_Impl {
     fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -9976,6 +10008,8 @@ pub struct ID3D12VideoDevice_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     CreateVideoProcessor: usize,
 }
+unsafe impl Send for ID3D12VideoDevice {}
+unsafe impl Sync for ID3D12VideoDevice {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12VideoDevice_Impl: windows_core::IUnknownImpl {
     fn CheckFeatureSupport(&self, featurevideo: D3D12_FEATURE_VIDEO, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
@@ -10065,6 +10099,8 @@ pub struct ID3D12VideoDevice1_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))]
     CreateVideoMotionVectorHeap: usize,
 }
+unsafe impl Send for ID3D12VideoDevice1 {}
+unsafe impl Sync for ID3D12VideoDevice1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice1_Impl: ID3D12VideoDevice_Impl {
     fn CreateVideoMotionEstimator(&self, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideomotionestimator: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -10175,6 +10211,8 @@ pub struct ID3D12VideoDevice2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))]
     ExecuteExtensionCommand: usize,
 }
+unsafe impl Send for ID3D12VideoDevice2 {}
+unsafe impl Sync for ID3D12VideoDevice2 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice2_Impl: ID3D12VideoDevice1_Impl {
     fn CreateVideoDecoder1(&self, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvideodecoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -10266,6 +10304,8 @@ pub struct ID3D12VideoDevice3_Vtbl {
     CreateVideoEncoder: usize,
     pub CreateVideoEncoderHeap: unsafe extern "system" fn(*mut core::ffi::c_void, *const D3D12_VIDEO_ENCODER_HEAP_DESC, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D12VideoDevice3 {}
+unsafe impl Sync for ID3D12VideoDevice3 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoDevice3_Impl: ID3D12VideoDevice2_Impl {
     fn CreateVideoEncoder(&self, pdesc: *const D3D12_VIDEO_ENCODER_DESC, riid: *const windows_core::GUID, ppvideoencoder: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -10439,6 +10479,10 @@ pub struct ID3D12VideoEncodeCommandList_Vtbl {
     pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     pub SetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D12VideoEncodeCommandList_Impl: super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
@@ -10621,6 +10665,10 @@ pub struct ID3D12VideoEncodeCommandList1_Vtbl {
     pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
     pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D12VideoEncodeCommandList1_Impl: ID3D12VideoEncodeCommandList_Impl {
     fn InitializeExtensionCommand(&self, pextensioncommand: windows_core::Ref<ID3D12VideoExtensionCommand>, pinitializationparameters: *const core::ffi::c_void, initializationparameterssizeinbytes: usize);
@@ -10697,6 +10745,10 @@ pub struct ID3D12VideoEncodeCommandList2_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     ResolveEncoderOutputMetadata: usize,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncodeCommandList2_Impl: ID3D12VideoEncodeCommandList1_Impl {
     fn EncodeFrame(&self, pencoder: windows_core::Ref<ID3D12VideoEncoder>, pheap: windows_core::Ref<ID3D12VideoEncoderHeap>, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS);
@@ -10755,6 +10807,10 @@ pub struct ID3D12VideoEncodeCommandList3_Vtbl {
     pub base__: ID3D12VideoEncodeCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncodeCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncodeCommandList3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncodeCommandList3_Impl: ID3D12VideoEncodeCommandList2_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
@@ -10828,6 +10884,10 @@ pub struct ID3D12VideoEncoder_Vtbl {
     GetInputFormat: usize,
     pub GetMaxMotionEstimationPrecision: unsafe extern "system" fn(*mut core::ffi::c_void) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncoder {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoEncoder_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
@@ -10949,6 +11009,10 @@ pub struct ID3D12VideoEncoderHeap_Vtbl {
     pub GetResolutionList: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoEncoderHeap_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
     fn GetEncoderHeapFlags(&self) -> D3D12_VIDEO_ENCODER_HEAP_FLAGS;
@@ -11056,6 +11120,10 @@ pub struct ID3D12VideoExtensionCommand_Vtbl {
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ID3D12VideoExtensionCommand_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_EXTENSION_COMMAND_DESC;
     fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -11126,6 +11194,10 @@ pub struct ID3D12VideoMotionEstimator_Vtbl {
     GetDesc: usize,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoMotionEstimator {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoMotionEstimator {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoMotionEstimator_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_ESTIMATOR_DESC;
@@ -11197,6 +11269,10 @@ pub struct ID3D12VideoMotionVectorHeap_Vtbl {
     GetDesc: usize,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoMotionVectorHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoMotionVectorHeap {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoMotionVectorHeap_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetDesc(&self) -> D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC;
@@ -11359,6 +11435,10 @@ pub struct ID3D12VideoProcessCommandList_Vtbl {
     ProcessFrames: usize,
     pub WriteBufferImmediate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D12VideoProcessCommandList_Impl: super::super::Graphics::Direct3D12::ID3D12CommandList_Impl {
     fn Close(&self) -> windows_core::Result<()>;
@@ -11520,6 +11600,10 @@ pub struct ID3D12VideoProcessCommandList1_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ProcessFrames1: usize,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D12VideoProcessCommandList1_Impl: ID3D12VideoProcessCommandList_Impl {
     fn ProcessFrames1(&self, pvideoprocessor: windows_core::Ref<ID3D12VideoProcessor>, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1);
@@ -11588,6 +11672,10 @@ pub struct ID3D12VideoProcessCommandList2_Vtbl {
     pub InitializeExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
     pub ExecuteExtensionCommand: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const core::ffi::c_void, usize),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList2 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D12VideoProcessCommandList2_Impl: ID3D12VideoProcessCommandList1_Impl {
     fn SetProtectedResourceSession(&self, pprotectedresourcesession: windows_core::Ref<super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>);
@@ -11654,6 +11742,10 @@ pub struct ID3D12VideoProcessCommandList3_Vtbl {
     pub base__: ID3D12VideoProcessCommandList2_Vtbl,
     pub Barrier: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP),
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessCommandList3 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessCommandList3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D12VideoProcessCommandList3_Impl: ID3D12VideoProcessCommandList2_Impl {
     fn Barrier(&self, numbarriergroups: u32, pbarriergroups: *const super::super::Graphics::Direct3D12::D3D12_BARRIER_GROUP);
@@ -11723,6 +11815,10 @@ pub struct ID3D12VideoProcessor_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetOutputStreamDesc: usize,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessor {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessor {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoProcessor_Impl: super::super::Graphics::Direct3D12::ID3D12Pageable_Impl {
     fn GetNodeMask(&self) -> u32;
@@ -11798,6 +11894,10 @@ pub struct ID3D12VideoProcessor1_Vtbl {
     pub base__: ID3D12VideoProcessor_Vtbl,
     pub GetProtectedResourceSession: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Send for ID3D12VideoProcessor1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl Sync for ID3D12VideoProcessor1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12VideoProcessor1_Impl: ID3D12VideoProcessor_Impl {
     fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;

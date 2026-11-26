@@ -758,6 +758,8 @@ pub struct ID3DBlob_Vtbl {
     pub GetBufferPointer: unsafe extern "system" fn(*mut core::ffi::c_void) -> *mut core::ffi::c_void,
     pub GetBufferSize: unsafe extern "system" fn(*mut core::ffi::c_void) -> usize,
 }
+unsafe impl Send for ID3DBlob {}
+unsafe impl Sync for ID3DBlob {}
 pub trait ID3DBlob_Impl: windows_core::IUnknownImpl {
     fn GetBufferPointer(&self) -> *mut core::ffi::c_void;
     fn GetBufferSize(&self) -> usize;
@@ -807,6 +809,8 @@ pub struct ID3DDestructionNotifier_Vtbl {
     pub RegisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, PFN_DESTRUCTION_CALLBACK, *const core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub UnregisterDestructionCallback: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DDestructionNotifier {}
+unsafe impl Sync for ID3DDestructionNotifier {}
 pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
     fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
     fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
@@ -863,6 +867,8 @@ pub struct ID3DInclude_Vtbl {
     pub Open: unsafe extern "system" fn(*mut core::ffi::c_void, D3D_INCLUDE_TYPE, windows_core::PCSTR, *const core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3DInclude {}
+unsafe impl Sync for ID3DInclude {}
 pub trait ID3DInclude_Impl {
     fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>;
     fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;

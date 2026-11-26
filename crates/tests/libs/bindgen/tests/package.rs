@@ -1,4 +1,75 @@
 #[test]
+fn legacy_agile_interfaces() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("legacy-agile-interfaces");
+    std::fs::create_dir_all(scratch.join("src")).unwrap();
+    let crates = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap();
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"legacy-agile-interfaces\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[dependencies]\n\
+             windows-core = {{ path = '{}' }}\n\
+             [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n\
+             [features]\nWin32_Foundation = []\n# generated features\n",
+            crates.join("libs").join("core").display(),
+        ),
+    )
+    .unwrap();
+    windows_bindgen::builder()
+        .input(
+            crates
+                .join("tools")
+                .join("package")
+                .join("compat")
+                .join("Windows.Win32.winmd"),
+        )
+        .filters([
+            "Windows.Win32.Graphics.Direct3D11.ID3D11Device::{}",
+            "Windows.Win32.Graphics.DirectWrite.IDWriteFactory::{}",
+            "Windows.Win32.Graphics.Dxgi.IDXGIAdapter1::{}",
+            "Windows.Win32.System.Com.ISequentialStream::{}",
+        ])
+        .implement("Windows.Win32.System.Com.ISequentialStream")
+        .full()
+        .package()
+        .output(&scratch)
+        .write();
+    std::fs::write(
+        scratch.join("src").join("lib.rs"),
+        "pub mod Windows;\n\
+         fn require_send_sync<T: Send + Sync>() {}\n\
+         pub fn check() {\n\
+             require_send_sync::<Windows::Win32::Graphics::Direct3D11::ID3D11Device>();\n\
+             require_send_sync::<Windows::Win32::Graphics::DirectWrite::IDWriteFactory>();\n\
+             require_send_sync::<Windows::Win32::Graphics::Dxgi::IDXGIAdapter1>();\n\
+         }\n",
+    )
+    .unwrap();
+    let result = std::process::Command::new("cargo")
+        .args([
+            "check",
+            "--quiet",
+            "--offline",
+            "--all-features",
+            "--manifest-path",
+        ])
+        .arg(&manifest)
+        .arg("--target-dir")
+        .arg(scratch.join("target"))
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+}
+
+#[test]
 fn class_generic_hierarchy_features() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("class-generic-hierarchy");
     std::fs::create_dir_all(&scratch).unwrap();

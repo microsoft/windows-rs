@@ -70,6 +70,8 @@ pub struct ID3D11On12Device_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D11"))]
     AcquireWrappedResources: usize,
 }
+unsafe impl Send for ID3D11On12Device {}
+unsafe impl Sync for ID3D11On12Device {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device_Impl: windows_core::IUnknownImpl {
     fn CreateWrappedResource(&self, presource12: windows_core::Ref<windows_core::IUnknown>, pflags11: *const D3D11_RESOURCE_FLAGS, instate: super::Direct3D12::D3D12_RESOURCE_STATES, outstate: super::Direct3D12::D3D12_RESOURCE_STATES, riid: *const windows_core::GUID, ppresource11: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -133,6 +135,8 @@ pub struct ID3D11On12Device1_Vtbl {
     pub base__: ID3D11On12Device_Vtbl,
     pub GetD3D12Device: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+unsafe impl Send for ID3D11On12Device1 {}
+unsafe impl Sync for ID3D11On12Device1 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device1_Impl: ID3D11On12Device_Impl {
     fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
@@ -194,6 +198,8 @@ pub struct ID3D11On12Device2_Vtbl {
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12")))]
     ReturnUnderlyingResource: usize,
 }
+unsafe impl Send for ID3D11On12Device2 {}
+unsafe impl Sync for ID3D11On12Device2 {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D11", feature = "Win32_Graphics_Direct3D12"))]
 pub trait ID3D11On12Device2_Impl: ID3D11On12Device1_Impl {
     fn UnwrapUnderlyingResource(&self, presource11: windows_core::Ref<super::Direct3D11::ID3D11Resource>, pcommandqueue: windows_core::Ref<super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;

@@ -4,6 +4,14 @@
 
 use super::*;
 
+/// Win32metadata marks interfaces that are safe to use from any thread with `AgileAttribute`.
+pub fn is_agile(def: TypeDef) -> bool {
+    def.attributes().any(|attribute| {
+        attribute.namespace() == "Windows.Win32.Foundation.Metadata"
+            && attribute.name() == "AgileAttribute"
+    })
+}
+
 /// Native size estimate used by the legacy return-value heuristic. Pointers and other
 /// unlisted types count as four bytes.
 fn size(ty: &Type, reader: &Reader) -> usize {
