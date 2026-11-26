@@ -27,20 +27,12 @@ assert_eq!(*total.lock().unwrap(), 45);
 
 ## Choose lifetime and concurrency
 
-| API | Behavior |
-| --- | --- |
-| `submit` | Submit a `'static` closure to the default pool without waiting. |
-| `submit_with_priority` | Submit to the default pool with a `Priority`. |
-| `submit_after` | Submit to the default pool once a `Duration` has elapsed. |
-| `for_each` | Process iterator items in parallel and wait for completion. |
-| `Pool::submit` | Submit a `'static` closure to a private pool. |
-| `Pool::submit_with_priority` | Submit to a private pool with a `Priority`; scopes have one too. |
-| `Pool::scope` | Submit borrowing closures and wait for the private pool. |
-| `Pool::join` | Wait for outstanding work on that pool. |
+`submit` runs a `Send + 'static` closure on the default pool without waiting. `for_each` waits for
+all items to finish, so its closure can borrow local data.
 
-Dropping a pool also waits. Avoid waiting on tasks queued to the same constrained pool, and handle
-expected failures inside callbacks rather than panicking. Set thread limits only when the workload
-needs them.
+Use `Pool` for a private pool and `Pool::scope` for borrowing tasks. Dropping a pool waits for its
+work to finish. Avoid waiting on tasks queued to the same constrained pool, and handle expected
+failures inside callbacks rather than panicking.
 
 Use a dedicated thread for work requiring a stable thread identity or apartment.
 The [pool sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/threading/pool)

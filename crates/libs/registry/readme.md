@@ -1,6 +1,6 @@
 # windows-registry
 
-Safe Windows registry access with owned keys, typed values, enumeration, and transactions.
+Safe Windows registry access with owned keys and typed values.
 
 - 📦 [crates.io](https://crates.io/crates/windows-registry)
 - 📖 [docs.rs](https://docs.rs/windows-registry)
@@ -36,9 +36,4 @@ Use `CURRENT_USER` for per-user settings. Machine-wide locations under `LOCAL_MA
 elevation. A 32-bit process can see a different redirected view; choose `wow64_32` or `wow64_64`
 when multiple processes must address the same data.
 
-`keys()` and `values()` enumerate children and values. `get_value` and `set_value` preserve the
-registry type when typed helpers are not enough. Expandable strings are returned as stored.
-
-For transactional writes, associate each key operation with a `Transaction`, then `commit`.
-Dropping an uncommitted transaction rolls it back. Surface creation and commit failures.
-`remove_tree` is recursive; restrict it to a key your application owns.
+Use `keys()` and `values()` to enumerate child keys and values.

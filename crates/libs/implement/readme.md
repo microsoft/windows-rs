@@ -41,14 +41,9 @@ Implement required base-interface traits as well as the declared interface.
 
 ## Threading and ownership
 
-Objects are agile by default. Synchronize shared mutable state and ensure destruction is valid on
-the thread that releases the final reference. Use `Agile = false` in the attribute for an
-apartment-affine object. Agility does not make thread-affine fields safe to share.
-
-The first interface is the object's COM identity. Queries for `IInspectable` use the first
-inspectable interface; objects with no declared interfaces also support `IInspectable`. Direct
-conversion to `IInspectable` requires an inspectable identity. Use `Compose = true` to derive from
-a composable WinRT class.
+Implementations must be `Send + Sync`. COM calls may overlap, and destruction must be valid on
+the thread that releases the final reference. Synchronize shared mutable state; the macro does not
+make thread-affine fields safe to share.
 
 Interface values retain the object through COM reference counting. Avoid ownership cycles or
 provide an explicit teardown path.

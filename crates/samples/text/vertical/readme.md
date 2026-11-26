@@ -9,8 +9,8 @@ Resize to reflow, hover to inspect cluster bounds and carets, and click either o
 to highlight it in every panel. Press B to show line/column bands and baselines.
 
 Layouts, geometry, and UTF-8 hit testing use windows-text. Canvas draws the layouts, including
-color emoji. The window uses windows-window without WinUI; generated Win32 bindings handle
-mouse/keyboard messages and DPI changes only. Native DirectWrite comparisons live in test_text.
+color emoji, in a windows-window host without WinUI. Native DirectWrite comparisons live in
+[test_text](../../../tests/libs/text/readme.md).
 
 The font request is Yu Gothic with the `ja-jp` locale and system fallback. Appearance depends on
 the installed fonts. Stacked orientation is not tate-chu-yoko; ruby is not included.

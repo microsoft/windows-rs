@@ -40,16 +40,7 @@ Keep the system dispatcher queue and target alive while displaying a scene. In R
 host observation for the effect's lifetime. The [host sample][host] shows the complete lifecycle.
 Objects in one tree must come from the same compositor.
 
-## Build and animate a tree
-
-Use `ContainerVisual` to group children, `SpriteVisual` for a rectangular brush, and `ShapeVisual`
-for vector shapes. Insert children at the top or bottom to control drawing order. Position and size
-them explicitly, or use relative sizing to track their parent; Composition does not provide
-control layout.
-
-Create scalar or vector key-frame animations and call `start_animation` on a visual. Property
-names such as `"Opacity"` and `"Scale"` are case-sensitive. Retain the revoker returned by
-`CompositionScopedBatch::on_completed` while waiting for completion.
+Position and size visuals explicitly; Composition does not provide control layout.
 
 Use [windows-reactor](https://docs.rs/windows-reactor) for controls and
 [windows-canvas](https://docs.rs/windows-canvas) for immediate-mode drawing. Canvas surfaces require

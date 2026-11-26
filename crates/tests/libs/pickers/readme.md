@@ -8,4 +8,5 @@ dialog by title, checks its owner and commit button, and then accepts or cancels
 cargo test -p test_pickers
 ```
 
-The tests need an interactive desktop and run one dialog at a time.
+The tests need an interactive desktop and run one dialog at a time. Keep the dialogs unobstructed
+and leave the mouse and keyboard idle until the suite finishes.

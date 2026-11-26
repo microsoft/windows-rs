@@ -45,19 +45,13 @@ class; choose one compatible with the calling apartment.
 ## Own and share interfaces
 
 Interface values own reference-counted COM pointers. Clone to retain a reference, let `Drop`
-release it, and use `Interface::cast` to request another interface. Prefer a provided base-interface
-conversion to an unnecessary `QueryInterface` call.
-
-| Need | API |
-| --- | --- |
-| Resolve an apartment-valid reference elsewhere | `AgileReference<T>` |
-| Refer to an object without keeping it alive | `Weak<T>` |
-| Keep an event subscription active | Retain its `EventRevoker` |
-| Declare or implement an interface | `#[interface]` and `#[implement]` |
+release it, and use `Interface::cast` to request another interface. Follow the interface's threading
+rules when sharing it between threads.
 
 Raw-pointer conversions require a known ownership and lifetime contract. A Win32 handle is not a
 COM interface and may need a separate close operation.
 
-The default `proc-macros` feature supplies the authoring attributes. See
+The default `proc-macros` feature supplies `#[interface]` and `#[implement]` for declaring and
+implementing interfaces. See
 [windows-interface](https://docs.rs/windows-interface) and
 [windows-implement](https://docs.rs/windows-implement).

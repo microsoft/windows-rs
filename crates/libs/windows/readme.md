@@ -1,6 +1,6 @@
 # windows
 
-Typed Win32, COM, and WinRT bindings for Rust binary applications, including reference-counted
+Typed Win32, COM, and WinRT bindings for Rust, including reference-counted
 interfaces and HRESULT-based results.
 
 - 📦 [crates.io](https://crates.io/crates/windows)
@@ -8,9 +8,8 @@ interfaces and HRESULT-based results.
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/windows)
 
-Prefer a [focused crate][crates] when one covers the task. Reusable libraries should generate
-remaining private bindings with [windows-bindgen](https://docs.rs/windows-bindgen).
-Use `windows` when a binary benefits from a broad, pre-generated API.
+Prefer a [focused crate][crates] when one covers the task. Use `windows` for a broad, pre-generated
+API, or [windows-bindgen](https://docs.rs/windows-bindgen) to generate project-specific bindings.
 
 ## Get started
 

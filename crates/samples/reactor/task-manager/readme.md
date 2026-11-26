@@ -1,11 +1,7 @@
 # Task Manager
 
-A Reactor version of Task Manager with a navigation shell, a virtualized process tree, selectable
-columns, filtering, sorting, stable selection, a per-process details page, and ending processes.
-It runs without elevation, debug privileges, or process-memory reads.
-Process sampling uses `NtQuerySystemInformation`, so identity and counters do not require opening
-each process. Creation and CPU times depend on the native `SYSTEM_PROCESS_INFORMATION` layout,
-including fields reserved in the SDK declaration.
+A Reactor process viewer with a virtualized process tree, per-process details, and CPU and memory
+charts. It runs without elevation, debug privileges, or process-memory reads.
 
 ```powershell
 cargo run -p reactor-task-manager --release
@@ -16,57 +12,31 @@ The build deploys a self-contained Windows App Runtime. An interactive Windows d
 The demo has 60 deterministic snapshots with changing metrics, process exits, and PID reuse. It
 does not enumerate real processes.
 
-The **Processes** page supports full-row selection; double-click a row, or select it and choose
-**Details**, to inspect the process. Tab and Enter/Space activate rows and controls. Use the
-chevrons to expand or collapse branches. **Columns** adds or removes PID, parent PID, session,
-priority, CPU, threads, handles, memory, and pool usage columns, all from the same system snapshot.
-Click a column heading to sort, then click again to reverse direction. Identity columns initially
-sort ascending and resource columns descending; unavailable values stay last. Hiding the sorted
-column sorts by name. Drag the divider at the right edge of a heading to resize a column; the table
-scrolls horizontally when the window is narrower than its columns. Tree mode sorts siblings. Turn
-off **Process tree** for a global ranking. Filtering retains ancestors of matching processes and
-expands their paths. Ctrl+Space pauses and resumes updates, as shown in the title bar; pausing stops
-scheduling new snapshots, but an in-flight snapshot can still complete.
+## Use the viewer
 
-Right-click a row to select it and show **Details**, **End task**, and **End process tree**, or
-select a row and choose **End task** above the table. Both ask for confirmation. Windows has no
-process tree, so, like .NET's `Process.Kill(entireProcessTree: true)`, ending a tree is best effort:
-descendants are captured from parent PIDs and creation times when the dialog opens, then each
-process is ended before its descendants, without waiting for it to exit. A failure does not stop the
-rest of the tree. A tree that includes Task Manager itself is refused. Each process is opened with
-`PROCESS_TERMINATE` and its creation time checked first, so a reused PID is never ended. Failures,
-such as access denied for elevated or protected processes, are listed in a closable error bar.
-Ending processes is available only in live mode.
+On **Processes**, double-click a row or choose **Details** to inspect it. Use **Columns** to choose
+metrics, click headings to sort, and drag heading dividers to resize. Turn off **Process tree**
+for a global ranking. Filtering retains ancestors of matching processes. Tab and Enter/Space
+activate rows and controls; Ctrl+Space pauses or resumes updates. An in-flight snapshot can still
+complete after pausing.
 
-The **Details** page opens the selected process with `PROCESS_QUERY_LIMITED_INFORMATION` and checks
-its creation time before every query, so a reused PID is never described as the original process.
-It shows the image path and version resources, user, elevation, architecture, start time, kernel
-and user CPU, priority, memory, I/O, and handle and GDI/USER object counts. Counters refresh with
-each snapshot. Processes that deny access, such as protected system processes when not elevated,
-show only their snapshot values.
+Right-click a row for **End task** or **End process tree**. Both require confirmation and are
+available only in live mode. Tree termination is best effort: descendants are captured when the
+dialog opens, and a failure does not stop the remaining attempts. A tree containing this viewer is
+refused. Creation-time checks prevent ending a reused PID. Access-denied and other failures appear
+in an error bar.
 
-The **Performance** page charts aggregate CPU and physical memory with `windows-canvas`. CPU uses
-the language-neutral PDH `Processor Information(_Total)\% Processor Time` counter, not a sum of
-process rows or frequency-adjusted utilization. Memory shows total physical memory minus available
-memory. Counter errors are shown as unavailable, and missing observations leave gaps in the charts.
+**Details** also checks process identity before querying. Protected or inaccessible processes show
+only their snapshot values.
 
-Use the **Graph** button above the CPU chart to choose a view.
-**Overall utilization** shows the aggregate counter and **Logical processors** shows a grid
-covering all active logical processors. Labels use PDH's `Nnode:number` identity: the NUMA node and
-processor number within that node, not physical core numbers or processor-affinity groups. All
-plots share the same canvas, device, and swap chain. Resizing changes the grid layout, not processor
-identity. The chart's accessibility help text includes each processor's current value or error.
+On **Performance**, use **Graph** to choose aggregate CPU or logical processors. Processor labels
+identify NUMA nodes and logical processors, not physical cores. CPU uses PDH processor time, not
+Windows Task Manager's frequency-adjusted utilization. Memory is total physical memory minus
+available memory; MB/GB use powers of 1024. Missing or failed observations leave gaps, not zeros.
 
-Memory labels follow Task Manager's MB/GB convention, using powers of 1024.
-
-History covers the last 60 recorded seconds, retaining the latest observation per second. CPU
-collection runs at most once per second even when process refresh is faster. Pausing freezes the
-display. Sampling continues across pages, and history, chart selection, process selection, sorting,
-and filtering are retained. Returning to Processes recreates its native list and starts at the top.
-CPU and Memory share one demand-driven drawing surface. Switching metrics reuses its GPU device;
-leaving Performance unmounts the surface but keeps the bounded history. The CPU graph choice is
-retained across metric and page changes. Logical histories have the same 60-second bound; missing
-or failed counters produce gaps, not zeros. The grid updates when the observed topology changes.
+History covers the last 60 recorded seconds. Sampling continues across pages, and pausing freezes
+the display. History, graph choice, selection, sorting, and filtering are retained across page
+changes, but returning to Processes starts the list at the top.
 
 Use `cargo run -p reactor-maxcpu --release` to exercise the graphs. Its workers are not pinned, so
 busy work can move between logical processors. Stop the load before collecting performance numbers.
@@ -83,10 +53,8 @@ plus system CPU and memory observations.
 Treat live recordings as potentially sensitive local data. Executable paths are not recorded.
 Use `--demo --record demo.jsonl` to create a synthetic recording instead.
 
-New recordings use version 3 and include logical processor identities, values, and errors.
-Version-2 recordings retain aggregate CPU and memory history but have no logical CPU history.
-Version-1 recordings retain their process data but have no system history. Replay never fills
-missing observations from the current machine.
+Recordings use version 3. Replay also accepts version 2 without logical CPU history and version 1
+without system history. It never fills missing observations from the current machine.
 
 Replay reads one JSON snapshot per line and uses the same model and UI as live sampling. CPU values
 use recorded sampling intervals, not replay wall time. It does not query processes on the replay
@@ -103,10 +71,9 @@ machine or replay keyboard/mouse actions. Invalid input stops replay with an exp
 | `--report FILE` | Write snapshot acquisition and update-to-effect timing to a new file |
 
 Recording and report files must not already exist. Without `--exit`, a finished replay leaves its
-last snapshot visible. Without `--frames`, live sampling continues until paused or the window closes.
-Sampling and recording run on background workers with at most one snapshot request in flight.
-Timing samples are retained only with `--report`, which requires a finite source or `--frames`.
-Reports are written on completion, not when the window is closed early.
+last snapshot visible. Without `--frames`, live sampling continues until paused or the window
+closes. Timing samples are retained only with `--report`, which requires a finite source or
+`--frames`. Reports are written on completion, not when the window is closed early.
 
 ## Measurement boundaries
 
@@ -134,8 +101,4 @@ cargo test -p reactor-task-manager
 cargo clippy -p reactor-task-manager --all-targets -- -D warnings
 ```
 
-The tests cover CPU normalization, PID reuse, tree filtering, unavailable identities, replay
-compatibility, NUMA-qualified processor identities, bounded history, stable identity for processes
-that cannot be opened, native process-time decoding, sampling cancellation, details and termination
-identity checks, process-tree descendants, version resources, and drawing aggregate and logical
-graphs with gaps on a shared WARP surface.
+Tests cover process identity, sampling, replay compatibility, and off-screen WARP graph rendering.

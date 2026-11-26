@@ -19,19 +19,20 @@ cargo run -p test_reactor_perf --release -- --percent 10 --duration 10
 
 This opens a WinUI window and requires an interactive desktop. The `--headless` option is accepted
 for the comparison harness, but only changes the displayed label; it does not disable the window
-or rendering.
+or rendering. Local builds require the matching installed Windows App Runtime; this crate's
+`build.rs` does not stage it.
 
 The report is written next to the executable as `StressPerf.Reactor.report.txt`. Add `--json` to
 also write `StressPerf.Reactor.metrics.json`.
 
-The [C# Reactor comparison workflow][comparison] builds this crate from a pinned windows-rs revision.
-It replaces `build.rs` to deploy a self-contained runtime. Coordinate changes to the crate path,
-package name, command-line options, or report format with that harness. This fixture is separate
-from the functional suite in [`test-reactor`](../reactor/readme.md).
+The [C# Reactor comparison workflow][comparison] builds this crate from a pinned windows-rs
+revision. It replaces `build.rs` to deploy a self-contained runtime. Coordinate changes to the
+crate path, package name, command-line options, or report format with that harness. This fixture
+is separate from the functional suite in [`test-reactor`](../reactor/readme.md).
 
-The in-app frame counter uses `CompositionTarget::Rendering`, matching the C# workload. As with the
-C# harness, render completion is a better no-admin throughput proxy, and ETW presents are required
-for a final user-visible frame-rate comparison.
+The in-app frame counter uses `CompositionTarget::Rendering`, matching the C# workload. These
+callbacks are not drawing-completion or presentation timestamps. A user-visible frame-rate
+comparison needs separate presentation evidence, such as ETW traces.
 
 ## Task viewer workload
 
@@ -39,15 +40,14 @@ for a final user-visible frame-rate comparison.
 cargo run -p test_reactor_perf --release -- --workload tasks --count 1000 --cycles 20
 ```
 
-This separate workload leaves the grid comparison and its report format unchanged. It opens a
-virtualized task list with a filter, detail editor, toolbar, and independent background-status
-component. Each cycle replays selection, two local draft edits, status progress, filtering and
-clearing, a stable-key row update, reversal and restoration, detail removal and remounting, then
-another status update. One complete warmup cycle is excluded.
+This workload opens a virtualized task list with a filter, detail editor, toolbar, and
+background-status component. Each cycle replays selection, two local draft edits, status progress,
+filtering and clearing, a stable-key row update, reversal and restoration, detail removal and
+remounting, then another status update. One complete warmup cycle is excluded.
 
 The replay sends component messages every 33 ms and waits for each commit before advancing. It does
-not synthesize keyboard input, scroll, or measure input routing, IME behavior, focus preservation, or
-save operations. The filter is script-controlled; do not interact with the window during a run.
+not synthesize keyboard input, scroll, or measure input routing, IME behavior, focus preservation,
+or save operations. The filter is script-controlled; do not interact with the window during a run.
 Virtual rows are realized by WinUI, not by a fixed simulated viewport.
 
 `TaskViewer.Reactor.report.txt` beside the executable groups measurements by action:
@@ -87,12 +87,12 @@ provider updates and isolated leaf messages, waiting for each target's post-comm
 asserts the expected leaf render count and excludes one warmup cycle. The forest is not virtualized,
 so all leaves are retained even when outside the viewport.
 
-`Contexts.Reactor.report.txt` records median/p95 dispatch-to-commit time and Rust allocation traffic.
-At the following timer tick it samples live requested Rust bytes, process private bytes, and working
-set. Live bytes exclude allocator overhead and native allocations; private bytes include native
-memory; working set depends on paging. First/last live-byte samples help detect growth during the
-run. Commit time does not measure presentation or input latency.
+`Contexts.Reactor.report.txt` records median/p95 dispatch-to-commit time and Rust allocation
+traffic. At the following timer tick it samples live requested Rust bytes, process private bytes,
+and working set. Live bytes exclude allocator overhead and native allocations; private bytes
+include native memory; working set depends on paging. First/last live-byte samples help detect
+growth during the run. Commit time does not measure presentation or input latency.
 
 Compare identical release builds and instrumentation on an idle desktop. Use zero, one, and multiple
 contexts, with and without nested providers. The counting allocator tracks live bytes for all
-workloads; the existing grid and task report formats are unchanged.
+workloads.

@@ -1,11 +1,7 @@
 # windows-text
 
 Load fonts and lay out, measure, and hit-test text with DirectWrite. The crate does not draw: use
-[windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`, or draw its
-`glyph_runs` and `decorations` with your own renderer. `FontFace::rasterize` produces horizontal
-glyph images; oriented glyphs require native drawing with their orientation and sideways metrics.
-The [glyph-atlas sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/glyph-atlas)
-draws them with Direct3D 11.
+[windows-canvas](https://docs.rs/windows-canvas) to draw a `TextLayout`.
 
 - 📦 [crates.io](https://crates.io/crates/windows-text)
 - 📖 [docs.rs](https://docs.rs/windows-text)
@@ -19,7 +15,7 @@ draws them with Direct3D 11.
 windows-text = "0.101"
 ```
 
-```rust
+```rust,no_run
 use windows_text::*;
 
 fn main() {
@@ -39,104 +35,16 @@ Text positions are UTF-8 byte offsets into the string passed to `TextLayout::new
 pass in must lie on character boundaries. A hit test reports the byte range of the cluster it
 found, and `caret_position` picks the side of that cluster nearest the point.
 
-## Rich text
-
-A layout can change the font, size, weight, style, decorations, and OpenType features of any
-range of its text. Ranges are UTF-8 byte ranges:
-
-```rust
-use windows_text::*;
-
-fn main() {
-    let format = TextFormat::new("Calibri", 16.0);
-    let mut layout = TextLayout::new("Bold, underlined, final", &format, 300.0, 100.0);
-    layout.set_font_weight(0..4, FontWeight::BOLD);
-    layout.set_underline(6..16, true);
-    layout.set_font_features(18.., &[FontFeature::new(b"liga", 0)]);
-
-    for line in layout.line_metrics() {
-        println!("{:?} occupies {:?}", line.text_range, line.bounds);
-    }
-    let selection = layout.range_bounds(6..16);
-    println!("selection covers {} rectangle(s)", selection.len());
-}
-```
-
-## Paragraphs
-
-A format sets paragraph options: alignment (including justified), writing mode, line
-spacing, tab width, and trimming, which ends overflowing text with an ellipsis:
-
-```rust
-use windows_text::*;
-
-fn main() {
-    let format = TextFormat::new("Segoe UI", 16.0)
-        .with_alignment(TextAlignment::Justified)
-        .with_line_spacing(LineSpacing::Proportional(1.5))
-        .with_trimming(Trimming::Word);
-    let layout = TextLayout::new("A long paragraph...", &format, 200.0, 48.0);
-    println!("{} line(s)", layout.metrics().line_count);
-}
-```
-
-## Vertical text
-
-```rust
-use windows_text::*;
-
-fn main() {
-    let format = TextFormat::new("Yu Gothic", 18.0)
-        .with_locale("ja-jp")
-        .with_writing_mode(WritingMode::VerticalRightToLeft);
-    let layout = TextLayout::new("日本語 ABC", &format, 300.0, 200.0);
-    println!("{:?}", layout.metrics().bounds());
-}
-```
-
-Vertical modes read top to bottom and choose leftward or rightward column flow. Text alignment
-follows the reading axis; paragraph alignment follows column flow. Bounds remain physical x/y
-coordinates and hit tests still use UTF-8 byte offsets. Use `VerticalGlyphOrientation::Stacked` to
-keep Latin upright, not for tate-chu-yoko.
-
-Draw vertical layouts through Canvas to preserve color emoji. See the
-[vertical sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/vertical)
-for clickable choices, caret bounds, and resizing.
-
-## Fonts
-
-`FontCollection::system()` holds the installed fonts, and `FontCollection::from_data` loads
-fonts from memory. Use `with_collection` to lay out with a loaded font and `with_fallback` to
-choose the families tried for characters the font cannot display:
-
-```rust
-use windows_text::*;
-
-fn main() {
-    let system = FontCollection::system();
-    let face = system.find("Segoe UI", FontWeight::BOLD, FontStyle::Normal).unwrap();
-    println!("{} units per em", face.metrics().design_units_per_em);
-
-    let fallback = FontFallback::new(&system, &["Segoe UI Symbol"]);
-    let format = TextFormat::new("Consolas", 16.0)
-        .with_style(FontStyle::Italic)
-        .with_fallback(&fallback);
-    let layout = TextLayout::new("\u{2603} snow", &format, 200.0, 100.0);
-    println!("{} wide", layout.metrics().width);
-}
-```
+## Reuse layouts
 
 Formats, collections, faces, and fallbacks can be shared across threads; a `TextLayout` can move
 between threads. Formats use the user's locale unless you call `with_locale`.
 
-## Notes
-
 The crate requires Windows 10 version 1703 or later. Text objects do not need a graphics device,
-and a `TextLayout` can be reused across frames until its text or format changes. Use
-`as_interface` to pass a format or layout to DirectWrite or Direct2D through other bindings, such
-as the `windows` crate, and `to_interface` to query for other interfaces.
+and a `TextLayout` can be reused across frames until its text or format changes.
 
 The [measure sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/measure)
-prints metrics and caret positions without a window, and the
+prints metrics and caret positions without a window. The
 [paragraphs sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/paragraphs)
-draws each paragraph option with windows-canvas.
+and [vertical sample](https://github.com/microsoft/windows-rs/tree/master/crates/samples/text/vertical)
+draw layouts with Canvas.

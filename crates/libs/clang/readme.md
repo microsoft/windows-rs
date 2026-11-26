@@ -44,32 +44,16 @@ for (name, partition) in output.partitions {
 # fn main() {}
 ```
 
-`generate` processes x86, x64, and ARM64. Compile its RDL with
-[windows-rdl](https://docs.rs/windows-rdl), then generate Rust with `windows-bindgen`.
-For native inspection without RDL, use `capture` and `merge` without the projection feature.
+`generate` processes x86, x64, and ARM64 and fails on unsupported reachable declarations.
+Compile its RDL with [windows-rdl](https://docs.rs/windows-rdl), then generate Rust with
+`windows-bindgen`.
 
-## Configure a header
-
-Set `Input.source` to header text or an include directive, with include paths and definitions in
-`Input.arguments`. Start with explicit roots so unsupported declarations are easy to diagnose.
-
-| Input | Use |
-| --- | --- |
-| `roots` | Select qualified declarations and their dependencies; empty enables automatic selection. |
-| `root_paths` | Restrict automatic selection from included headers. |
-| `macros` | Select object-like macros for evaluation. |
-| `macro_headers` | Discover object-like macros owned by selected headers. |
-
-Function publication needs DLL/export ownership. An explicit `_Win32_ImportLibrary_` annotation is
-authoritative; `projection::Imports` supplies the fallback. Neither changes the native ABI.
-Use `projection::References` when existing metadata owns shared definitions.
-
-Strict generation fails on unsupported reachable declarations. `generate_partial` returns
-supported output plus omissions. Inspect those omissions before using the result: partial output
-does not establish full header coverage, and native conflicts remain errors.
+For a real header, set `Input.source` to its include directive and supply include paths and compiler
+definitions in `Input.arguments`. Use `roots` to select declarations and their dependencies.
+Publishing functions also requires DLL/export ownership; see the
+[`projection` API](https://docs.rs/windows-clang/latest/windows_clang/projection/index.html).
 
 Keep the native runtime, metadata readers, and binding generators compatible when upgrading.
-Successful metadata generation alone does not establish that a consumer supports every encoded
-contract; check representative generated signatures and layouts.
+Check generated signatures and layouts against the native API before using the bindings.
 
 [native]: https://github.com/microsoft/windows-rs/blob/master/crates/libs/clang-sys/readme.md

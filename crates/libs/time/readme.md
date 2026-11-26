@@ -37,6 +37,3 @@ which is enabled by default.
 
 Use checked arithmetic for external input. Operators panic on overflow or division by zero, while
 unit and Unix constructors saturate. Validate inputs when saturation would hide a mistake.
-
-`Display` formats UTC. `to_local()` shifts the value to local wall-clock time for reading calendar
-fields; do not serialize that shifted value as UTC or convert it to `SystemTime`.

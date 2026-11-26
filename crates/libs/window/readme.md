@@ -50,10 +50,7 @@ Resize callbacks report physical pixels. Set any custom DPI policy before creati
 Closing a window quits by default. Use `quit_on_close(false)` when application and window lifetimes
 differ, then call `quit()` explicitly. Dropping a window destroys it without posting quit.
 
-`on_message` returns `Some(result)` only for fully handled messages; `None` allows normal
-processing and focused callbacks. Handling `WM_CLOSE` yourself bypasses `on_close`.
-Nested messages use default processing rather than re-entering your handler. Keep callbacks short
-and do not let panics escape them.
+Keep callbacks short and do not let panics escape them.
 
 See [standalone Canvas][canvas] and [windows-webview](https://docs.rs/windows-webview) for hosts.
 
