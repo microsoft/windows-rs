@@ -6,6 +6,13 @@ pub trait FieldExt {
 
 impl FieldExt for Field {
     fn field_type(&self, enclosing: Option<&CppStruct>, reader: &Reader) -> Type {
-        Type::from_metadata_type(&self.ty(), enclosing, &[], reader)
+        let ty = Type::from_metadata_type(&self.ty(), enclosing, &[], reader);
+
+        // Legacy Win32 metadata spells field pointee constness with `ConstAttribute`.
+        if reader.legacy() && self.has_attribute("ConstAttribute") {
+            ty.to_const_type().to_const_ptr()
+        } else {
+            ty
+        }
     }
 }

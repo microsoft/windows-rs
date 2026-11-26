@@ -132,24 +132,24 @@ pub unsafe fn plain(value: &I) {
     unsafe { value.Plain() };
 }
 
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 pub unsafe fn annotated(value: &I) {
     unsafe { value.Annotated(Windows::Win32::Values::One) };
 }
 
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 pub struct Implementation;
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 impl Windows::Win32::Api::I_Impl for Implementation {
     fn Plain(&self) {}
     fn Annotated(&self, _: u32) {}
 }
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 pub const VTABLE: I_Vtbl = I_Vtbl::new::<Implementation>();
 "#,
         )
         .unwrap();
-        for features in ["Api", "Api,Values"] {
+        for features in ["Win32_Api", "Win32_Api,Win32_Values"] {
             let result = std::process::Command::new("cargo")
                 .args([
                     "check",
@@ -261,8 +261,8 @@ pub unsafe fn aliases() {
     let _: i32 = unsafe { legacy::GetWindowLongPtrA() };
     let _: i32 = unsafe { split_legacy::SetWindowLongPtrW() };
     let _: i32 = unsafe { complete::GetWindowLongPtrW() };
-    let _: Narrow = Narrow { value: 1 };
-    assert_eq!(X86, 1);
+    let _: narrow::Narrow = narrow::Narrow { value: 1 };
+    assert_eq!(combined::X86, 1);
 }
 
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64"))]
@@ -275,13 +275,13 @@ pub unsafe fn aliases() {
     let _: isize = unsafe { legacy::GetWindowLongPtrA() };
     let _: isize = unsafe { split_legacy::SetWindowLongPtrW() };
     let _: isize = unsafe { complete::GetWindowLongPtrW() };
-    let _: Wide = Wide { value: 1 };
+    let _: wide::Wide = wide::Wide { value: 1 };
 }
 
 #[cfg(target_arch = "x86_64")]
-pub const CHECK: u32 = Windows::Win32::X64;
+pub const CHECK: u32 = Windows::Win32::combined::X64;
 #[cfg(target_arch = "aarch64")]
-pub const CHECK: u32 = Windows::Win32::ARM + Windows::Win32::ARM64;
+pub const CHECK: u32 = Windows::Win32::constants::ARM + Windows::Win32::combined::ARM64;
 "#).unwrap();
         for target in targets {
             let mut command = std::process::Command::new("cargo");

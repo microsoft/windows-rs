@@ -15,6 +15,10 @@ impl Signature {
     }
 
     pub fn is_retval(&self, reader: &Reader) -> bool {
+        if reader.legacy() {
+            return legacy::is_retval(self, reader);
+        }
+
         self.params
             .last()
             .is_some_and(|param| param.is_retval_candidate(reader))

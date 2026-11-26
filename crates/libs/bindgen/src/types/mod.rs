@@ -21,6 +21,7 @@ pub use cpp_const::*;
 pub use cpp_delegate::*;
 pub use cpp_enum::*;
 pub use cpp_fn::*;
+use cpp_handle::*;
 pub use cpp_interface::*;
 pub use cpp_method::*;
 pub use cpp_struct::*;
@@ -272,11 +273,8 @@ impl Type {
 
         // Win32 core C spellings are unique across metadata namespace layouts.
         let win32_meta = namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.");
-        let is_flat_win32_stem = namespace
-            .strip_prefix("Windows.")
-            .is_some_and(|leaf| leaf.starts_with(|c: char| c.is_ascii_lowercase()));
 
-        if win32_meta || is_flat_win32_stem {
+        if win32_meta {
             match name {
                 "GUID" => return Remap::Type(Self::GUID),
                 "HRESULT" => return Remap::Type(Self::HRESULT),
@@ -371,7 +369,7 @@ impl Type {
                 let ns: &str = &tn.namespace;
                 let n: &str = &tn.name;
 
-                let (ns, n) = match Self::remap(ns, n, reader.project_numerics()) {
+                let (ns, n) = match reader.remap(ns, n) {
                     Remap::Type(ty) => return ty,
                     Remap::Name(name) => (name.namespace(), name.name()),
                     Remap::None => (ns, n),
@@ -535,7 +533,7 @@ impl Type {
     fn aliases_type(&self, name: TypeName, reader: &Reader) -> bool {
         match self {
             Self::CppInterface(ty) => ty.type_name() == name,
-            Self::CppStruct(ty) if ty.is_native_typedef() => ty
+            Self::CppStruct(ty) if ty.is_native_typedef(reader) => ty
                 .def
                 .underlying_type_ext(reader)
                 .aliases_type(name, reader),
@@ -926,8 +924,12 @@ impl Type {
         None
     }
 
-    /// Returns the inner value type for eligible `IReference<T>` sugar.
+    /// Returns the inner value type for eligible `IReference<T>` sugar. Legacy packages keep
+    /// `IReference<T>` in their signatures.
     pub fn ireference_inner_for_sugar(&self, reader: &Reader) -> Option<&Self> {
+        if reader.legacy() {
+            return None;
+        }
         let inner = self.as_ireference_inner()?;
         match inner {
             // `HSTRING` is sugar-eligible: we accept `&str`/`String`/`HSTRING`
@@ -1023,7 +1025,7 @@ impl Type {
     /// Resolves native C typedefs for projection decisions without changing their public spelling.
     pub fn projection_type(&self, reader: &Reader) -> Self {
         match self {
-            Self::CppStruct(ty) if ty.is_native_typedef() => ty
+            Self::CppStruct(ty) if ty.is_native_typedef(reader) => ty
                 .def
                 .fields()
                 .next()
@@ -1053,7 +1055,7 @@ impl Type {
     /// on the pointee.
     pub fn projection_pointee(&self, reader: &Reader) -> Self {
         match self {
-            Self::CppStruct(ty) if ty.is_native_typedef() => ty
+            Self::CppStruct(ty) if ty.is_native_typedef(reader) => ty
                 .def
                 .fields()
                 .next()
@@ -1505,7 +1507,7 @@ pub(crate) fn write_newtype_wrap_for_arches(
         ty.clone()
     };
     if let Type::CppStruct(s) = &ty
-        && (s.is_handle(config.reader) || s.is_native_typedef())
+        && (s.is_handle(config.reader) || s.is_native_typedef(config.reader))
     {
         let inner = ty.underlying_type(config.reader);
         let arg = write_newtype_wrap_for_arches(&inner, value, config, arches);
@@ -1523,7 +1525,7 @@ pub(crate) fn write_newtype_wrap_for_arches(
         return quote! { #name(#value) };
     }
     if let Type::CppEnum(enumeration) = &ty
-        && enumeration.def.has_attribute("ScopedEnumAttribute")
+        && config.enum_is_newtype(enumeration.def)
     {
         let name = ty.write_name(config);
         return quote! { #name(#value) };

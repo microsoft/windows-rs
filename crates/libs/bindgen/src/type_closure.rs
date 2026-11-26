@@ -35,6 +35,14 @@ impl TypeClosure {
                 if filter.excludes_type_name(ty.type_name()) {
                     continue;
                 }
+                // Legacy Win32metadata packages drop items that depend on excluded types.
+                if reader.legacy()
+                    && ty.dependencies(reader).keys().any(|tn| {
+                        filter.excludes_type_name(*tn) && references.contains(*tn).is_none()
+                    })
+                {
+                    continue;
+                }
                 if filter.methods.contains_key(name) {
                     types.insert(ty.clone());
                     ty.combine_definition_closure(&mut types, &cx, ALL_ARCHES);

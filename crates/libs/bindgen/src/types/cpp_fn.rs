@@ -105,7 +105,11 @@ impl CppFn {
     }
 
     pub fn write_link(&self, config: &Config, underlying_types: bool) -> TokenStream {
-        let library = self.method.module_name();
+        let library = if config.reader.legacy() {
+            legacy::module_name(self.method)
+        } else {
+            self.method.module_name()
+        };
         let symbol = self.method.import_name();
         let ordinal = windows_metadata::import_ordinal(symbol.unwrap_or(self.method.name()))
             .unwrap_or_else(|error| {
@@ -147,7 +151,9 @@ impl CppFn {
         let signature = self.method.method_signature(&[], config.reader);
         let variadic = signature.call_flags.contains(MethodCallAttributes::VARARG);
 
-        if variadic && !config.bindgen.style.is_sys() {
+        // Legacy packages keep the fixed-parameter wrapper, which calls the variadic declaration
+        // without variadic arguments.
+        if variadic && !config.bindgen.style.is_sys() && !config.reader.legacy() {
             return self.reject_variadic(
                 config,
                 "cannot be projected by full or minimal bindings; use `--sys` for its raw \
@@ -292,6 +298,35 @@ impl CppFn {
                                 #map
                             }
                         }
+                    }
+                }
+            }
+            ReturnHint::ResultVoid => {
+                let where_clause = method.write_where(config, false);
+
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) -> #result Result<()> #where_clause {
+                        #link
+                        unsafe { #name(#args).ok() }
+                    }
+                }
+            }
+            ReturnHint::ReturnStruct | ReturnHint::None
+                if config.reader.legacy()
+                    && legacy::handle_last_error(self.method, &signature, config.reader) =>
+            {
+                let where_clause = method.write_where(config, false);
+                let return_type = signature.return_type.write_name(config);
+
+                quote! {
+                    #cfg
+                    #[inline]
+                    pub unsafe fn #name<#generics>(#params) -> #result Result<#return_type> #where_clause {
+                        #link
+                        let result__ = unsafe { #name(#args) };
+                        (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
                     }
                 }
             }

@@ -27,11 +27,25 @@ impl CppEnum {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if let Some(ty) = config.reader.legacy_core_type(self.def) {
+            return config.write_legacy_core_type(&ty);
+        }
         let tn = self.def.type_name();
+
+        // The legacy `windows` crate re-exports the `windows-core` status type, which provides the
+        // same layout and methods as the 0.62 projection.
+        if config.reader.legacy()
+            && !config.bindgen.style.is_sys()
+            && tn == TypeName("Windows.Win32.Foundation", "WIN32_ERROR")
+        {
+            let core = config.write_core();
+            return quote! { pub use #core WIN32_ERROR; };
+        }
+
         let is_scoped = self.def.has_attribute("ScopedEnumAttribute");
 
-        // Unscoped C enums are bare integer aliases; scoped enums keep newtype projection.
-        if !is_scoped {
+        // Unscoped C enums are bare integer aliases unless legacy metadata calls for newtypes.
+        if !config.enum_is_newtype(self.def) {
             let cfg = write_simple_cfg(self, config);
             return config.write_cpp_handle(&Type::CppEnum(self.clone()), self.def, &cfg);
         }
@@ -49,7 +63,12 @@ impl CppEnum {
             derive.extend(["Default", "Debug", "PartialEq", "Eq"]);
         }
 
-        let fields = write_enum_constants(self.def, config);
+        // Unscoped legacy variants remain namespace-level constants.
+        let fields = if is_scoped {
+            write_enum_constants(self.def, config)
+        } else {
+            vec![]
+        };
         let fields = if fields.is_empty() {
             quote! {}
         } else {
