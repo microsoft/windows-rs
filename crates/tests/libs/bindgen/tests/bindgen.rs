@@ -962,6 +962,63 @@ fn minimal_interface_implementation_selection() {
 }
 
 #[test]
+fn generated_interfaces_support_renamed_runtime() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("renamed_runtime");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let winmd = scratch.join("input.winmd");
+    windows_rdl::reader()
+        .input("input/minimal_interfaces.rdl")
+        .output(&winmd)
+        .write()
+        .unwrap();
+    let core = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("..")
+        .join("..")
+        .join("..")
+        .join("libs")
+        .join("core");
+    std::fs::write(
+        scratch.join("Cargo.toml"),
+        format!(
+            "[package]\nname = \"renamed-runtime\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[lib]\npath = \"lib.rs\"\n\
+             [dependencies]\nruntime = {{ package = 'windows-core', path = '{}' }}\n",
+            core.display()
+        ),
+    )
+    .unwrap();
+    std::fs::write(
+        scratch.join("lib.rs"),
+        "#![allow(dead_code, nonstandard_style)]\n\
+         mod bindings { use runtime as windows_core; include!(\"bindings.rs\"); }\n",
+    )
+    .unwrap();
+    for full in [false, true] {
+        let mut builder = windows_bindgen::builder();
+        builder
+            .input(&winmd)
+            .filter("Test")
+            .output(scratch.join("bindings.rs"));
+        if full {
+            builder.full();
+        }
+        builder.write();
+        let result = std::process::Command::new("cargo")
+            .args(["check", "--quiet", "--offline", "--manifest-path"])
+            .arg(scratch.join("Cargo.toml"))
+            .arg("--target-dir")
+            .arg(scratch.join("target"))
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "full={full}: {}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+    }
+}
+
+#[test]
 fn interface_helpers_respect_dead_code() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("interface_helpers_dead_code");
     std::fs::create_dir_all(&scratch).unwrap();

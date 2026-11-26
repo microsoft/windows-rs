@@ -8,7 +8,7 @@ publish = false
 windows-link = { workspace = true }
 windows-result = { workspace = true }
 
-[build-dependencies]
+[dev-dependencies]
 windows-bindgen = { workspace = true }
 
 [lints]

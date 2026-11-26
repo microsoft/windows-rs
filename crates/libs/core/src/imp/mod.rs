@@ -75,7 +75,7 @@ pub fn encode_pointer(ptr: *const core::ffi::c_void) -> i64 {
 #[macro_export]
 macro_rules! interface_hierarchy {
     ($child:ident, $parent:ty) => {
-        impl ::windows_core::imp::CanInto<$parent> for $child {}
+        impl $crate::imp::CanInto<$parent> for $child {}
         impl ::core::convert::From<&$child> for &$parent {
             fn from(value: &$child) -> Self {
                 unsafe { ::core::mem::transmute(value) }
@@ -100,7 +100,7 @@ pub use interface_hierarchy;
 #[macro_export]
 macro_rules! required_hierarchy {
     ($child:ident, $parent:ty) => {
-        impl ::windows_core::imp::CanInto<$parent> for $child { const QUERY: bool = true; }
+        impl $crate::imp::CanInto<$parent> for $child { const QUERY: bool = true; }
     };
     ($child:ident, $first:ty, $($rest:ty),+) => {
         $crate::imp::required_hierarchy!($child, $first);
@@ -123,16 +123,16 @@ macro_rules! define_interface {
     (@unknown $name:ident, $vtbl:ident, $iid:literal, $inspectable:literal) => {
         #[repr(transparent)]
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone)]
-        pub struct $name(::windows_core::IUnknown);
-        unsafe impl ::windows_core::Interface for $name {
+        pub struct $name($crate::IUnknown);
+        unsafe impl $crate::Interface for $name {
             type Vtable = $vtbl;
-            const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128($iid);
+            const IID: $crate::GUID = $crate::GUID::from_u128($iid);
             const INSPECTABLE: bool = $inspectable;
         }
         impl ::core::fmt::Debug for $name {
             fn fmt(&self, f: &mut ::core::fmt::Formatter) -> core::fmt::Result {
                 f.debug_tuple(stringify!($name))
-                    .field(&::windows_core::Interface::as_raw(self))
+                    .field(&$crate::Interface::as_raw(self))
                     .finish()
             }
         }
@@ -141,9 +141,9 @@ macro_rules! define_interface {
         #[repr(transparent)]
         #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::clone::Clone)]
         pub struct $name(::core::ptr::NonNull<::core::ffi::c_void>);
-        unsafe impl ::windows_core::Interface for $name {
+        unsafe impl $crate::Interface for $name {
             type Vtable = $vtbl;
-            const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
+            const IID: $crate::GUID = $crate::GUID::zeroed();
             const UNKNOWN: bool = false;
         }
         impl ::core::fmt::Debug for $name {
