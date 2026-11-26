@@ -1,4 +1,4 @@
-use windows::Win32::*;
+use windows::Win32::{Foundation::*, Globalization::*, System::Com::*};
 use windows::core::*;
 
 fn main() -> Result<()> {
@@ -7,10 +7,10 @@ fn main() -> Result<()> {
         .expect("Expected one command line argument for text to be spell-corrected");
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         let factory: ISpellCheckerFactory =
-            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL as u32)?;
+            CoCreateInstance(&SpellCheckerFactory, None, CLSCTX_ALL)?;
 
         let locale = w!("en-US");
         assert!(
@@ -27,8 +27,15 @@ fn main() -> Result<()> {
         // Error offsets index the UTF-16 input, not the original UTF-8 string.
         let wide: &[u16] = &text;
 
-        // The terminal S_FALSE projects as Err, ending this Result-based enumeration.
-        while let Ok(error) = errors.Next() {
+        loop {
+            let mut error = None;
+
+            // The enumeration ends with S_FALSE and no error.
+            if errors.Next(&mut error) != S_OK {
+                break;
+            }
+
+            let error = error.unwrap();
             let start_index = error.StartIndex()? as usize;
             let length = error.Length()? as usize;
             let substring = String::from_utf16_lossy(&wide[start_index..start_index + length]);
@@ -43,21 +50,15 @@ fn main() -> Result<()> {
                 CORRECTIVE_ACTION_REPLACE => {
                     let replacement = error.Replacement()?;
                     println!("Replace: {substring} with {}", replacement.display());
-                    CoTaskMemFree(replacement.as_ptr() as *mut _);
+                    CoTaskMemFree(Some(replacement.as_ptr() as _));
                 }
                 CORRECTIVE_ACTION_GET_SUGGESTIONS => {
                     let suggestions = checker.Suggest(&HSTRING::from(&substring))?;
 
                     loop {
-                        let mut suggestion = [core::ptr::null_mut()];
+                        let mut suggestion = [PWSTR::null()];
                         // This enumerator returns HRESULT and signals completion with a null slot.
-                        suggestions
-                            .Next(
-                                suggestion.len().try_into().unwrap(),
-                                suggestion.as_mut_ptr(),
-                                None,
-                            )
-                            .ok()?;
+                        suggestions.Next(&mut suggestion, None).ok()?;
 
                         if suggestion[0].is_null() {
                             break;
@@ -65,10 +66,10 @@ fn main() -> Result<()> {
 
                         println!(
                             "Maybe replace: {substring} with {}",
-                            PWSTR(suggestion[0]).display()
+                            suggestion[0].display()
                         );
 
-                        CoTaskMemFree(suggestion[0].cast());
+                        CoTaskMemFree(Some(suggestion[0].as_ptr() as _));
                     }
                 }
                 _ => {}

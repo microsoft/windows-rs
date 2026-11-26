@@ -7,11 +7,7 @@ publish = false
 [dependencies.windows]
 workspace = true
 default-features = true
-features = [
-    "Media_Ocr",
-    "Graphics_Imaging",
-    "Storage_Streams",
-]
+features = ["Media_Ocr", "Graphics_Imaging", "Storage_Streams"]
 
 [lints]
 workspace = true

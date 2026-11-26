@@ -1,5 +1,15 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+    use windows::{
+        Win32::{
+            Foundation::*, Graphics::Direct2D::Common::*, Graphics::Direct2D::*,
+            Graphics::Direct3D::*, Graphics::Direct3D11::*, Graphics::DirectComposition::*,
+            Graphics::DirectWrite::*, Graphics::Dxgi::Common::*, Graphics::Dxgi::*,
+            Graphics::Gdi::*, Graphics::Imaging::D2D::*, Graphics::Imaging::*,
+            Security::Cryptography::*, System::Com::*, UI::HiDpi::*, UI::Shell::*,
+            UI::WindowsAndMessaging::*,
+        },
+        core::*,
+    };
 
     use std::cell::RefCell;
     use std::rc::Rc;
@@ -53,13 +63,8 @@ fn main() -> windows::core::Result<()> {
                 let mut random_bytes = vec![0u8; values.len()];
 
                 assert!(
-                    BCryptGenRandom(
-                        None,
-                        random_bytes.as_mut_ptr(),
-                        random_bytes.len().try_into().unwrap(),
-                        BCRYPT_USE_SYSTEM_PREFERRED_RNG as u32
-                    )
-                    .0 == 0
+                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
+                        == 0
                 );
 
                 for i in 0..values.len() / 2 {
@@ -69,13 +74,8 @@ fn main() -> windows::core::Result<()> {
                 }
 
                 assert!(
-                    BCryptGenRandom(
-                        None,
-                        random_bytes.as_mut_ptr(),
-                        random_bytes.len().try_into().unwrap(),
-                        BCRYPT_USE_SYSTEM_PREFERRED_RNG as u32
-                    )
-                    .0 == 0
+                    BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).0
+                        == 0
                 );
 
                 (0..values.len()).for_each(|i| {
@@ -133,25 +133,18 @@ fn main() -> windows::core::Result<()> {
                 let device_3d = create_device_3d()?;
                 let device_2d = create_device_2d(&device_3d)?;
                 self.device = Some(device_3d);
-                let mut desktop = core::ptr::null_mut();
-                DCompositionCreateDevice2(
-                    &device_2d,
-                    &IDCompositionDesktopDevice::IID,
-                    &mut desktop,
-                )
-                .ok()?;
-                let desktop: IDCompositionDesktopDevice = imp::from_abi(desktop)?;
+                let desktop: IDCompositionDesktopDevice = DCompositionCreateDevice2(&device_2d)?;
 
                 self.target = None;
                 let target = desktop.CreateTargetForHwnd(self.handle, true)?;
                 let root_visual = create_visual(&desktop)?;
-                target.SetRoot(&root_visual).ok()?;
+                target.SetRoot(&root_visual)?;
                 self.target = Some(target);
 
                 let dc = device_2d.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
                 let brush = dc.CreateSolidColorBrush(
-                    &D2D_COLOR_F {
+                    &D2D1_COLOR_F {
                         r: 0.0,
                         g: 0.0,
                         b: 0.0,
@@ -184,17 +177,17 @@ fn main() -> windows::core::Result<()> {
                         }
 
                         let front_visual = create_visual(&desktop)?;
-                        front_visual.SetOffsetX2(card.offset.0).ok()?;
-                        front_visual.SetOffsetY2(card.offset.1).ok()?;
-                        root_visual.AddVisual(&front_visual, false, None).ok()?;
+                        front_visual.SetOffsetX2(card.offset.0)?;
+                        front_visual.SetOffsetY2(card.offset.1)?;
+                        root_visual.AddVisual(&front_visual, false, None)?;
 
                         let back_visual = create_visual(&desktop)?;
-                        back_visual.SetOffsetX2(card.offset.0).ok()?;
-                        back_visual.SetOffsetY2(card.offset.1).ok()?;
-                        root_visual.AddVisual(&back_visual, false, None).ok()?;
+                        back_visual.SetOffsetX2(card.offset.0)?;
+                        back_visual.SetOffsetY2(card.offset.1)?;
+                        root_visual.AddVisual(&back_visual, false, None)?;
 
                         let front_surface = create_surface(&desktop, width, height)?;
-                        front_visual.SetContent(&front_surface).ok()?;
+                        front_visual.SetContent(&front_surface)?;
                         draw_card_front(
                             &front_surface,
                             card.value,
@@ -204,24 +197,24 @@ fn main() -> windows::core::Result<()> {
                         )?;
 
                         let back_surface = create_surface(&desktop, width, height)?;
-                        back_visual.SetContent(&back_surface).ok()?;
+                        back_visual.SetContent(&back_surface)?;
                         draw_card_back(&back_surface, &bitmap, card.offset, self.dpi)?;
 
                         let rotation = desktop.CreateRotateTransform3D()?;
 
                         if card.status == Status::Selected {
-                            rotation.SetAngle2(180.0).ok()?;
+                            rotation.SetAngle2(180.0)?;
                         }
 
-                        rotation.SetAxisZ2(0.0).ok()?;
-                        rotation.SetAxisY2(1.0).ok()?;
+                        rotation.SetAxisZ2(0.0)?;
+                        rotation.SetAxisY2(1.0)?;
                         create_effect(&desktop, &front_visual, &rotation, true, self.dpi)?;
                         create_effect(&desktop, &back_visual, &rotation, false, self.dpi)?;
                         card.rotation = Some(rotation);
                     }
                 }
 
-                desktop.Commit().ok()?;
+                desktop.Commit()?;
                 self.desktop = Some(desktop);
                 Ok(())
             }
@@ -238,10 +231,9 @@ fn main() -> windows::core::Result<()> {
 
                 AdjustWindowRect(
                     &mut rect,
-                    GetWindowLongW(self.handle, GWL_STYLE) as u32,
+                    WINDOW_STYLE(GetWindowLongW(self.handle, GWL_STYLE) as u32),
                     false,
-                )
-                .ok()?;
+                )?;
 
                 Ok((rect.right - rect.left, rect.bottom - rect.top))
             }
@@ -249,8 +241,8 @@ fn main() -> windows::core::Result<()> {
 
         fn click_handler(&mut self, lparam: LPARAM) -> Result<()> {
             unsafe {
-                let x = lparam as u16 as f32;
-                let y = (lparam >> 16) as f32;
+                let x = lparam.0 as u16 as f32;
+                let y = (lparam.0 >> 16) as f32;
 
                 let width = logical_to_physical(CARD_WIDTH, self.dpi.0);
                 let height = logical_to_physical(CARD_HEIGHT, self.dpi.1);
@@ -283,11 +275,10 @@ fn main() -> windows::core::Result<()> {
                     }
 
                     let desktop = self.desktop.as_ref().expect("IDCompositionDesktopDevice");
-                    let mut stats = DCOMPOSITION_FRAME_STATISTICS::default();
-                    desktop.GetFrameStatistics(&mut stats).ok()?;
+                    let stats = desktop.GetFrameStatistics()?;
 
-                    let next_frame: f64 = stats.nextEstimatedFrameTime.QuadPart as f64
-                        / stats.timeFrequency.QuadPart as f64;
+                    let next_frame: f64 =
+                        stats.nextEstimatedFrameTime as f64 / stats.timeFrequency as f64;
 
                     self.manager.update(next_frame)?;
                     let storyboard = self.manager.create_storyboard()?;
@@ -332,7 +323,7 @@ fn main() -> windows::core::Result<()> {
                         update_animation(desktop, &self.cards[next])?;
                     }
 
-                    desktop.Commit().ok()?;
+                    desktop.Commit()?;
                 } else if cfg!(debug_assertions) {
                     println!("missed");
                 }
@@ -347,7 +338,7 @@ fn main() -> windows::core::Result<()> {
                     if cfg!(debug_assertions) {
                         println!("check device");
                     }
-                    device.GetDeviceRemovedReason().ok()?;
+                    device.GetDeviceRemovedReason()?;
                 } else {
                     if cfg!(debug_assertions) {
                         println!("build device");
@@ -361,13 +352,13 @@ fn main() -> windows::core::Result<()> {
 
         fn dpi_changed_handler(&mut self, wparam: WPARAM, lparam: LPARAM) -> Result<()> {
             unsafe {
-                self.dpi = (wparam as u16 as f32, (wparam >> 16) as f32);
+                self.dpi = (wparam.0 as u16 as f32, (wparam.0 >> 16) as f32);
 
                 if cfg!(debug_assertions) {
                     println!("dpi changed: {:?}", self.dpi);
                 }
 
-                let rect = &*(lparam as *const RECT);
+                let rect = &*(lparam.0 as *const RECT);
                 let size = self.effective_window_size()?;
 
                 SetWindowPos(
@@ -377,9 +368,8 @@ fn main() -> windows::core::Result<()> {
                     rect.top,
                     size.0,
                     size.1,
-                    (SWP_NOACTIVATE | SWP_NOZORDER) as u32,
-                )
-                .ok()?;
+                    SWP_NOACTIVATE | SWP_NOZORDER,
+                )?;
 
                 self.device = None;
                 Ok(())
@@ -388,9 +378,9 @@ fn main() -> windows::core::Result<()> {
 
         fn create_handler(&mut self) -> Result<(i32, i32)> {
             unsafe {
-                let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST as u32);
+                let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
                 let mut dpi = (0, 0);
-                GetDpiForMonitor(monitor, MDT_EFFECTIVE_DPI, &mut dpi.0, &mut dpi.1).ok()?;
+                GetDpiForMonitor(monitor, MDT_EFFECTIVE_DPI, &mut dpi.0, &mut dpi.1)?;
                 self.dpi = (dpi.0 as f32, dpi.1 as f32);
 
                 if cfg!(debug_assertions) {
@@ -403,7 +393,7 @@ fn main() -> windows::core::Result<()> {
 
         fn message_handler(&mut self, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
             unsafe {
-                match message as i32 {
+                match message {
                     WM_LBUTTONUP => self.click_handler(lparam).expect("WM_LBUTTONUP"),
                     WM_PAINT => {
                         self.paint_handler().unwrap_or_else(|_| {
@@ -422,29 +412,26 @@ fn main() -> windows::core::Result<()> {
                 }
             }
 
-            0
+            LRESULT(0)
         }
     }
 
     fn create_text_format() -> Result<IDWriteTextFormat> {
         unsafe {
-            let factory: IDWriteFactory2 =
-                DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, &IDWriteFactory2::IID)?.cast()?;
+            let factory: IDWriteFactory2 = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
 
             let format = factory.CreateTextFormat(
-                w!("Candara").as_ptr(),
+                w!("Candara"),
                 None,
                 DWRITE_FONT_WEIGHT_NORMAL,
                 DWRITE_FONT_STYLE_NORMAL,
                 DWRITE_FONT_STRETCH_NORMAL,
                 CARD_HEIGHT / 2.0,
-                w!("en").as_ptr(),
+                w!("en"),
             )?;
 
-            format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER).ok()?;
-            format
-                .SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER)
-                .ok()?;
+            format.SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER)?;
+            format.SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER)?;
             Ok(format)
         }
     }
@@ -452,9 +439,9 @@ fn main() -> windows::core::Result<()> {
     fn create_image() -> Result<IWICFormatConverter> {
         unsafe {
             let factory: IWICImagingFactory2 =
-                CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER as u32)?;
+                CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
 
-            let path = if PathFileExistsW(w!("image.jpg")).as_bool() {
+            let path = if PathFileExistsW(w!("image.jpg")).is_ok() {
                 w!("image.jpg")
             } else {
                 w!("crates/samples/windows/dcomp/image.jpg")
@@ -470,16 +457,14 @@ fn main() -> windows::core::Result<()> {
             let source = decoder.GetFrame(0)?;
             let image = factory.CreateFormatConverter()?;
 
-            image
-                .Initialize(
-                    &source,
-                    &GUID_WICPixelFormat32bppBGR,
-                    WICBitmapDitherTypeNone,
-                    None,
-                    0.0,
-                    WICBitmapPaletteTypeMedianCut,
-                )
-                .ok()?;
+            image.Initialize(
+                &source,
+                &GUID_WICPixelFormat32bppBGR,
+                WICBitmapDitherTypeNone,
+                None,
+                0.0,
+                WICBitmapPaletteTypeMedianCut,
+            )?;
 
             Ok(image)
         }
@@ -493,15 +478,14 @@ fn main() -> windows::core::Result<()> {
                 None,
                 D3D_DRIVER_TYPE_HARDWARE,
                 HMODULE::default(),
-                D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32,
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT,
                 None,
-                0,
-                D3D11_SDK_VERSION as u32,
+                D3D11_SDK_VERSION,
                 Some(&mut device),
                 None,
                 None,
             )
-            .map(|| device.unwrap())
+            .map(|()| device.unwrap())
         }
     }
 
@@ -513,9 +497,7 @@ fn main() -> windows::core::Result<()> {
     fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2> {
         unsafe {
             let visual = device.CreateVisual()?;
-            visual
-                .SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)
-                .ok()?;
+            visual.SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)?;
             Ok(visual)
         }
     }
@@ -565,7 +547,6 @@ fn main() -> windows::core::Result<()> {
                 .as_ref()
                 .expect("IDCompositionRotateTransform3D")
                 .SetAngle(&animation)
-                .ok()
         }
     }
 
@@ -592,25 +573,22 @@ fn main() -> windows::core::Result<()> {
                 * Matrix4x4::rotation_y(if front { 180.0 } else { 0.0 });
 
             let pre_transform = device.CreateMatrixTransform3D()?;
-            pre_transform.SetMatrix(&pre_matrix).ok()?;
+            pre_transform.SetMatrix(&pre_matrix)?;
 
             let post_matrix = Matrix4x4::perspective_projection(width * 2.0)
                 * Matrix4x4::translation(width / 2.0, height / 2.0, 0.0);
 
             let post_transform = device.CreateMatrixTransform3D()?;
-            post_transform.SetMatrix(&post_matrix).ok()?;
+            post_transform.SetMatrix(&post_matrix)?;
 
             let transforms = [
                 pre_transform.cast().ok(),
                 rotation.cast().ok(),
                 post_transform.cast().ok(),
             ];
-            let transform = device.CreateTransform3DGroup(
-                transforms.as_ptr(),
-                transforms.len().try_into().unwrap(),
-            )?;
+            let transform = device.CreateTransform3DGroup(&transforms)?;
 
-            visual.SetEffect(&transform).ok()
+            visual.SetEffect(&transform)
         }
     }
 
@@ -623,11 +601,7 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let mut offset = POINT::default();
-            let mut dc = core::ptr::null_mut();
-            surface
-                .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut offset)
-                .ok()?;
-            let dc: ID2D1DeviceContext = imp::from_abi(dc)?;
+            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -635,7 +609,7 @@ fn main() -> windows::core::Result<()> {
                 physical_to_logical(offset.y as f32, dpi.1),
             ));
 
-            dc.Clear(Some(&D2D_COLOR_F {
+            dc.Clear(Some(&D2D1_COLOR_F {
                 r: 1.0,
                 g: 1.0,
                 b: 1.0,
@@ -643,8 +617,7 @@ fn main() -> windows::core::Result<()> {
             }));
 
             dc.DrawText(
-                &(value as u16),
-                1,
+                &[value as u16],
                 format,
                 &D2D_RECT_F {
                     left: 0.0,
@@ -657,7 +630,7 @@ fn main() -> windows::core::Result<()> {
                 DWRITE_MEASURING_MODE_NATURAL,
             );
 
-            surface.EndDraw().ok()
+            surface.EndDraw()
         }
     }
 
@@ -669,11 +642,7 @@ fn main() -> windows::core::Result<()> {
     ) -> Result<()> {
         unsafe {
             let mut dc_offset = POINT::default();
-            let mut dc = core::ptr::null_mut();
-            surface
-                .BeginDraw(None, &ID2D1DeviceContext::IID, &mut dc, &mut dc_offset)
-                .ok()?;
-            let dc: ID2D1DeviceContext = imp::from_abi(dc)?;
+            let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;
             dc.SetDpi(dpi.0, dpi.1);
 
             dc.SetTransform(&Matrix3x2::translation(
@@ -698,7 +667,7 @@ fn main() -> windows::core::Result<()> {
                 None,
             );
 
-            surface.EndDraw().ok()
+            surface.EndDraw()
         }
     }
 
@@ -711,40 +680,40 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
-        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
+        SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
     }
 
     let app = Rc::new(RefCell::new(App::new()?));
 
     let handler = app.clone();
     let window = Window::new("Sample Window")
-        .style((WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX) as u32)
-        .ex_style(WS_EX_NOREDIRECTIONBITMAP as u32)
+        .style((WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX).0)
+        .ex_style(WS_EX_NOREDIRECTIONBITMAP.0)
         .on_message(move |_, message, wparam, lparam| {
             Some(
                 handler
                     .borrow_mut()
-                    .message_handler(message, wparam, lparam),
+                    .message_handler(message, WPARAM(wparam), LPARAM(lparam))
+                    .0,
             )
         })
         .create()?;
 
-    app.borrow_mut().handle = window.hwnd() as HWND;
+    app.borrow_mut().handle = HWND(window.hwnd());
     let size = app.borrow_mut().create_handler()?;
 
     // SetWindowPos reenters the handler, so call it outside the RefCell borrow.
     unsafe {
         SetWindowPos(
-            window.hwnd() as HWND,
+            HWND(window.hwnd()),
             None,
             0,
             0,
             size.0,
             size.1,
-            (SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER) as u32,
-        )
-        .ok()?;
+            SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOZORDER,
+        )?;
     }
 
     run();

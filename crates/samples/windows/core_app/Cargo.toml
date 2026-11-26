@@ -10,10 +10,8 @@ default-features = true
 features = [
     "ApplicationModel_Core",
     "UI_Core",
-    "combaseapi",
-    "objbase",
-    "winuser",
-    "windef",
+    "Win32_System_Com",
+    "Win32_UI_WindowsAndMessaging",
 ]
 
 [dependencies.windows-core]

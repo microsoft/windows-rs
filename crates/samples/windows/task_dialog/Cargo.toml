@@ -6,11 +6,7 @@ publish = false
 
 [dependencies.windows]
 workspace = true
-features = [
-    "commctrl",
-    "windef",
-    "minwindef",
-]
+features = ["Win32_UI_Controls", "Win32_UI_WindowsAndMessaging"]
 
 [lints]
 workspace = true

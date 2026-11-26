@@ -4,7 +4,10 @@ fn main() -> windows::core::Result<()> {
     use windows::{
         ApplicationModel::{Core::*, Package},
         UI::Core::*,
-        Win32::*,
+        Win32::{
+            System::Com::*,
+            UI::WindowsAndMessaging::{MB_ICONSTOP, MB_OK, MessageBoxW},
+        },
         core::*,
     };
 
@@ -49,7 +52,7 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         if let Err(result) = Package::Current() {
             MessageBoxW(
@@ -58,7 +61,7 @@ fn main() -> windows::core::Result<()> {
                     "Run crates\\samples\\windows\\core_app\\register.cmd, then launch \"Rust CoreApp\" from Start."
                 ),
                 w!("Error"),
-                (MB_ICONSTOP | MB_OK) as u32,
+                MB_ICONSTOP | MB_OK,
             );
             return Err(result);
         }

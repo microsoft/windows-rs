@@ -1,17 +1,16 @@
 fn main() -> windows::core::Result<()> {
     use std::os::windows::ffi::OsStrExt;
-    use windows::{Win32::*, core::*};
+    use windows::{
+        Win32::Networking::BackgroundIntelligentTransferService::*, Win32::System::Com::*, core::*,
+    };
 
     #[implement(IBackgroundCopyCallback)]
     struct Callback;
 
     impl IBackgroundCopyCallback_Impl for Callback_Impl {
-        fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> HRESULT {
+        fn JobTransferred(&self, job: Ref<IBackgroundCopyJob>) -> Result<()> {
             let job = job.unwrap();
-            let status = unsafe { job.Complete() };
-            if status.is_err() {
-                return status;
-            }
+            unsafe { job.Complete()? };
             println!("done");
             std::process::exit(0);
         }
@@ -20,26 +19,18 @@ fn main() -> windows::core::Result<()> {
             &self,
             job: Ref<IBackgroundCopyJob>,
             error: Ref<IBackgroundCopyError>,
-        ) -> HRESULT {
+        ) -> Result<()> {
             let job = job.unwrap();
             let error = error.unwrap();
             unsafe {
-                let status = job.Cancel();
-                if status.is_err() {
-                    return status;
-                }
-                let mut description = PWSTR::null();
-                let status = error.GetErrorDescription(0, &mut description);
-                if status.is_err() {
-                    return status;
-                }
-                println!("{}", description.display());
+                job.Cancel()?;
+                println!("{}", error.GetErrorDescription(0)?.display());
             }
             std::process::exit(0);
         }
 
-        fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> HRESULT {
-            S_OK
+        fn JobModification(&self, _: Ref<IBackgroundCopyJob>, _: u32) -> Result<()> {
+            Ok(())
         }
     }
 
@@ -48,12 +39,19 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 
         let manager: IBackgroundCopyManager =
-            CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER as u32)?;
+            CoCreateInstance(&BackgroundCopyManager, None, CLSCTX_LOCAL_SERVER)?;
 
-        let job = manager.CreateJob(w!("sample"), BG_JOB_TYPE_DOWNLOAD, &mut Default::default())?;
+        let mut job = None;
+        manager.CreateJob(
+            w!("sample"),
+            BG_JOB_TYPE_DOWNLOAD,
+            &mut Default::default(),
+            &mut job,
+        )?;
+        let job = job.unwrap();
 
         let destination = std::env::temp_dir().join("windows-rs-bits.png");
         let destination_wide: Vec<u16> = destination
@@ -66,19 +64,17 @@ fn main() -> windows::core::Result<()> {
                 "https://raw.githubusercontent.com/microsoft/windows-rs/master/crates/samples/canvas/bitmap/sample.png"
             ),
             PCWSTR(destination_wide.as_ptr()),
-        )
-        .ok()?;
+        )?;
 
         let callback: IBackgroundCopyCallback = Callback.into();
-        job.SetNotifyInterface(&callback).ok()?;
-        job.SetNotifyFlags((BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR) as u32)
-            .ok()?;
+        job.SetNotifyInterface(&callback)?;
+        job.SetNotifyFlags(BG_NOTIFY_JOB_TRANSFERRED | BG_NOTIFY_JOB_ERROR)?;
 
-        job.Resume().ok()?;
+        job.Resume()?;
         println!("downloading to {}...", destination.display());
 
         getchar();
-        job.Cancel().ok()?;
+        job.Cancel()?;
         println!("canceled");
         Ok(())
     }

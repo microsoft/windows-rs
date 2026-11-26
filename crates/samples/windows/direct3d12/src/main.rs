@@ -1,5 +1,12 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+    use windows::{
+        Win32::{
+            Foundation::*, Graphics::Direct3D::Fxc::*, Graphics::Direct3D::*,
+            Graphics::Direct3D12::*, Graphics::Dxgi::Common::*, Graphics::Dxgi::*,
+            System::Threading::*, UI::WindowsAndMessaging::*,
+        },
+        core::*,
+    };
 
     use std::cell::RefCell;
     use std::rc::Rc;
@@ -89,8 +96,7 @@ fn main() -> windows::core::Result<()> {
 
             unsafe {
                 self.dxgi_factory
-                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER as u32)
-                    .ok()?;
+                    .MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)?;
             }
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
@@ -158,7 +164,7 @@ fn main() -> windows::core::Result<()> {
                 )
             }?;
             unsafe {
-                command_list.Close().ok()?;
+                command_list.Close()?;
             };
 
             let aspect_ratio = WIDTH as f32 / HEIGHT as f32;
@@ -169,10 +175,7 @@ fn main() -> windows::core::Result<()> {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(None, false, false, None) };
-            if fence_event.is_null() {
-                return Err(Error::from_thread());
-            }
+            let fence_event = unsafe { CreateEventA(None, false, false, None) }?;
             self.resources = Some(Resources {
                 command_queue,
                 swap_chain,
@@ -202,12 +205,12 @@ fn main() -> windows::core::Result<()> {
 
                 let command_list = Some(resources.command_list.cast().unwrap());
                 unsafe {
-                    resources
-                        .command_queue
-                        .ExecuteCommandLists(1, &command_list);
+                    resources.command_queue.ExecuteCommandLists(&[command_list]);
                 };
 
-                unsafe { resources.swap_chain.Present(1, 0) }.ok().unwrap();
+                unsafe { resources.swap_chain.Present(1, DXGI_PRESENT(0)) }
+                    .ok()
+                    .unwrap();
 
                 wait_for_previous_frame(resources);
             }
@@ -217,10 +220,11 @@ fn main() -> windows::core::Result<()> {
     fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
         for i in 0.. {
             let adapter = unsafe { factory.EnumAdapters1(i)? };
-            let mut desc = DXGI_ADAPTER_DESC1::default();
-            unsafe { adapter.GetDesc1(&mut desc) }.ok()?;
+            let desc = unsafe { adapter.GetDesc1() }?;
 
-            if (desc.Flags as i32 & DXGI_ADAPTER_FLAG_SOFTWARE) != DXGI_ADAPTER_FLAG_NONE {
+            if (DXGI_ADAPTER_FLAG(desc.Flags as _) & DXGI_ADAPTER_FLAG_SOFTWARE)
+                != DXGI_ADAPTER_FLAG_NONE
+            {
                 continue;
             }
 
@@ -251,9 +255,9 @@ fn main() -> windows::core::Result<()> {
         }
 
         let dxgi_factory_flags = if cfg!(debug_assertions) {
-            DXGI_CREATE_FACTORY_DEBUG as u32
+            DXGI_CREATE_FACTORY_DEBUG
         } else {
-            0
+            DXGI_CREATE_FACTORY_FLAGS(0)
         };
 
         let dxgi_factory: IDXGIFactory4 = unsafe { CreateDXGIFactory2(dxgi_factory_flags) }?;
@@ -278,17 +282,18 @@ fn main() -> windows::core::Result<()> {
         let mut signature = None;
 
         let signature = unsafe {
-            D3D12SerializeRootSignature(
-                &desc,
-                D3D_ROOT_SIGNATURE_VERSION_1,
-                &mut signature,
-                std::ptr::null_mut(),
-            )
+            D3D12SerializeRootSignature(&desc, D3D_ROOT_SIGNATURE_VERSION_1, &mut signature, None)
         }
-        .map(|| signature.unwrap())?;
+        .map(|()| signature.unwrap())?;
 
         unsafe {
-            device.CreateRootSignature(0, signature.GetBufferPointer(), signature.GetBufferSize())
+            device.CreateRootSignature(
+                0,
+                std::slice::from_raw_parts(
+                    signature.GetBufferPointer() as _,
+                    signature.GetBufferSize(),
+                ),
+            )
         }
     }
 
@@ -297,7 +302,7 @@ fn main() -> windows::core::Result<()> {
         root_signature: &ID3D12RootSignature,
     ) -> Result<ID3D12PipelineState> {
         let compile_flags = if cfg!(debug_assertions) {
-            (D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION) as u32
+            D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION
         } else {
             0
         };
@@ -317,10 +322,10 @@ fn main() -> windows::core::Result<()> {
                 compile_flags,
                 0,
                 &mut vertex_shader,
-                std::ptr::null_mut(),
+                None,
             )
         }
-        .map(|| vertex_shader.unwrap())?;
+        .map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
         let pixel_shader = unsafe {
@@ -333,10 +338,10 @@ fn main() -> windows::core::Result<()> {
                 compile_flags,
                 0,
                 &mut pixel_shader,
-                std::ptr::null_mut(),
+                None,
             )
         }
-        .map(|| pixel_shader.unwrap())?;
+        .map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {
@@ -392,7 +397,7 @@ fn main() -> windows::core::Result<()> {
                         DestBlendAlpha: D3D12_BLEND_ZERO,
                         BlendOpAlpha: D3D12_BLEND_OP_ADD,
                         LogicOp: D3D12_LOGIC_OP_NOOP,
-                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL as u8,
+                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL.0 as u8,
                     },
                     D3D12_RENDER_TARGET_BLEND_DESC::default(),
                     D3D12_RENDER_TARGET_BLEND_DESC::default(),
@@ -467,7 +472,7 @@ fn main() -> windows::core::Result<()> {
 
         unsafe {
             let mut data = std::ptr::null_mut();
-            vertex_buffer.Map(0, None, Some(&mut data)).ok()?;
+            vertex_buffer.Map(0, None, Some(&mut data))?;
             std::ptr::copy_nonoverlapping(vertices.as_ptr(), data as *mut Vertex, vertices.len());
             vertex_buffer.Unmap(0, None);
         }
@@ -483,21 +488,19 @@ fn main() -> windows::core::Result<()> {
 
     fn populate_command_list(resources: &Resources) -> Result<()> {
         unsafe {
-            resources.command_allocator.Reset().ok()?;
+            resources.command_allocator.Reset()?;
         }
 
         let command_list = &resources.command_list;
 
         unsafe {
-            command_list
-                .Reset(&resources.command_allocator, &resources.pso)
-                .ok()?;
+            command_list.Reset(&resources.command_allocator, &resources.pso)?;
         }
 
         unsafe {
             command_list.SetGraphicsRootSignature(&resources.root_signature);
-            command_list.RSSetViewports(1, &resources.viewport);
-            command_list.RSSetScissorRects(1, &resources.scissor_rect);
+            command_list.RSSetViewports(&[resources.viewport]);
+            command_list.RSSetScissorRects(&[resources.scissor_rect]);
         }
 
         let barrier = transition_barrier(
@@ -505,7 +508,7 @@ fn main() -> windows::core::Result<()> {
             D3D12_RESOURCE_STATE_PRESENT,
             D3D12_RESOURCE_STATE_RENDER_TARGET,
         );
-        unsafe { command_list.ResourceBarrier(1, &barrier) };
+        unsafe { command_list.ResourceBarrier(&[barrier]) };
 
         let rtv_handle = D3D12_CPU_DESCRIPTOR_HANDLE {
             ptr: unsafe { resources.rtv_heap.GetCPUDescriptorHandleForHeapStart() }.ptr
@@ -517,27 +520,21 @@ fn main() -> windows::core::Result<()> {
         unsafe {
             command_list.ClearRenderTargetView(
                 rtv_handle,
-                [0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32].as_ptr(),
-                0,
-                core::ptr::null(),
+                &[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32],
+                None,
             );
-            command_list.IASetPrimitiveTopology(
-                D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST as D3D12_PRIMITIVE_TOPOLOGY,
-            );
-            command_list.IASetVertexBuffers(0, 1, Some(&resources.vbv));
+            command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+            command_list.IASetVertexBuffers(0, Some(&[resources.vbv]));
             command_list.DrawInstanced(3, 1, 0, 0);
 
-            command_list.ResourceBarrier(
-                1,
-                &transition_barrier(
-                    &resources.render_targets[resources.frame_index as usize],
-                    D3D12_RESOURCE_STATE_RENDER_TARGET,
-                    D3D12_RESOURCE_STATE_PRESENT,
-                ),
-            );
+            command_list.ResourceBarrier(&[transition_barrier(
+                &resources.render_targets[resources.frame_index as usize],
+                D3D12_RESOURCE_STATE_RENDER_TARGET,
+                D3D12_RESOURCE_STATE_PRESENT,
+            )]);
         }
 
-        unsafe { command_list.Close() }.ok()
+        unsafe { command_list.Close() }
     }
 
     fn transition_barrier(
@@ -562,9 +559,7 @@ fn main() -> windows::core::Result<()> {
     fn wait_for_previous_frame(resources: &mut Resources) {
         let fence = resources.fence_value;
 
-        unsafe { resources.command_queue.Signal(&resources.fence, fence) }
-            .ok()
-            .unwrap();
+        unsafe { resources.command_queue.Signal(&resources.fence, fence) }.unwrap();
 
         resources.fence_value += 1;
 
@@ -574,7 +569,6 @@ fn main() -> windows::core::Result<()> {
                     .fence
                     .SetEventOnCompletion(fence, resources.fence_event)
             }
-            .ok()
             .unwrap();
 
             unsafe { WaitForSingleObject(resources.fence_event, INFINITE) };
@@ -598,7 +592,7 @@ fn main() -> windows::core::Result<()> {
         right: WIDTH,
         bottom: HEIGHT,
     };
-    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW as u32, false).ok()? };
+    unsafe { AdjustWindowRect(&mut window_rect, WS_OVERLAPPEDWINDOW, false)? };
 
     let sample = Rc::new(RefCell::new(Sample::new(use_warp)?));
 
@@ -609,7 +603,7 @@ fn main() -> windows::core::Result<()> {
             window_rect.bottom - window_rect.top,
         )
         .on_message(move |_, message, _, _| {
-            if message == WM_PAINT as u32 {
+            if message == WM_PAINT {
                 handler.borrow_mut().render();
                 Some(0)
             } else {
@@ -618,7 +612,7 @@ fn main() -> windows::core::Result<()> {
         })
         .create()?;
 
-    sample.borrow_mut().bind_to_window(window.hwnd() as HWND)?;
+    sample.borrow_mut().bind_to_window(HWND(window.hwnd()))?;
 
     run();
     Ok(())

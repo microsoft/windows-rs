@@ -1,14 +1,10 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+    use windows::{Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*, core::*};
 
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {
             let mut text: [u16; 512] = [0; 512];
-            let len = GetWindowTextW(
-                window,
-                PWSTR(text.as_mut_ptr()),
-                text.len().try_into().unwrap(),
-            );
+            let len = GetWindowTextW(window, &mut text);
             let text = String::from_utf16_lossy(&text[..len as usize]);
 
             let mut info = WINDOWINFO {
@@ -17,7 +13,7 @@ fn main() -> windows::core::Result<()> {
             };
             GetWindowInfo(window, &mut info).unwrap();
 
-            if !text.is_empty() && info.dwStyle & WS_VISIBLE as u32 != 0 {
+            if !text.is_empty() && info.dwStyle.contains(WS_VISIBLE) {
                 println!("{} ({}, {})", text, info.rcWindow.left, info.rcWindow.top);
             }
 
@@ -25,5 +21,5 @@ fn main() -> windows::core::Result<()> {
         }
     }
 
-    unsafe { EnumWindows(Some(enum_window), 0).ok() }
+    unsafe { EnumWindows(Some(enum_window), LPARAM(0)) }
 }

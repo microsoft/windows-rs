@@ -8,24 +8,15 @@ publish = false
 workspace = true
 default-features = true
 features = [
-    "combaseapi",
-    "d2d",
-    "d3d11",
-    "d3dcommon",
-    "dcommon",
-    "dxgi",
-    "minwinbase",
-    "minwindef",
-    "objbase",
-    "profileapi",
-    "strmif",
-    "sysinfoapi",
-
-    "windef",
-    "winerror",
-    "wingdi",
-    "winuser",
-    "wuapi",
+    "Win32_Graphics_Direct2D_Common",
+    "Win32_Graphics_Direct3D",
+    "Win32_Graphics_Direct3D11",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Graphics_Gdi",
+    "Win32_System_Com",
+    "Win32_System_Performance",
+    "Win32_System_SystemInformation",
+    "Win32_UI_WindowsAndMessaging",
 ]
 
 [dependencies.windows-animation]

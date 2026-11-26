@@ -9,12 +9,7 @@ windows-core = { workspace = true }
 
 [dependencies.windows]
 workspace = true
-features = [
-    "combaseapi",
-    "shobjidl_core",
-    "shtypes",
-    "windef",
-]
+features = ["Win32_System_Com", "Win32_UI_Shell_Common"]
 
 [lints]
 workspace = true

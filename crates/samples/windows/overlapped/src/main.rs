@@ -1,6 +1,9 @@
 fn main() -> windows::core::Result<()> {
     use std::os::windows::ffi::OsStrExt;
-    use windows::{Win32::*, core::WIN32_ERROR, core::*};
+    use windows::{
+        Win32::Foundation::*, Win32::Storage::FileSystem::*, Win32::System::IO::*,
+        Win32::System::Threading::*, core::*,
+    };
 
     unsafe {
         let filename: Vec<u16> = std::path::Path::new(env!("OUT_DIR"))
@@ -11,21 +14,15 @@ fn main() -> windows::core::Result<()> {
             .collect();
         let file = CreateFileW(
             PCWSTR(filename.as_ptr()),
-            FILE_GENERIC_READ as u32,
-            FILE_SHARE_READ as u32,
+            FILE_GENERIC_READ.0,
+            FILE_SHARE_READ,
             None,
-            OPEN_EXISTING as u32,
-            FILE_FLAG_OVERLAPPED as u32,
+            OPEN_EXISTING,
+            FILE_FLAG_OVERLAPPED,
             None,
-        );
-        if file == INVALID_HANDLE_VALUE {
-            return Err(Error::from_thread());
-        }
+        )?;
 
-        let event = CreateEventW(None, true, false, None);
-        if event.is_null() {
-            return Err(Error::from_thread());
-        }
+        let event = CreateEventW(None, true, false, None)?;
 
         let mut overlapped = OVERLAPPED {
             Anonymous: OVERLAPPED_0 {
@@ -41,32 +38,24 @@ fn main() -> windows::core::Result<()> {
 
         let mut buffer: [u8; 12] = Default::default();
 
-        if let Err(error) = ReadFile(
-            file,
-            Some(buffer.as_mut_ptr() as *mut core::ffi::c_void),
-            buffer.len() as u32,
-            None,
-            Some(&mut overlapped),
-        )
-        .ok()
-        {
-            assert_eq!(error.code(), WIN32_ERROR(ERROR_IO_PENDING as u32).into());
+        if let Err(error) = ReadFile(file, Some(&mut buffer), None, Some(&mut overlapped)) {
+            assert_eq!(error.code(), ERROR_IO_PENDING.into());
         }
 
         let wait = WaitForSingleObject(overlapped.hEvent, INFINITE);
         if wait == WAIT_FAILED {
             return Err(Error::from_thread());
         }
-        assert_eq!(wait, WAIT_OBJECT_0.0 as u32);
+        assert_eq!(wait, WAIT_OBJECT_0);
 
         let mut bytes_copied = 0;
-        GetOverlappedResult(file, &mut overlapped, &mut bytes_copied, false).ok()?;
+        GetOverlappedResult(file, &overlapped, &mut bytes_copied, false)?;
         assert!(bytes_copied == 12);
 
         println!("{}", String::from_utf8_lossy(&buffer));
 
-        CloseHandle(event).ok()?;
-        CloseHandle(file).ok()?;
+        CloseHandle(event)?;
+        CloseHandle(file)?;
     }
 
     Ok(())
