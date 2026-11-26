@@ -13,7 +13,7 @@ requirements.
 
 ```toml
 [dependencies]
-windows-version = "0.100"
+windows-version = "0.101"
 ```
 
 ```rust,no_run

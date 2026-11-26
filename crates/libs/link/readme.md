@@ -11,7 +11,7 @@ binding; prefer [windows-bindgen](https://docs.rs/windows-bindgen) when metadata
 
 ```toml
 [dependencies]
-windows-link = "0.100"
+windows-link = "0.101"
 ```
 
 ```rust,no_run

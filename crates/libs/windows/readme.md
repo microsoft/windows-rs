@@ -18,7 +18,7 @@ Find an API by its native name in the reference and enable the listed feature:
 
 ```toml
 [dependencies]
-windows = { version = "0.100", features = ["Data_Xml_Dom"] }
+windows = { version = "0.101", features = ["Data_Xml_Dom"] }
 ```
 
 ```rust,no_run

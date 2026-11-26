@@ -12,7 +12,7 @@ Use it for CPU or blocking work that does not need a dedicated thread.
 
 ```toml
 [dependencies]
-windows-threading = "0.100"
+windows-threading = "0.101"
 ```
 
 ```rust,no_run

@@ -142,7 +142,7 @@ The bundled Win32 metadata uses `Windows.Win32`, not the umbrella crates' Cargo 
 | `.modules()` | One module per namespace instead of a single flat list |
 | `.implement("Windows.Win32.ISequentialStream")` | Implementation traits for a selected interface |
 
-For raw bindings, add `.sys()` and use `windows-link = "0.100.1"` instead of `windows-core`.
+For raw bindings, add `.sys()` and use `windows-link = "0.101"` instead of `windows-core`.
 `sys` and `full` are mutually exclusive. Add any focused support crates referenced by typed output.
 For example, generated async signatures use `windows-future`; add it as a runtime dependency
 (`windows-future = "0.101"`).

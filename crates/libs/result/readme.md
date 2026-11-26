@@ -12,7 +12,7 @@ Projected APIs often re-export these types; use this crate directly for low-leve
 
 ```toml
 [dependencies]
-windows-result = "0.100"
+windows-result = "0.101"
 ```
 
 ```rust
