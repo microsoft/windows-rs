@@ -1,1 +1,0 @@
-pub const _STRALIGN_USE_SECURE_CRT: i32 = 1;
