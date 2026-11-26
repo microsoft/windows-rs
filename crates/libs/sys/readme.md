@@ -18,7 +18,7 @@ Find the native function in the API reference and enable its feature:
 
 ```toml
 [dependencies]
-windows-sys = { version = "0.100", features = ["Win32_System_SystemInformation"] }
+windows-sys = { version = "0.101", features = ["Win32_System_SystemInformation"] }
 ```
 
 ```rust,no_run

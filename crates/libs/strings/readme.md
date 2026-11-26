@@ -12,7 +12,7 @@ than converting every string to one preferred type.
 
 ```toml
 [dependencies]
-windows-strings = "0.100"
+windows-strings = "0.101"
 ```
 
 ```rust

@@ -14,7 +14,7 @@ The default `system` feature accepts a `windows-window` owner:
 
 ```toml
 [dependencies]
-windows-pickers = "0.100"
+windows-pickers = "0.101"
 windows-window = "0.101"
 ```
 

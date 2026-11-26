@@ -12,7 +12,7 @@ Installation and configuration belong to an installer or the Service Control Man
 
 ```toml
 [dependencies]
-windows-services = "0.100"
+windows-services = "0.101"
 ```
 
 ```rust,no_run

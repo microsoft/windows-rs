@@ -1,8 +1,8 @@
 [package]
 name = "windows-clang-sys"
-version = "0.100.0"
+version = "0.101.0"
 edition = "2024"
-rust-version = "1.95"
+rust-version = "1.85"
 license = "MIT OR Apache-2.0"
 description = "Raw libclang bindings and native semantic queries for windows-clang"
 repository = "https://github.com/microsoft/windows-rs"

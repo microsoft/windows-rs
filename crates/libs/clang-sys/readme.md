@@ -26,7 +26,7 @@ An explicit `LIBCLANG_PATH` is caller-owned; the tools do not replace its librar
 
 ```toml
 [dependencies]
-windows-clang-sys = "0.100"
+windows-clang-sys = "0.101"
 ```
 
 ```rust,no_run

@@ -12,7 +12,7 @@ The bundled compiler runs on Windows.
 
 ```toml
 [build-dependencies]
-cppwinrt = "0.100"
+cppwinrt = "0.101"
 ```
 
 In `build.rs`, pass your component metadata and a build-owned output directory:

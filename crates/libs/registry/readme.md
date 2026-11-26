@@ -11,7 +11,7 @@ Safe Windows registry access with owned keys, typed values, enumeration, and tra
 
 ```toml
 [dependencies]
-windows-registry = "0.100"
+windows-registry = "0.101"
 ```
 
 ```rust,no_run

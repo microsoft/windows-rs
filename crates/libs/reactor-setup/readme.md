@@ -12,7 +12,7 @@ for self-contained deployment; framework-dependent applications use an installed
 
 ```toml
 [build-dependencies]
-windows-reactor-setup = "0.100.1"
+windows-reactor-setup = "0.101"
 ```
 
 Create `build.rs`:
