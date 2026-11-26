@@ -1,6 +1,18 @@
 #[expect(nonstandard_style, clippy::upper_case_acronyms)]
-mod bindings {
-    include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
+mod bindings;
+
+#[test]
+fn generate_bindings() {
+    windows_bindgen::builder()
+        .sys()
+        .filters([
+            "CreateThreadpoolWork",
+            "SubmitThreadpoolWork",
+            "WaitForThreadpoolWorkCallbacks",
+            "CloseThreadpoolWork",
+        ])
+        .output(concat!(env!("CARGO_MANIFEST_DIR"), "/src/bindings.rs"))
+        .write();
 }
 
 fn main() -> windows_result::Result<()> {
