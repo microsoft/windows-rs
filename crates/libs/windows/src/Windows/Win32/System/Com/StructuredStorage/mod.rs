@@ -785,17 +785,17 @@ where
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn StgConvertPropertyToVariant<P3>(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: P3) -> bool
+pub unsafe fn StgConvertPropertyToVariant<P3>(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: P3) -> u8
 where
     P3: windows_core::Param<IMemoryAllocator>,
 {
-    windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : *mut core::ffi::c_void) -> bool);
+    windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut PROPVARIANT, pma : *mut core::ffi::c_void) -> u8);
     unsafe { StgConvertPropertyToVariant(pprop, codepage, pvar, pma.param().abi()) }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
 #[inline]
-pub unsafe fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: u32, freserved: Option<bool>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
-    windows_core::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : bool, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
+pub unsafe fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: u32, freserved: Option<u8>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
+    windows_core::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : u32, freserved : u8, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
     unsafe { StgConvertVariantToProperty(pvar, codepage, pprop.unwrap_or(core::mem::zeroed()) as _, pcb as _, pid, freserved.unwrap_or(core::mem::zeroed()) as _, pcindirect.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]

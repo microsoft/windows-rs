@@ -41,10 +41,10 @@ windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringA(addr : *cons
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const IN_ADDR, port : u16, addressstring : windows_sys::core::PSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const IN_ADDR, port : u16, addressstring : windows_sys::core::PWSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringW(addr : *const IN_ADDR, s : windows_sys::core::PWSTR) -> windows_sys::core::PWSTR);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_sys::core::PCSTR, strict : bool, terminator : *mut windows_sys::core::PCSTR, addr : *mut IN_ADDR) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_sys::core::PCSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_sys::core::PCWSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_sys::core::PCWSTR, strict : bool, terminator : *mut windows_sys::core::PCWSTR, addr : *mut IN_ADDR) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_sys::core::PCSTR, strict : u8, terminator : *mut windows_sys::core::PCSTR, addr : *mut IN_ADDR) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_sys::core::PCSTR, strict : u8, address : *mut IN_ADDR, port : *mut u16) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_sys::core::PCWSTR, strict : u8, address : *mut IN_ADDR, port : *mut u16) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_sys::core::PCWSTR, strict : u8, terminator : *mut windows_sys::core::PCWSTR, addr : *mut IN_ADDR) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringA(addr : *const IN6_ADDR, s : windows_sys::core::PSTR) -> windows_sys::core::PSTR);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_sys::core::PSTR, addressstringlength : *mut u32) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_sys::core::PWSTR, addressstringlength : *mut u32) -> i32);
@@ -2199,8 +2199,8 @@ pub struct IPX_ADDRESS_DATA {
     pub adapternum: i32,
     pub netnum: [u8; 4],
     pub nodenum: [u8; 6],
-    pub wan: bool,
-    pub status: bool,
+    pub wan: u8,
+    pub status: u8,
     pub maxpkt: i32,
     pub linkspeed: u32,
 }
@@ -3179,7 +3179,7 @@ pub type NL_BANDWIDTH_FLAG = i32;
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: bool,
+    pub BandwidthPeaked: u8,
 }
 pub type NL_DAD_STATE = i32;
 pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
@@ -3197,9 +3197,9 @@ pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
-    pub ApproachingDataLimit: bool,
-    pub OverDataLimit: bool,
-    pub Roaming: bool,
+    pub ApproachingDataLimit: u8,
+    pub OverDataLimit: u8,
+    pub Roaming: u8,
 }
 pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 #[repr(C)]
@@ -3207,7 +3207,7 @@ pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: bool,
+    pub BandwidthPeaked: u8,
 }
 pub type NL_PREFIX_ORIGIN = i32;
 pub type NL_ROUTER_DISCOVERY_BEHAVIOR = i32;
@@ -3589,7 +3589,7 @@ pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_sys::core::GUID,
-    pub Unmark: bool,
+    pub Unmark: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3725,7 +3725,7 @@ pub struct RM_FEC_INFO {
     pub FECBlockSize: u16,
     pub FECProActivePackets: u16,
     pub FECGroupSize: u8,
-    pub fFECOnDemandParityEnabled: bool,
+    pub fFECOnDemandParityEnabled: u8,
 }
 pub const RM_FLUSHCACHE: i32 = 1003;
 pub const RM_HIGH_SPEED_INTRANET_OPT: i32 = 1014;
@@ -3792,7 +3792,7 @@ pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct RSS_SCALABILITY_INFO {
-    pub RssEnabled: bool,
+    pub RssEnabled: u8,
 }
 pub const RouteProtocolBbn: NL_ROUTE_PROTOCOL = 12;
 pub const RouteProtocolBgp: NL_ROUTE_PROTOCOL = 14;
@@ -4690,7 +4690,7 @@ pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
     pub Mss: u32,
     pub ConnectionTimeMs: u64,
-    pub TimestampsEnabled: bool,
+    pub TimestampsEnabled: u8,
     pub RttUs: u32,
     pub MinRttUs: u32,
     pub BytesInFlight: u32,
@@ -4713,7 +4713,7 @@ pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
     pub Mss: u32,
     pub ConnectionTimeMs: u64,
-    pub TimestampsEnabled: bool,
+    pub TimestampsEnabled: u8,
     pub RttUs: u32,
     pub MinRttUs: u32,
     pub BytesInFlight: u32,

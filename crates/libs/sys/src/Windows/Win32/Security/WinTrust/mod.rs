@@ -97,7 +97,7 @@ pub struct CONFIG_CI_PROV_INFO_RESULT {
     pub hr: windows_sys::core::HRESULT,
     pub dwResult: u32,
     pub dwPolicyIndex: u32,
-    pub fIsExplicitDeny: bool,
+    pub fIsExplicitDeny: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -106,7 +106,7 @@ pub struct CONFIG_CI_PROV_INFO_RESULT2 {
     pub hr: windows_sys::core::HRESULT,
     pub dwResult: u32,
     pub dwPolicyIndex: u32,
-    pub fIsExplicitDeny: bool,
+    pub fIsExplicitDeny: u8,
     pub cbCalculatedFileHash: u32,
     pub pbCalculatedFileHash: *mut u8,
 }
@@ -425,7 +425,7 @@ pub const HTTPS_FINALPOLICY_FUNCTION: windows_sys::core::PCWSTR = windows_sys::c
 #[derive(Clone, Copy, Default)]
 pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
-    pub seal: bool,
+    pub seal: u8,
 }
 pub const INTENT_TO_SEAL_ATTRIBUTE_STRUCT: windows_sys::core::PCSTR = 2010 as _;
 pub const OFFICESIGN_ACTION_VERIFY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5555c2cd_17fb_11d1_85c4_00c04fc295ee);

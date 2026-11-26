@@ -13777,13 +13777,13 @@ impl windows_core::RuntimeName for IBDA_DigitalDemodulator3 {}
 windows_core::imp::define_interface!(IBDA_DiseqCommand, IBDA_DiseqCommand_Vtbl, 0xf84e2ab0_3c6b_45e3_a0fc_8669d4b81f11);
 windows_core::imp::interface_hierarchy!(IBDA_DiseqCommand, windows_core::IUnknown);
 impl IBDA_DiseqCommand {
-    pub unsafe fn SetEnableDiseqCommands(&self, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableDiseqCommands(&self, benable: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableDiseqCommands)(windows_core::Interface::as_raw(self), benable).ok() }
     }
     pub unsafe fn SetDiseqLNBSource(&self, ullnbsource: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDiseqLNBSource)(windows_core::Interface::as_raw(self), ullnbsource).ok() }
     }
-    pub unsafe fn SetDiseqUseToneBurst(&self, busetoneburst: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetDiseqUseToneBurst(&self, busetoneburst: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDiseqUseToneBurst)(windows_core::Interface::as_raw(self), busetoneburst).ok() }
     }
     pub unsafe fn SetDiseqRepeats(&self, ulrepeats: u32) -> windows_core::Result<()> {
@@ -13800,24 +13800,24 @@ impl IBDA_DiseqCommand {
 #[doc(hidden)]
 pub struct IBDA_DiseqCommand_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    pub SetEnableDiseqCommands: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SetEnableDiseqCommands: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub SetDiseqLNBSource: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub SetDiseqUseToneBurst: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SetDiseqUseToneBurst: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub SetDiseqRepeats: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub put_DiseqSendCommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, *const u8) -> windows_core::HRESULT,
     pub get_DiseqResponse: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait IBDA_DiseqCommand_Impl: windows_core::IUnknownImpl {
-    fn SetEnableDiseqCommands(&self, benable: bool) -> windows_core::Result<()>;
+    fn SetEnableDiseqCommands(&self, benable: u8) -> windows_core::Result<()>;
     fn SetDiseqLNBSource(&self, ullnbsource: u32) -> windows_core::Result<()>;
-    fn SetDiseqUseToneBurst(&self, busetoneburst: bool) -> windows_core::Result<()>;
+    fn SetDiseqUseToneBurst(&self, busetoneburst: u8) -> windows_core::Result<()>;
     fn SetDiseqRepeats(&self, ulrepeats: u32) -> windows_core::Result<()>;
     fn put_DiseqSendCommand(&self, ulrequestid: u32, ulcbcommandlen: u32, pbcommand: *const u8) -> windows_core::Result<()>;
     fn get_DiseqResponse(&self, ulrequestid: u32, pulcbresponselen: *mut u32, pbresponse: *mut u8) -> windows_core::Result<()>;
 }
 impl IBDA_DiseqCommand_Vtbl {
     pub const fn new<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SetEnableDiseqCommands<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetEnableDiseqCommands<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, benable: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_DiseqCommand_Impl::SetEnableDiseqCommands(this, core::mem::transmute_copy(&benable)).into()
@@ -13829,7 +13829,7 @@ impl IBDA_DiseqCommand_Vtbl {
                 IBDA_DiseqCommand_Impl::SetDiseqLNBSource(this, core::mem::transmute_copy(&ullnbsource)).into()
             }
         }
-        unsafe extern "system" fn SetDiseqUseToneBurst<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busetoneburst: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDiseqUseToneBurst<Identity: IBDA_DiseqCommand_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, busetoneburst: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_DiseqCommand_Impl::SetDiseqUseToneBurst(this, core::mem::transmute_copy(&busetoneburst)).into()
@@ -15441,13 +15441,13 @@ impl IBDA_SignalStatistics {
     pub unsafe fn SignalQuality(&self, plpercentquality: *mut i32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SignalQuality)(windows_core::Interface::as_raw(self), plpercentquality as _).ok() }
     }
-    pub unsafe fn SetSignalPresent(&self, fpresent: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetSignalPresent(&self, fpresent: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSignalPresent)(windows_core::Interface::as_raw(self), fpresent).ok() }
     }
     pub unsafe fn SignalPresent(&self, pfpresent: *mut u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SignalPresent)(windows_core::Interface::as_raw(self), pfpresent as _).ok() }
     }
-    pub unsafe fn SetSignalLocked(&self, flocked: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetSignalLocked(&self, flocked: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSignalLocked)(windows_core::Interface::as_raw(self), flocked).ok() }
     }
     pub unsafe fn SignalLocked(&self, pflocked: *mut u8) -> windows_core::Result<()> {
@@ -15468,9 +15468,9 @@ pub struct IBDA_SignalStatistics_Vtbl {
     pub SignalStrength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
     pub SetSignalQuality: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SignalQuality: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
-    pub SetSignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SetSignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub SignalPresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
-    pub SetSignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SetSignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub SignalLocked: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
     pub SetSampleTime: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SampleTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
@@ -15480,9 +15480,9 @@ pub trait IBDA_SignalStatistics_Impl: windows_core::IUnknownImpl {
     fn SignalStrength(&self, pldbstrength: *mut i32) -> windows_core::Result<()>;
     fn SetSignalQuality(&self, lpercentquality: i32) -> windows_core::Result<()>;
     fn SignalQuality(&self, plpercentquality: *mut i32) -> windows_core::Result<()>;
-    fn SetSignalPresent(&self, fpresent: bool) -> windows_core::Result<()>;
+    fn SetSignalPresent(&self, fpresent: u8) -> windows_core::Result<()>;
     fn SignalPresent(&self, pfpresent: *mut u8) -> windows_core::Result<()>;
-    fn SetSignalLocked(&self, flocked: bool) -> windows_core::Result<()>;
+    fn SetSignalLocked(&self, flocked: u8) -> windows_core::Result<()>;
     fn SignalLocked(&self, pflocked: *mut u8) -> windows_core::Result<()>;
     fn SetSampleTime(&self, lmssampletime: i32) -> windows_core::Result<()>;
     fn SampleTime(&self, plmssampletime: *mut i32) -> windows_core::Result<()>;
@@ -15513,7 +15513,7 @@ impl IBDA_SignalStatistics_Vtbl {
                 IBDA_SignalStatistics_Impl::SignalQuality(this, core::mem::transmute_copy(&plpercentquality)).into()
             }
         }
-        unsafe extern "system" fn SetSignalPresent<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpresent: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignalPresent<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, fpresent: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_SignalStatistics_Impl::SetSignalPresent(this, core::mem::transmute_copy(&fpresent)).into()
@@ -15525,7 +15525,7 @@ impl IBDA_SignalStatistics_Vtbl {
                 IBDA_SignalStatistics_Impl::SignalPresent(this, core::mem::transmute_copy(&pfpresent)).into()
             }
         }
-        unsafe extern "system" fn SetSignalLocked<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flocked: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSignalLocked<Identity: IBDA_SignalStatistics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, flocked: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IBDA_SignalStatistics_Impl::SetSignalLocked(this, core::mem::transmute_copy(&flocked)).into()

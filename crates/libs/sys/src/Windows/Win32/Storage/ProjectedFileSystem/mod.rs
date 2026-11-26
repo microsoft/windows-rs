@@ -2,9 +2,9 @@ windows_link::link!("projectedfslib.dll" "system" fn PrjAllocateAlignedBuffer(na
 windows_link::link!("projectedfslib.dll" "system" fn PrjClearNegativePathCache(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : windows_sys::core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_sys::core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_sys::core::HRESULT);
-windows_link::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_sys::core::PCWSTR) -> bool);
+windows_link::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_sys::core::PCWSTR) -> u8);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : windows_sys::core::PCWSTR, filename2 : windows_sys::core::PCWSTR) -> i32);
-windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_sys::core::PCWSTR, pattern : windows_sys::core::PCWSTR) -> bool);
+windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_sys::core::PCWSTR, pattern : windows_sys::core::PCWSTR) -> u8);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : windows_sys::core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_sys::core::HRESULT);
 windows_link::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const core::ffi::c_void));
@@ -132,7 +132,7 @@ pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PRJ_FILE_BASIC_INFO {
-    pub IsDirectory: bool,
+    pub IsDirectory: u8,
     pub FileSize: i64,
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -153,7 +153,7 @@ pub type PRJ_GET_FILE_DATA_CB = Option<unsafe extern "system" fn(callbackdata: *
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> windows_sys::core::HRESULT>;
 pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = *mut core::ffi::c_void;
 pub type PRJ_NOTIFICATION = i32;
-pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: bool, notification: PRJ_NOTIFICATION, destinationfilename: windows_sys::core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_sys::core::HRESULT>;
+pub type PRJ_NOTIFICATION_CB = Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: u8, notification: PRJ_NOTIFICATION, destinationfilename: windows_sys::core::PCWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> windows_sys::core::HRESULT>;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = 2048;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = 1024;
 pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = 512;
@@ -199,7 +199,7 @@ pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
-    pub IsFileModified: bool,
+    pub IsFileModified: u8,
 }
 pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = 16;
 pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = 32;

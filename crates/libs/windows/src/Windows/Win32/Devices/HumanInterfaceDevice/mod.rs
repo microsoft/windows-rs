@@ -9,31 +9,31 @@ where
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::super::Foundation::HANDLE) -> bool);
+pub unsafe fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_FlushQueue(hiddeviceobject : super::super::Foundation::HANDLE) -> u8);
     unsafe { HidD_FlushQueue(hiddeviceobject) }
 }
 #[inline]
-pub unsafe fn HidD_FreePreparsedData(preparseddata: PHIDP_PREPARSED_DATA) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : PHIDP_PREPARSED_DATA) -> bool);
+pub unsafe fn HidD_FreePreparsedData(preparseddata: PHIDP_PREPARSED_DATA) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_FreePreparsedData(preparseddata : PHIDP_PREPARSED_DATA) -> u8);
     unsafe { HidD_FreePreparsedData(preparseddata) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::super::Foundation::HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> bool);
+pub unsafe fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetAttributes(hiddeviceobject : super::super::Foundation::HANDLE, attributes : *mut HIDD_ATTRIBUTES) -> u8);
     unsafe { HidD_GetAttributes(hiddeviceobject, attributes as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::super::Foundation::HANDLE, configuration : *mut HIDD_CONFIGURATION, configurationlength : u32) -> bool);
+pub unsafe fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetConfiguration(hiddeviceobject : super::super::Foundation::HANDLE, configuration : *mut HIDD_CONFIGURATION, configurationlength : u32) -> u8);
     unsafe { HidD_GetConfiguration(hiddeviceobject, configuration as _, configurationlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> bool);
+pub unsafe fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetFeature(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> u8);
     unsafe { HidD_GetFeature(hiddeviceobject, reportbuffer as _, reportbufferlength) }
 }
 #[inline]
@@ -47,80 +47,80 @@ pub unsafe fn HidD_GetHidGuid() -> windows_core::GUID {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::super::Foundation::HANDLE, stringindex : u32, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
+pub unsafe fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetIndexedString(hiddeviceobject : super::super::Foundation::HANDLE, stringindex : u32, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u8);
     unsafe { HidD_GetIndexedString(hiddeviceobject, stringindex, buffer as _, bufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> bool);
+pub unsafe fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut core::ffi::c_void, reportbufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetInputReport(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *mut core::ffi::c_void, reportbufferlength : u32) -> u8);
     unsafe { HidD_GetInputReport(hiddeviceobject, reportbuffer as _, reportbufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
+pub unsafe fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetManufacturerString(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u8);
     unsafe { HidD_GetManufacturerString(hiddeviceobject, buffer as _, bufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
+pub unsafe fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetMsGenreDescriptor(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u8);
     unsafe { HidD_GetMsGenreDescriptor(hiddeviceobject, buffer as _, bufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::super::Foundation::HANDLE, numberbuffers : *mut u32) -> bool);
+pub unsafe fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetNumInputBuffers(hiddeviceobject : super::super::Foundation::HANDLE, numberbuffers : *mut u32) -> u8);
     unsafe { HidD_GetNumInputBuffers(hiddeviceobject, numberbuffers as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
+pub unsafe fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetPhysicalDescriptor(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u8);
     unsafe { HidD_GetPhysicalDescriptor(hiddeviceobject, buffer as _, bufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut PHIDP_PREPARSED_DATA) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::super::Foundation::HANDLE, preparseddata : *mut PHIDP_PREPARSED_DATA) -> bool);
+pub unsafe fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut PHIDP_PREPARSED_DATA) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetPreparsedData(hiddeviceobject : super::super::Foundation::HANDLE, preparseddata : *mut PHIDP_PREPARSED_DATA) -> u8);
     unsafe { HidD_GetPreparsedData(hiddeviceobject, preparseddata as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
+pub unsafe fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetProductString(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u8);
     unsafe { HidD_GetProductString(hiddeviceobject, buffer as _, bufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> bool);
+pub unsafe fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut core::ffi::c_void, bufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_GetSerialNumberString(hiddeviceobject : super::super::Foundation::HANDLE, buffer : *mut core::ffi::c_void, bufferlength : u32) -> u8);
     unsafe { HidD_GetSerialNumberString(hiddeviceobject, buffer as _, bufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::super::Foundation::HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> bool);
+pub unsafe fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_SetConfiguration(hiddeviceobject : super::super::Foundation::HANDLE, configuration : *const HIDD_CONFIGURATION, configurationlength : u32) -> u8);
     unsafe { HidD_SetConfiguration(hiddeviceobject, configuration, configurationlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> bool);
+pub unsafe fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_SetFeature(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> u8);
     unsafe { HidD_SetFeature(hiddeviceobject, reportbuffer, reportbufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::super::Foundation::HANDLE, numberbuffers : u32) -> bool);
+pub unsafe fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_SetNumInputBuffers(hiddeviceobject : super::super::Foundation::HANDLE, numberbuffers : u32) -> u8);
     unsafe { HidD_SetNumInputBuffers(hiddeviceobject, numberbuffers) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> bool {
-    windows_core::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> bool);
+pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const core::ffi::c_void, reportbufferlength: u32) -> u8 {
+    windows_core::link!("hid.dll" "system" fn HidD_SetOutputReport(hiddeviceobject : super::super::Foundation::HANDLE, reportbuffer : *const core::ffi::c_void, reportbufferlength : u32) -> u8);
     unsafe { HidD_SetOutputReport(hiddeviceobject, reportbuffer, reportbufferlength) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2968,22 +2968,22 @@ impl Default for HIDD_CONFIGURATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: u16,
-    pub On: bool,
+    pub On: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct HIDP_BUTTON_CAPS {
     pub UsagePage: u16,
     pub ReportID: u8,
-    pub IsAlias: bool,
+    pub IsAlias: u8,
     pub BitField: u16,
     pub LinkCollection: u16,
     pub LinkUsage: u16,
     pub LinkUsagePage: u16,
-    pub IsRange: bool,
-    pub IsStringRange: bool,
-    pub IsDesignatorRange: bool,
-    pub IsAbsolute: bool,
+    pub IsRange: u8,
+    pub IsStringRange: u8,
+    pub IsDesignatorRange: u8,
+    pub IsAbsolute: u8,
     pub ReportCount: u16,
     pub Reserved2: u16,
     pub Reserved: [u32; 9],
@@ -3070,7 +3070,7 @@ impl Default for HIDP_DATA {
 #[derive(Clone, Copy)]
 pub union HIDP_DATA_0 {
     pub RawValue: u32,
-    pub On: bool,
+    pub On: u8,
 }
 impl Default for HIDP_DATA_0 {
     fn default() -> Self {
@@ -3198,16 +3198,16 @@ impl Default for HIDP_UNKNOWN_TOKEN {
 pub struct HIDP_VALUE_CAPS {
     pub UsagePage: u16,
     pub ReportID: u8,
-    pub IsAlias: bool,
+    pub IsAlias: u8,
     pub BitField: u16,
     pub LinkCollection: u16,
     pub LinkUsage: u16,
     pub LinkUsagePage: u16,
-    pub IsRange: bool,
-    pub IsStringRange: bool,
-    pub IsDesignatorRange: bool,
-    pub IsAbsolute: bool,
-    pub HasNull: bool,
+    pub IsRange: u8,
+    pub IsStringRange: u8,
+    pub IsDesignatorRange: u8,
+    pub IsAbsolute: u8,
+    pub HasNull: u8,
     pub Reserved: u8,
     pub BitSize: u16,
     pub ReportCount: u16,
@@ -3264,7 +3264,7 @@ pub struct HIDP_VALUE_CAPS_0_1 {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HID_COLLECTION_INFORMATION {
     pub DescriptorSize: u32,
-    pub Polled: bool,
+    pub Polled: u8,
     pub Reserved1: [u8; 1],
     pub VendorID: u16,
     pub ProductID: u16,
@@ -7055,7 +7055,7 @@ pub struct INDICATOR_LIST {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INPUT_BUTTON_ENABLE_INFO {
     pub ButtonType: GPIOBUTTONS_BUTTON_TYPE,
-    pub Enabled: bool,
+    pub Enabled: u8,
 }
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580;
 pub const IOCTL_BUTTON_SET_ENABLED_ON_IDLE: u32 = 721576;
@@ -7398,7 +7398,7 @@ pub struct MOUSE_UNIT_ID_PARAMETER {
 pub const MOUSE_WHEEL: u32 = 1024;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HidP_GetVersionInternal = Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
-pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, newscancodes: windows_core::PCSTR, length: u32) -> bool>;
+pub type PHIDP_INSERT_SCANCODES = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, newscancodes: windows_core::PCSTR, length: u32) -> u8>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PHIDP_PREPARSED_DATA(pub isize);

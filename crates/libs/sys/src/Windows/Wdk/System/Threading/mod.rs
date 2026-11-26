@@ -1,5 +1,5 @@
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("ntdll.dll" "system" fn NtCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Kernel"))]
 windows_link::link!("ntdll.dll" "system" fn NtCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation::OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel::TIMER_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -15,15 +15,15 @@ windows_link::link!("ntdll.dll" "system" fn NtQueryInformationThread(threadhandl
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("ntdll.dll" "system" fn NtSetInformationThread(threadhandle : super::super::super::Win32::Foundation::HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation"))]
-windows_link::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : u8, period : i32, previousstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("ntdll.dll" "system" fn NtSetTimerEx(timerhandle : super::super::super::Win32::Foundation::HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("ntdll.dll" "system" fn NtTerminateProcess(processhandle : super::super::super::Win32::Foundation::HANDLE, exitstatus : super::super::super::Win32::Foundation::NTSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : bool, timeout : *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : u8, timeout : *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Kernel"))]
 windows_link::link!("ntdll.dll" "system" fn ZwCreateTimer(timerhandle : *mut super::super::super::Win32::Foundation::HANDLE, desiredaccess : u32, objectattributes : *const super::super::Foundation::OBJECT_ATTRIBUTES, timertype : super::super::super::Win32::System::Kernel::TIMER_TYPE) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -39,13 +39,13 @@ windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationThread(threadhandl
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::super::Win32::Foundation::HANDLE, threadinformationclass : THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation"))]
-windows_link::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : u8, period : i32, previousstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("ntdll.dll" "system" fn ZwSetTimerEx(timerhandle : super::super::super::Win32::Foundation::HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("ntdll.dll" "system" fn ZwTerminateProcess(processhandle : super::super::super::Win32::Foundation::HANDLE, exitstatus : super::super::super::Win32::Foundation::NTSTATUS) -> super::super::super::Win32::Foundation::NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : bool, timeout : *const i64) -> super::super::super::Win32::Foundation::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : u8, timeout : *const i64) -> super::super::super::Win32::Foundation::NTSTATUS);
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = 83;
 pub const MaxThreadInfoClass: THREADINFOCLASS = 56;
 pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = 1;

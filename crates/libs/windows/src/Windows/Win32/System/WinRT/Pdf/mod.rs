@@ -83,7 +83,7 @@ pub struct PDF_RENDER_PARAMS {
     pub DestinationWidth: u32,
     pub DestinationHeight: u32,
     pub BackgroundColor: super::super::super::Graphics::Direct2D::Common::D2D_COLOR_F,
-    pub IgnoreHighContrast: bool,
+    pub IgnoreHighContrast: u8,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = Option<unsafe extern "system" fn(param0: windows_core::Ref<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: windows_core::OutRef<IPdfRendererNative>) -> windows_core::HRESULT>;

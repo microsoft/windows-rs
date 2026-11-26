@@ -1922,7 +1922,7 @@ pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3);
 pub struct ADS_SORTKEY {
     pub pszAttrType: windows_core::PWSTR,
     pub pszReserved: windows_core::PWSTR,
-    pub fReverseorder: bool,
+    pub fReverseorder: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

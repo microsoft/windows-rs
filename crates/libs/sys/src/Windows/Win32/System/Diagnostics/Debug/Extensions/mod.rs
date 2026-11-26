@@ -2552,8 +2552,8 @@ impl Default for EXTSTACKTRACE64 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> bool>;
-pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> bool>;
+pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> u8>;
+pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> u8>;
 pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: *mut core::ffi::c_void, bucketsuffix: windows_sys::core::PSTR, cbbucketsuffix: u32, debugtext: windows_sys::core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: *mut core::ffi::c_void) -> windows_sys::core::HRESULT>;
 pub const EXT_ANALYZER_FLAG_ID: u32 = 2;
@@ -3275,7 +3275,7 @@ pub struct KDEXTS_PTE_INFO {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
-pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> bool>;
+pub type KDEXT_DUMP_HANDLE_CALLBACK = Option<unsafe extern "system" fn(handleinfo: *const KDEXT_HANDLE_INFORMATION, flags: u32, context: *mut core::ffi::c_void) -> u8>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct KDEXT_FILELOCK_OWNER {
@@ -3300,7 +3300,7 @@ pub struct KDEXT_HANDLE_INFORMATION {
     pub ObjectBody: u64,
     pub GrantedAccess: u64,
     pub HandleAttributes: u32,
-    pub PagedOut: bool,
+    pub PagedOut: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

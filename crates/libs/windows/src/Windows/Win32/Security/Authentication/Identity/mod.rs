@@ -69,29 +69,29 @@ pub unsafe fn ApplyControlToken(phcontext: *const super::super::Credentials::Sec
     unsafe { ApplyControlToken(phcontext, pinput).ok() }
 }
 #[inline]
-pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> bool);
+pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> u8);
     unsafe { AuditComputeEffectivePolicyBySid(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::super::super::Foundation::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::super::super::Foundation::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> bool);
+pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::super::super::Foundation::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::super::super::Foundation::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> u8);
     unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[inline]
-pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditEnumerateCategories(ppauditcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> bool);
+pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditEnumerateCategories(ppauditcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> u8);
     unsafe { AuditEnumerateCategories(ppauditcategoriesarray as _, pdwcountreturned as _) }
 }
 #[inline]
-pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditEnumeratePerUserPolicy(ppauditsidarray : *mut *mut POLICY_AUDIT_SID_ARRAY) -> bool);
+pub unsafe fn AuditEnumeratePerUserPolicy(ppauditsidarray: *mut *mut POLICY_AUDIT_SID_ARRAY) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditEnumeratePerUserPolicy(ppauditsidarray : *mut *mut POLICY_AUDIT_SID_ARRAY) -> u8);
     unsafe { AuditEnumeratePerUserPolicy(ppauditsidarray as _) }
 }
 #[inline]
-pub unsafe fn AuditEnumerateSubCategories(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: bool, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditEnumerateSubCategories(pauditcategoryguid : *const windows_core::GUID, bretrieveallsubcategories : bool, ppauditsubcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> bool);
+pub unsafe fn AuditEnumerateSubCategories(pauditcategoryguid: Option<*const windows_core::GUID>, bretrieveallsubcategories: u8, ppauditsubcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditEnumerateSubCategories(pauditcategoryguid : *const windows_core::GUID, bretrieveallsubcategories : u8, ppauditsubcategoriesarray : *mut *mut windows_core::GUID, pdwcountreturned : *mut u32) -> u8);
     unsafe { AuditEnumerateSubCategories(pauditcategoryguid.unwrap_or(core::mem::zeroed()) as _, bretrieveallsubcategories, ppauditsubcategoriesarray as _, pdwcountreturned as _) }
 }
 #[inline]
@@ -100,105 +100,105 @@ pub unsafe fn AuditFree(buffer: *const core::ffi::c_void) {
     unsafe { AuditFree(buffer) }
 }
 #[inline]
-pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut windows_core::GUID) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid : POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid : *mut windows_core::GUID) -> bool);
+pub unsafe fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: *mut windows_core::GUID) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryGuidFromCategoryId(auditcategoryid : POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid : *mut windows_core::GUID) -> u8);
     unsafe { AuditLookupCategoryGuidFromCategoryId(auditcategoryid, pauditcategoryguid as _) }
 }
 #[inline]
-pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const windows_core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid : *const windows_core::GUID, pauditcategoryid : *mut POLICY_AUDIT_EVENT_TYPE) -> bool);
+pub unsafe fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: *const windows_core::GUID, pauditcategoryid: *mut POLICY_AUDIT_EVENT_TYPE) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid : *const windows_core::GUID, pauditcategoryid : *mut POLICY_AUDIT_EVENT_TYPE) -> u8);
     unsafe { AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid, pauditcategoryid as _) }
 }
 #[inline]
-pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const windows_core::GUID, ppszcategoryname: *mut windows_core::PSTR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryNameA(pauditcategoryguid : *const windows_core::GUID, ppszcategoryname : *mut windows_core::PSTR) -> bool);
+pub unsafe fn AuditLookupCategoryNameA(pauditcategoryguid: *const windows_core::GUID, ppszcategoryname: *mut windows_core::PSTR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryNameA(pauditcategoryguid : *const windows_core::GUID, ppszcategoryname : *mut windows_core::PSTR) -> u8);
     unsafe { AuditLookupCategoryNameA(pauditcategoryguid, ppszcategoryname as _) }
 }
 #[inline]
-pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const windows_core::GUID, ppszcategoryname: *mut windows_core::PWSTR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryNameW(pauditcategoryguid : *const windows_core::GUID, ppszcategoryname : *mut windows_core::PWSTR) -> bool);
+pub unsafe fn AuditLookupCategoryNameW(pauditcategoryguid: *const windows_core::GUID, ppszcategoryname: *mut windows_core::PWSTR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditLookupCategoryNameW(pauditcategoryguid : *const windows_core::GUID, ppszcategoryname : *mut windows_core::PWSTR) -> u8);
     unsafe { AuditLookupCategoryNameW(pauditcategoryguid, ppszcategoryname as _) }
 }
 #[inline]
-pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const windows_core::GUID, ppszsubcategoryname: *mut windows_core::PSTR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameA(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PSTR) -> bool);
+pub unsafe fn AuditLookupSubCategoryNameA(pauditsubcategoryguid: *const windows_core::GUID, ppszsubcategoryname: *mut windows_core::PSTR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameA(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PSTR) -> u8);
     unsafe { AuditLookupSubCategoryNameA(pauditsubcategoryguid, ppszsubcategoryname as _) }
 }
 #[inline]
-pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const windows_core::GUID, ppszsubcategoryname: *mut windows_core::PWSTR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameW(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PWSTR) -> bool);
+pub unsafe fn AuditLookupSubCategoryNameW(pauditsubcategoryguid: *const windows_core::GUID, ppszsubcategoryname: *mut windows_core::PWSTR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditLookupSubCategoryNameW(pauditsubcategoryguid : *const windows_core::GUID, ppszsubcategoryname : *mut windows_core::PWSTR) -> u8);
     unsafe { AuditLookupSubCategoryNameW(pauditsubcategoryguid, ppszsubcategoryname as _) }
 }
 #[inline]
-pub unsafe fn AuditQueryGlobalSaclA<P0>(objecttypename: P0, acl: *mut *mut super::super::ACL) -> bool
+pub unsafe fn AuditQueryGlobalSaclA<P0>(objecttypename: P0, acl: *mut *mut super::super::ACL) -> u8
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *mut *mut super::super::ACL) -> bool);
+    windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *mut *mut super::super::ACL) -> u8);
     unsafe { AuditQueryGlobalSaclA(objecttypename.param().abi(), acl as _) }
 }
 #[inline]
-pub unsafe fn AuditQueryGlobalSaclW<P0>(objecttypename: P0, acl: *mut *mut super::super::ACL) -> bool
+pub unsafe fn AuditQueryGlobalSaclW<P0>(objecttypename: P0, acl: *mut *mut super::super::ACL) -> u8
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *mut *mut super::super::ACL) -> bool);
+    windows_core::link!("advapi32.dll" "system" fn AuditQueryGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *mut *mut super::super::ACL) -> u8);
     unsafe { AuditQueryGlobalSaclW(objecttypename.param().abi(), acl as _) }
 }
 #[inline]
-pub unsafe fn AuditQueryPerUserPolicy(psid: super::super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> bool);
+pub unsafe fn AuditQueryPerUserPolicy(psid: super::super::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::super::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> u8);
     unsafe { AuditQueryPerUserPolicy(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[inline]
-pub unsafe fn AuditQuerySecurity(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor : *mut super::super::PSECURITY_DESCRIPTOR) -> bool);
+pub unsafe fn AuditQuerySecurity(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: *mut super::super::PSECURITY_DESCRIPTOR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditQuerySecurity(securityinformation : super::super::OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor : *mut super::super::PSECURITY_DESCRIPTOR) -> u8);
     unsafe { AuditQuerySecurity(securityinformation, ppsecuritydescriptor as _) }
 }
 #[inline]
-pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> bool);
+pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut *mut AUDIT_POLICY_INFORMATION) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut *mut AUDIT_POLICY_INFORMATION) -> u8);
     unsafe { AuditQuerySystemPolicy(core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[inline]
-pub unsafe fn AuditSetGlobalSaclA<P0>(objecttypename: P0, acl: Option<*const super::super::ACL>) -> bool
+pub unsafe fn AuditSetGlobalSaclA<P0>(objecttypename: P0, acl: Option<*const super::super::ACL>) -> u8
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn AuditSetGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *const super::super::ACL) -> bool);
+    windows_core::link!("advapi32.dll" "system" fn AuditSetGlobalSaclA(objecttypename : windows_core::PCSTR, acl : *const super::super::ACL) -> u8);
     unsafe { AuditSetGlobalSaclA(objecttypename.param().abi(), acl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AuditSetGlobalSaclW<P0>(objecttypename: P0, acl: Option<*const super::super::ACL>) -> bool
+pub unsafe fn AuditSetGlobalSaclW<P0>(objecttypename: P0, acl: Option<*const super::super::ACL>) -> u8
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn AuditSetGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *const super::super::ACL) -> bool);
+    windows_core::link!("advapi32.dll" "system" fn AuditSetGlobalSaclW(objecttypename : windows_core::PCWSTR, acl : *const super::super::ACL) -> u8);
     unsafe { AuditSetGlobalSaclW(objecttypename.param().abi(), acl.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn AuditSetPerUserPolicy(psid: super::super::PSID, pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::super::PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> bool);
+pub unsafe fn AuditSetPerUserPolicy(psid: super::super::PSID, pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : super::super::PSID, pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> u8);
     unsafe { AuditSetPerUserPolicy(psid, core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn AuditSetSecurity(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::PSECURITY_DESCRIPTOR) -> bool);
+pub unsafe fn AuditSetSecurity(securityinformation: super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor: super::super::PSECURITY_DESCRIPTOR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::super::OBJECT_SECURITY_INFORMATION, psecuritydescriptor : super::super::PSECURITY_DESCRIPTOR) -> u8);
     unsafe { AuditSetSecurity(securityinformation, psecuritydescriptor) }
 }
 #[inline]
-pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> bool);
+pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[AUDIT_POLICY_INFORMATION]) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : *const AUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> u8);
     unsafe { AuditSetSystemPolicy(core::mem::transmute(pauditpolicy.as_ptr()), pauditpolicy.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
-    windows_core::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const i8, pszdomainname : *const i8, pszaccountname : *const i8, pszoldpassword : *const i8, psznewpassword : *const i8, bimpersonating : bool, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
+pub unsafe fn ChangeAccountPasswordA(pszpackagename: *const i8, pszdomainname: *const i8, pszaccountname: *const i8, pszoldpassword: *const i8, psznewpassword: *const i8, bimpersonating: u8, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
+    windows_core::link!("secur32.dll" "system" fn ChangeAccountPasswordA(pszpackagename : *const i8, pszdomainname : *const i8, pszaccountname : *const i8, pszoldpassword : *const i8, psznewpassword : *const i8, bimpersonating : u8, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
     unsafe { ChangeAccountPasswordA(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput as _).ok() }
 }
 #[inline]
-pub unsafe fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: bool, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
-    windows_core::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const u16, pszdomainname : *const u16, pszaccountname : *const u16, pszoldpassword : *const u16, psznewpassword : *const u16, bimpersonating : bool, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
+pub unsafe fn ChangeAccountPasswordW(pszpackagename: *const u16, pszdomainname: *const u16, pszaccountname: *const u16, pszoldpassword: *const u16, psznewpassword: *const u16, bimpersonating: u8, dwreserved: u32, poutput: *mut SecBufferDesc) -> windows_core::Result<()> {
+    windows_core::link!("secur32.dll" "system" fn ChangeAccountPasswordW(pszpackagename : *const u16, pszdomainname : *const u16, pszaccountname : *const u16, pszoldpassword : *const u16, psznewpassword : *const u16, bimpersonating : u8, dwreserved : u32, poutput : *mut SecBufferDesc) -> windows_core::HRESULT);
     unsafe { ChangeAccountPasswordW(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput as _).ok() }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -281,23 +281,23 @@ pub unsafe fn FreeCredentialsHandle(phcredential: *const super::super::Credentia
     unsafe { FreeCredentialsHandle(phcredential).ok() }
 }
 #[inline]
-pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> u8 {
+    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : *mut u32) -> u8);
     unsafe { GetComputerObjectNameA(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[inline]
-pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> u8 {
+    windows_core::link!("secur32.dll" "system" fn GetComputerObjectNameW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : *mut u32) -> u8);
     unsafe { GetComputerObjectNameW(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[inline]
-pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetUserNameExA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> u8 {
+    windows_core::link!("secur32.dll" "system" fn GetUserNameExA(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PSTR, nsize : *mut u32) -> u8);
     unsafe { GetUserNameExA(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[inline]
-pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> bool {
-    windows_core::link!("secur32.dll" "system" fn GetUserNameExW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : *mut u32) -> bool);
+pub unsafe fn GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> u8 {
+    windows_core::link!("secur32.dll" "system" fn GetUserNameExW(nameformat : EXTENDED_NAME_FORMAT, lpnamebuffer : windows_core::PWSTR, nsize : *mut u32) -> u8);
     unsafe { GetUserNameExW(nameformat, lpnamebuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -560,8 +560,8 @@ pub unsafe fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIF
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::super::PSID, allrights: bool, userrights: Option<&[LSA_UNICODE_STRING]>) -> super::super::super::Foundation::NTSTATUS {
-    windows_core::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::PSID, allrights : bool, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation::NTSTATUS);
+pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::super::PSID, allrights: u8, userrights: Option<&[LSA_UNICODE_STRING]>) -> super::super::super::Foundation::NTSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::super::PSID, allrights : u8, userrights : *const LSA_UNICODE_STRING, countofrights : u32) -> super::super::super::Foundation::NTSTATUS);
     unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, core::mem::transmute(userrights.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -584,14 +584,14 @@ pub unsafe fn LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informatio
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: bool, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS {
-    windows_core::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : bool, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS);
+pub unsafe fn LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION, checkonly: u8, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : u8, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS);
     unsafe { LsaSetForestTrustInformation(policyhandle, trusteddomainname, foresttrustinfo, checkonly, collisioninfo as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: bool, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS {
-    windows_core::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : bool, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS);
+pub unsafe fn LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: *const LSA_UNICODE_STRING, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: *const LSA_FOREST_TRUST_INFORMATION2, checkonly: u8, collisioninfo: *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : u8, collisioninfo : *mut *mut LSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::super::super::Foundation::NTSTATUS);
     unsafe { LsaSetForestTrustInformation2(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo, checkonly, collisioninfo as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -725,8 +725,8 @@ pub unsafe fn RtlEncryptMemory(memory: *mut core::ffi::c_void, memorysize: u32, 
     unsafe { RtlEncryptMemory(memory as _, memorysize, optionflags) }
 }
 #[inline]
-pub unsafe fn RtlGenRandom(randombuffer: *mut core::ffi::c_void, randombufferlength: u32) -> bool {
-    windows_core::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
+pub unsafe fn RtlGenRandom(randombuffer: *mut core::ffi::c_void, randombufferlength: u32) -> u8 {
+    windows_core::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> u8);
     unsafe { RtlGenRandom(randombuffer as _, randombufferlength) }
 }
 #[inline]
@@ -1205,8 +1205,8 @@ pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut *mut
     unsafe { SslGetServerIdentity(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags).ok() }
 }
 #[inline]
-pub unsafe fn SspiCompareAuthIdentities(authidentity1: Option<*const core::ffi::c_void>, authidentity2: Option<*const core::ffi::c_void>, samesupplieduser: Option<*mut bool>, samesuppliedidentity: Option<*mut bool>) -> windows_core::Result<()> {
-    windows_core::link!("secur32.dll" "system" fn SspiCompareAuthIdentities(authidentity1 : *const core::ffi::c_void, authidentity2 : *const core::ffi::c_void, samesupplieduser : *mut bool, samesuppliedidentity : *mut bool) -> windows_core::HRESULT);
+pub unsafe fn SspiCompareAuthIdentities(authidentity1: Option<*const core::ffi::c_void>, authidentity2: Option<*const core::ffi::c_void>, samesupplieduser: Option<*mut u8>, samesuppliedidentity: Option<*mut u8>) -> windows_core::Result<()> {
+    windows_core::link!("secur32.dll" "system" fn SspiCompareAuthIdentities(authidentity1 : *const core::ffi::c_void, authidentity2 : *const core::ffi::c_void, samesupplieduser : *mut u8, samesuppliedidentity : *mut u8) -> windows_core::HRESULT);
     unsafe { SspiCompareAuthIdentities(authidentity1.unwrap_or(core::mem::zeroed()) as _, authidentity2.unwrap_or(core::mem::zeroed()) as _, samesupplieduser.unwrap_or(core::mem::zeroed()) as _, samesuppliedidentity.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1274,13 +1274,13 @@ where
     }
 }
 #[inline]
-pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const core::ffi::c_void) -> bool {
-    windows_core::link!("secur32.dll" "system" fn SspiIsAuthIdentityEncrypted(encryptedauthdata : *const core::ffi::c_void) -> bool);
+pub unsafe fn SspiIsAuthIdentityEncrypted(encryptedauthdata: *const core::ffi::c_void) -> u8 {
+    windows_core::link!("secur32.dll" "system" fn SspiIsAuthIdentityEncrypted(encryptedauthdata : *const core::ffi::c_void) -> u8);
     unsafe { SspiIsAuthIdentityEncrypted(encryptedauthdata) }
 }
 #[inline]
-pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> bool {
-    windows_core::link!("credui.dll" "system" fn SspiIsPromptingNeeded(errororntstatus : u32) -> bool);
+pub unsafe fn SspiIsPromptingNeeded(errororntstatus: u32) -> u8 {
+    windows_core::link!("credui.dll" "system" fn SspiIsPromptingNeeded(errororntstatus : u32) -> u8);
     unsafe { SspiIsPromptingNeeded(errororntstatus) }
 }
 #[inline]
@@ -1422,19 +1422,19 @@ pub unsafe fn TokenBindingVerifyMessage(tokenbindingmessage: *const core::ffi::c
     }
 }
 #[inline]
-pub unsafe fn TranslateNameA<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PSTR>, nsize: *mut u32) -> bool
+pub unsafe fn TranslateNameA<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PSTR>, nsize: *mut u32) -> u8
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("secur32.dll" "system" fn TranslateNameA(lpaccountname : windows_core::PCSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PSTR, nsize : *mut u32) -> bool);
+    windows_core::link!("secur32.dll" "system" fn TranslateNameA(lpaccountname : windows_core::PCSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PSTR, nsize : *mut u32) -> u8);
     unsafe { TranslateNameA(lpaccountname.param().abi(), accountnameformat, desirednameformat, lptranslatedname.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[inline]
-pub unsafe fn TranslateNameW<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PWSTR>, nsize: *mut u32) -> bool
+pub unsafe fn TranslateNameW<P0>(lpaccountname: P0, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: Option<windows_core::PWSTR>, nsize: *mut u32) -> u8
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : windows_core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PWSTR, nsize : *mut u32) -> bool);
+    windows_core::link!("secur32.dll" "system" fn TranslateNameW(lpaccountname : windows_core::PCWSTR, accountnameformat : EXTENDED_NAME_FORMAT, desirednameformat : EXTENDED_NAME_FORMAT, lptranslatedname : windows_core::PWSTR, nsize : *mut u32) -> u8);
     unsafe { TranslateNameW(lpaccountname.param().abi(), accountnameformat, desirednameformat, lptranslatedname.unwrap_or(core::mem::zeroed()) as _, nsize as _) }
 }
 #[cfg(feature = "Win32_Security_Credentials")]
@@ -1727,8 +1727,8 @@ impl Default for CENTRAL_ACCESS_POLICY_ENTRY {
 pub const CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: u32 = 1;
 pub const CENTRAL_ACCESS_POLICY_STAGED_FLAG: u32 = 65536;
 pub const CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: u32 = 256;
-pub type CHANGE_PASSWORD_FN_A = Option<unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: *mut i8, param3: *mut i8, param4: *mut i8, param5: bool, param6: u32, param7: *mut SecBufferDesc) -> windows_core::HRESULT>;
-pub type CHANGE_PASSWORD_FN_W = Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: *mut u16, param3: *mut u16, param4: *mut u16, param5: bool, param6: u32, param7: *mut SecBufferDesc) -> windows_core::HRESULT>;
+pub type CHANGE_PASSWORD_FN_A = Option<unsafe extern "system" fn(param0: *mut i8, param1: *mut i8, param2: *mut i8, param3: *mut i8, param4: *mut i8, param5: u8, param6: u32, param7: *mut SecBufferDesc) -> windows_core::HRESULT>;
+pub type CHANGE_PASSWORD_FN_W = Option<unsafe extern "system" fn(param0: *mut u16, param1: *mut u16, param2: *mut u16, param3: *mut u16, param4: *mut u16, param5: u8, param6: u32, param7: *mut SecBufferDesc) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLEAR_BLOCK {
@@ -2115,7 +2115,7 @@ pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub LogonId: super::super::super::Foundation::LUID,
     pub CredUserName: LSA_UNICODE_STRING,
     pub CredDomainName: LSA_UNICODE_STRING,
-    pub GlobalCache: bool,
+    pub GlobalCache: u8,
 }
 pub const KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: u32 = 1;
 pub const KDC_PROXY_SETTINGS_V1: u32 = 1;
@@ -2257,7 +2257,7 @@ pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub AccountName: LSA_UNICODE_STRING,
     pub OldPassword: LSA_UNICODE_STRING,
     pub NewPassword: LSA_UNICODE_STRING,
-    pub Impersonating: bool,
+    pub Impersonating: u8,
 }
 pub const KERB_CHECKSUM_CRC32: u32 = 1;
 pub const KERB_CHECKSUM_DES_MAC: i32 = -133;
@@ -2814,7 +2814,7 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub Password: LSA_UNICODE_STRING,
     pub ClientRealm: LSA_UNICODE_STRING,
     pub ClientName: LSA_UNICODE_STRING,
-    pub Impersonating: bool,
+    pub Impersonating: u8,
     pub KdcAddress: LSA_UNICODE_STRING,
     pub KdcAddressType: u32,
 }
@@ -3138,7 +3138,7 @@ pub type KspSealMessageFn = Option<unsafe extern "system" fn(contextid: usize, f
 #[cfg(feature = "Win32_Foundation")]
 pub type KspSerializeAuthDataFn = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type KspSetPagingModeFn = Option<unsafe extern "system" fn(pagingmode: bool) -> super::super::super::Foundation::NTSTATUS>;
+pub type KspSetPagingModeFn = Option<unsafe extern "system" fn(pagingmode: u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type KspUnsealMessageFn = Option<unsafe extern "system" fn(contextid: usize, message: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -3650,13 +3650,13 @@ pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub AccountName: LSA_UNICODE_STRING,
     pub OldPassword: LSA_UNICODE_STRING,
     pub NewPassword: LSA_UNICODE_STRING,
-    pub Impersonating: bool,
+    pub Impersonating: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub PasswordInfoValid: bool,
+    pub PasswordInfoValid: u8,
     pub DomainPasswordInfo: DOMAIN_PASSWORD_INFORMATION,
 }
 pub const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: u32 = 262144;
@@ -3977,7 +3977,7 @@ pub struct MSV1_0_VALIDATION_INFO {
     pub LogonServer: LSA_UNICODE_STRING,
     pub LogonDomainName: LSA_UNICODE_STRING,
     pub SessionKey: USER_SESSION_KEY,
-    pub Authoritative: bool,
+    pub Authoritative: u8,
     pub UserFlags: u32,
     pub WhichFields: u32,
     pub UserId: u32,
@@ -4264,7 +4264,7 @@ pub type PKSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: 
 pub type PKSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
 pub type PKSEC_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packageid: u32) -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-pub type PKSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: bool) -> super::super::super::Foundation::NTSTATUS>;
+pub type PKSEC_REFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *const KSEC_LIST_ENTRY, signature: u32, removenoref: u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = Option<unsafe extern "system" fn(pvauthdata: *const core::ffi::c_void, size: *mut u32, serializeddata: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -4375,7 +4375,7 @@ pub type PLSA_AP_POST_LOGON_USER_SURROGATE = Option<
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_PRE_LOGON_USER_SURROGATE = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbuffersize: u32, surrogatelogon: *mut SECPKG_SURROGATE_LOGON, substatus: *mut i32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: bool, source: *const LSA_UNICODE_STRING, clientname: *const LSA_UNICODE_STRING, mappedname: *const LSA_UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_AUDIT_ACCOUNT_LOGON = Option<unsafe extern "system" fn(auditid: u32, success: u8, source: *const LSA_UNICODE_STRING, clientname: *const LSA_UNICODE_STRING, mappedname: *const LSA_UNICODE_STRING, status: super::super::super::Foundation::NTSTATUS) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AUDIT_LOGON = Option<unsafe extern "system" fn(status: super::super::super::Foundation::NTSTATUS, substatus: super::super::super::Foundation::NTSTATUS, accountname: *const LSA_UNICODE_STRING, authenticatingauthority: *const LSA_UNICODE_STRING, workstationname: *const LSA_UNICODE_STRING, usersid: super::super::PSID, logontype: SECURITY_LOGON_TYPE, tokensource: *const super::super::TOKEN_SOURCE, logonid: *const super::super::super::Foundation::LUID)>;
 #[cfg(feature = "Win32_Foundation")]
@@ -4391,7 +4391,7 @@ pub type PLSA_CALL_PACKAGE_PASSTHROUGH = Option<unsafe extern "system" fn(authen
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CANCEL_NOTIFICATION = Option<unsafe extern "system" fn(notifyhandle: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(usertoken: super::super::super::Foundation::HANDLE, protecteduser: *mut bool) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_CHECK_PROTECTED_USER_BY_TOKEN = Option<unsafe extern "system" fn(usertoken: super::super::super::Foundation::HANDLE, protecteduser: *mut u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CLIENT_CALLBACK = Option<unsafe extern "system" fn(callback: windows_core::PCSTR, argument1: usize, argument2: usize, input: *const SecBuffer, output: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -4403,7 +4403,7 @@ pub type PLSA_COPY_FROM_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientr
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_COPY_TO_CLIENT_BUFFER = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, length: u32, clientbaseaddress: *mut core::ffi::c_void, buffertocopy: *const core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_CRACK_SINGLE_NAME = Option<unsafe extern "system" fn(formatoffered: u32, performatgc: bool, nameinput: *const LSA_UNICODE_STRING, prefix: *const LSA_UNICODE_STRING, requestedformat: u32, crackedname: *mut LSA_UNICODE_STRING, dnsdomainname: *mut LSA_UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_CRACK_SINGLE_NAME = Option<unsafe extern "system" fn(formatoffered: u32, performatgc: u8, nameinput: *const LSA_UNICODE_STRING, prefix: *const LSA_UNICODE_STRING, requestedformat: u32, crackedname: *mut LSA_UNICODE_STRING, dnsdomainname: *mut LSA_UNICODE_STRING, substatus: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_CREATE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *mut super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_CREATE_SHARED_MEMORY = Option<unsafe extern "system" fn(maxsize: u32, initialsize: u32) -> *mut core::ffi::c_void>;
@@ -4417,7 +4417,7 @@ pub type PLSA_CREATE_TOKEN_EX = Option<unsafe extern "system" fn(logonid: *const
 pub type PLSA_DELETE_CREDENTIAL = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const LSA_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_DELETE_LOGON_SESSION = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID) -> super::super::super::Foundation::NTSTATUS>;
-pub type PLSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> bool>;
+pub type PLSA_DELETE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void) -> u8>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_DUPLICATE_HANDLE = Option<unsafe extern "system" fn(sourcehandle: super::super::super::Foundation::HANDLE, destionationhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -4428,16 +4428,16 @@ pub type PLSA_FREE_LSA_HEAP = Option<unsafe extern "system" fn(base: *const core
 pub type PLSA_FREE_PRIVATE_HEAP = Option<unsafe extern "system" fn(base: *const core::ffi::c_void)>;
 pub type PLSA_FREE_SHARED_MEMORY = Option<unsafe extern "system" fn(sharedmem: *const core::ffi::c_void, memory: *mut core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut usize, argument2: *mut usize, userdata: *mut SecBuffer, returntolsa: *mut bool) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_GET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: *mut u32, argument1: *mut usize, argument2: *mut usize, userdata: *mut SecBuffer, returntolsa: *mut u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_AUTH_DATA_FOR_USER = Option<unsafe extern "system" fn(name: *const SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const SECURITY_STRING, userauthdata: *mut *mut u8, userauthdatasize: *mut u32, userflatname: *mut LSA_UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS>;
-pub type PLSA_GET_CALL_INFO = Option<unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> bool>;
+pub type PLSA_GET_CALL_INFO = Option<unsafe extern "system" fn(info: *mut SECPKG_CALL_INFO) -> u8>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_CLIENT_INFO = Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_CLIENT_INFO_EX = Option<unsafe extern "system" fn(clientinfo: *mut SECPKG_CLIENT_INFO_EX, structsize: u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_GET_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: bool, primarykeyvalue: *const LSA_STRING, primarykeylength: *mut u32, credentials: *const LSA_STRING) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_GET_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, querycontext: *mut u32, retrieveallcredentials: u8, primarykeyvalue: *const LSA_STRING, primarykeylength: *mut u32, credentials: *const LSA_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_GET_EXTENDED_CALL_FLAGS = Option<unsafe extern "system" fn(flags: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -4452,7 +4452,7 @@ pub type PLSA_LOCATE_PKG_BY_ID = Option<unsafe extern "system" fn(packgeid: u32)
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_MAP_BUFFER = Option<unsafe extern "system" fn(inputbuffer: *const SecBuffer, outputbuffer: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: *const SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const SECURITY_STRING, allowguest: bool, reserved: u32, userhandle: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_OPEN_SAM_USER = Option<unsafe extern "system" fn(name: *const SECURITY_STRING, nametype: SECPKG_NAME_TYPE, prefix: *const SECURITY_STRING, allowguest: u8, reserved: u32, userhandle: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_OPEN_TOKEN_BY_LOGON_ID = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, rettokenhandle: *mut super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::NTSTATUS>;
 pub type PLSA_PROTECT_MEMORY = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, buffersize: u32)>;
@@ -4475,9 +4475,9 @@ pub type PLSA_REGISTER_CALLBACK = Option<unsafe extern "system" fn(callbackid: u
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub type PLSA_REGISTER_NOTIFICATION = Option<unsafe extern "system" fn(startfunction: super::super::super::System::Threading::LPTHREAD_START_ROUTINE, parameter: *const core::ffi::c_void, notificationtype: u32, notificationclass: u32, notificationflags: u32, intervalminutes: u32, waitevent: super::super::super::Foundation::HANDLE) -> super::super::super::Foundation::HANDLE>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: bool) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, supplementalcredsize: u32, supplementalcreds: *const core::ffi::c_void, synchronous: u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PLSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const SecBuffer, returntolsa: bool) -> super::super::super::Foundation::NTSTATUS>;
+pub type PLSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: u32, argument1: usize, argument2: usize, userdata: *const SecBuffer, returntolsa: u8) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_UNLOAD_PACKAGE = Option<unsafe extern "system" fn() -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -4502,7 +4502,7 @@ impl Default for POLICY_AUDIT_CATEGORIES_INFO {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_AUDIT_EVENTS_INFO {
-    pub AuditingMode: bool,
+    pub AuditingMode: u8,
     pub EventAuditingOptions: *mut u32,
     pub MaximumAuditEventCount: u32,
 }
@@ -4521,13 +4521,13 @@ pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_FULL_QUERY_INFO {
-    pub ShutDownOnFull: bool,
-    pub LogIsFull: bool,
+    pub ShutDownOnFull: u8,
+    pub LogIsFull: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_FULL_SET_INFO {
-    pub ShutDownOnFull: bool,
+    pub ShutDownOnFull: u8,
 }
 pub const POLICY_AUDIT_LOG_ADMIN: i32 = 512;
 #[repr(C)]
@@ -4536,7 +4536,7 @@ pub struct POLICY_AUDIT_LOG_INFO {
     pub AuditLogPercentFull: u32,
     pub MaximumLogSize: u32,
     pub AuditRetentionPeriod: i64,
-    pub AuditLogFullShutdownInProgress: bool,
+    pub AuditLogFullShutdownInProgress: u8,
     pub TimeToShutdown: i64,
     pub NextAuditRecordId: u32,
 }
@@ -4702,9 +4702,9 @@ pub type PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = Option<unsafe extern "system" fn(
 pub type PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(clearpassword: *const LSA_UNICODE_STRING, oldcredentials: *const core::ffi::c_void, oldcredentialsize: u32, useraccountcontrol: u32, upn: *const LSA_UNICODE_STRING, username: *const LSA_UNICODE_STRING, netbiosdomainname: *const LSA_UNICODE_STRING, dnsdomainname: *const LSA_UNICODE_STRING, newcredentials: *mut *mut core::ffi::c_void, newcredentialsize: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = Option<unsafe extern "system" fn(table: *mut SAM_REGISTER_MAPPING_TABLE) -> super::super::super::Foundation::NTSTATUS>;
-pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = Option<unsafe extern "system" fn(credentialname: *mut LSA_UNICODE_STRING) -> bool>;
-pub type PSAM_INIT_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn() -> bool>;
-pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "system" fn(accountname: *const LSA_UNICODE_STRING, fullname: *const LSA_UNICODE_STRING, password: *const LSA_UNICODE_STRING, setoperation: bool) -> bool>;
+pub type PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = Option<unsafe extern "system" fn(credentialname: *mut LSA_UNICODE_STRING) -> u8>;
+pub type PSAM_INIT_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn() -> u8>;
+pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "system" fn(accountname: *const LSA_UNICODE_STRING, fullname: *const LSA_UNICODE_STRING, password: *const LSA_UNICODE_STRING, setoperation: u8) -> u8>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(username: *mut LSA_UNICODE_STRING, relativeid: u32, newpassword: *mut LSA_UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS>;
 #[repr(C)]
@@ -4792,7 +4792,7 @@ pub const SAM_PASSWORD_FILTER_ROUTINE: windows_core::PCSTR = windows_core::s!("P
 pub struct SAM_REGISTER_MAPPING_ELEMENT {
     pub Original: windows_core::PSTR,
     pub Mapped: windows_core::PSTR,
-    pub Continuable: bool,
+    pub Continuable: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5133,7 +5133,7 @@ pub struct SECPKG_APP_MODE_INFO {
     pub Argument1: usize,
     pub Argument2: usize,
     pub UserData: SecBuffer,
-    pub ReturnToLsa: bool,
+    pub ReturnToLsa: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -5308,9 +5308,9 @@ pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::super::super::Foundation::LUID,
     pub ProcessID: u32,
     pub ThreadID: u32,
-    pub HasTcbPrivilege: bool,
-    pub Impersonating: bool,
-    pub Restricted: bool,
+    pub HasTcbPrivilege: u8,
+    pub Impersonating: u8,
+    pub Restricted: u8,
     pub ClientFlags: u8,
     pub ImpersonationLevel: super::super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::super::super::Foundation::HANDLE,
@@ -5322,9 +5322,9 @@ pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::super::super::Foundation::LUID,
     pub ProcessID: u32,
     pub ThreadID: u32,
-    pub HasTcbPrivilege: bool,
-    pub Impersonating: bool,
-    pub Restricted: bool,
+    pub HasTcbPrivilege: u8,
+    pub Impersonating: u8,
+    pub Restricted: u8,
     pub ClientFlags: u8,
     pub ImpersonationLevel: super::super::SECURITY_IMPERSONATION_LEVEL,
     pub ClientToken: super::super::super::Foundation::HANDLE,
@@ -8065,7 +8065,7 @@ impl Default for SecurityFunctionTableW {
 #[cfg(feature = "Win32_Foundation")]
 pub type SpAcceptCredentialsFn = Option<unsafe extern "system" fn(logontype: SECURITY_LOGON_TYPE, accountname: *const LSA_UNICODE_STRING, primarycredentials: *const SECPKG_PRIMARY_CRED, supplementalcredentials: *const SECPKG_SUPPLEMENTAL_CRED) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpAcceptLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, inputbuffer: *const SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut usize, outputbuffer: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut bool, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
+pub type SpAcceptLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, inputbuffer: *const SecBufferDesc, contextrequirements: u32, targetdatarep: u32, newcontexthandle: *mut usize, outputbuffer: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut u8, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type SpAcquireCredentialsHandleFn = Option<unsafe extern "system" fn(principalname: *const LSA_UNICODE_STRING, credentialuseflags: u32, logonid: *const super::super::super::Foundation::LUID, authorizationdata: *const core::ffi::c_void, getkeyfunciton: *const core::ffi::c_void, getkeyargument: *const core::ffi::c_void, credentialhandle: *mut usize, expirationtime: *mut i64) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -8073,7 +8073,7 @@ pub type SpAddCredentialsFn = Option<unsafe extern "system" fn(credentialhandle:
 #[cfg(feature = "Win32_Foundation")]
 pub type SpApplyControlTokenFn = Option<unsafe extern "system" fn(contexthandle: usize, controltoken: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpChangeAccountPasswordFn = Option<unsafe extern "system" fn(pdomainname: *const LSA_UNICODE_STRING, paccountname: *const LSA_UNICODE_STRING, poldpassword: *const LSA_UNICODE_STRING, pnewpassword: *const LSA_UNICODE_STRING, impersonating: bool, poutput: *mut SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
+pub type SpChangeAccountPasswordFn = Option<unsafe extern "system" fn(pdomainname: *const LSA_UNICODE_STRING, paccountname: *const LSA_UNICODE_STRING, poldpassword: *const LSA_UNICODE_STRING, pnewpassword: *const LSA_UNICODE_STRING, impersonating: u8, poutput: *mut SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type SpCompleteAuthTokenFn = Option<unsafe extern "system" fn(contexthandle: usize, inputbuffer: *const SecBufferDesc) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
@@ -8111,7 +8111,7 @@ pub type SpGetUserInfoFn = Option<unsafe extern "system" fn(logonid: *const supe
 #[cfg(feature = "Win32_Foundation")]
 pub type SpImportSecurityContextFn = Option<unsafe extern "system" fn(ppackedcontext: *const SecBuffer, token: super::super::super::Foundation::HANDLE, phcontext: *mut usize) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
-pub type SpInitLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const LSA_UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut bool, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
+pub type SpInitLsaModeContextFn = Option<unsafe extern "system" fn(credentialhandle: usize, contexthandle: usize, targetname: *const LSA_UNICODE_STRING, contextrequirements: u32, targetdatarep: u32, inputbuffers: *const SecBufferDesc, newcontexthandle: *mut usize, outputbuffers: *mut SecBufferDesc, contextattributes: *mut u32, expirationtime: *mut i64, mappedcontext: *mut u8, contextdata: *mut SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(feature = "Win32_Foundation")]
 pub type SpInitUserModeContextFn = Option<unsafe extern "system" fn(contexthandle: usize, packedcontext: *const SecBuffer) -> super::super::super::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials", feature = "Win32_System_Threading"))]
@@ -8477,10 +8477,10 @@ pub struct USER_ALL_INFORMATION {
     pub LogonCount: u16,
     pub CountryCode: u16,
     pub CodePage: u16,
-    pub LmPasswordPresent: bool,
-    pub NtPasswordPresent: bool,
-    pub PasswordExpired: bool,
-    pub PrivateDataSensitive: bool,
+    pub LmPasswordPresent: u8,
+    pub NtPasswordPresent: u8,
+    pub PasswordExpired: u8,
+    pub PrivateDataSensitive: u8,
 }
 pub const USER_ALL_PARAMETERS: u32 = 2097152;
 pub const USER_DONT_EXPIRE_PASSWORD: u32 = 512;

@@ -22,10 +22,7 @@ fn size(ty: &Type, reader: &Reader) -> usize {
         Type::GUID => 16,
         Type::ArrayFixed(ty, len) => size(ty, reader) * len,
         Type::CppStruct(ty) => {
-            let fields = ty
-                .def
-                .fields()
-                .map(|field| field.field_type(Some(ty), reader));
+            let fields = ty.def.fields().map(|field| sizing_type(field, ty, reader));
             if ty.def.flags().contains(TypeAttributes::ExplicitLayout) {
                 fields.map(|ty| size(&ty, reader)).max().unwrap_or(1)
             } else {
@@ -57,7 +54,7 @@ fn align(ty: &Type, reader: &Reader) -> usize {
         Type::CppStruct(ty) => ty
             .def
             .fields()
-            .map(|field| align(&field.field_type(Some(ty), reader), reader))
+            .map(|field| align(&sizing_type(field, ty, reader), reader))
             .max()
             .unwrap_or(1),
         Type::Struct(ty) => ty
@@ -68,6 +65,24 @@ fn align(ty: &Type, reader: &Reader) -> usize {
             .unwrap_or(1),
         Type::CppEnum(ty) => align(&ty.def.underlying_type_ext(reader), reader),
         _ => 4,
+    }
+}
+
+fn is_boolean(ty: &windows_metadata::Type) -> bool {
+    matches!(ty, windows_metadata::Type::ValueName(name)
+        if name.namespace == "Windows.Win32.Foundation" && name.name == "BOOLEAN")
+}
+
+/// The 0.62 generator projected `BOOLEAN` as `bool`, which its estimate counted as four bytes.
+/// Legacy projection now maps `BOOLEAN` to `u8`, so the estimate keeps the declared type to
+/// preserve the published signatures.
+fn sizing_type(field: Field, enclosing: &CppStruct, reader: &Reader) -> Type {
+    match field.ty() {
+        ty if is_boolean(&ty) => Type::Bool,
+        windows_metadata::Type::ArrayFixed(ty, len) if is_boolean(&ty) => {
+            Type::ArrayFixed(Box::new(Type::Bool), len)
+        }
+        _ => field.field_type(Some(enclosing), reader),
     }
 }
 

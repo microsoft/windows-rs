@@ -43,8 +43,8 @@ pub unsafe fn FltAddOpenReparseEntry(filter: PFLT_FILTER, data: *const FLT_CALLB
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FltAdjustDeviceStackSizeForIoRedirection(sourceinstance: PFLT_INSTANCE, targetinstance: PFLT_INSTANCE, sourcedevicestacksizemodified: Option<*mut bool>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltAdjustDeviceStackSizeForIoRedirection(sourceinstance : PFLT_INSTANCE, targetinstance : PFLT_INSTANCE, sourcedevicestacksizemodified : *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltAdjustDeviceStackSizeForIoRedirection(sourceinstance: PFLT_INSTANCE, targetinstance: PFLT_INSTANCE, sourcedevicestacksizemodified: Option<*mut u8>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltAdjustDeviceStackSizeForIoRedirection(sourceinstance : PFLT_INSTANCE, targetinstance : PFLT_INSTANCE, sourcedevicestacksizemodified : *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltAdjustDeviceStackSizeForIoRedirection(sourceinstance, targetinstance, sourcedevicestacksizemodified.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -137,8 +137,8 @@ pub unsafe fn FltCancelFileOpen(instance: PFLT_INSTANCE, fileobject: *const supe
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltCancelIo(callbackdata: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltCancelIo(callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltCancelIo(callbackdata: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltCancelIo(callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltCancelIo(callbackdata) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -197,14 +197,14 @@ pub unsafe fn FltCheckAndGrowNameControl(namectrl: *mut FLT_NAME_CONTROL, newsiz
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltCheckLockForReadAccess(filelock: *const super::FILE_LOCK, callbackdata: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltCheckLockForReadAccess(filelock : *const super::FILE_LOCK, callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltCheckLockForReadAccess(filelock: *const super::FILE_LOCK, callbackdata: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltCheckLockForReadAccess(filelock : *const super::FILE_LOCK, callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltCheckLockForReadAccess(filelock, callbackdata) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltCheckLockForWriteAccess(filelock: *const super::FILE_LOCK, callbackdata: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltCheckLockForWriteAccess(filelock : *const super::FILE_LOCK, callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltCheckLockForWriteAccess(filelock: *const super::FILE_LOCK, callbackdata: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltCheckLockForWriteAccess(filelock : *const super::FILE_LOCK, callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltCheckLockForWriteAccess(filelock, callbackdata) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -337,18 +337,18 @@ pub unsafe fn FltCreateSystemVolumeInformationFolder(instance: PFLT_INSTANCE) ->
     unsafe { FltCreateSystemVolumeInformationFolder(instance) }
 }
 #[inline]
-pub unsafe fn FltCurrentBatchOplock(oplock: *const *const core::ffi::c_void) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltCurrentBatchOplock(oplock : *const *const core::ffi::c_void) -> bool);
+pub unsafe fn FltCurrentBatchOplock(oplock: *const *const core::ffi::c_void) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltCurrentBatchOplock(oplock : *const *const core::ffi::c_void) -> u8);
     unsafe { FltCurrentBatchOplock(oplock) }
 }
 #[inline]
-pub unsafe fn FltCurrentOplock(oplock: *const *const core::ffi::c_void) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltCurrentOplock(oplock : *const *const core::ffi::c_void) -> bool);
+pub unsafe fn FltCurrentOplock(oplock: *const *const core::ffi::c_void) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltCurrentOplock(oplock : *const *const core::ffi::c_void) -> u8);
     unsafe { FltCurrentOplock(oplock) }
 }
 #[inline]
-pub unsafe fn FltCurrentOplockH(oplock: *const *const core::ffi::c_void) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltCurrentOplockH(oplock : *const *const core::ffi::c_void) -> bool);
+pub unsafe fn FltCurrentOplockH(oplock: *const *const core::ffi::c_void) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltCurrentOplockH(oplock : *const *const core::ffi::c_void) -> u8);
     unsafe { FltCurrentOplockH(oplock) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -422,8 +422,8 @@ pub unsafe fn FltDeviceIoControlFile(instance: PFLT_INSTANCE, fileobject: *const
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltDoCompletionProcessingWhenSafe(data: *const FLT_CALLBACK_DATA, fltobjects: *const FLT_RELATED_OBJECTS, completioncontext: Option<*const core::ffi::c_void>, flags: u32, safepostcallback: PFLT_POST_OPERATION_CALLBACK, retpostoperationstatus: *mut FLT_POSTOP_CALLBACK_STATUS) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltDoCompletionProcessingWhenSafe(data : *const FLT_CALLBACK_DATA, fltobjects : *const FLT_RELATED_OBJECTS, completioncontext : *const core::ffi::c_void, flags : u32, safepostcallback : PFLT_POST_OPERATION_CALLBACK, retpostoperationstatus : *mut FLT_POSTOP_CALLBACK_STATUS) -> bool);
+pub unsafe fn FltDoCompletionProcessingWhenSafe(data: *const FLT_CALLBACK_DATA, fltobjects: *const FLT_RELATED_OBJECTS, completioncontext: Option<*const core::ffi::c_void>, flags: u32, safepostcallback: PFLT_POST_OPERATION_CALLBACK, retpostoperationstatus: *mut FLT_POSTOP_CALLBACK_STATUS) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltDoCompletionProcessingWhenSafe(data : *const FLT_CALLBACK_DATA, fltobjects : *const FLT_RELATED_OBJECTS, completioncontext : *const core::ffi::c_void, flags : u32, safepostcallback : PFLT_POST_OPERATION_CALLBACK, retpostoperationstatus : *mut FLT_POSTOP_CALLBACK_STATUS) -> u8);
     unsafe { FltDoCompletionProcessingWhenSafe(data, fltobjects, completioncontext.unwrap_or(core::mem::zeroed()) as _, flags, safepostcallback, retpostoperationstatus as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
@@ -488,26 +488,26 @@ pub unsafe fn FltEnumerateVolumes(filter: PFLT_FILTER, mut volumelist: Option<&m
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltFastIoMdlRead(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, mdlchain: *mut *mut super::super::super::Foundation::MDL, iostatus: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltFastIoMdlRead(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileoffset : *const i64, length : u32, lockkey : u32, mdlchain : *mut *mut super::super::super::Foundation::MDL, iostatus : *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> bool);
+pub unsafe fn FltFastIoMdlRead(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, mdlchain: *mut *mut super::super::super::Foundation::MDL, iostatus: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltFastIoMdlRead(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileoffset : *const i64, length : u32, lockkey : u32, mdlchain : *mut *mut super::super::super::Foundation::MDL, iostatus : *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> u8);
     unsafe { FltFastIoMdlRead(initiatinginstance, fileobject, fileoffset, length, lockkey, mdlchain as _, iostatus as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltFastIoMdlReadComplete(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, mdlchain: *const super::super::super::Foundation::MDL) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltFastIoMdlReadComplete(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, mdlchain : *const super::super::super::Foundation::MDL) -> bool);
+pub unsafe fn FltFastIoMdlReadComplete(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, mdlchain: *const super::super::super::Foundation::MDL) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltFastIoMdlReadComplete(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, mdlchain : *const super::super::super::Foundation::MDL) -> u8);
     unsafe { FltFastIoMdlReadComplete(initiatinginstance, fileobject, mdlchain) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltFastIoMdlWriteComplete(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, mdlchain: *const super::super::super::Foundation::MDL) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltFastIoMdlWriteComplete(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileoffset : *const i64, mdlchain : *const super::super::super::Foundation::MDL) -> bool);
+pub unsafe fn FltFastIoMdlWriteComplete(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, mdlchain: *const super::super::super::Foundation::MDL) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltFastIoMdlWriteComplete(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileoffset : *const i64, mdlchain : *const super::super::super::Foundation::MDL) -> u8);
     unsafe { FltFastIoMdlWriteComplete(initiatinginstance, fileobject, fileoffset, mdlchain) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltFastIoPrepareMdlWrite(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, mdlchain: *mut *mut super::super::super::Foundation::MDL, iostatus: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltFastIoPrepareMdlWrite(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileoffset : *const i64, length : u32, lockkey : u32, mdlchain : *mut *mut super::super::super::Foundation::MDL, iostatus : *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> bool);
+pub unsafe fn FltFastIoPrepareMdlWrite(initiatinginstance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileoffset: *const i64, length: u32, lockkey: u32, mdlchain: *mut *mut super::super::super::Foundation::MDL, iostatus: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltFastIoPrepareMdlWrite(initiatinginstance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileoffset : *const i64, length : u32, lockkey : u32, mdlchain : *mut *mut super::super::super::Foundation::MDL, iostatus : *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK) -> u8);
     unsafe { FltFastIoPrepareMdlWrite(initiatinginstance, fileobject, fileoffset, length, lockkey, mdlchain as _, iostatus as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
@@ -921,72 +921,72 @@ pub unsafe fn FltInsertExtraCreateParameter(filter: PFLT_FILTER, ecplist: *mut s
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIs32bitProcess(callbackdata: Option<*const FLT_CALLBACK_DATA>) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIs32bitProcess(callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltIs32bitProcess(callbackdata: Option<*const FLT_CALLBACK_DATA>) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIs32bitProcess(callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltIs32bitProcess(callbackdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIsCallbackDataDirty(data: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsCallbackDataDirty(data : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltIsCallbackDataDirty(data: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsCallbackDataDirty(data : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltIsCallbackDataDirty(data) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIsDirectory(fileobject: *const super::super::super::Foundation::FILE_OBJECT, instance: PFLT_INSTANCE, isdirectory: *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsDirectory(fileobject : *const super::super::super::Foundation::FILE_OBJECT, instance : PFLT_INSTANCE, isdirectory : *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltIsDirectory(fileobject: *const super::super::super::Foundation::FILE_OBJECT, instance: PFLT_INSTANCE, isdirectory: *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsDirectory(fileobject : *const super::super::super::Foundation::FILE_OBJECT, instance : PFLT_INSTANCE, isdirectory : *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltIsDirectory(fileobject, instance, isdirectory as _) }
 }
 #[inline]
-pub unsafe fn FltIsEcpAcknowledged(filter: PFLT_FILTER, ecpcontext: *const core::ffi::c_void) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsEcpAcknowledged(filter : PFLT_FILTER, ecpcontext : *const core::ffi::c_void) -> bool);
+pub unsafe fn FltIsEcpAcknowledged(filter: PFLT_FILTER, ecpcontext: *const core::ffi::c_void) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsEcpAcknowledged(filter : PFLT_FILTER, ecpcontext : *const core::ffi::c_void) -> u8);
     unsafe { FltIsEcpAcknowledged(filter, ecpcontext) }
 }
 #[inline]
-pub unsafe fn FltIsEcpFromUserMode(filter: PFLT_FILTER, ecpcontext: *const core::ffi::c_void) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsEcpFromUserMode(filter : PFLT_FILTER, ecpcontext : *const core::ffi::c_void) -> bool);
+pub unsafe fn FltIsEcpFromUserMode(filter: PFLT_FILTER, ecpcontext: *const core::ffi::c_void) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsEcpFromUserMode(filter : PFLT_FILTER, ecpcontext : *const core::ffi::c_void) -> u8);
     unsafe { FltIsEcpFromUserMode(filter, ecpcontext) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIsFltMgrVolumeDeviceObject(deviceobject: *const super::super::super::Foundation::DEVICE_OBJECT) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsFltMgrVolumeDeviceObject(deviceobject : *const super::super::super::Foundation::DEVICE_OBJECT) -> bool);
+pub unsafe fn FltIsFltMgrVolumeDeviceObject(deviceobject: *const super::super::super::Foundation::DEVICE_OBJECT) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsFltMgrVolumeDeviceObject(deviceobject : *const super::super::super::Foundation::DEVICE_OBJECT) -> u8);
     unsafe { FltIsFltMgrVolumeDeviceObject(deviceobject) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIsIoCanceled(callbackdata: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsIoCanceled(callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltIsIoCanceled(callbackdata: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsIoCanceled(callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltIsIoCanceled(callbackdata) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FltIsIoRedirectionAllowed(sourceinstance: PFLT_INSTANCE, targetinstance: PFLT_INSTANCE, redirectionallowed: *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsIoRedirectionAllowed(sourceinstance : PFLT_INSTANCE, targetinstance : PFLT_INSTANCE, redirectionallowed : *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltIsIoRedirectionAllowed(sourceinstance: PFLT_INSTANCE, targetinstance: PFLT_INSTANCE, redirectionallowed: *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsIoRedirectionAllowed(sourceinstance : PFLT_INSTANCE, targetinstance : PFLT_INSTANCE, redirectionallowed : *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltIsIoRedirectionAllowed(sourceinstance, targetinstance, redirectionallowed as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIsIoRedirectionAllowedForOperation(data: *const FLT_CALLBACK_DATA, targetinstance: PFLT_INSTANCE, redirectionallowedthisio: *mut bool, redirectionallowedallio: Option<*mut bool>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsIoRedirectionAllowedForOperation(data : *const FLT_CALLBACK_DATA, targetinstance : PFLT_INSTANCE, redirectionallowedthisio : *mut bool, redirectionallowedallio : *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltIsIoRedirectionAllowedForOperation(data: *const FLT_CALLBACK_DATA, targetinstance: PFLT_INSTANCE, redirectionallowedthisio: *mut u8, redirectionallowedallio: Option<*mut u8>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsIoRedirectionAllowedForOperation(data : *const FLT_CALLBACK_DATA, targetinstance : PFLT_INSTANCE, redirectionallowedthisio : *mut u8, redirectionallowedallio : *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltIsIoRedirectionAllowedForOperation(data, targetinstance, redirectionallowedthisio as _, redirectionallowedallio.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltIsOperationSynchronous(callbackdata: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsOperationSynchronous(callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltIsOperationSynchronous(callbackdata: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsOperationSynchronous(callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltIsOperationSynchronous(callbackdata) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FltIsVolumeSnapshot(fltobject: *const core::ffi::c_void, issnapshotvolume: *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsVolumeSnapshot(fltobject : *const core::ffi::c_void, issnapshotvolume : *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltIsVolumeSnapshot(fltobject: *const core::ffi::c_void, issnapshotvolume: *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsVolumeSnapshot(fltobject : *const core::ffi::c_void, issnapshotvolume : *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltIsVolumeSnapshot(fltobject, issnapshotvolume as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FltIsVolumeWritable(fltobject: *const core::ffi::c_void, iswritable: *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltIsVolumeWritable(fltobject : *const core::ffi::c_void, iswritable : *mut bool) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltIsVolumeWritable(fltobject: *const core::ffi::c_void, iswritable: *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltIsVolumeWritable(fltobject : *const core::ffi::c_void, iswritable : *mut u8) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltIsVolumeWritable(fltobject, iswritable as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1003,8 +1003,8 @@ pub unsafe fn FltLockUserBuffer(callbackdata: *const FLT_CALLBACK_DATA) -> super
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltNotifyFilterChangeDirectory(notifysync: super::super::super::Foundation::PNOTIFY_SYNC, notifylist: *mut super::super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *const super::super::super::super::Win32::System::Kernel::STRING, watchtree: bool, ignorebuffer: bool, completionfilter: u32, notifycallbackdata: *const FLT_CALLBACK_DATA, traversecallback: super::PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Option<*const super::super::super::Foundation::SECURITY_SUBJECT_CONTEXT>, filtercallback: super::PFILTER_REPORT_CHANGE) {
-    windows_core::link!("fltmgr.sys" "system" fn FltNotifyFilterChangeDirectory(notifysync : super::super::super::Foundation::PNOTIFY_SYNC, notifylist : *mut super::super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext : *const core::ffi::c_void, fulldirectoryname : *const super::super::super::super::Win32::System::Kernel::STRING, watchtree : bool, ignorebuffer : bool, completionfilter : u32, notifycallbackdata : *const FLT_CALLBACK_DATA, traversecallback : super::PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext : *const super::super::super::Foundation::SECURITY_SUBJECT_CONTEXT, filtercallback : super::PFILTER_REPORT_CHANGE));
+pub unsafe fn FltNotifyFilterChangeDirectory(notifysync: super::super::super::Foundation::PNOTIFY_SYNC, notifylist: *mut super::super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext: *const core::ffi::c_void, fulldirectoryname: *const super::super::super::super::Win32::System::Kernel::STRING, watchtree: u8, ignorebuffer: u8, completionfilter: u32, notifycallbackdata: *const FLT_CALLBACK_DATA, traversecallback: super::PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext: Option<*const super::super::super::Foundation::SECURITY_SUBJECT_CONTEXT>, filtercallback: super::PFILTER_REPORT_CHANGE) {
+    windows_core::link!("fltmgr.sys" "system" fn FltNotifyFilterChangeDirectory(notifysync : super::super::super::Foundation::PNOTIFY_SYNC, notifylist : *mut super::super::super::super::Win32::System::Kernel::LIST_ENTRY, fscontext : *const core::ffi::c_void, fulldirectoryname : *const super::super::super::super::Win32::System::Kernel::STRING, watchtree : u8, ignorebuffer : u8, completionfilter : u32, notifycallbackdata : *const FLT_CALLBACK_DATA, traversecallback : super::PCHECK_FOR_TRAVERSE_ACCESS, subjectcontext : *const super::super::super::Foundation::SECURITY_SUBJECT_CONTEXT, filtercallback : super::PFILTER_REPORT_CHANGE));
     unsafe { FltNotifyFilterChangeDirectory(notifysync, notifylist as _, fscontext, fulldirectoryname, watchtree, ignorebuffer, completionfilter, notifycallbackdata, traversecallback, subjectcontext.unwrap_or(core::mem::zeroed()) as _, filtercallback) }
 }
 #[inline]
@@ -1055,20 +1055,20 @@ pub unsafe fn FltOplockFsctrlEx(oplock: *const *const core::ffi::c_void, callbac
     unsafe { FltOplockFsctrlEx(oplock, callbackdata, opencount, flags) }
 }
 #[inline]
-pub unsafe fn FltOplockIsFastIoPossible(oplock: *const *const core::ffi::c_void) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltOplockIsFastIoPossible(oplock : *const *const core::ffi::c_void) -> bool);
+pub unsafe fn FltOplockIsFastIoPossible(oplock: *const *const core::ffi::c_void) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltOplockIsFastIoPossible(oplock : *const *const core::ffi::c_void) -> u8);
     unsafe { FltOplockIsFastIoPossible(oplock) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltOplockIsSharedRequest(callbackdata: *const FLT_CALLBACK_DATA) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltOplockIsSharedRequest(callbackdata : *const FLT_CALLBACK_DATA) -> bool);
+pub unsafe fn FltOplockIsSharedRequest(callbackdata: *const FLT_CALLBACK_DATA) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltOplockIsSharedRequest(callbackdata : *const FLT_CALLBACK_DATA) -> u8);
     unsafe { FltOplockIsSharedRequest(callbackdata) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltOplockKeysEqual(fo1: Option<*const super::super::super::Foundation::FILE_OBJECT>, fo2: Option<*const super::super::super::Foundation::FILE_OBJECT>) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltOplockKeysEqual(fo1 : *const super::super::super::Foundation::FILE_OBJECT, fo2 : *const super::super::super::Foundation::FILE_OBJECT) -> bool);
+pub unsafe fn FltOplockKeysEqual(fo1: Option<*const super::super::super::Foundation::FILE_OBJECT>, fo2: Option<*const super::super::super::Foundation::FILE_OBJECT>) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltOplockKeysEqual(fo1 : *const super::super::super::Foundation::FILE_OBJECT, fo2 : *const super::super::super::Foundation::FILE_OBJECT) -> u8);
     unsafe { FltOplockKeysEqual(fo1.unwrap_or(core::mem::zeroed()) as _, fo2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1138,8 +1138,8 @@ pub unsafe fn FltPurgeFileNameInformationCache(instance: PFLT_INSTANCE, fileobje
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltQueryDirectoryFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: bool, filename: Option<*const super::super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: bool, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltQueryDirectoryFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::super::super::super::Win32::Foundation::UNICODE_STRING, restartscan : bool, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltQueryDirectoryFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: u8, filename: Option<*const super::super::super::super::Win32::Foundation::UNICODE_STRING>, restartscan: u8, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltQueryDirectoryFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : u8, filename : *const super::super::super::super::Win32::Foundation::UNICODE_STRING, restartscan : u8, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltQueryDirectoryFile(instance, fileobject, fileinformation as _, length, fileinformationclass, returnsingleentry, filename.unwrap_or(core::mem::zeroed()) as _, restartscan, lengthreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -1150,8 +1150,8 @@ pub unsafe fn FltQueryDirectoryFileEx(instance: PFLT_INSTANCE, fileobject: *cons
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltQueryEaFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, returnedeadata: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: bool, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltQueryEaFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, returnedeadata : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : bool, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltQueryEaFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, returnedeadata: *mut core::ffi::c_void, length: u32, returnsingleentry: u8, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: u8, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltQueryEaFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, returnedeadata : *mut core::ffi::c_void, length : u32, returnsingleentry : u8, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : u8, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltQueryEaFile(instance, fileobject, returnedeadata as _, length, returnsingleentry, ealist.unwrap_or(core::mem::zeroed()) as _, ealistlength, eaindex.unwrap_or(core::mem::zeroed()) as _, restartscan, lengthreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
@@ -1168,8 +1168,8 @@ pub unsafe fn FltQueryInformationFile(instance: PFLT_INSTANCE, fileobject: *cons
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltQueryQuotaInformationFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, iostatusblock: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: Option<*const u32>, restartscan: bool, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("fltmgr.sys" "system" fn FltQueryQuotaInformationFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, iostatusblock : *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : *const u32, restartscan : bool, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn FltQueryQuotaInformationFile(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, iostatusblock: *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: u8, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: Option<*const u32>, restartscan: u8, lengthreturned: Option<*mut u32>) -> super::super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("fltmgr.sys" "system" fn FltQueryQuotaInformationFile(instance : PFLT_INSTANCE, fileobject : *const super::super::super::Foundation::FILE_OBJECT, iostatusblock : *mut super::super::super::super::Win32::System::IO::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : u8, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : *const u32, restartscan : u8, lengthreturned : *mut u32) -> super::super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { FltQueryQuotaInformationFile(instance, fileobject, iostatusblock as _, buffer as _, length, returnsingleentry, sidlist.unwrap_or(core::mem::zeroed()) as _, sidlistlength, startsid.unwrap_or(core::mem::zeroed()) as _, restartscan, lengthreturned.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -1480,26 +1480,26 @@ pub unsafe fn FltStartFiltering(filter: PFLT_FILTER) -> super::super::super::sup
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltSupportsFileContexts(fileobject: *const super::super::super::Foundation::FILE_OBJECT) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltSupportsFileContexts(fileobject : *const super::super::super::Foundation::FILE_OBJECT) -> bool);
+pub unsafe fn FltSupportsFileContexts(fileobject: *const super::super::super::Foundation::FILE_OBJECT) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltSupportsFileContexts(fileobject : *const super::super::super::Foundation::FILE_OBJECT) -> u8);
     unsafe { FltSupportsFileContexts(fileobject) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltSupportsFileContextsEx(fileobject: *const super::super::super::Foundation::FILE_OBJECT, instance: Option<PFLT_INSTANCE>) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltSupportsFileContextsEx(fileobject : *const super::super::super::Foundation::FILE_OBJECT, instance : PFLT_INSTANCE) -> bool);
+pub unsafe fn FltSupportsFileContextsEx(fileobject: *const super::super::super::Foundation::FILE_OBJECT, instance: Option<PFLT_INSTANCE>) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltSupportsFileContextsEx(fileobject : *const super::super::super::Foundation::FILE_OBJECT, instance : PFLT_INSTANCE) -> u8);
     unsafe { FltSupportsFileContextsEx(fileobject, instance.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltSupportsStreamContexts(fileobject: *const super::super::super::Foundation::FILE_OBJECT) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltSupportsStreamContexts(fileobject : *const super::super::super::Foundation::FILE_OBJECT) -> bool);
+pub unsafe fn FltSupportsStreamContexts(fileobject: *const super::super::super::Foundation::FILE_OBJECT) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltSupportsStreamContexts(fileobject : *const super::super::super::Foundation::FILE_OBJECT) -> u8);
     unsafe { FltSupportsStreamContexts(fileobject) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[inline]
-pub unsafe fn FltSupportsStreamHandleContexts(fileobject: *const super::super::super::Foundation::FILE_OBJECT) -> bool {
-    windows_core::link!("fltmgr.sys" "system" fn FltSupportsStreamHandleContexts(fileobject : *const super::super::super::Foundation::FILE_OBJECT) -> bool);
+pub unsafe fn FltSupportsStreamHandleContexts(fileobject: *const super::super::super::Foundation::FILE_OBJECT) -> u8 {
+    windows_core::link!("fltmgr.sys" "system" fn FltSupportsStreamHandleContexts(fileobject : *const super::super::super::Foundation::FILE_OBJECT) -> u8);
     unsafe { FltSupportsStreamHandleContexts(fileobject) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2119,8 +2119,8 @@ pub struct FLT_PARAMETERS_14 {
     pub Key: u32,
     pub ByteOffset: i64,
     pub ProcessId: super::super::super::Foundation::PEPROCESS,
-    pub FailImmediately: bool,
-    pub ExclusiveLock: bool,
+    pub FailImmediately: u8,
+    pub ExclusiveLock: u8,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 impl Default for FLT_PARAMETERS_14 {
@@ -2311,7 +2311,7 @@ impl Default for FLT_PARAMETERS_20_5 {
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_PARAMETERS_20_6 {
-    pub Lock: bool,
+    pub Lock: u8,
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2330,8 +2330,8 @@ pub struct FLT_PARAMETERS_20_8 {
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLT_PARAMETERS_20_9 {
-    pub InPath: bool,
-    pub Reserved: [bool; 3],
+    pub InPath: u8,
+    pub Reserved: [u8; 3],
     pub Type: super::super::super::System::SystemServices::DEVICE_USAGE_NOTIFICATION_TYPE,
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2403,7 +2403,7 @@ pub struct FLT_PARAMETERS_25 {
     pub FileOffset: i64,
     pub Length: u32,
     pub LockKey: u32,
-    pub CheckForReadOperation: bool,
+    pub CheckForReadOperation: u8,
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2576,8 +2576,8 @@ impl Default for FLT_PARAMETERS_6_0 {
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLT_PARAMETERS_6_0_0 {
-    pub ReplaceIfExists: bool,
-    pub AdvanceOnly: bool,
+    pub ReplaceIfExists: u8,
+    pub AdvanceOnly: u8,
 }
 #[repr(C)]
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
@@ -2888,7 +2888,7 @@ pub struct PFLT_FILTER(pub isize);
 #[cfg(feature = "Win32_Foundation")]
 pub type PFLT_FILTER_UNLOAD_CALLBACK = Option<unsafe extern "system" fn(flags: u32) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[cfg(all(feature = "Wdk_Foundation", feature = "Wdk_System_SystemServices", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO", feature = "Win32_System_Kernel", feature = "Win32_System_Power"))]
-pub type PFLT_GENERATE_FILE_NAME = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, callbackdata: *const FLT_CALLBACK_DATA, nameoptions: u32, cachefilenameinformation: *mut bool, filename: *mut FLT_NAME_CONTROL) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
+pub type PFLT_GENERATE_FILE_NAME = Option<unsafe extern "system" fn(instance: PFLT_INSTANCE, fileobject: *const super::super::super::Foundation::FILE_OBJECT, callbackdata: *const FLT_CALLBACK_DATA, nameoptions: u32, cachefilenameinformation: *mut u8, filename: *mut FLT_NAME_CONTROL) -> super::super::super::super::Win32::Foundation::NTSTATUS>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PFLT_GENERIC_WORKITEM(pub isize);

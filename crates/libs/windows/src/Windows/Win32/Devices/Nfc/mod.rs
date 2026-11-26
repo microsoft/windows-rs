@@ -99,13 +99,13 @@ pub const NFCRMDDI_IOCTL_BASE: u32 = 80;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFCRM_RADIO_STATE {
-    pub MediaRadioOn: bool,
+    pub MediaRadioOn: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFCRM_SET_RADIO_STATE {
-    pub SystemStateUpdate: bool,
-    pub MediaRadioOn: bool,
+    pub SystemStateUpdate: u8,
+    pub MediaRadioOn: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -128,7 +128,7 @@ pub struct NFC_LLCP_CONFIG {
     pub uWKS: u16,
     pub bLTO: u8,
     pub bOptions: u8,
-    pub fAutoActivate: bool,
+    pub fAutoActivate: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -248,8 +248,8 @@ pub struct NFC_LLCP_SOCKET_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFC_NDEF_INFO {
-    pub fIsNdefFormatted: bool,
-    pub fIsReadOnly: bool,
+    pub fIsNdefFormatted: u8,
+    pub fIsReadOnly: u8,
     pub dwActualMessageLength: u32,
     pub dwMaxMessageLength: u32,
 }
@@ -310,9 +310,9 @@ pub struct NFC_REMOTE_DEV_SEND_INFO {
 pub struct NFC_RF_DISCOVERY_CONFIG {
     pub usTotalDuration: u16,
     pub ulPollConfig: u32,
-    pub fDisableCardEmulation: bool,
+    pub fDisableCardEmulation: u8,
     pub ucNfcIPMode: u8,
-    pub fNfcIPTgtModeDisable: bool,
+    pub fNfcIPTgtModeDisable: u8,
     pub ucNfcIPTgtMode: u8,
     pub ucNfcCEMode: u8,
     pub ucBailoutConfig: u8,
@@ -586,9 +586,9 @@ impl Default for SECURE_ELEMENT_HCE_DATA_PACKET {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURE_ELEMENT_NFCC_CAPABILITIES {
     pub cbMaxRoutingTableSize: u16,
-    pub IsAidRoutingSupported: bool,
-    pub IsProtocolRoutingSupported: bool,
-    pub IsTechRoutingSupported: bool,
+    pub IsAidRoutingSupported: u8,
+    pub IsProtocolRoutingSupported: u8,
+    pub IsTechRoutingSupported: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -69,8 +69,8 @@ pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS,
 }
 #[cfg(feature = "Win32_Security")]
 #[inline]
-pub unsafe fn EventAccessControl(guid: *const windows_core::GUID, operation: u32, sid: super::super::super::Security::PSID, rights: u32, allowordeny: bool) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Security::PSID, rights : u32, allowordeny : bool) -> u32);
+pub unsafe fn EventAccessControl(guid: *const windows_core::GUID, operation: u32, sid: super::super::super::Security::PSID, rights: u32, allowordeny: u8) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn EventAccessControl(guid : *const windows_core::GUID, operation : u32, sid : super::super::super::Security::PSID, rights : u32, allowordeny : u8) -> u32);
     unsafe { EventAccessControl(guid, operation, sid, rights, allowordeny) }
 }
 #[cfg(feature = "Win32_Security")]
@@ -90,13 +90,13 @@ pub unsafe fn EventActivityIdControl(controlcode: u32, activityid: *mut windows_
     unsafe { EventActivityIdControl(controlcode, activityid as _) }
 }
 #[inline]
-pub unsafe fn EventEnabled(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> bool);
+pub unsafe fn EventEnabled(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn EventEnabled(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR) -> u8);
     unsafe { EventEnabled(reghandle, eventdescriptor) }
 }
 #[inline]
-pub unsafe fn EventProviderEnabled(reghandle: REGHANDLE, level: u8, keyword: u64) -> bool {
-    windows_core::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> bool);
+pub unsafe fn EventProviderEnabled(reghandle: REGHANDLE, level: u8, keyword: u64) -> u8 {
+    windows_core::link!("advapi32.dll" "system" fn EventProviderEnabled(reghandle : REGHANDLE, level : u8, keyword : u64) -> u8);
     unsafe { EventProviderEnabled(reghandle, level, keyword) }
 }
 #[inline]
@@ -341,8 +341,8 @@ where
     unsafe { StopTraceW(tracehandle, instancename.param().abi(), properties as _) }
 }
 #[inline]
-pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<*const bool>, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
-    windows_core::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : *const bool, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
+pub unsafe fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const core::ffi::c_void, eventmatchallflags: Option<*const u8>, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32 {
+    windows_core::link!("tdh.dll" "system" fn TdhAggregatePayloadFilters(payloadfiltercount : u32, payloadfilterptrs : *const *const core::ffi::c_void, eventmatchallflags : *const u8, eventfilterdescriptor : *mut EVENT_FILTER_DESCRIPTOR) -> u32);
     unsafe { TdhAggregatePayloadFilters(payloadfiltercount, payloadfilterptrs, eventmatchallflags.unwrap_or(core::mem::zeroed()) as _, eventfilterdescriptor as _) }
 }
 #[inline]
@@ -356,8 +356,8 @@ pub unsafe fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32 {
     unsafe { TdhCloseDecodingHandle(handle) }
 }
 #[inline]
-pub unsafe fn TdhCreatePayloadFilter(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: bool, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : bool, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
+pub unsafe fn TdhCreatePayloadFilter(providerguid: *const windows_core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: u8, payloadpredicates: &[PAYLOAD_FILTER_PREDICATE], payloadfilter: *mut *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("tdh.dll" "system" fn TdhCreatePayloadFilter(providerguid : *const windows_core::GUID, eventdescriptor : *const EVENT_DESCRIPTOR, eventmatchany : u8, payloadpredicatecount : u32, payloadpredicates : *const PAYLOAD_FILTER_PREDICATE, payloadfilter : *mut *mut core::ffi::c_void) -> u32);
     unsafe { TdhCreatePayloadFilter(providerguid, eventdescriptor, eventmatchany, payloadpredicates.len().try_into().unwrap(), core::mem::transmute(payloadpredicates.as_ptr()), payloadfilter as _) }
 }
 #[inline]
@@ -953,7 +953,7 @@ pub struct EVENT_FILTER_DESCRIPTOR {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_ID {
-    pub FilterIn: bool,
+    pub FilterIn: u8,
     pub Reserved: u8,
     pub Count: u16,
     pub Events: [u16; 1],
@@ -969,7 +969,7 @@ pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: bool,
+    pub FilterIn: u8,
     pub NameCount: u16,
     pub Names: [u8; 1],
 }
@@ -999,7 +999,7 @@ pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
     pub Level: u8,
-    pub FilterIn: bool,
+    pub FilterIn: u8,
 }
 pub const EVENT_FILTER_TYPE_CONTAINER: u32 = 2147516416;
 pub const EVENT_FILTER_TYPE_EVENT_ID: u32 = 2147484160;
@@ -2248,7 +2248,7 @@ impl ITraceRelogger {
     pub unsafe fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOutputFilename)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(logfilename)).ok() }
     }
-    pub unsafe fn SetCompressionMode(&self, compressionmode: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCompressionMode(&self, compressionmode: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCompressionMode)(windows_core::Interface::as_raw(self), compressionmode).ok() }
     }
     pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
@@ -2266,7 +2266,7 @@ pub struct ITraceRelogger_Vtbl {
     pub CreateEventInstance: unsafe extern "system" fn(*mut core::ffi::c_void, RELOGSTREAM_HANDLE, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub ProcessTrace: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetOutputFilename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetCompressionMode: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub SetCompressionMode: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITraceRelogger_Impl: windows_core::IUnknownImpl {
@@ -2277,7 +2277,7 @@ pub trait ITraceRelogger_Impl: windows_core::IUnknownImpl {
     fn CreateEventInstance(&self, tracehandle: &RELOGSTREAM_HANDLE, flags: u32) -> windows_core::Result<ITraceEvent>;
     fn ProcessTrace(&self) -> windows_core::Result<()>;
     fn SetOutputFilename(&self, logfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetCompressionMode(&self, compressionmode: bool) -> windows_core::Result<()>;
+    fn SetCompressionMode(&self, compressionmode: u8) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
 }
 impl ITraceRelogger_Vtbl {
@@ -2351,7 +2351,7 @@ impl ITraceRelogger_Vtbl {
                 ITraceRelogger_Impl::SetOutputFilename(this, &*(&raw const logfilename).cast()).into()
             }
         }
-        unsafe extern "system" fn SetCompressionMode<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionmode: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetCompressionMode<Identity: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, compressionmode: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ITraceRelogger_Impl::SetCompressionMode(this, core::mem::transmute_copy(&compressionmode)).into()
@@ -2896,7 +2896,7 @@ pub struct TRACE_GUID_PROPERTIES {
     pub LoggerId: u32,
     pub EnableLevel: u32,
     pub EnableFlags: u32,
-    pub IsEnable: bool,
+    pub IsEnable: u8,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -3227,7 +3227,7 @@ pub struct TRACE_QUERY_INFO_CLASS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRACE_STACK_CACHING_INFO {
-    pub Enabled: bool,
+    pub Enabled: u8,
     pub CacheSize: u32,
     pub BucketCount: u32,
 }

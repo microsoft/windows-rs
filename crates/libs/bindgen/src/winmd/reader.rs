@@ -234,13 +234,14 @@ impl Reader {
     }
 
     /// Maps metadata names to core types or other names; see [`Type::remap`]. Legacy metadata
-    /// follows the `windows` 0.62 mapping: the `BOOLEAN` and `CHAR` typedefs are Rust primitives,
+    /// follows the `windows` 0.62 mapping: the `BOOLEAN` and `CHAR` typedefs are Rust primitives
+    /// (`BOOLEAN` is `u8` rather than `bool`, which has a different ABI),
     /// `D2D_VECTOR_3F` is not a numerics type, and the status types stay at their metadata paths
     /// (see [`Reader::legacy_core_type`]).
     pub fn remap(&self, namespace: &str, name: &str) -> Remap {
         if self.legacy {
             match (namespace, name) {
-                ("Windows.Win32.Foundation", "BOOLEAN") => return Remap::Type(Type::Bool),
+                ("Windows.Win32.Foundation", "BOOLEAN") => return Remap::Type(Type::U8),
                 ("Windows.Win32.Foundation", "CHAR") => return Remap::Type(Type::I8),
                 ("Windows.Win32.Foundation", "NTSTATUS")
                 | ("Windows.Win32.System.Rpc", "RPC_STATUS")

@@ -105,12 +105,12 @@ windows_link::link!("clfsw32.dll" "system" fn CreateLogFile(pszlogfilename : win
 windows_link::link!("clfsw32.dll" "system" fn CreateLogMarshallingArea(hlog : super::super::Foundation::HANDLE, pfnallocbuffer : CLFS_BLOCK_ALLOCATION, pfnfreebuffer : CLFS_BLOCK_DEALLOCATION, pvblockalloccontext : *mut core::ffi::c_void, cbmarshallingbuffer : u32, cmaxwritebuffers : u32, cmaxreadbuffers : u32, ppvmarshal : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 windows_link::link!("ktmw32.dll" "system" fn CreateResourceManager(lpresourcemanagerattributes : *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid : *mut windows_sys::core::GUID, createoptions : u32, tmhandle : super::super::Foundation::HANDLE, description : windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE);
-windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_sys::core::PCSTR, lptargetfilename : windows_sys::core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
+windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkA(lpsymlinkfilename : windows_sys::core::PCSTR, lptargetfilename : windows_sys::core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> u8);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_sys::core::PCSTR, lptargetfilename : windows_sys::core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation::HANDLE) -> bool);
+windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedA(lpsymlinkfilename : windows_sys::core::PCSTR, lptargetfilename : windows_sys::core::PCSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation::HANDLE) -> u8);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_sys::core::PCWSTR, lptargetfilename : windows_sys::core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation::HANDLE) -> bool);
-windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_sys::core::PCWSTR, lptargetfilename : windows_sys::core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> bool);
+windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkTransactedW(lpsymlinkfilename : windows_sys::core::PCWSTR, lptargetfilename : windows_sys::core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS, htransaction : super::super::Foundation::HANDLE) -> u8);
+windows_link::link!("kernel32.dll" "system" fn CreateSymbolicLinkW(lpsymlinkfilename : windows_sys::core::PCWSTR, lptargetfilename : windows_sys::core::PCWSTR, dwflags : SYMBOLIC_LINK_FLAGS) -> u8);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("kernel32.dll" "system" fn CreateTapePartition(hdevice : super::super::Foundation::HANDLE, dwpartitionmethod : CREATE_TAPE_PARTITION_METHOD, dwcount : u32, dwsize : u32) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -360,12 +360,12 @@ windows_link::link!("clfsw32.dll" "system" fn LogTailAdvanceFailure(hlog : super
 windows_link::link!("clfsw32.dll" "system" fn LsnBlockOffset(plsn : *const CLS_LSN) -> u32);
 windows_link::link!("clfsw32.dll" "system" fn LsnContainer(plsn : *const CLS_LSN) -> u32);
 windows_link::link!("clfsw32.dll" "system" fn LsnCreate(cidcontainer : u32, offblock : u32, crecord : u32) -> CLS_LSN);
-windows_link::link!("clfsw32.dll" "system" fn LsnEqual(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" fn LsnGreater(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
+windows_link::link!("clfsw32.dll" "system" fn LsnEqual(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> u8);
+windows_link::link!("clfsw32.dll" "system" fn LsnGreater(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> u8);
 windows_link::link!("clfsw32.dll" "system" fn LsnIncrement(plsn : *const CLS_LSN) -> CLS_LSN);
-windows_link::link!("clfsw32.dll" "system" fn LsnInvalid(plsn : *const CLS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" fn LsnLess(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> bool);
-windows_link::link!("clfsw32.dll" "system" fn LsnNull(plsn : *const CLS_LSN) -> bool);
+windows_link::link!("clfsw32.dll" "system" fn LsnInvalid(plsn : *const CLS_LSN) -> u8);
+windows_link::link!("clfsw32.dll" "system" fn LsnLess(plsn1 : *const CLS_LSN, plsn2 : *const CLS_LSN) -> u8);
+windows_link::link!("clfsw32.dll" "system" fn LsnNull(plsn : *const CLS_LSN) -> u8);
 windows_link::link!("clfsw32.dll" "system" fn LsnRecordSequence(plsn : *const CLS_LSN) -> u32);
 windows_link::link!("kernel32.dll" "system" fn MoveFileA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn MoveFileExA(lpexistingfilename : windows_sys::core::PCSTR, lpnewfilename : windows_sys::core::PCSTR, dwflags : MOVE_FILE_FLAGS) -> windows_sys::core::BOOL);
@@ -617,7 +617,7 @@ windows_link::link!("wofutil.dll" "system" fn WofWimRemoveEntry(volumename : win
 windows_link::link!("wofutil.dll" "system" fn WofWimSuspendEntry(volumename : windows_sys::core::PCWSTR, datasourceid : i64) -> windows_sys::core::HRESULT);
 windows_link::link!("wofutil.dll" "system" fn WofWimUpdateEntry(volumename : windows_sys::core::PCWSTR, datasourceid : i64, newwimpath : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
 windows_link::link!("kernel32.dll" "system" fn Wow64DisableWow64FsRedirection(oldvalue : *mut *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_link::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : bool) -> bool);
+windows_link::link!("kernel32.dll" "system" fn Wow64EnableWow64FsRedirection(wow64fsenableredirection : u8) -> u8);
 windows_link::link!("kernel32.dll" "system" fn Wow64RevertWow64FsRedirection(olvalue : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn WriteEncryptedFileRaw(pfimportcallback : PFE_IMPORT_FUNC, pvcallbackcontext : *const core::ffi::c_void, pvcontext : *const core::ffi::c_void) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -1657,7 +1657,7 @@ pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS 
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_DISPOSITION_INFO {
-    pub DeleteFile: bool,
+    pub DeleteFile: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1987,7 +1987,7 @@ impl Default for FILE_RENAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 #[derive(Clone, Copy)]
 pub union FILE_RENAME_INFO_0 {
-    pub ReplaceIfExists: bool,
+    pub ReplaceIfExists: u8,
     pub Flags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2018,8 +2018,8 @@ pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
     pub NumberOfLinks: u32,
-    pub DeletePending: bool,
-    pub Directory: bool,
+    pub DeletePending: u8,
+    pub Directory: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -3645,7 +3645,7 @@ pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = 2031616;
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: windows_sys::core::PWSTR,
     pub srvai0_target: windows_sys::core::PWSTR,
-    pub srvai0_default: bool,
+    pub srvai0_default: u8,
     pub srvai0_reserved: u32,
 }
 impl Default for SERVER_ALIAS_INFO_0 {
@@ -4019,7 +4019,7 @@ pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = 0;
 #[derive(Clone, Copy, Default)]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
-    pub Immediate: bool,
+    pub Immediate: u8,
 }
 pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = 1;
 pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = 0;
@@ -4046,7 +4046,7 @@ pub type TAPE_POSITION_TYPE = u32;
 #[derive(Clone, Copy, Default)]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
-    pub Immediate: bool,
+    pub Immediate: u8,
 }
 pub const TAPE_REWIND: TAPE_POSITION_METHOD = 0;
 pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 1;
@@ -4057,7 +4057,7 @@ pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
     pub Partition: u32,
     pub Offset: i64,
-    pub Immediate: bool,
+    pub Immediate: u8,
 }
 pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = 2;
 pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = 4;
@@ -4074,7 +4074,7 @@ pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = 4;
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
     pub Count: u32,
-    pub Immediate: bool,
+    pub Immediate: u8,
 }
 pub const TRANSACTIONMANAGER_OBJECT_PATH: windows_sys::core::PCWSTR = windows_sys::core::w!("\\TransactionManager\\");
 pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1;
@@ -4294,9 +4294,9 @@ pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: bool,
-    pub Discardable: bool,
-    pub Reserved1: [bool; 2],
+    pub RetryFailures: u8,
+    pub Discardable: u8,
+    pub Reserved1: [u8; 2],
     pub LowestByteOffset: u64,
     pub HighestByteOffset: u64,
     pub AccessType: u32,
@@ -4421,8 +4421,8 @@ pub struct VOLUME_READ_PLEX_INPUT {
 #[derive(Clone, Copy, Default)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
-    pub RevertOnClose: bool,
-    pub ApplyToAllConnectedVolumes: bool,
+    pub RevertOnClose: u8,
+    pub ApplyToAllConnectedVolumes: u8,
     pub Reserved1: u16,
     pub Reserved2: u32,
 }

@@ -153,8 +153,8 @@ pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> win
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> bool {
-    windows_core::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation::HANDLE) -> bool);
+pub unsafe fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> u8 {
+    windows_core::link!("cldapi.dll" "system" fn CfReferenceProtectedHandle(protectedhandle : super::super::Foundation::HANDLE) -> u8);
     unsafe { CfReferenceProtectedHandle(protectedhandle) }
 }
 #[inline]

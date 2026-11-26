@@ -99,8 +99,8 @@ windows_link::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(modul
 windows_link::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
 windows_link::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation::HANDLE, certificate : *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index : *mut u32) -> windows_sys::core::BOOL);
-windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
-windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : u8, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : u8, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation::HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
@@ -177,9 +177,9 @@ windows_link::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(ha
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::super::super::Foundation::HANDLE, ploadmodule : windows_sys::core::PCWSTR, psymboldata : *const DBGHELP_DATA_REPORT_STRUCT) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> u8);
 #[cfg(target_arch = "aarch64")]
-windows_link::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> u8);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
 #[cfg(target_arch = "aarch64")]
@@ -191,17 +191,17 @@ windows_link::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord :
 windows_link::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
 windows_link::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> u8);
 #[cfg(target_arch = "aarch64")]
-windows_link::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u8);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_link::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> u8);
 #[cfg(target_arch = "aarch64")]
-windows_link::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> u8);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 windows_link::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
 #[cfg(target_arch = "aarch64")]
@@ -1431,7 +1431,7 @@ pub struct DISPATCHER_CONTEXT {
     pub HandlerData: *mut core::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: bool,
+    pub ControlPcIsUnwound: u8,
     pub NonVolatileRegisters: *mut u8,
 }
 #[cfg(target_arch = "aarch64")]
@@ -2049,7 +2049,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
     pub FileName: [i8; 260],
-    pub Reparse: bool,
+    pub Reparse: u8,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
 #[cfg(target_arch = "x86")]
@@ -2068,7 +2068,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
     pub FileName: [i8; 260],
-    pub Reparse: bool,
+    pub Reparse: u8,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
@@ -2087,7 +2087,7 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub CheckSum: u32,
     pub TimeDateStamp: u32,
     pub FileName: [u16; 261],
-    pub Reparse: bool,
+    pub Reparse: u8,
     pub hFile: super::super::super::Foundation::HANDLE,
     pub Flags: u32,
 }
@@ -3460,9 +3460,9 @@ pub struct LOADED_IMAGE {
     pub NumberOfSections: u32,
     pub Sections: *mut IMAGE_SECTION_HEADER,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS2,
-    pub fSystemImage: bool,
-    pub fDOSImage: bool,
-    pub fReadOnly: bool,
+    pub fSystemImage: u8,
+    pub fDOSImage: u8,
+    pub fReadOnly: u8,
     pub Version: u8,
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
@@ -3487,9 +3487,9 @@ pub struct LOADED_IMAGE {
     pub NumberOfSections: u32,
     pub Sections: *mut IMAGE_SECTION_HEADER,
     pub Characteristics: IMAGE_FILE_CHARACTERISTICS2,
-    pub fSystemImage: bool,
-    pub fDOSImage: bool,
-    pub fReadOnly: bool,
+    pub fSystemImage: u8,
+    pub fDOSImage: u8,
+    pub fReadOnly: u8,
     pub Version: u8,
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
@@ -5853,7 +5853,7 @@ pub const WFP_INVALID_OPERATION: BUGCHECK_ERROR = 467;
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: bool,
+    pub Enabled: u8,
     pub Reserved: u8,
     pub BusNumber: u32,
     pub Slot: WHEA_PCI_SLOT_NUMBER,
@@ -5876,7 +5876,7 @@ impl Default for WHEA_AER_BRIDGE_DESCRIPTOR {
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: bool,
+    pub Enabled: u8,
     pub Reserved: u8,
     pub BusNumber: u32,
     pub Slot: WHEA_PCI_SLOT_NUMBER,
@@ -5896,7 +5896,7 @@ impl Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
 #[derive(Clone, Copy)]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: bool,
+    pub Enabled: u8,
     pub Reserved: u8,
     pub BusNumber: u32,
     pub Slot: WHEA_PCI_SLOT_NUMBER,
@@ -5930,7 +5930,7 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2;
 #[derive(Clone, Copy)]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: bool,
+    pub Enabled: u8,
     pub Reserved: u8,
     pub SourceGuid: windows_sys::core::GUID,
     pub LogTag: u16,
@@ -6332,7 +6332,7 @@ pub const WHEA_UNCORRECTABLE_ERROR: BUGCHECK_ERROR = 292;
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: bool,
+    pub Enabled: u8,
     pub NumberOfBanks: u8,
     pub Reserved: u32,
     pub Notify: WHEA_NOTIFICATION_DESCRIPTOR,
@@ -6363,7 +6363,7 @@ impl Default for WHEA_XPF_MCE_DESCRIPTOR {
 #[derive(Clone, Copy)]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub BankNumber: u8,
-    pub ClearOnInitialization: bool,
+    pub ClearOnInitialization: u8,
     pub StatusDataFormat: u8,
     pub Flags: XPF_MC_BANK_FLAGS,
     pub ControlMsr: u32,
@@ -6384,7 +6384,7 @@ pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1;
 #[derive(Clone, Copy, Default)]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
-    pub Enabled: bool,
+    pub Enabled: u8,
 }
 pub const WIN32K_ATOMIC_CHECK_FAILURE: BUGCHECK_ERROR = 352;
 pub const WIN32K_CALLOUT_WATCHDOG_BUGCHECK: BUGCHECK_ERROR = 418;

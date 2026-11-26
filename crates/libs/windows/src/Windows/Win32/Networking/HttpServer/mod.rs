@@ -576,7 +576,7 @@ pub struct HTTP_KNOWN_HEADER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HTTP_LISTEN_ENDPOINT_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
-    pub EnableSharing: bool,
+    pub EnableSharing: u8,
 }
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1;
 pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4;
@@ -1101,9 +1101,9 @@ pub struct HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS {
 pub struct HTTP_SERVER_AUTHENTICATION_INFO {
     pub Flags: HTTP_PROPERTY_FLAGS,
     pub AuthSchemes: u32,
-    pub ReceiveMutualAuth: bool,
-    pub ReceiveContextHandle: bool,
-    pub DisableNTLMCredentialCaching: bool,
+    pub ReceiveMutualAuth: u8,
+    pub ReceiveContextHandle: u8,
+    pub DisableNTLMCredentialCaching: u8,
     pub ExFlags: u8,
     pub DigestParams: HTTP_SERVER_AUTHENTICATION_DIGEST_PARAMS,
     pub BasicParams: HTTP_SERVER_AUTHENTICATION_BASIC_PARAMS,
@@ -1426,7 +1426,7 @@ pub struct HTTP_SSL_CLIENT_CERT_INFO {
     pub CertEncodedSize: u32,
     pub pCertEncoded: *mut u8,
     pub Token: super::super::Foundation::HANDLE,
-    pub CertDeniedByMapper: bool,
+    pub CertDeniedByMapper: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl Default for HTTP_SSL_CLIENT_CERT_INFO {

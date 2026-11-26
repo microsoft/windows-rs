@@ -275,8 +275,8 @@ pub struct SERIAL_STATUS {
     pub HoldReasons: u32,
     pub AmountInInQueue: u32,
     pub AmountInOutQueue: u32,
-    pub EofReceived: bool,
-    pub WaitForImmediate: bool,
+    pub EofReceived: u8,
+    pub WaitForImmediate: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

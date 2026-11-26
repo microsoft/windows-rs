@@ -15,8 +15,8 @@ where
     unsafe { AbortSystemShutdownW(lpmachinename.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn CheckForHiberboot(phiberboot: *mut bool, bclearflag: bool) -> u32 {
-    windows_core::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : *mut bool, bclearflag : bool) -> u32);
+pub unsafe fn CheckForHiberboot(phiberboot: *mut u8, bclearflag: u8) -> u32 {
+    windows_core::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : *mut u8, bclearflag : u8) -> u32);
     unsafe { CheckForHiberboot(phiberboot as _, bclearflag) }
 }
 #[inline]

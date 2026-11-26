@@ -721,14 +721,14 @@ pub struct BTH_LE_GATT_CHARACTERISTIC {
     pub CharacteristicUuid: BTH_LE_UUID,
     pub AttributeHandle: u16,
     pub CharacteristicValueHandle: u16,
-    pub IsBroadcastable: bool,
-    pub IsReadable: bool,
-    pub IsWritable: bool,
-    pub IsWritableWithoutResponse: bool,
-    pub IsSignedWritable: bool,
-    pub IsNotifiable: bool,
-    pub IsIndicatable: bool,
-    pub HasExtendedProperties: bool,
+    pub IsBroadcastable: u8,
+    pub IsReadable: u8,
+    pub IsWritable: u8,
+    pub IsWritableWithoutResponse: u8,
+    pub IsSignedWritable: u8,
+    pub IsNotifiable: u8,
+    pub IsIndicatable: u8,
+    pub HasExtendedProperties: u8,
 }
 impl Default for BTH_LE_GATT_CHARACTERISTIC {
     fn default() -> Self {
@@ -804,19 +804,19 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
-    pub IsReliableWriteEnabled: bool,
-    pub IsAuxiliariesWritable: bool,
+    pub IsReliableWriteEnabled: u8,
+    pub IsAuxiliariesWritable: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
-    pub IsSubscribeToNotification: bool,
-    pub IsSubscribeToIndication: bool,
+    pub IsSubscribeToNotification: u8,
+    pub IsSubscribeToIndication: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
-    pub IsBroadcast: bool,
+    pub IsBroadcast: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -849,7 +849,7 @@ pub const BTH_LE_SERVICE_GATT: u32 = 6145;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct BTH_LE_UUID {
-    pub IsShortUuid: bool,
+    pub IsShortUuid: u8,
     pub Value: BTH_LE_UUID_0,
 }
 impl Default for BTH_LE_UUID {

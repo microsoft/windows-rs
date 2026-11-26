@@ -35,7 +35,7 @@ pub const DOBJ_VOL_NTACLS: i32 = 4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EFFPERM_RESULT_LIST {
-    pub fEvaluated: bool,
+    pub fEvaluated: u8,
     pub cObjectTypeListLength: u32,
     pub pObjectTypeList: *mut super::super::OBJECT_TYPE_LIST,
     pub pGrantedAccessList: *mut u32,
@@ -554,7 +554,7 @@ pub struct SECURITY_OBJECT {
     pub pData2: *mut core::ffi::c_void,
     pub cbData2: u32,
     pub Id: u32,
-    pub fWellKnown: bool,
+    pub fWellKnown: u8,
 }
 impl Default for SECURITY_OBJECT {
     fn default() -> Self {

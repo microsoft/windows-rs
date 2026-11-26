@@ -213,35 +213,35 @@ pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: &mut [u16; 16]) -
     unsafe { RtlIpv4AddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressA<P0>(s: P0, strict: bool, terminator: *mut windows_core::PCSTR, addr: *mut IN_ADDR) -> i32
+pub unsafe fn RtlIpv4StringToAddressA<P0>(s: P0, strict: u8, terminator: *mut windows_core::PCSTR, addr: *mut IN_ADDR) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : bool, terminator : *mut windows_core::PCSTR, addr : *mut IN_ADDR) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressA(s : windows_core::PCSTR, strict : u8, terminator : *mut windows_core::PCSTR, addr : *mut IN_ADDR) -> i32);
     unsafe { RtlIpv4StringToAddressA(s.param().abi(), strict, terminator as _, addr as _) }
 }
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressExA<P0>(addressstring: P0, strict: bool, address: *mut IN_ADDR, port: *mut u16) -> i32
+pub unsafe fn RtlIpv4StringToAddressExA<P0>(addressstring: P0, strict: u8, address: *mut IN_ADDR, port: *mut u16) -> i32
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExA(addressstring : windows_core::PCSTR, strict : u8, address : *mut IN_ADDR, port : *mut u16) -> i32);
     unsafe { RtlIpv4StringToAddressExA(addressstring.param().abi(), strict, address as _, port as _) }
 }
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressExW<P0>(addressstring: P0, strict: bool, address: *mut IN_ADDR, port: *mut u16) -> i32
+pub unsafe fn RtlIpv4StringToAddressExW<P0>(addressstring: P0, strict: u8, address: *mut IN_ADDR, port: *mut u16) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : bool, address : *mut IN_ADDR, port : *mut u16) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressExW(addressstring : windows_core::PCWSTR, strict : u8, address : *mut IN_ADDR, port : *mut u16) -> i32);
     unsafe { RtlIpv4StringToAddressExW(addressstring.param().abi(), strict, address as _, port as _) }
 }
 #[inline]
-pub unsafe fn RtlIpv4StringToAddressW<P0>(s: P0, strict: bool, terminator: *mut windows_core::PCWSTR, addr: *mut IN_ADDR) -> i32
+pub unsafe fn RtlIpv4StringToAddressW<P0>(s: P0, strict: u8, terminator: *mut windows_core::PCWSTR, addr: *mut IN_ADDR) -> i32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : bool, terminator : *mut windows_core::PCWSTR, addr : *mut IN_ADDR) -> i32);
+    windows_core::link!("ntdll.dll" "system" fn RtlIpv4StringToAddressW(s : windows_core::PCWSTR, strict : u8, terminator : *mut windows_core::PCWSTR, addr : *mut IN_ADDR) -> i32);
     unsafe { RtlIpv4StringToAddressW(s.param().abi(), strict, terminator as _, addr as _) }
 }
 #[inline]
@@ -3202,8 +3202,8 @@ pub struct IPX_ADDRESS_DATA {
     pub adapternum: i32,
     pub netnum: [u8; 4],
     pub nodenum: [u8; 6],
-    pub wan: bool,
-    pub status: bool,
+    pub wan: u8,
+    pub status: u8,
     pub maxpkt: i32,
     pub linkspeed: u32,
 }
@@ -4204,7 +4204,7 @@ pub struct NL_BANDWIDTH_FLAG(pub i32);
 pub struct NL_BANDWIDTH_INFORMATION {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: bool,
+    pub BandwidthPeaked: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4234,9 +4234,9 @@ pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(pub i32);
 pub struct NL_NETWORK_CONNECTIVITY_HINT {
     pub ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT,
     pub ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT,
-    pub ApproachingDataLimit: bool,
-    pub OverDataLimit: bool,
-    pub Roaming: bool,
+    pub ApproachingDataLimit: u8,
+    pub OverDataLimit: u8,
+    pub Roaming: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4246,7 +4246,7 @@ pub struct NL_NETWORK_CONNECTIVITY_LEVEL_HINT(pub i32);
 pub struct NL_PATH_BANDWIDTH_ROD {
     pub Bandwidth: u64,
     pub Instability: u64,
-    pub BandwidthPeaked: bool,
+    pub BandwidthPeaked: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4626,7 +4626,7 @@ pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_core::GUID,
-    pub Unmark: bool,
+    pub Unmark: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4766,7 +4766,7 @@ pub struct RM_FEC_INFO {
     pub FECBlockSize: u16,
     pub FECProActivePackets: u16,
     pub FECGroupSize: u8,
-    pub fFECOnDemandParityEnabled: bool,
+    pub fFECOnDemandParityEnabled: u8,
 }
 pub const RM_FLUSHCACHE: i32 = 1003;
 pub const RM_HIGH_SPEED_INTRANET_OPT: i32 = 1014;
@@ -4833,7 +4833,7 @@ pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(0);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RSS_SCALABILITY_INFO {
-    pub RssEnabled: bool,
+    pub RssEnabled: u8,
 }
 pub const RouteProtocolBbn: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(12);
 pub const RouteProtocolBgp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(14);
@@ -5792,7 +5792,7 @@ pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
     pub Mss: u32,
     pub ConnectionTimeMs: u64,
-    pub TimestampsEnabled: bool,
+    pub TimestampsEnabled: u8,
     pub RttUs: u32,
     pub MinRttUs: u32,
     pub BytesInFlight: u32,
@@ -5815,7 +5815,7 @@ pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
     pub Mss: u32,
     pub ConnectionTimeMs: u64,
-    pub TimestampsEnabled: bool,
+    pub TimestampsEnabled: u8,
     pub RttUs: u32,
     pub MinRttUs: u32,
     pub BytesInFlight: u32,

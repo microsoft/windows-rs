@@ -902,7 +902,7 @@ pub struct CDDDXGK_REDIRBITMAPPRESENTINFO {
     pub DirtyRect: *mut super::super::Foundation::RECT,
     pub NumContexts: u32,
     pub hContext: [super::super::Foundation::HANDLE; 65],
-    pub bDoNotSynchronizeWithDxContent: bool,
+    pub bDoNotSynchronizeWithDxContent: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl Default for CDDDXGK_REDIRBITMAPPRESENTINFO {
@@ -4437,7 +4437,7 @@ pub struct VIDEO_BANK_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEO_BRIGHTNESS_POLICY {
-    pub DefaultToBiosPolicy: bool,
+    pub DefaultToBiosPolicy: u8,
     pub LevelCount: u8,
     pub Level: [VIDEO_BRIGHTNESS_POLICY_0; 1],
 }
@@ -4890,10 +4890,10 @@ pub struct VIDEO_WIN32K_CALLBACKS_PARAMS {
     pub PhysDisp: *mut core::ffi::c_void,
     pub Param: usize,
     pub Status: i32,
-    pub LockUserSession: bool,
-    pub IsPostDevice: bool,
-    pub SurpriseRemoval: bool,
-    pub WaitForQueueReady: bool,
+    pub LockUserSession: u8,
+    pub IsPostDevice: u8,
+    pub SurpriseRemoval: u8,
+    pub WaitForQueueReady: u8,
 }
 impl Default for VIDEO_WIN32K_CALLBACKS_PARAMS {
     fn default() -> Self {

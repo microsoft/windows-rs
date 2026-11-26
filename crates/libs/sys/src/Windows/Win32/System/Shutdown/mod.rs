@@ -1,6 +1,6 @@
 windows_link::link!("advapi32.dll" "system" fn AbortSystemShutdownA(lpmachinename : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn AbortSystemShutdownW(lpmachinename : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_link::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : *mut bool, bclearflag : bool) -> u32);
+windows_link::link!("advapi32.dll" "system" fn CheckForHiberboot(phiberboot : *mut u8, bclearflag : u8) -> u32);
 windows_link::link!("user32.dll" "system" fn ExitWindowsEx(uflags : EXIT_WINDOWS_FLAGS, dwreason : SHUTDOWN_REASON) -> windows_sys::core::BOOL);
 windows_link::link!("advapi32.dll" "system" fn InitiateShutdownA(lpmachinename : windows_sys::core::PCSTR, lpmessage : windows_sys::core::PCSTR, dwgraceperiod : u32, dwshutdownflags : SHUTDOWN_FLAGS, dwreason : SHUTDOWN_REASON) -> u32);
 windows_link::link!("advapi32.dll" "system" fn InitiateShutdownW(lpmachinename : windows_sys::core::PCWSTR, lpmessage : windows_sys::core::PCWSTR, dwgraceperiod : u32, dwshutdownflags : SHUTDOWN_FLAGS, dwreason : SHUTDOWN_REASON) -> u32);

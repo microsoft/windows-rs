@@ -49,7 +49,7 @@ windows_link::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : 
 windows_link::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *const windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_sys::core::PCWSTR, pguidparam : *const windows_sys::core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation::HANDLE, pguidparam : *const windows_sys::core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+windows_link::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation::HANDLE, pguidparam : *const windows_sys::core::GUID, notifychange : u8, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation::HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation::HANDLE) -> u32);
 windows_link::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_sys::core::PCSTR, pguidparam : *const windows_sys::core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);

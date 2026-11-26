@@ -163,8 +163,8 @@ pub unsafe fn ChangeTimerQueueTimer(timerqueue: Option<super::super::Foundation:
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClosePrivateNamespace(handle: super::super::Foundation::HANDLE, flags: u32) -> bool {
-    windows_core::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::super::Foundation::HANDLE, flags : u32) -> bool);
+pub unsafe fn ClosePrivateNamespace(handle: super::super::Foundation::HANDLE, flags: u32) -> u8 {
+    windows_core::link!("kernel32.dll" "system" fn ClosePrivateNamespace(handle : super::super::Foundation::HANDLE, flags : u32) -> u8);
     unsafe { ClosePrivateNamespace(handle, flags) }
 }
 #[inline]
@@ -1996,13 +1996,13 @@ pub unsafe fn TlsSetValue(dwtlsindex: u32, lptlsvalue: Option<*const core::ffi::
     unsafe { TlsSetValue(dwtlsindex, lptlsvalue.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut SRWLOCK) -> bool {
-    windows_core::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> bool);
+pub unsafe fn TryAcquireSRWLockExclusive(srwlock: *mut SRWLOCK) -> u8 {
+    windows_core::link!("kernel32.dll" "system" fn TryAcquireSRWLockExclusive(srwlock : *mut SRWLOCK) -> u8);
     unsafe { TryAcquireSRWLockExclusive(srwlock as _) }
 }
 #[inline]
-pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut SRWLOCK) -> bool {
-    windows_core::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> bool);
+pub unsafe fn TryAcquireSRWLockShared(srwlock: *mut SRWLOCK) -> u8 {
+    windows_core::link!("kernel32.dll" "system" fn TryAcquireSRWLockShared(srwlock : *mut SRWLOCK) -> u8);
     unsafe { TryAcquireSRWLockShared(srwlock as _) }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -3739,7 +3739,7 @@ pub const UmsThreadPriority: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(2);
 pub const UmsThreadTeb: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(4);
 pub const UmsThreadUserContext: UMS_THREAD_INFO_CLASS = UMS_THREAD_INFO_CLASS(1);
 pub const UserEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(1);
-pub type WAITORTIMERCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: bool)>;
+pub type WAITORTIMERCALLBACK = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void, param1: u8)>;
 pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

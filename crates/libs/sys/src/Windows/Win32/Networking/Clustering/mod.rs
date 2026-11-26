@@ -2429,7 +2429,7 @@ pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1;
 #[derive(Clone, Copy, Default)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
-    pub SetAttempted: bool,
+    pub SetAttempted: u8,
     pub ReturnStatus: u32,
 }
 pub const CLUSTER_SHARED_VOLUMES_ROOT: windows_sys::core::PCWSTR = windows_sys::core::w!("SharedVolumesRoot");
@@ -3113,7 +3113,7 @@ pub struct CREATE_CLUSTER_CONFIG {
     pub ppszNodeNames: *const windows_sys::core::PCWSTR,
     pub cIpEntries: u32,
     pub pIpEntries: *mut CLUSTER_IP_ENTRY,
-    pub fEmptyCluster: bool,
+    pub fEmptyCluster: u8,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
 }
@@ -3134,7 +3134,7 @@ pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub pszDomain: windows_sys::core::PCWSTR,
     pub managementPointType: CLUSTER_MGMT_POINT_TYPE,
     pub managementPointResType: CLUSTER_MGMT_POINT_RESTYPE,
-    pub bUpgradeVCOs: bool,
+    pub bUpgradeVCOs: u8,
 }
 impl Default for CREATE_CLUSTER_NAME_ACCOUNT {
     fn default() -> Self {
@@ -4242,9 +4242,9 @@ pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub LogType: u16,
     pub ReplicationMode: u32,
     pub MinimumPartnersInSync: u32,
-    pub EnableWriteConsistency: bool,
-    pub EnableEncryption: bool,
-    pub EnableCompression: bool,
+    pub EnableWriteConsistency: u8,
+    pub EnableEncryption: u8,
+    pub EnableCompression: u8,
     pub CertificateThumbprint: [u16; 260],
     pub VolumeNameCount: u32,
     pub VolumeNames: [u16; 260],
@@ -4286,21 +4286,21 @@ impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
 #[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
-    pub IncludeOfflineDisks: bool,
+    pub IncludeOfflineDisks: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_sys::core::GUID,
-    pub IncludeAvailableStoargeDisks: bool,
+    pub IncludeAvailableStoargeDisks: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_sys::core::GUID,
     pub TargetReplicationGroupGuid: windows_sys::core::GUID,
-    pub SkipConnectivityCheck: bool,
-    pub IncludeOfflineDisks: bool,
+    pub SkipConnectivityCheck: u8,
+    pub IncludeOfflineDisks: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]

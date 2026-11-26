@@ -3262,7 +3262,7 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DNSFlags: u32,
     pub DNSNameLength: u32,
     pub DNSName: *mut u8,
-    pub DSDomainNameRequested: bool,
+    pub DSDomainNameRequested: u8,
     pub DSDomainName: windows_core::PSTR,
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,

@@ -5660,7 +5660,7 @@ impl core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
-    pub PasswordMatched: bool,
+    pub PasswordMatched: u8,
 }
 pub const NET_VALIDATE_BAD_PASSWORD_COUNT: u32 = 8;
 pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2;
@@ -5680,7 +5680,7 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub ClearPassword: windows_core::PWSTR,
     pub UserAccountName: windows_core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMatch: bool,
+    pub PasswordMatch: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5704,8 +5704,8 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub ClearPassword: windows_core::PWSTR,
     pub UserAccountName: windows_core::PWSTR,
     pub HashedPassword: NET_VALIDATE_PASSWORD_HASH,
-    pub PasswordMustChangeAtNextLogon: bool,
-    pub ClearLockout: bool,
+    pub PasswordMustChangeAtNextLogon: u8,
+    pub ClearLockout: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6567,12 +6567,12 @@ pub struct SERVER_INFO_1598 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1599 {
-    pub sv1598_enforcekerberosreauthentication: bool,
+    pub sv1598_enforcekerberosreauthentication: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVER_INFO_1600 {
-    pub sv1598_disabledos: bool,
+    pub sv1598_disabledos: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7089,7 +7089,7 @@ pub const SHPWLEN: u32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMB_COMPRESSION_INFO {
-    pub Switch: bool,
+    pub Switch: u8,
     pub Reserved1: u8,
     pub Reserved2: u16,
     pub Reserved3: u32,
@@ -7367,7 +7367,7 @@ pub const TRACE_USE_MSEC: u32 = 4;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_INFO {
     pub Type: TRANSPORT_TYPE,
-    pub SkipCertificateCheck: bool,
+    pub SkipCertificateCheck: u8,
 }
 pub const TRANSPORT_NAME_PARMNUM: u32 = 202;
 pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201;

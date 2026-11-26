@@ -5,28 +5,28 @@ pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, 
     unsafe { CallNtPowerInformation(informationlevel, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
 }
 #[inline]
-pub unsafe fn CanUserWritePwrScheme() -> bool {
-    windows_core::link!("powrprof.dll" "system" fn CanUserWritePwrScheme() -> bool);
+pub unsafe fn CanUserWritePwrScheme() -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn CanUserWritePwrScheme() -> u8);
     unsafe { CanUserWritePwrScheme() }
 }
 #[inline]
-pub unsafe fn DeletePwrScheme(uiid: u32) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn DeletePwrScheme(uiid : u32) -> bool);
+pub unsafe fn DeletePwrScheme(uiid: u32) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn DeletePwrScheme(uiid : u32) -> u8);
     unsafe { DeletePwrScheme(uiid) }
 }
 #[inline]
-pub unsafe fn DevicePowerClose() -> bool {
-    windows_core::link!("powrprof.dll" "system" fn DevicePowerClose() -> bool);
+pub unsafe fn DevicePowerClose() -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn DevicePowerClose() -> u8);
     unsafe { DevicePowerClose() }
 }
 #[inline]
-pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: Option<*mut u8>, pbuffersize: *mut u32) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : *mut u8, pbuffersize : *mut u32) -> bool);
+pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: Option<*mut u8>, pbuffersize: *mut u32) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn DevicePowerEnumDevices(queryindex : u32, queryinterpretationflags : u32, queryflags : u32, preturnbuffer : *mut u8, pbuffersize : *mut u32) -> u8);
     unsafe { DevicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, preturnbuffer.unwrap_or(core::mem::zeroed()) as _, pbuffersize as _) }
 }
 #[inline]
-pub unsafe fn DevicePowerOpen(debugmask: Option<u32>) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : u32) -> bool);
+pub unsafe fn DevicePowerOpen(debugmask: Option<u32>) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn DevicePowerOpen(debugmask : u32) -> u8);
     unsafe { DevicePowerOpen(debugmask.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -39,18 +39,18 @@ where
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::super::Foundation::LPARAM) -> bool);
+pub unsafe fn EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: super::super::Foundation::LPARAM) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn EnumPwrSchemes(lpfn : PWRSCHEMESENUMPROC, lparam : super::super::Foundation::LPARAM) -> u8);
     unsafe { EnumPwrSchemes(lpfn, lparam) }
 }
 #[inline]
-pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn GetActivePwrScheme(puiid : *mut u32) -> bool);
+pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn GetActivePwrScheme(puiid : *mut u32) -> u8);
     unsafe { GetActivePwrScheme(puiid as _) }
 }
 #[inline]
-pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn GetCurrentPowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> bool);
+pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn GetCurrentPowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> u8);
     unsafe { GetCurrentPowerPolicies(pglobalpowerpolicy as _, ppowerpolicy as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -60,13 +60,13 @@ pub unsafe fn GetDevicePowerState(hdevice: super::super::Foundation::HANDLE, pfo
     unsafe { GetDevicePowerState(hdevice, pfon as _) }
 }
 #[inline]
-pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn GetPwrCapabilities(lpspc : *mut SYSTEM_POWER_CAPABILITIES) -> bool);
+pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn GetPwrCapabilities(lpspc : *mut SYSTEM_POWER_CAPABILITIES) -> u8);
     unsafe { GetPwrCapabilities(lpspc as _) }
 }
 #[inline]
-pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn GetPwrDiskSpindownRange(puimax : *mut u32, puimin : *mut u32) -> bool);
+pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn GetPwrDiskSpindownRange(puimax : *mut u32, puimin : *mut u32) -> u8);
     unsafe { GetPwrDiskSpindownRange(puimax as _, puimin as _) }
 }
 #[inline]
@@ -75,23 +75,23 @@ pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS
     unsafe { GetSystemPowerStatus(lpsystempowerstatus as _).ok() }
 }
 #[inline]
-pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn IsAdminOverrideActive(papp : *const ADMINISTRATOR_POWER_POLICY) -> bool);
+pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn IsAdminOverrideActive(papp : *const ADMINISTRATOR_POWER_POLICY) -> u8);
     unsafe { IsAdminOverrideActive(papp) }
 }
 #[inline]
-pub unsafe fn IsPwrHibernateAllowed() -> bool {
-    windows_core::link!("powrprof.dll" "system" fn IsPwrHibernateAllowed() -> bool);
+pub unsafe fn IsPwrHibernateAllowed() -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn IsPwrHibernateAllowed() -> u8);
     unsafe { IsPwrHibernateAllowed() }
 }
 #[inline]
-pub unsafe fn IsPwrShutdownAllowed() -> bool {
-    windows_core::link!("powrprof.dll" "system" fn IsPwrShutdownAllowed() -> bool);
+pub unsafe fn IsPwrShutdownAllowed() -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn IsPwrShutdownAllowed() -> u8);
     unsafe { IsPwrShutdownAllowed() }
 }
 #[inline]
-pub unsafe fn IsPwrSuspendAllowed() -> bool {
-    windows_core::link!("powrprof.dll" "system" fn IsPwrSuspendAllowed() -> bool);
+pub unsafe fn IsPwrSuspendAllowed() -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn IsPwrSuspendAllowed() -> u8);
     unsafe { IsPwrSuspendAllowed() }
 }
 #[inline]
@@ -174,8 +174,8 @@ where
     unsafe { PowerImportPowerScheme(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, importfilenamepath.param().abi(), destinationschemeguid as _) }
 }
 #[inline]
-pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core::GUID>, settingguid: Option<*const windows_core::GUID>) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const windows_core::GUID, settingguid : *const windows_core::GUID) -> bool);
+pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: Option<*const windows_core::GUID>, settingguid: Option<*const windows_core::GUID>) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn PowerIsSettingRangeDefined(subkeyguid : *const windows_core::GUID, settingguid : *const windows_core::GUID) -> u8);
     unsafe { PowerIsSettingRangeDefined(subkeyguid.unwrap_or(core::mem::zeroed()) as _, settingguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_System_Registry")]
@@ -469,18 +469,18 @@ pub unsafe fn PowerWriteValueUnitsSpecifier(rootpowerkey: Option<super::Registry
     unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn ReadGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> bool);
+pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn ReadGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> u8);
     unsafe { ReadGlobalPwrPolicy(pglobalpowerpolicy) }
 }
 #[inline]
-pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *mut MACHINE_PROCESSOR_POWER_POLICY) -> bool);
+pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn ReadProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *mut MACHINE_PROCESSOR_POWER_POLICY) -> u8);
     unsafe { ReadProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy as _) }
 }
 #[inline]
-pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : u32, ppowerpolicy : *mut POWER_POLICY) -> bool);
+pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn ReadPwrScheme(uiid : u32, ppowerpolicy : *mut POWER_POLICY) -> u8);
     unsafe { ReadPwrScheme(uiid, ppowerpolicy as _) }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -503,13 +503,13 @@ pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> windows_core::BOOL 
     unsafe { RequestWakeupLatency(latency) }
 }
 #[inline]
-pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: Option<*const GLOBAL_POWER_POLICY>, ppowerpolicy: Option<*const POWER_POLICY>) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn SetActivePwrScheme(uiid : u32, pglobalpowerpolicy : *const GLOBAL_POWER_POLICY, ppowerpolicy : *const POWER_POLICY) -> bool);
+pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: Option<*const GLOBAL_POWER_POLICY>, ppowerpolicy: Option<*const POWER_POLICY>) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn SetActivePwrScheme(uiid : u32, pglobalpowerpolicy : *const GLOBAL_POWER_POLICY, ppowerpolicy : *const POWER_POLICY) -> u8);
     unsafe { SetActivePwrScheme(uiid, pglobalpowerpolicy.unwrap_or(core::mem::zeroed()) as _, ppowerpolicy.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn SetSuspendState(bhibernate: bool, bforce: bool, bwakeupeventsdisabled: bool) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn SetSuspendState(bhibernate : bool, bforce : bool, bwakeupeventsdisabled : bool) -> bool);
+pub unsafe fn SetSuspendState(bhibernate: u8, bforce: u8, bwakeupeventsdisabled: u8) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn SetSuspendState(bhibernate : u8, bforce : u8, bwakeupeventsdisabled : u8) -> u8);
     unsafe { SetSuspendState(bhibernate, bforce, bwakeupeventsdisabled) }
 }
 #[inline]
@@ -533,27 +533,27 @@ pub unsafe fn UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY) -> windo
     unsafe { UnregisterSuspendResumeNotification(handle).ok() }
 }
 #[inline]
-pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: Option<*mut GLOBAL_POWER_POLICY>, ppowerpolicy: Option<*mut POWER_POLICY>) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn ValidatePowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> bool);
+pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: Option<*mut GLOBAL_POWER_POLICY>, ppowerpolicy: Option<*mut POWER_POLICY>) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn ValidatePowerPolicies(pglobalpowerpolicy : *mut GLOBAL_POWER_POLICY, ppowerpolicy : *mut POWER_POLICY) -> u8);
     unsafe { ValidatePowerPolicies(pglobalpowerpolicy.unwrap_or(core::mem::zeroed()) as _, ppowerpolicy.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn WriteGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> bool);
+pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn WriteGlobalPwrPolicy(pglobalpowerpolicy : *const GLOBAL_POWER_POLICY) -> u8);
     unsafe { WriteGlobalPwrPolicy(pglobalpowerpolicy) }
 }
 #[inline]
-pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> bool {
-    windows_core::link!("powrprof.dll" "system" fn WriteProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *const MACHINE_PROCESSOR_POWER_POLICY) -> bool);
+pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> u8 {
+    windows_core::link!("powrprof.dll" "system" fn WriteProcessorPwrScheme(uiid : u32, pmachineprocessorpowerpolicy : *const MACHINE_PROCESSOR_POWER_POLICY) -> u8);
     unsafe { WriteProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy) }
 }
 #[inline]
-pub unsafe fn WritePwrScheme<P1, P2>(puiid: *const u32, lpszschemename: P1, lpszdescription: P2, lpscheme: *const POWER_POLICY) -> bool
+pub unsafe fn WritePwrScheme<P1, P2>(puiid: *const u32, lpszschemename: P1, lpszdescription: P2, lpscheme: *const POWER_POLICY) -> u8
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : windows_core::PCWSTR, lpszdescription : windows_core::PCWSTR, lpscheme : *const POWER_POLICY) -> bool);
+    windows_core::link!("powrprof.dll" "system" fn WritePwrScheme(puiid : *const u32, lpszschemename : windows_core::PCWSTR, lpszdescription : windows_core::PCWSTR, lpscheme : *const POWER_POLICY) -> u8);
     unsafe { WritePwrScheme(puiid, lpszschemename.param().abi(), lpszdescription.param().abi(), lpscheme) }
 }
 pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27);
@@ -608,15 +608,15 @@ pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACPI_TIME_AND_ALARM_CAPABILITIES {
-    pub AcWakeSupported: bool,
-    pub DcWakeSupported: bool,
-    pub S4AcWakeSupported: bool,
-    pub S4DcWakeSupported: bool,
-    pub S5AcWakeSupported: bool,
-    pub S5DcWakeSupported: bool,
-    pub S4S5WakeStatusSupported: bool,
+    pub AcWakeSupported: u8,
+    pub DcWakeSupported: u8,
+    pub S4AcWakeSupported: u8,
+    pub S4DcWakeSupported: u8,
+    pub S5AcWakeSupported: u8,
+    pub S5DcWakeSupported: u8,
+    pub S4S5WakeStatusSupported: u8,
     pub DeepestWakeSystemState: u32,
-    pub RealTimeFeaturesSupported: bool,
+    pub RealTimeFeaturesSupported: u8,
     pub RealTimeResolution: ACPI_TIME_RESOLUTION,
 }
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2;
@@ -669,7 +669,7 @@ pub struct BATTERY_CHARGING_SOURCE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
-    pub SourceOnline: bool,
+    pub SourceOnline: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1338,7 +1338,7 @@ pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_A
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
-    pub Console: bool,
+    pub Console: u8,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
 }
 #[repr(transparent)]
@@ -1350,7 +1350,7 @@ pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
-    pub AoAc: bool,
+    pub AoAc: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1372,18 +1372,18 @@ pub struct POWER_REQUEST_TYPE(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
-    pub IsAllowed: bool,
+    pub IsAllowed: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
-    pub Connected: bool,
-    pub Console: bool,
+    pub Connected: u8,
+    pub Console: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
-    pub Active: bool,
+    pub Active: u8,
     pub LastInputTime: u64,
 }
 #[repr(C)]
@@ -1396,8 +1396,8 @@ pub struct POWER_SESSION_TIMEOUTS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
-    pub Console: bool,
-    pub Locked: bool,
+    pub Console: u8,
+    pub Locked: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1748,9 +1748,9 @@ impl Default for PROCESSOR_POWER_POLICY_INFO {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> bool>;
+pub type PWRSCHEMESENUMPROC = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> u8>;
 #[cfg(feature = "Win32_Foundation")]
-pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> bool>;
+pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: *const i8, descriptionsize: u32, description: *const i8, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> u8>;
 pub const PdcInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(67);
 pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(90);
 pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(80);
@@ -1855,11 +1855,11 @@ impl Default for SET_POWER_SETTING_VALUE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
-    pub AcOnLine: bool,
-    pub BatteryPresent: bool,
-    pub Charging: bool,
-    pub Discharging: bool,
-    pub Spare1: [bool; 3],
+    pub AcOnLine: u8,
+    pub BatteryPresent: u8,
+    pub Charging: u8,
+    pub Discharging: u8,
+    pub Spare1: [u8; 3],
     pub Tag: u8,
     pub MaxCapacity: u32,
     pub RemainingCapacity: u32,
@@ -1876,33 +1876,33 @@ impl Default for SYSTEM_BATTERY_STATE {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CAPABILITIES {
-    pub PowerButtonPresent: bool,
-    pub SleepButtonPresent: bool,
-    pub LidPresent: bool,
-    pub SystemS1: bool,
-    pub SystemS2: bool,
-    pub SystemS3: bool,
-    pub SystemS4: bool,
-    pub SystemS5: bool,
-    pub HiberFilePresent: bool,
-    pub FullWake: bool,
-    pub VideoDimPresent: bool,
-    pub ApmPresent: bool,
-    pub UpsPresent: bool,
-    pub ThermalControl: bool,
-    pub ProcessorThrottle: bool,
+    pub PowerButtonPresent: u8,
+    pub SleepButtonPresent: u8,
+    pub LidPresent: u8,
+    pub SystemS1: u8,
+    pub SystemS2: u8,
+    pub SystemS3: u8,
+    pub SystemS4: u8,
+    pub SystemS5: u8,
+    pub HiberFilePresent: u8,
+    pub FullWake: u8,
+    pub VideoDimPresent: u8,
+    pub ApmPresent: u8,
+    pub UpsPresent: u8,
+    pub ThermalControl: u8,
+    pub ProcessorThrottle: u8,
     pub ProcessorMinThrottle: u8,
     pub ProcessorMaxThrottle: u8,
-    pub FastSystemS4: bool,
-    pub Hiberboot: bool,
-    pub WakeAlarmPresent: bool,
-    pub AoAc: bool,
-    pub DiskSpinDown: bool,
+    pub FastSystemS4: u8,
+    pub Hiberboot: u8,
+    pub WakeAlarmPresent: u8,
+    pub AoAc: u8,
+    pub DiskSpinDown: u8,
     pub HiberFileType: u8,
-    pub AoAcConnectivitySupported: bool,
+    pub AoAcConnectivitySupported: u8,
     pub spare3: [u8; 6],
-    pub SystemBatteriesPresent: bool,
-    pub BatteriesAreShortTerm: bool,
+    pub SystemBatteriesPresent: u8,
+    pub BatteriesAreShortTerm: u8,
     pub BatteryScale: [BATTERY_REPORTING_SCALE; 3],
     pub AcOnLineWake: SYSTEM_POWER_STATE,
     pub SoftLidWake: SYSTEM_POWER_STATE,
@@ -1929,7 +1929,7 @@ pub struct SYSTEM_POWER_INFORMATION {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_LEVEL {
-    pub Enable: bool,
+    pub Enable: u8,
     pub Spare: [u8; 3],
     pub BatteryLevel: u32,
     pub PowerPolicy: POWER_ACTION_POLICY,
@@ -1963,10 +1963,10 @@ pub struct SYSTEM_POWER_POLICY {
     pub BroadcastCapacityResolution: u32,
     pub DischargePolicy: [SYSTEM_POWER_LEVEL; 4],
     pub VideoTimeout: u32,
-    pub VideoDimDisplay: bool,
+    pub VideoDimDisplay: u8,
     pub VideoReserved: [u32; 3],
     pub SpindownTimeout: u32,
-    pub OptimizeForPower: bool,
+    pub OptimizeForPower: u8,
     pub FanThrottleTolerance: u8,
     pub ForcedThrottle: u8,
     pub MinThrottle: u8,
@@ -2067,14 +2067,14 @@ impl Default for THERMAL_INFORMATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_POLICY {
     pub Version: u32,
-    pub WaitForUpdate: bool,
-    pub Hibernate: bool,
-    pub Critical: bool,
-    pub ThermalStandby: bool,
+    pub WaitForUpdate: u8,
+    pub Hibernate: u8,
+    pub Critical: u8,
+    pub ThermalStandby: u8,
     pub ActivationReasons: u32,
     pub PassiveLimit: u32,
     pub ActiveLevel: u32,
-    pub OverThrottled: bool,
+    pub OverThrottled: u8,
 }
 pub const THERMAL_POLICY_VERSION_1: u32 = 1;
 pub const THERMAL_POLICY_VERSION_2: u32 = 2;
@@ -2121,8 +2121,8 @@ pub struct USER_POWER_POLICY {
     pub VideoTimeoutDc: u32,
     pub SpindownTimeoutAc: u32,
     pub SpindownTimeoutDc: u32,
-    pub OptimizeForPowerAc: bool,
-    pub OptimizeForPowerDc: bool,
+    pub OptimizeForPowerAc: u8,
+    pub OptimizeForPowerDc: u8,
     pub FanThrottleToleranceAc: u8,
     pub FanThrottleToleranceDc: u8,
     pub ForcedThrottleAc: u8,

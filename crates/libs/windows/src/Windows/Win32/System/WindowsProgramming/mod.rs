@@ -948,8 +948,8 @@ pub unsafe fn RequestDeviceWakeup(hdevice: super::super::Foundation::HANDLE) -> 
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlAnsiStringToUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: bool) -> super::super::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlAnsiStringToUnicodeString(destinationstring : *mut super::super::Foundation::UNICODE_STRING, sourcestring : *mut super::Kernel::STRING, allocatedestinationstring : bool) -> super::super::Foundation::NTSTATUS);
+pub unsafe fn RtlAnsiStringToUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: u8) -> super::super::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAnsiStringToUnicodeString(destinationstring : *mut super::super::Foundation::UNICODE_STRING, sourcestring : *mut super::Kernel::STRING, allocatedestinationstring : u8) -> super::super::Foundation::NTSTATUS);
     unsafe { RtlAnsiStringToUnicodeString(destinationstring as _, sourcestring as _, allocatedestinationstring) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1016,8 +1016,8 @@ where
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICODE_STRING, oemname: *mut super::Kernel::STRING, namecontainsspaces: *mut bool) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *mut super::super::Foundation::UNICODE_STRING, oemname : *mut super::Kernel::STRING, namecontainsspaces : *mut bool) -> bool);
+pub unsafe fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICODE_STRING, oemname: *mut super::Kernel::STRING, namecontainsspaces: *mut u8) -> u8 {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsNameLegalDOS8Dot3(name : *mut super::super::Foundation::UNICODE_STRING, oemname : *mut super::Kernel::STRING, namecontainsspaces : *mut u8) -> u8);
     unsafe { RtlIsNameLegalDOS8Dot3(name as _, oemname as _, namecontainsspaces as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1032,20 +1032,20 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYST
     unsafe { RtlRaiseCustomSystemEventTrigger(triggerconfig) }
 }
 #[inline]
-pub unsafe fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32) -> bool {
-    windows_core::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1970(time : *mut i64, elapsedseconds : *mut u32) -> bool);
+pub unsafe fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32) -> u8 {
+    windows_core::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1970(time : *mut i64, elapsedseconds : *mut u32) -> u8);
     unsafe { RtlTimeToSecondsSince1970(time as _, elapsedseconds as _) }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlUnicodeStringToAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: bool) -> super::super::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : *mut super::Kernel::STRING, sourcestring : *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring : bool) -> super::super::Foundation::NTSTATUS);
+pub unsafe fn RtlUnicodeStringToAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: u8) -> super::super::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToAnsiString(destinationstring : *mut super::Kernel::STRING, sourcestring : *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring : u8) -> super::super::Foundation::NTSTATUS);
     unsafe { RtlUnicodeStringToAnsiString(destinationstring as _, sourcestring as _, allocatedestinationstring) }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
-pub unsafe fn RtlUnicodeStringToOemString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: bool) -> super::super::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToOemString(destinationstring : *mut super::Kernel::STRING, sourcestring : *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring : bool) -> super::super::Foundation::NTSTATUS);
+pub unsafe fn RtlUnicodeStringToOemString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: u8) -> super::super::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToOemString(destinationstring : *mut super::Kernel::STRING, sourcestring : *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring : u8) -> super::super::Foundation::NTSTATUS);
     unsafe { RtlUnicodeStringToOemString(destinationstring as _, sourcestring as _, allocatedestinationstring) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3340,7 +3340,7 @@ impl Default for PUBLIC_OBJECT_TYPE_INFORMATION {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> bool>;
+pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut core::ffi::c_void, param4: u32, param5: *mut u32) -> u8>;
 pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT>;

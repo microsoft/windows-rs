@@ -1277,7 +1277,7 @@ pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = 1;
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: u32,
     pub Length: u32,
-    pub Unicode: bool,
+    pub Unicode: u8,
     pub Reserved: [u8; 3],
     pub Data: [u8; 1],
 }
@@ -1617,7 +1617,7 @@ impl Default for IMAGE_POLICY_ENTRY {
 #[derive(Clone, Copy)]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *const core::ffi::c_void,
-    pub BoolValue: bool,
+    pub BoolValue: u8,
     pub Int8Value: i8,
     pub UInt8Value: u8,
     pub Int16Value: i16,
@@ -3165,7 +3165,7 @@ pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DEP_POLICY {
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0,
-    pub Permanent: bool,
+    pub Permanent: u8,
 }
 impl Default for PROCESS_MITIGATION_DEP_POLICY {
     fn default() -> Self {
@@ -3607,9 +3607,9 @@ pub const PRODUCT_XBOX_KEYSTONE: u32 = 198;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: *mut core::ffi::c_void)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: u8, establisherframe: *mut core::ffi::c_void)>;
 #[cfg(target_arch = "aarch64")]
-pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: bool, establisherframe: u64)>;
+pub type PTERMINATION_HANDLER = Option<unsafe extern "system" fn(_abnormal_termination: u8, establisherframe: u64)>;
 pub type PUMS_SCHEDULER_ENTRY_POINT = Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const core::ffi::c_void)>;
 pub const PcTeb: u32 = 24;
 pub const PdataCrChained: ARM64_FNPDATA_CR = 3;
@@ -4145,7 +4145,7 @@ pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
     pub ExitStatus: u32,
-    pub IsDownlevelContainer: bool,
+    pub IsDownlevelContainer: u8,
     pub ApiSetSchema: *mut core::ffi::c_void,
     pub HostApiSetSchema: *mut core::ffi::c_void,
 }
@@ -4314,7 +4314,7 @@ pub struct SILOOBJECT_BASIC_INFORMATION {
     pub SiloId: u32,
     pub SiloParentId: u32,
     pub NumberOfProcesses: u32,
-    pub IsInServerSilo: bool,
+    pub IsInServerSilo: u8,
     pub Reserved: [u8; 3],
 }
 impl Default for SILOOBJECT_BASIC_INFORMATION {
@@ -4738,10 +4738,10 @@ pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH =
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
-    pub ECC: bool,
-    pub Compression: bool,
-    pub DataPadding: bool,
-    pub ReportSetmarks: bool,
+    pub ECC: u8,
+    pub Compression: u8,
+    pub DataPadding: u8,
+    pub ReportSetmarks: u8,
     pub DefaultBlockSize: u32,
     pub MaximumBlockSize: u32,
     pub MinimumBlockSize: u32,
@@ -4758,7 +4758,7 @@ pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Remaining: i64,
     pub BlockSize: u32,
     pub PartitionCount: u32,
-    pub WriteProtected: bool,
+    pub WriteProtected: u8,
 }
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3;
 pub const TAPE_PSEUDO_LOGICAL_POSITION: i32 = 2;
@@ -4769,10 +4769,10 @@ pub const TAPE_QUERY_MEDIA_CAPACITY: i32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
-    pub ECC: bool,
-    pub Compression: bool,
-    pub DataPadding: bool,
-    pub ReportSetmarks: bool,
+    pub ECC: u8,
+    pub Compression: u8,
+    pub DataPadding: u8,
+    pub ReportSetmarks: u8,
     pub EOTWarningZoneSize: u32,
 }
 #[repr(C)]
@@ -4806,7 +4806,7 @@ pub const TLS_MINIMUM_AVAILABLE: u32 = 64;
 #[derive(Clone, Copy)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_sys::core::PWSTR,
-    pub IsolationEnabled: bool,
+    pub IsolationEnabled: u8,
 }
 impl Default for TOKEN_BNO_ISOLATION_INFORMATION {
     fn default() -> Self {

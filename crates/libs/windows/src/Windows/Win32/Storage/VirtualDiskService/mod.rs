@@ -25,7 +25,7 @@ impl Default for CHANGE_ATTRIBUTES_PARAMETERS_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CHANGE_ATTRIBUTES_PARAMETERS_0_0 {
-    pub bootIndicator: bool,
+    pub bootIndicator: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -92,7 +92,7 @@ impl Default for CREATE_PARTITION_PARAMETERS_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_PARTITION_PARAMETERS_0_0 {
     pub partitionType: u8,
-    pub bootIndicator: bool,
+    pub bootIndicator: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4675,7 +4675,7 @@ impl IVdsServiceUninstallDisk {
             (windows_core::Interface::vtable(self).GetDiskIdFromLunInfo)(windows_core::Interface::as_raw(self), pluninfo, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: u8, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UninstallDisks)(windows_core::Interface::as_raw(self), pdiskidarray, ulcount, bforce, pbreboot as _, presults as _).ok() }
     }
 }
@@ -4684,11 +4684,11 @@ impl IVdsServiceUninstallDisk {
 pub struct IVdsServiceUninstallDisk_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub GetDiskIdFromLunInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_LUN_INFORMATION, *mut windows_core::GUID) -> windows_core::HRESULT,
-    pub UninstallDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, bool, *mut u8, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+    pub UninstallDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, u8, *mut u8, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceUninstallDisk_Impl: windows_core::IUnknownImpl {
     fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> windows_core::Result<windows_core::GUID>;
-    fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: u8, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IVdsServiceUninstallDisk_Vtbl {
     pub const fn new<Identity: IVdsServiceUninstallDisk_Impl, const OFFSET: isize>() -> Self {
@@ -4707,7 +4707,7 @@ impl IVdsServiceUninstallDisk_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn UninstallDisks<Identity: IVdsServiceUninstallDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::HRESULT {
+        unsafe extern "system" fn UninstallDisks<Identity: IVdsServiceUninstallDisk_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: u8, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IVdsServiceUninstallDisk_Impl::UninstallDisks(this, core::mem::transmute_copy(&pdiskidarray), core::mem::transmute_copy(&ulcount), core::mem::transmute_copy(&bforce), core::mem::transmute_copy(&pbreboot), core::mem::transmute_copy(&presults)).into()
@@ -8146,7 +8146,7 @@ pub struct VDS_PARTITION_INFORMATION_EX {
     pub ullStartingOffset: u64,
     pub ullPartitionLength: u64,
     pub dwPartitionNumber: u32,
-    pub bRewritePartition: bool,
+    pub bRewritePartition: u8,
     pub Anonymous: VDS_PARTITION_INFORMATION_EX_0,
 }
 impl Default for VDS_PARTITION_INFORMATION_EX {
@@ -8182,8 +8182,8 @@ impl Default for VDS_PARTITION_INFO_GPT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VDS_PARTITION_INFO_MBR {
     pub partitionType: u8,
-    pub bootIndicator: bool,
-    pub recognizedPartition: bool,
+    pub bootIndicator: u8,
+    pub recognizedPartition: u8,
     pub hiddenSectors: u32,
 }
 #[repr(C)]

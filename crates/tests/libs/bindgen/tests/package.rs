@@ -1,6 +1,6 @@
 #[test]
-fn legacy_agile_interfaces() {
-    let scratch = std::path::Path::new(env!("OUT_DIR")).join("legacy-agile-interfaces");
+fn legacy_projection() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("legacy-projection");
     std::fs::create_dir_all(scratch.join("src")).unwrap();
     let crates = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
         .ancestors()
@@ -10,7 +10,7 @@ fn legacy_agile_interfaces() {
     std::fs::write(
         &manifest,
         format!(
-            "[package]\nname = \"legacy-agile-interfaces\"\nversion = \"0.0.0\"\n\
+            "[package]\nname = \"legacy-projection\"\nversion = \"0.0.0\"\n\
              edition = \"2024\"\n[workspace]\n[dependencies]\n\
              windows-core = {{ path = '{}' }}\n\
              [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n\
@@ -31,6 +31,7 @@ fn legacy_agile_interfaces() {
             "Windows.Win32.Graphics.Direct3D11.ID3D11Device::{}",
             "Windows.Win32.Graphics.DirectWrite.IDWriteFactory::{}",
             "Windows.Win32.Graphics.Dxgi.IDXGIAdapter1::{}",
+            "Windows.Win32.Security.Authentication.Identity.RtlGenRandom",
             "Windows.Win32.System.Com.ISequentialStream::{}",
         ])
         .implement("Windows.Win32.System.Com.ISequentialStream")
@@ -46,7 +47,9 @@ fn legacy_agile_interfaces() {
              require_send_sync::<Windows::Win32::Graphics::Direct3D11::ID3D11Device>();\n\
              require_send_sync::<Windows::Win32::Graphics::DirectWrite::IDWriteFactory>();\n\
              require_send_sync::<Windows::Win32::Graphics::Dxgi::IDXGIAdapter1>();\n\
-         }\n",
+         }\n\
+         pub const RTL_GEN_RANDOM: unsafe fn(*mut core::ffi::c_void, u32) -> u8 =\n\
+             Windows::Win32::Security::Authentication::Identity::RtlGenRandom;\n",
     )
     .unwrap();
     let result = std::process::Command::new("cargo")

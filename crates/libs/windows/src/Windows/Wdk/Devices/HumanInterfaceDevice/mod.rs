@@ -11,8 +11,8 @@ pub unsafe fn VhfCreate(vhfconfig: *const VHF_CONFIG, vhfhandle: *mut *mut core:
     unsafe { VhfCreate(vhfconfig, vhfhandle as _) }
 }
 #[inline]
-pub unsafe fn VhfDelete(vhfhandle: *const core::ffi::c_void, wait: bool) {
-    windows_core::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : bool));
+pub unsafe fn VhfDelete(vhfhandle: *const core::ffi::c_void, wait: u8) {
+    windows_core::link!("vhfum.dll" "system" fn VhfDelete(vhfhandle : *const core::ffi::c_void, wait : u8));
     unsafe { VhfDelete(vhfhandle, wait) }
 }
 #[cfg(feature = "Win32_Foundation")]

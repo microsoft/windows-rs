@@ -58,7 +58,7 @@ pub struct PWM_PIN_GET_POLARITY_OUTPUT {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PWM_PIN_IS_STARTED_OUTPUT {
-    pub IsStarted: bool,
+    pub IsStarted: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]

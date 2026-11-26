@@ -12,8 +12,8 @@ pub unsafe fn EnableThreadProfiling(threadhandle: super::super::super::Foundatio
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut bool) -> u32 {
-    windows_core::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation::HANDLE, enabled : *mut bool) -> u32);
+pub unsafe fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut u8) -> u32 {
+    windows_core::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation::HANDLE, enabled : *mut u8) -> u32);
     unsafe { QueryThreadProfiling(threadhandle, enabled as _) }
 }
 #[cfg(feature = "Win32_Foundation")]

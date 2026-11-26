@@ -3,7 +3,7 @@ windows_link::link!("kernel32.dll" "system" fn DisableThreadProfiling(performanc
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("kernel32.dll" "system" fn EnableThreadProfiling(threadhandle : super::super::super::Foundation::HANDLE, flags : u32, hardwarecounters : u64, performancedatahandle : *mut super::super::super::Foundation::HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-windows_link::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation::HANDLE, enabled : *mut bool) -> u32);
+windows_link::link!("kernel32.dll" "system" fn QueryThreadProfiling(threadhandle : super::super::super::Foundation::HANDLE, enabled : *mut u8) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 windows_link::link!("kernel32.dll" "system" fn ReadThreadProfilingData(performancedatahandle : super::super::super::Foundation::HANDLE, flags : u32, performancedata : *mut PERFORMANCE_DATA) -> u32);
 #[repr(C)]

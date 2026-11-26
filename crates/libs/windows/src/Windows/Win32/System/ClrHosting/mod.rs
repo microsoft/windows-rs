@@ -2485,7 +2485,7 @@ impl ICLRStrongName {
             (windows_core::Interface::vtable(self).StrongNameSignatureVerification)(windows_core::Interface::as_raw(self), pwzfilepath.param().abi(), dwinflags, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StrongNameSignatureVerificationEx<P0>(&self, pwzfilepath: P0, fforceverification: bool) -> windows_core::Result<u8>
+    pub unsafe fn StrongNameSignatureVerificationEx<P0>(&self, pwzfilepath: P0, fforceverification: u8) -> windows_core::Result<u8>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2543,7 +2543,7 @@ pub struct ICLRStrongName_Vtbl {
     pub StrongNameSignatureGenerationEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const u8, u32, *mut *mut u8, *mut u32, u32) -> windows_core::HRESULT,
     pub StrongNameSignatureSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u32) -> windows_core::HRESULT,
     pub StrongNameSignatureVerification: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, *mut u32) -> windows_core::HRESULT,
-    pub StrongNameSignatureVerificationEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, bool, *mut u8) -> windows_core::HRESULT,
+    pub StrongNameSignatureVerificationEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u8, *mut u8) -> windows_core::HRESULT,
     pub StrongNameSignatureVerificationFromImage: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, u32, *mut u32) -> windows_core::HRESULT,
     pub StrongNameTokenFromAssembly: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
     pub StrongNameTokenFromAssemblyEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut u8, *mut u32, *mut *mut u8, *mut u32) -> windows_core::HRESULT,
@@ -2571,7 +2571,7 @@ pub trait ICLRStrongName_Impl: windows_core::IUnknownImpl {
     fn StrongNameSignatureGenerationEx(&self, wszfilepath: &windows_core::PCWSTR, wszkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbsignatureblob: *mut *mut u8, pcbsignatureblob: *mut u32, dwflags: u32) -> windows_core::Result<()>;
     fn StrongNameSignatureSize(&self, pbpublickeyblob: *const u8, cbpublickeyblob: u32, pcbsize: *const u32) -> windows_core::Result<()>;
     fn StrongNameSignatureVerification(&self, pwzfilepath: &windows_core::PCWSTR, dwinflags: u32) -> windows_core::Result<u32>;
-    fn StrongNameSignatureVerificationEx(&self, pwzfilepath: &windows_core::PCWSTR, fforceverification: bool) -> windows_core::Result<u8>;
+    fn StrongNameSignatureVerificationEx(&self, pwzfilepath: &windows_core::PCWSTR, fforceverification: u8) -> windows_core::Result<u8>;
     fn StrongNameSignatureVerificationFromImage(&self, pbbase: *const u8, dwlength: u32, dwinflags: u32) -> windows_core::Result<u32>;
     fn StrongNameTokenFromAssembly(&self, pwzfilepath: &windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32) -> windows_core::Result<()>;
     fn StrongNameTokenFromAssemblyEx(&self, pwzfilepath: &windows_core::PCWSTR, ppbstrongnametoken: *mut *mut u8, pcbstrongnametoken: *mut u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32) -> windows_core::Result<()>;
@@ -2727,7 +2727,7 @@ impl ICLRStrongName_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn StrongNameSignatureVerificationEx<Identity: ICLRStrongName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzfilepath: windows_core::PCWSTR, fforceverification: bool, pfwasverified: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn StrongNameSignatureVerificationEx<Identity: ICLRStrongName_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pwzfilepath: windows_core::PCWSTR, fforceverification: u8, pfwasverified: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICLRStrongName_Impl::StrongNameSignatureVerificationEx(this, &*(&raw const pwzfilepath).cast(), core::mem::transmute_copy(&fforceverification)) {
@@ -2819,7 +2819,7 @@ impl ICLRStrongName2 {
     {
         unsafe { (windows_core::Interface::vtable(self).StrongNameGetPublicKeyEx)(windows_core::Interface::as_raw(self), pwzkeycontainer.param().abi(), pbkeyblob, cbkeyblob, ppbpublickeyblob as _, pcbpublickeyblob as _, uhashalgid, ureserved).ok() }
     }
-    pub unsafe fn StrongNameSignatureVerificationEx2<P0>(&self, wszfilepath: P0, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>
+    pub unsafe fn StrongNameSignatureVerificationEx2<P0>(&self, wszfilepath: P0, fforceverification: u8, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2834,11 +2834,11 @@ impl ICLRStrongName2 {
 pub struct ICLRStrongName2_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub StrongNameGetPublicKeyEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const u8, u32, *mut *mut u8, *mut u32, u32, u32) -> windows_core::HRESULT,
-    pub StrongNameSignatureVerificationEx2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, bool, *const u8, u32, *mut u8) -> windows_core::HRESULT,
+    pub StrongNameSignatureVerificationEx2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u8, *const u8, u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ICLRStrongName2_Impl: windows_core::IUnknownImpl {
     fn StrongNameGetPublicKeyEx(&self, pwzkeycontainer: &windows_core::PCWSTR, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> windows_core::Result<()>;
-    fn StrongNameSignatureVerificationEx2(&self, wszfilepath: &windows_core::PCWSTR, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>;
+    fn StrongNameSignatureVerificationEx2(&self, wszfilepath: &windows_core::PCWSTR, fforceverification: u8, pbecmapublickey: *const u8, cbecmapublickey: u32) -> windows_core::Result<u8>;
 }
 impl ICLRStrongName2_Vtbl {
     pub const fn new<Identity: ICLRStrongName2_Impl, const OFFSET: isize>() -> Self {
@@ -2848,7 +2848,7 @@ impl ICLRStrongName2_Vtbl {
                 ICLRStrongName2_Impl::StrongNameGetPublicKeyEx(this, &*(&raw const pwzkeycontainer).cast(), core::mem::transmute_copy(&pbkeyblob), core::mem::transmute_copy(&cbkeyblob), core::mem::transmute_copy(&ppbpublickeyblob), core::mem::transmute_copy(&pcbpublickeyblob), core::mem::transmute_copy(&uhashalgid), core::mem::transmute_copy(&ureserved)).into()
             }
         }
-        unsafe extern "system" fn StrongNameSignatureVerificationEx2<Identity: ICLRStrongName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszfilepath: windows_core::PCWSTR, fforceverification: bool, pbecmapublickey: *const u8, cbecmapublickey: u32, pfwasverified: *mut u8) -> windows_core::HRESULT {
+        unsafe extern "system" fn StrongNameSignatureVerificationEx2<Identity: ICLRStrongName2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, wszfilepath: windows_core::PCWSTR, fforceverification: u8, pbecmapublickey: *const u8, cbecmapublickey: u32, pfwasverified: *mut u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ICLRStrongName2_Impl::StrongNameSignatureVerificationEx2(this, &*(&raw const wszfilepath).cast(), core::mem::transmute_copy(&fforceverification), core::mem::transmute_copy(&pbecmapublickey), core::mem::transmute_copy(&cbecmapublickey)) {

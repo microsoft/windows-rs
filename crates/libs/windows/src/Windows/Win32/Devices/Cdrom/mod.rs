@@ -62,7 +62,7 @@ impl Default for CDROM_EXCLUSIVE_LOCK {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CDROM_EXCLUSIVE_LOCK_STATE {
-    pub LockState: bool,
+    pub LockState: u8,
     pub CallerName: [u8; 64],
 }
 impl Default for CDROM_EXCLUSIVE_LOCK_STATE {
@@ -174,17 +174,17 @@ pub struct CDROM_SET_STREAMING {
     pub StartLba: u32,
     pub EndLba: u32,
     pub RotationControl: WRITE_ROTATION,
-    pub RestoreDefaults: bool,
-    pub SetExact: bool,
-    pub RandomAccess: bool,
-    pub Persistent: bool,
+    pub RestoreDefaults: u8,
+    pub SetExact: u8,
+    pub RandomAccess: u8,
+    pub Persistent: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CDROM_SIMPLE_OPC_INFO {
     pub RequestType: CDROM_OPC_INFO_TYPE,
-    pub Exclude0: bool,
-    pub Exclude1: bool,
+    pub Exclude0: u8,
+    pub Exclude1: u8,
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

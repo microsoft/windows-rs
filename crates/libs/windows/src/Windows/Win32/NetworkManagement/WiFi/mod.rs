@@ -995,8 +995,8 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub MacAddr: [u8; 6],
     pub uStatus: u32,
-    pub bReAssocReq: bool,
-    pub bReAssocResp: bool,
+    pub bReAssocReq: u8,
+    pub bReAssocResp: u8,
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
     pub uAssocRespOffset: u32,
@@ -1010,8 +1010,8 @@ pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub MulticastCipher: DOT11_CIPHER_ALGORITHM,
     pub uActivePhyListOffset: u32,
     pub uActivePhyListSize: u32,
-    pub bFourAddressSupported: bool,
-    pub bPortAuthorized: bool,
+    pub bFourAddressSupported: u8,
+    pub bPortAuthorized: u8,
     pub ucActiveQoSProtocol: u8,
     pub DSInfo: DOT11_DS_INFO,
     pub uEncapTableOffset: u32,
@@ -1249,7 +1249,7 @@ pub struct DOT11_BSS_ENTRY {
     pub dot11BSSType: DOT11_BSS_TYPE,
     pub lRSSI: i32,
     pub uLinkQuality: u32,
-    pub bInRegDomain: bool,
+    pub bInRegDomain: u8,
     pub usBeaconPeriod: u16,
     pub ullTimestamp: u64,
     pub ullHostTimestamp: u64,
@@ -1385,8 +1385,8 @@ pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub uKeyIndex: u32,
     pub AlgorithmId: DOT11_CIPHER_ALGORITHM,
     pub MacAddr: [u8; 6],
-    pub bDelete: bool,
-    pub bStatic: bool,
+    pub bDelete: u8,
+    pub bStatic: u8,
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
@@ -1403,8 +1403,8 @@ pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: [u8; 6],
     pub AlgorithmId: DOT11_CIPHER_ALGORITHM,
     pub Direction: DOT11_DIRECTION,
-    pub bDelete: bool,
-    pub bStatic: bool,
+    pub bDelete: u8,
+    pub bStatic: u8,
     pub usKeyLength: u16,
     pub ucKey: [u8; 1],
 }
@@ -1490,10 +1490,10 @@ pub struct DOT11_CURRENT_OPERATION_MODE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
-    pub bDot11CFPollable: bool,
-    pub bDot11PCF: bool,
-    pub bDot11PCFMPDUTransferToPC: bool,
-    pub bStrictlyOrderedServiceClass: bool,
+    pub bDot11CFPollable: u8,
+    pub bDot11PCF: u8,
+    pub bDot11PCFMPDUTransferToPC: u8,
+    pub bStrictlyOrderedServiceClass: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1602,7 +1602,7 @@ pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
-    pub bDiversitySelectionRX: bool,
+    pub bDiversitySelectionRX: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -1650,9 +1650,9 @@ pub const DOT11_ENCAP_RFC_1042: u32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
-    pub bERPPBCCOptionImplemented: bool,
-    pub bDSSSOFDMOptionImplemented: bool,
-    pub bShortSlotTimeOptionImplemented: bool,
+    pub bERPPBCCOptionImplemented: u8,
+    pub bDSSSOFDMOptionImplemented: u8,
+    pub bShortSlotTimeOptionImplemented: u8,
 }
 pub const DOT11_EXEMPT_ALWAYS: u32 = 1;
 pub const DOT11_EXEMPT_BOTH: u32 = 3;
@@ -1671,7 +1671,7 @@ pub struct DOT11_EXTAP_ATTRIBUTES {
     pub uAssociationTableSize: u32,
     pub uDefaultKeyTableSize: u32,
     pub uWEPKeyValueMaxLength: u32,
-    pub bStrictlyOrderedServiceClassImplemented: bool,
+    pub bStrictlyOrderedServiceClassImplemented: u8,
     pub uNumSupportedCountryOrRegionStrings: u32,
     pub pSupportedCountryOrRegionStrings: *mut u8,
     pub uInfraNumSupportedUcastAlgoPairs: u32,
@@ -1703,9 +1703,9 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub uWEPKeyValueMaxLength: u32,
     pub uPMKIDCacheSize: u32,
     pub uMaxNumPerSTADefaultKeyTables: u32,
-    pub bStrictlyOrderedServiceClassImplemented: bool,
+    pub bStrictlyOrderedServiceClassImplemented: u8,
     pub ucSupportedQoSProtocolFlags: u8,
-    pub bSafeModeImplemented: bool,
+    pub bSafeModeImplemented: u8,
     pub uNumSupportedCountryOrRegionStrings: u32,
     pub pSupportedCountryOrRegionStrings: *mut u8,
     pub uInfraNumSupportedUcastAlgoPairs: u32,
@@ -1716,16 +1716,16 @@ pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub pAdhocSupportedUcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
     pub uAdhocNumSupportedMcastAlgoPairs: u32,
     pub pAdhocSupportedMcastAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
-    pub bAutoPowerSaveMode: bool,
+    pub bAutoPowerSaveMode: u8,
     pub uMaxNetworkOffloadListSize: u32,
-    pub bMFPCapable: bool,
+    pub bMFPCapable: u8,
     pub uInfraNumSupportedMcastMgmtAlgoPairs: u32,
     pub pInfraSupportedMcastMgmtAlgoPairs: *mut DOT11_AUTH_CIPHER_PAIR,
-    pub bNeighborReportSupported: bool,
-    pub bAPChannelReportSupported: bool,
-    pub bActionFramesSupported: bool,
-    pub bANQPQueryOffloadSupported: bool,
-    pub bHESSIDConnectionSupported: bool,
+    pub bNeighborReportSupported: u8,
+    pub bAPChannelReportSupported: u8,
+    pub bActionFramesSupported: u8,
+    pub bANQPQueryOffloadSupported: u8,
+    pub bHESSIDConnectionSupported: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_EXTSTA_ATTRIBUTES {
@@ -1893,9 +1893,9 @@ pub struct DOT11_HOP_ALGO_ADOPTED(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
-    pub bShortPreambleOptionImplemented: bool,
-    pub bPBCCOptionImplemented: bool,
-    pub bChannelAgilityPresent: bool,
+    pub bShortPreambleOptionImplemented: u8,
+    pub bPBCCOptionImplemented: u8,
+    pub bChannelAgilityPresent: u8,
     pub uHRCCAModeSupported: u32,
 }
 pub const DOT11_HR_CCA_MODE_CS_AND_ED: u32 = 4;
@@ -1914,7 +1914,7 @@ pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
-    pub bJoinOnly: bool,
+    pub bJoinOnly: u8,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
@@ -1933,8 +1933,8 @@ pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub PeerMacAddr: [u8; 6],
     pub uStatus: u32,
     pub ucErrorSource: u8,
-    pub bReAssocReq: bool,
-    pub bReAssocResp: bool,
+    pub bReAssocReq: u8,
+    pub bReAssocResp: u8,
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
     pub uAssocRespOffset: u32,
@@ -1960,7 +1960,7 @@ pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
-    pub bAccept: bool,
+    pub bAccept: u8,
     pub usReasonCode: u16,
     pub uAssocResponseIEsOffset: u32,
     pub uAssocResponseIEsLength: u32,
@@ -1979,7 +1979,7 @@ pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2;
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
-    pub bAccept: bool,
+    pub bAccept: u8,
     pub usReasonCode: u16,
     pub uAssocResponseIEsOffset: u32,
     pub uAssocResponseIEsLength: u32,
@@ -1997,7 +1997,7 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: [u8; 6],
-    pub bReAssocReq: bool,
+    pub bReAssocReq: u8,
     pub uAssocReqOffset: u32,
     pub uAssocReqSize: u32,
 }
@@ -2253,7 +2253,7 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
-    pub bEnabled: bool,
+    pub bEnabled: u8,
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub PowerLevel: i32,
@@ -2261,8 +2261,8 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
-    pub bEnable: bool,
-    pub bOpenLoop: bool,
+    pub bEnable: u8,
+    pub bOpenLoop: u8,
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub uSetPowerLevel: u32,
@@ -2273,7 +2273,7 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
-    pub bResult: bool,
+    pub bResult: u8,
     pub uPinFailedBitMask: u32,
     pub pvContext: *mut core::ffi::c_void,
     pub uBytesWrittenOut: u32,
@@ -2565,9 +2565,9 @@ pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
-    pub bDot11PCF: bool,
-    pub bDot11PCFMPDUTransferToPC: bool,
-    pub bStrictlyOrderedServiceClass: bool,
+    pub bDot11PCF: u8,
+    pub bDot11PCFMPDUTransferToPC: u8,
+    pub bStrictlyOrderedServiceClass: u8,
 }
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL: u32 = 4096;
 pub const DOT11_PACKET_TYPE_ALL_MULTICAST_DATA: u32 = 16384;
@@ -2592,7 +2592,7 @@ pub struct DOT11_PEER_INFO {
     pub AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub UnicastCipherAlgo: DOT11_CIPHER_ALGORITHM,
     pub MulticastCipherAlgo: DOT11_CIPHER_ALGORITHM,
-    pub bWpsEnabled: bool,
+    pub bWpsEnabled: u8,
     pub usListenInterval: u16,
     pub ucSupportedRates: [u8; 255],
     pub usAssociationID: u16,
@@ -2647,9 +2647,9 @@ pub struct DOT11_PER_MSDU_COUNTERS {
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PhyType: DOT11_PHY_TYPE,
-    pub bHardwarePhyState: bool,
-    pub bSoftwarePhyState: bool,
-    pub bCFPollable: bool,
+    pub bHardwarePhyState: u8,
+    pub bSoftwarePhyState: u8,
+    pub bCFPollable: u8,
     pub uMPDUMaxLength: u32,
     pub TempType: DOT11_TEMP_TYPE,
     pub DiversitySupport: DOT11_DIVERSITY_SUPPORT,
@@ -2753,8 +2753,8 @@ pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1;
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
-    pub bHardwarePhyState: bool,
-    pub bSoftwarePhyState: bool,
+    pub bHardwarePhyState: u8,
+    pub bSoftwarePhyState: u8,
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(transparent)]
@@ -2764,7 +2764,7 @@ pub struct DOT11_PHY_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
-    pub bUseParameters: bool,
+    pub bUseParameters: u8,
     pub uProbeDelay: u32,
     pub uMinChannelTime: u32,
     pub uMaxChannelTime: u32,
@@ -2849,7 +2849,7 @@ impl Default for DOT11_PORT_STATE {
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub PeerMac: [u8; 6],
-    pub bOpen: bool,
+    pub bOpen: u8,
 }
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl Default for DOT11_PORT_STATE_NOTIFICATION {
@@ -2863,7 +2863,7 @@ pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
-    pub bEnabled: bool,
+    pub bEnabled: u8,
 }
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1;
 #[repr(C)]
@@ -2873,7 +2873,7 @@ pub struct DOT11_POWER_MGMT_MODE {
     pub uPowerSaveLevel: u32,
     pub usListenInterval: u16,
     pub usAID: u16,
-    pub bReceiveDTIMs: bool,
+    pub bReceiveDTIMs: u8,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -3258,7 +3258,7 @@ pub struct DOT11_REG_DOMAIN_VALUE {
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
     pub dot11MacAddress: [u8; 6],
-    pub bSetDefaultMIB: bool,
+    pub bSetDefaultMIB: u8,
 }
 impl Default for DOT11_RESET_REQUEST {
     fn default() -> Self {
@@ -3306,8 +3306,8 @@ pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSID: [u8; 6],
     pub dot11SSID: DOT11_SSID,
     pub dot11ScanType: DOT11_SCAN_TYPE,
-    pub bRestrictedScan: bool,
-    pub bUseRequestIE: bool,
+    pub bRestrictedScan: u8,
+    pub bUseRequestIE: u8,
     pub uRequestIDsOffset: u32,
     pub uNumOfRequestIDs: u32,
     pub uPhyTypesOffset: u32,
@@ -3327,10 +3327,10 @@ pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: DOT11_BSS_TYPE,
     pub dot11BSSID: [u8; 6],
     pub dot11ScanType: DOT11_SCAN_TYPE,
-    pub bRestrictedScan: bool,
+    pub bRestrictedScan: u8,
     pub udot11SSIDsOffset: u32,
     pub uNumOfdot11SSIDs: u32,
-    pub bUseRequestIE: bool,
+    pub bUseRequestIE: u8,
     pub uRequestIDsOffset: u32,
     pub uNumOfRequestIDs: u32,
     pub uPhyTypeInfosOffset: u32,
@@ -3372,7 +3372,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Status: u8,
     pub GroupCapability: u8,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bUseGroupID: bool,
+    pub bUseGroupID: u8,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
@@ -3420,7 +3420,7 @@ pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub IntendedInterfaceAddress: [u8; 6],
     pub GroupCapability: u8,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bUseGroupID: bool,
+    pub bUseGroupID: u8,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
@@ -3442,11 +3442,11 @@ pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub InvitationFlags: DOT11_WFD_INVITATION_FLAGS,
     pub GroupBSSID: [u8; 6],
-    pub bUseGroupBSSID: bool,
+    pub bUseGroupBSSID: u8,
     pub OperatingChannel: DOT11_WFD_CHANNEL,
-    pub bUseSpecifiedOperatingChannel: bool,
+    pub bUseSpecifiedOperatingChannel: u8,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bLocalGO: bool,
+    pub bLocalGO: u8,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
@@ -3469,9 +3469,9 @@ pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Status: u8,
     pub MinimumConfigTimeout: DOT11_WFD_CONFIGURATION_TIMEOUT,
     pub GroupBSSID: [u8; 6],
-    pub bUseGroupBSSID: bool,
+    pub bUseGroupBSSID: u8,
     pub OperatingChannel: DOT11_WFD_CHANNEL,
-    pub bUseSpecifiedOperatingChannel: bool,
+    pub bUseSpecifiedOperatingChannel: u8,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
@@ -3492,7 +3492,7 @@ pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub uSendTimeout: u32,
     pub GroupCapability: u8,
     pub GroupID: DOT11_WFD_GROUP_ID,
-    pub bUseGroupID: bool,
+    pub bUseGroupID: u8,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
 }
@@ -3627,7 +3627,7 @@ pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
-    pub bSupportedAntenna: bool,
+    pub bSupportedAntenna: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -3728,7 +3728,7 @@ pub struct DOT11_TEMP_TYPE(pub i32);
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
-    pub bDefaultKeyFailure: bool,
+    pub bDefaultKeyFailure: u8,
     pub uKeyIndex: u32,
     pub PeerMac: [u8; 6],
 }
@@ -3817,8 +3817,8 @@ pub struct DOT11_WEP_OFFLOAD {
     pub hOffload: super::super::Foundation::HANDLE,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
     pub dwAlgorithm: u32,
-    pub bRowIsOutbound: bool,
-    pub bUseDefault: bool,
+    pub bRowIsOutbound: u8,
+    pub bUseDefault: u8,
     pub uFlags: u32,
     pub ucMacAddress: [u8; 6],
     pub uNumOfRWsOnPeer: u32,
@@ -3909,9 +3909,9 @@ pub struct DOT11_WFD_ATTRIBUTES {
     pub uNumConcurrentGORole: u32,
     pub uNumConcurrentClientRole: u32,
     pub WPSVersionsSupported: u32,
-    pub bServiceDiscoverySupported: bool,
-    pub bClientDiscoverabilitySupported: bool,
-    pub bInfrastructureManagementSupported: bool,
+    pub bServiceDiscoverySupported: u8,
+    pub bClientDiscoverabilitySupported: u8,
+    pub bInfrastructureManagementSupported: u8,
     pub uMaxSecondaryDeviceTypeListSize: u32,
     pub DeviceAddress: [u8; 6],
     pub uInterfaceAddressListCount: u32,
@@ -3953,12 +3953,12 @@ pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
-    pub bServiceDiscoveryEnabled: bool,
-    pub bClientDiscoverabilityEnabled: bool,
-    pub bConcurrentOperationSupported: bool,
-    pub bInfrastructureManagementEnabled: bool,
-    pub bDeviceLimitReached: bool,
-    pub bInvitationProcedureEnabled: bool,
+    pub bServiceDiscoveryEnabled: u8,
+    pub bClientDiscoverabilityEnabled: u8,
+    pub bConcurrentOperationSupported: u8,
+    pub bInfrastructureManagementEnabled: u8,
+    pub bDeviceLimitReached: u8,
+    pub bInvitationProcedureEnabled: u8,
     pub WPSVersionsEnabled: u32,
 }
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
@@ -4070,7 +4070,7 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub uNumDeviceFilters: u32,
     pub uIEsOffset: u32,
     pub uIEsLength: u32,
-    pub bForceScanLegacyNetworks: bool,
+    pub bForceScanLegacyNetworks: u8,
 }
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1;
 #[repr(transparent)]
@@ -4109,8 +4109,8 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
     pub GOOperatingChannel: DOT11_WFD_CHANNEL,
     pub GOConfigTime: u32,
-    pub bInGroupFormation: bool,
-    pub bWaitForWPSReady: bool,
+    pub bInGroupFormation: u8,
+    pub bWaitForWPSReady: u8,
 }
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
@@ -4118,11 +4118,11 @@ pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
-    pub bPersistentGroupEnabled: bool,
-    pub bIntraBSSDistributionSupported: bool,
-    pub bCrossConnectionSupported: bool,
-    pub bPersistentReconnectSupported: bool,
-    pub bGroupFormationEnabled: bool,
+    pub bPersistentGroupEnabled: u8,
+    pub bIntraBSSDistributionSupported: u8,
+    pub bCrossConnectionSupported: u8,
+    pub bPersistentReconnectSupported: u8,
+    pub bGroupFormationEnabled: u8,
     pub uMaximumGroupLimit: u32,
 }
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
@@ -4132,13 +4132,13 @@ pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
-    pub bPersistentGroupEnabled: bool,
-    pub bIntraBSSDistributionSupported: bool,
-    pub bCrossConnectionSupported: bool,
-    pub bPersistentReconnectSupported: bool,
-    pub bGroupFormationEnabled: bool,
+    pub bPersistentGroupEnabled: u8,
+    pub bIntraBSSDistributionSupported: u8,
+    pub bCrossConnectionSupported: u8,
+    pub bPersistentReconnectSupported: u8,
+    pub bGroupFormationEnabled: u8,
     pub uMaximumGroupLimit: u32,
-    pub bEapolKeyIpAddressAllocationSupported: bool,
+    pub bEapolKeyIpAddressAllocationSupported: u8,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -4629,7 +4629,7 @@ impl IDot11AdHocManager {
             (windows_core::Interface::vtable(self).CreateNetwork)(windows_core::Interface::as_raw(self), name.param().abi(), password.param().abi(), geographicalid, pinterface.param().abi(), psecurity.param().abi(), pcontextguid, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn CommitCreatedNetwork<P0>(&self, piadhoc: P0, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>
+    pub unsafe fn CommitCreatedNetwork<P0>(&self, piadhoc: P0, fsaveprofile: u8, fmakesavedprofileuserspecific: u8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IDot11AdHocNetwork>,
     {
@@ -4659,14 +4659,14 @@ impl IDot11AdHocManager {
 pub struct IDot11AdHocManager_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub CreateNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, i32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub CommitCreatedNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, bool, bool) -> windows_core::HRESULT,
+    pub CommitCreatedNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u8, u8) -> windows_core::HRESULT,
     pub GetIEnumDot11AdHocNetworks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetIEnumDot11AdHocInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocManager_Impl: windows_core::IUnknownImpl {
     fn CreateNetwork(&self, name: &windows_core::PCWSTR, password: &windows_core::PCWSTR, geographicalid: i32, pinterface: windows_core::Ref<IDot11AdHocInterface>, psecurity: windows_core::Ref<IDot11AdHocSecuritySettings>, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork>;
-    fn CommitCreatedNetwork(&self, piadhoc: windows_core::Ref<IDot11AdHocNetwork>, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>;
+    fn CommitCreatedNetwork(&self, piadhoc: windows_core::Ref<IDot11AdHocNetwork>, fsaveprofile: u8, fmakesavedprofileuserspecific: u8) -> windows_core::Result<()>;
     fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks>;
     fn GetIEnumDot11AdHocInterfaces(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces>;
     fn GetNetwork(&self, networksignature: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork>;
@@ -4688,7 +4688,7 @@ impl IDot11AdHocManager_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn CommitCreatedNetwork<Identity: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piadhoc: *mut core::ffi::c_void, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn CommitCreatedNetwork<Identity: IDot11AdHocManager_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, piadhoc: *mut core::ffi::c_void, fsaveprofile: u8, fmakesavedprofileuserspecific: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDot11AdHocManager_Impl::CommitCreatedNetwork(this, core::mem::transmute_copy(&piadhoc), core::mem::transmute_copy(&fsaveprofile), core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
@@ -4874,7 +4874,7 @@ impl IDot11AdHocNetwork {
             (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub unsafe fn Connect<P0>(&self, passphrase: P0, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>
+    pub unsafe fn Connect<P0>(&self, passphrase: P0, geographicalid: i32, fsaveprofile: u8, fmakesavedprofileuserspecific: u8) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4898,7 +4898,7 @@ pub struct IDot11AdHocNetwork_Vtbl {
     pub GetContextGuid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetSignature: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::GUID) -> windows_core::HRESULT,
     pub GetInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, bool, bool) -> windows_core::HRESULT,
+    pub Connect: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, i32, u8, u8) -> windows_core::HRESULT,
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocNetwork_Impl: windows_core::IUnknownImpl {
@@ -4912,7 +4912,7 @@ pub trait IDot11AdHocNetwork_Impl: windows_core::IUnknownImpl {
     fn GetContextGuid(&self, pcontextguid: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetSignature(&self, psignature: *mut windows_core::GUID) -> windows_core::Result<()>;
     fn GetInterface(&self) -> windows_core::Result<IDot11AdHocInterface>;
-    fn Connect(&self, passphrase: &windows_core::PCWSTR, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>;
+    fn Connect(&self, passphrase: &windows_core::PCWSTR, geographicalid: i32, fsaveprofile: u8, fmakesavedprofileuserspecific: u8) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
 }
 impl IDot11AdHocNetwork_Vtbl {
@@ -5013,7 +5013,7 @@ impl IDot11AdHocNetwork_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Connect<Identity: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, passphrase: windows_core::PCWSTR, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn Connect<Identity: IDot11AdHocNetwork_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, passphrase: windows_core::PCWSTR, geographicalid: i32, fsaveprofile: u8, fmakesavedprofileuserspecific: u8) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IDot11AdHocNetwork_Impl::Connect(this, &*(&raw const passphrase).cast(), core::mem::transmute_copy(&geographicalid), core::mem::transmute_copy(&fsaveprofile), core::mem::transmute_copy(&fmakesavedprofileuserspecific)).into()
@@ -5713,9 +5713,9 @@ pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
-    pub bNew: bool,
-    pub bClient: bool,
-    pub bGO: bool,
+    pub bNew: u8,
+    pub bClient: u8,
+    pub bGO: u8,
 }
 pub const WFDSVC_CONNECTION_CAPABILITY_CLIENT: u32 = 2;
 pub const WFDSVC_CONNECTION_CAPABILITY_GO: u32 = 4;
@@ -5876,7 +5876,7 @@ pub struct WLAN_BSS_ENTRY {
     pub dot11BssPhyType: DOT11_PHY_TYPE,
     pub lRssi: i32,
     pub uLinkQuality: u32,
-    pub bInRegDomain: bool,
+    pub bInRegDomain: u8,
     pub usBeaconPeriod: u16,
     pub ullTimestamp: u64,
     pub ullHostTimestamp: u64,

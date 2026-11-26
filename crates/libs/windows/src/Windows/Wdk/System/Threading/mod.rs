@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtCancelTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, currentstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn NtCancelTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, currentstate: Option<*mut u8>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { NtCancelTimer(timerhandle, currentstate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Kernel"))]
@@ -48,8 +48,8 @@ pub unsafe fn NtSetInformationThread(threadhandle: super::super::super::Win32::F
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn NtSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: bool, period: Option<i32>, previousstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn NtSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: u8, period: Option<i32>, previousstate: Option<*mut u8>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : u8, period : i32, previousstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { NtSetTimer(timerhandle, duetime, timerapcroutine, timercontext.unwrap_or(core::mem::zeroed()) as _, resumetimer, period.unwrap_or(core::mem::zeroed()) as _, previousstate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -66,14 +66,14 @@ pub unsafe fn NtTerminateProcess(processhandle: Option<super::super::super::Win3
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NtWaitForSingleObject(handle: super::super::super::Win32::Foundation::HANDLE, alertable: bool, timeout: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : bool, timeout : *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn NtWaitForSingleObject(handle: super::super::super::Win32::Foundation::HANDLE, alertable: u8, timeout: *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : u8, timeout : *mut i64) -> super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { NtWaitForSingleObject(handle, alertable, timeout as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ZwCancelTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, currentstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn ZwCancelTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, currentstate: Option<*mut u8>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCancelTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, currentstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { ZwCancelTimer(timerhandle, currentstate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Kernel"))]
@@ -120,8 +120,8 @@ pub unsafe fn ZwSetInformationThread(threadhandle: super::super::super::Win32::F
 }
 #[cfg(all(feature = "Wdk_System_SystemServices", feature = "Win32_Foundation"))]
 #[inline]
-pub unsafe fn ZwSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: bool, period: Option<i32>, previousstate: Option<*mut bool>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn ZwSetTimer(timerhandle: super::super::super::Win32::Foundation::HANDLE, duetime: *const i64, timerapcroutine: super::SystemServices::PTIMER_APC_ROUTINE, timercontext: Option<*const core::ffi::c_void>, resumetimer: u8, period: Option<i32>, previousstate: Option<*mut u8>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetTimer(timerhandle : super::super::super::Win32::Foundation::HANDLE, duetime : *const i64, timerapcroutine : super::SystemServices::PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : u8, period : i32, previousstate : *mut u8) -> super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { ZwSetTimer(timerhandle, duetime, timerapcroutine, timercontext.unwrap_or(core::mem::zeroed()) as _, resumetimer, period.unwrap_or(core::mem::zeroed()) as _, previousstate.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -138,8 +138,8 @@ pub unsafe fn ZwTerminateProcess(processhandle: Option<super::super::super::Win3
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ZwWaitForSingleObject(handle: super::super::super::Win32::Foundation::HANDLE, alertable: bool, timeout: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : bool, timeout : *const i64) -> super::super::super::Win32::Foundation::NTSTATUS);
+pub unsafe fn ZwWaitForSingleObject(handle: super::super::super::Win32::Foundation::HANDLE, alertable: u8, timeout: Option<*const i64>) -> super::super::super::Win32::Foundation::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::super::Win32::Foundation::HANDLE, alertable : u8, timeout : *const i64) -> super::super::super::Win32::Foundation::NTSTATUS);
     unsafe { ZwWaitForSingleObject(handle, alertable, timeout.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const MaxProcessInfoClass: PROCESSINFOCLASS = PROCESSINFOCLASS(83);

@@ -166,8 +166,8 @@ where
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, notifychange: bool, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32 {
-    windows_core::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation::HANDLE, pguidparam : *const windows_core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+pub unsafe fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, notifychange: u8, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation::HANDLE, pguidparam : *const windows_core::GUID, notifychange : u8, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
     unsafe { TcQueryInterface(ifchandle, pguidparam, notifychange, pbuffersize as _, buffer as _) }
 }
 #[cfg(feature = "Win32_Foundation")]

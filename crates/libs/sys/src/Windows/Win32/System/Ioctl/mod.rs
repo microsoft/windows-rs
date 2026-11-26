@@ -151,8 +151,8 @@ pub struct CHANGER_EXCHANGE_MEDIUM {
     pub Source: CHANGER_ELEMENT,
     pub Destination1: CHANGER_ELEMENT,
     pub Destination2: CHANGER_ELEMENT,
-    pub Flip1: bool,
-    pub Flip2: bool,
+    pub Flip1: u8,
+    pub Flip2: u8,
 }
 pub type CHANGER_FEATURES = u32;
 pub const CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483904;
@@ -161,7 +161,7 @@ pub const CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = 2
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_INITIALIZE_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
-    pub BarCodeScan: bool,
+    pub BarCodeScan: u8,
 }
 pub const CHANGER_INIT_ELEM_STAT_WITH_RANGE: CHANGER_FEATURES = 2;
 pub const CHANGER_KEYPAD_ENABLE_DISABLE: CHANGER_FEATURES = 268435456;
@@ -174,7 +174,7 @@ pub struct CHANGER_MOVE_MEDIUM {
     pub Transport: CHANGER_ELEMENT,
     pub Source: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
-    pub Flip: bool,
+    pub Flip: u8,
 }
 pub const CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = 2147484672;
 pub const CHANGER_OPEN_IEPORT: CHANGER_FEATURES = 8;
@@ -201,7 +201,7 @@ impl Default for CHANGER_PRODUCT_DATA {
 #[derive(Clone, Copy, Default)]
 pub struct CHANGER_READ_ELEMENT_STATUS {
     pub ElementList: CHANGER_ELEMENT_LIST,
-    pub VolumeTagInfo: bool,
+    pub VolumeTagInfo: u8,
 }
 pub const CHANGER_REPORT_IEPORT_STATE: CHANGER_FEATURES = 2048;
 pub const CHANGER_RESERVED_BIT: u32 = 2147483648;
@@ -230,7 +230,7 @@ pub struct CHANGER_SET_ACCESS {
 pub struct CHANGER_SET_POSITION {
     pub Transport: CHANGER_ELEMENT,
     pub Destination: CHANGER_ELEMENT,
-    pub Flip: bool,
+    pub Flip: u8,
 }
 pub const CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483664;
 pub const CHANGER_STATUS_NON_VOLATILE: CHANGER_FEATURES = 16;
@@ -354,7 +354,7 @@ pub const CSV_INVALID_DEVICE_NUMBER: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct CSV_IS_OWNED_BY_CSVFS {
-    pub OwnedByCSVFS: bool,
+    pub OwnedByCSVFS: u8,
 }
 pub const CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED: u32 = 1;
 #[repr(C)]
@@ -431,7 +431,7 @@ pub const CSV_QUERY_MDS_PATH_V2_VERSION_1: u32 = 1;
 pub struct CSV_QUERY_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
-    pub FileRedirected: bool,
+    pub FileRedirected: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -455,8 +455,8 @@ pub struct CSV_QUERY_VOLUME_ID {
 pub struct CSV_QUERY_VOLUME_REDIRECT_STATE {
     pub MdsNodeId: u32,
     pub DsNodeId: u32,
-    pub IsDiskConnected: bool,
-    pub ClusterEnableDirectIo: bool,
+    pub IsDiskConnected: u8,
+    pub ClusterEnableDirectIo: u8,
     pub DiskConnectivity: CSVFS_DISK_CONNECTIVITY,
 }
 #[repr(C)]
@@ -501,7 +501,7 @@ pub const DDUMP_FLAG_DATA_READ_FROM_DEVICE: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DECRYPTION_STATUS_BUFFER {
-    pub NoEncryptedStreams: bool,
+    pub NoEncryptedStreams: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -771,10 +771,10 @@ pub struct DEVICE_DSM_CONVERSION_OUTPUT {
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_DSM_DEFINITION {
     pub Action: u32,
-    pub SingleRange: bool,
+    pub SingleRange: u8,
     pub ParameterBlockAlignment: u32,
     pub ParameterBlockLength: u32,
-    pub HasOutput: bool,
+    pub HasOutput: u8,
     pub OutputBlockAlignment: u32,
     pub OutputBlockLength: u32,
 }
@@ -1147,12 +1147,12 @@ pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
 pub struct DEVICE_POWER_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub DeviceAttentionSupported: bool,
-    pub AsynchronousNotificationSupported: bool,
-    pub IdlePowerManagementEnabled: bool,
-    pub D3ColdEnabled: bool,
-    pub D3ColdSupported: bool,
-    pub NoVerifyDuringIdlePower: bool,
+    pub DeviceAttentionSupported: u8,
+    pub AsynchronousNotificationSupported: u8,
+    pub IdlePowerManagementEnabled: u8,
+    pub D3ColdEnabled: u8,
+    pub D3ColdSupported: u8,
+    pub NoVerifyDuringIdlePower: u8,
     pub Reserved: [u8; 2],
     pub IdleTimeoutInMS: u32,
 }
@@ -1166,7 +1166,7 @@ impl Default for DEVICE_POWER_DESCRIPTOR {
 pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub IncursSeekPenalty: bool,
+    pub IncursSeekPenalty: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -1208,14 +1208,14 @@ pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
 pub struct DEVICE_TRIM_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub TrimEnabled: bool,
+    pub TrimEnabled: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
-    pub BenefitsFromWriteAggregation: bool,
+    pub BenefitsFromWriteAggregation: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
 pub const DEVPKEY_Storage_Disk_Number: super::super::Foundation::DEVPROPKEY = super::super::Foundation::DEVPROPKEY { fmtid: windows_sys::core::GUID::from_u128(0x4d1ebee8_0803_4774_9842_b77db50265e9), pid: 5 };
@@ -1240,13 +1240,13 @@ pub const DISK_BINNING: u32 = 3;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct DISK_CACHE_INFORMATION {
-    pub ParametersSavable: bool,
-    pub ReadCacheEnabled: bool,
-    pub WriteCacheEnabled: bool,
+    pub ParametersSavable: u8,
+    pub ReadCacheEnabled: u8,
+    pub WriteCacheEnabled: u8,
     pub ReadRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub WriteRetentionPriority: DISK_CACHE_RETENTION_PRIORITY,
     pub DisablePrefetchTransferLength: u16,
-    pub PrefetchScalar: bool,
+    pub PrefetchScalar: u8,
     pub Anonymous: DISK_CACHE_INFORMATION_0,
 }
 impl Default for DISK_CACHE_INFORMATION {
@@ -1467,7 +1467,7 @@ pub struct DISK_RECORD {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: u32,
     pub DeviceNumber: u8,
-    pub ReadRequest: bool,
+    pub ReadRequest: u8,
 }
 impl Default for DISK_RECORD {
     fn default() -> Self {
@@ -2071,7 +2071,7 @@ pub struct FILE_LEVEL_TRIM_RANGE {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_MAKE_COMPATIBLE_BUFFER {
-    pub CloseDisc: bool,
+    pub CloseDisc: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -2178,7 +2178,7 @@ impl Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
 #[derive(Clone, Copy, Default)]
 pub struct FILE_QUERY_SPARING_BUFFER {
     pub SparingUnitBytes: u32,
-    pub SoftwareSparing: bool,
+    pub SoftwareSparing: u8,
     pub TotalSpareBlocks: u32,
     pub FreeSpareBlocks: u32,
 }
@@ -2227,13 +2227,13 @@ pub const FILE_REGION_USAGE_VALID_NONCACHED_DATA: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_SET_DEFECT_MGMT_BUFFER {
-    pub Disable: bool,
+    pub Disable: u8,
 }
 pub const FILE_SET_ENCRYPTION: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct FILE_SET_SPARSE_BUFFER {
-    pub SetSparse: bool,
+    pub SetSparse: u8,
 }
 pub const FILE_SPECIAL_ACCESS: u32 = 0;
 #[repr(C)]
@@ -3656,9 +3656,9 @@ pub struct PARTITION_INFORMATION {
     pub HiddenSectors: u32,
     pub PartitionNumber: u32,
     pub PartitionType: u8,
-    pub BootIndicator: bool,
-    pub RecognizedPartition: bool,
-    pub RewritePartition: bool,
+    pub BootIndicator: u8,
+    pub RecognizedPartition: u8,
+    pub RewritePartition: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3667,8 +3667,8 @@ pub struct PARTITION_INFORMATION_EX {
     pub StartingOffset: i64,
     pub PartitionLength: i64,
     pub PartitionNumber: u32,
-    pub RewritePartition: bool,
-    pub IsServicePartition: bool,
+    pub RewritePartition: u8,
+    pub IsServicePartition: u8,
     pub Anonymous: PARTITION_INFORMATION_EX_0,
 }
 impl Default for PARTITION_INFORMATION_EX {
@@ -3704,8 +3704,8 @@ impl Default for PARTITION_INFORMATION_GPT {
 #[derive(Clone, Copy, Default)]
 pub struct PARTITION_INFORMATION_MBR {
     pub PartitionType: u8,
-    pub BootIndicator: bool,
-    pub RecognizedPartition: bool,
+    pub BootIndicator: u8,
+    pub RecognizedPartition: u8,
     pub HiddenSectors: u32,
     pub PartitionId: windows_sys::core::GUID,
 }
@@ -3872,7 +3872,7 @@ pub struct PLEX_READ_DATA_REQUEST {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct PREVENT_MEDIA_REMOVAL {
-    pub PreventMediaRemoval: bool,
+    pub PreventMediaRemoval: u8,
 }
 pub const PRODUCT_ID_LENGTH: u32 = 16;
 pub const PROJFS_PROTOCOL_VERSION: u32 = 3;
@@ -4297,7 +4297,7 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
-    pub ActivateState: bool,
+    pub ActivateState: u8,
 }
 pub type SCM_BUS_FIRMWARE_ACTIVATION_STATE = i32;
 pub type SCM_BUS_PROPERTY_ID = i32;
@@ -4335,7 +4335,7 @@ pub type SCM_BUS_QUERY_TYPE = i32;
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     pub Version: u32,
     pub Size: u32,
-    pub RuntimeFwActivationSupported: bool,
+    pub RuntimeFwActivationSupported: u8,
     pub FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE,
     pub FirmwareActivationCapability: SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0,
     pub EstimatedFirmwareActivationTimeInUSecs: u64,
@@ -4680,7 +4680,7 @@ pub struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT {
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE {
-    pub ArmState: bool,
+    pub ArmState: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -4926,7 +4926,7 @@ pub struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT {
 #[derive(Clone, Copy)]
 pub struct SET_DISK_ATTRIBUTES {
     pub Version: u32,
-    pub Persist: bool,
+    pub Persist: u8,
     pub Reserved1: [u8; 3],
     pub Attributes: u64,
     pub AttributesMask: u64,
@@ -5077,10 +5077,10 @@ pub struct STORAGE_ADAPTER_DESCRIPTOR {
     pub MaximumTransferLength: u32,
     pub MaximumPhysicalPages: u32,
     pub AlignmentMask: u32,
-    pub AdapterUsesPio: bool,
-    pub AdapterScansDown: bool,
-    pub CommandQueueing: bool,
-    pub AcceleratedTransfer: bool,
+    pub AdapterUsesPio: u8,
+    pub AdapterScansDown: u8,
+    pub CommandQueueing: u8,
+    pub AcceleratedTransfer: u8,
     pub BusType: u8,
     pub BusMajorVersion: u16,
     pub BusMinorVersion: u16,
@@ -5107,9 +5107,9 @@ pub struct STORAGE_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
     pub Period: u32,
-    pub RetryFailures: bool,
-    pub Discardable: bool,
-    pub Reserved1: [bool; 2],
+    pub RetryFailures: u8,
+    pub Discardable: u8,
+    pub Reserved1: [u8; 2],
     pub AccessType: u32,
     pub AccessMode: u32,
 }
@@ -5250,8 +5250,8 @@ pub struct STORAGE_DEVICE_DESCRIPTOR {
     pub Size: u32,
     pub DeviceType: u8,
     pub DeviceTypeModifier: u8,
-    pub RemovableMedia: bool,
-    pub CommandQueueing: bool,
+    pub RemovableMedia: u8,
+    pub CommandQueueing: u8,
     pub VendorIdOffset: u32,
     pub ProductIdOffset: u32,
     pub ProductRevisionOffset: u32,
@@ -5407,14 +5407,14 @@ pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY {
     pub Version: u32,
     pub Size: u32,
-    pub SupportsSelfEncryption: bool,
+    pub SupportsSelfEncryption: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY_V2 {
     pub Version: u32,
     pub Size: u32,
-    pub SupportsSelfEncryption: bool,
+    pub SupportsSelfEncryption: u8,
     pub EncryptionType: STORAGE_ENCRYPTION_TYPE,
 }
 pub const STORAGE_DEVICE_TELEMETRY_REGKEY: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry");
@@ -5486,8 +5486,8 @@ pub const STORAGE_EVENT_NOTIFICATION_VERSION_V1: u32 = 1;
 pub struct STORAGE_FAILURE_PREDICTION_CONFIG {
     pub Version: u32,
     pub Size: u32,
-    pub Set: bool,
-    pub Enabled: bool,
+    pub Set: u8,
+    pub Enabled: u8,
     pub Reserved: u16,
 }
 pub const STORAGE_FAILURE_PREDICTION_CONFIG_V1: u32 = 1;
@@ -5518,10 +5518,10 @@ pub struct STORAGE_GET_BC_PROPERTIES_OUTPUT {
 #[derive(Clone, Copy, Default)]
 pub struct STORAGE_HOTPLUG_INFO {
     pub Size: u32,
-    pub MediaRemovable: bool,
-    pub MediaHotplug: bool,
-    pub DeviceHotplug: bool,
-    pub WriteCacheEnableOverride: bool,
+    pub MediaRemovable: u8,
+    pub MediaHotplug: u8,
+    pub DeviceHotplug: u8,
+    pub WriteCacheEnableOverride: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -5609,7 +5609,7 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub SlotCount: u8,
     pub ActiveSlot: u8,
     pub PendingActivateSlot: u8,
-    pub FirmwareShared: bool,
+    pub FirmwareShared: u8,
     pub Reserved: [u8; 3],
     pub ImagePayloadAlignment: u32,
     pub ImagePayloadMaxSize: u32,
@@ -5727,10 +5727,10 @@ pub struct STORAGE_MINIPORT_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub Portdriver: STORAGE_PORT_CODE_SET,
-    pub LUNResetSupported: bool,
-    pub TargetResetSupported: bool,
+    pub LUNResetSupported: u8,
+    pub TargetResetSupported: u8,
     pub IoTimeoutValue: u16,
-    pub ExtraIoInfoSupported: bool,
+    pub ExtraIoInfoSupported: u8,
     pub Flags: STORAGE_MINIPORT_DESCRIPTOR_0,
     pub Reserved0: [u8; 2],
     pub Reserved1: u32,
@@ -5874,7 +5874,7 @@ pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
     pub Model: [u8; 40],
     pub FirmwareRevision: [u8; 16],
     pub PhysicalLocation: [u8; 32],
-    pub ExpanderConnected: bool,
+    pub ExpanderConnected: u8,
     pub Reserved0: [u8; 3],
     pub Reserved1: [u32; 3],
 }
@@ -6273,9 +6273,9 @@ pub struct STORAGE_TEMPERATURE_INFO {
     pub Temperature: i16,
     pub OverThreshold: i16,
     pub UnderThreshold: i16,
-    pub OverThresholdChangable: bool,
-    pub UnderThresholdChangable: bool,
-    pub EventGenerated: bool,
+    pub OverThresholdChangable: u8,
+    pub UnderThresholdChangable: u8,
+    pub EventGenerated: u8,
     pub Reserved0: u8,
     pub Reserved1: u32,
 }
@@ -6287,7 +6287,7 @@ pub struct STORAGE_TEMPERATURE_THRESHOLD {
     pub Flags: u16,
     pub Index: u16,
     pub Threshold: i16,
-    pub OverThreshold: bool,
+    pub OverThreshold: u8,
     pub Reserved: u8,
 }
 pub const STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST: u32 = 1;
@@ -6333,9 +6333,9 @@ pub struct STORAGE_WRITE_CACHE_PROPERTY {
     pub WriteCacheEnabled: WRITE_CACHE_ENABLE,
     pub WriteCacheChangeable: WRITE_CACHE_CHANGE,
     pub WriteThroughSupported: WRITE_THROUGH,
-    pub FlushCacheSupported: bool,
-    pub UserDefinedPowerProtection: bool,
-    pub NVCacheEnabled: bool,
+    pub FlushCacheSupported: u8,
+    pub UserDefinedPowerProtection: u8,
+    pub NVCacheEnabled: u8,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -6368,7 +6368,7 @@ impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
 #[derive(Clone, Copy)]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub MaxOpenZoneCount: u32,
-    pub UnrestrictedRead: bool,
+    pub UnrestrictedRead: u8,
     pub Reserved: [u8; 3],
 }
 impl Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
@@ -6391,7 +6391,7 @@ pub struct STORAGE_ZONE_DESCRIPTOR {
     pub Size: u32,
     pub ZoneType: STORAGE_ZONE_TYPES,
     pub ZoneCondition: STORAGE_ZONE_CONDITION,
-    pub ResetWritePointerRecommend: bool,
+    pub ResetWritePointerRecommend: u8,
     pub Reserved0: [u8; 3],
     pub ZoneSize: u64,
     pub WritePointerOffset: u64,
@@ -7037,7 +7037,7 @@ pub const TXFS_TRANSACTED_VERSION_UNCOMMITTED: u32 = 4294967295;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct TXFS_TRANSACTION_ACTIVE_INFO {
-    pub TransactionsActiveAtSnapshot: bool,
+    pub TransactionsActiveAtSnapshot: u8,
 }
 pub const TXFS_TRANSACTION_STATE_ACTIVE: u32 = 1;
 pub const TXFS_TRANSACTION_STATE_NONE: u32 = 0;
