@@ -168,25 +168,25 @@ impl CurrencyFormatter {
             (windows_core::Interface::vtable(this).ResolvedGeographicRegion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<i64> {
+    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<i64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<u64> {
+    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<f64> {
+    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NumberRounder(&self) -> windows_core::Result<INumberRounder> {
@@ -401,25 +401,25 @@ impl DecimalFormatter {
             (windows_core::Interface::vtable(this).ResolvedGeographicRegion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<i64> {
+    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<i64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<u64> {
+    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<f64> {
+    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NumberRounder(&self) -> windows_core::Result<INumberRounder> {
@@ -1013,22 +1013,22 @@ pub struct INumberFormatterOptions_Vtbl {
 windows_core::imp::define_winrt_interface!(INumberParser, INumberParser_Vtbl, 0xe6659412_4a13_4a53_83a1_392fbe4cff9f, b"Windows.Globalization.NumberFormatting.INumberParser");
 windows_core::imp::interface_hierarchy!(INumberParser, windows_core::IUnknown, windows_core::IInspectable);
 impl INumberParser {
-    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<i64> {
+    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<i64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParseInt)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i64>| r__.Value())
+            (windows_core::Interface::vtable(self).ParseInt)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<u64> {
+    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParseUInt)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ParseUInt)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<f64> {
+    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ParseDouble)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ParseDouble)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1784,25 +1784,25 @@ impl PercentFormatter {
             (windows_core::Interface::vtable(this).ResolvedGeographicRegion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<i64> {
+    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<i64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<u64> {
+    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<f64> {
+    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NumberRounder(&self) -> windows_core::Result<INumberRounder> {
@@ -2003,25 +2003,25 @@ impl PermilleFormatter {
             (windows_core::Interface::vtable(this).ResolvedGeographicRegion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<i64> {
+    pub fn ParseInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<i64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<u64> {
+    pub fn ParseUInt(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseUInt)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<f64> {
+    pub fn ParseDouble(&self, text: &windows_core::HSTRING) -> windows_core::Result<windows_reference::IReference<f64>> {
         let this = &windows_core::Interface::cast::<INumberParser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(this).ParseDouble)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NumberRounder(&self) -> windows_core::Result<INumberRounder> {

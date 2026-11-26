@@ -134,47 +134,41 @@ impl GlobalSystemMediaTransportControlsSession {
             (windows_core::Interface::vtable(self).TryChangePlaybackPositionAsync)(windows_core::Interface::as_raw(self), requestedplaybackposition, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimelinePropertiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn TimelinePropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<TimelinePropertiesChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, TimelinePropertiesChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, TimelinePropertiesChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).TimelinePropertiesChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTimelinePropertiesChanged))
+            (windows_core::Interface::vtable(self).TimelinePropertiesChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveTimelinePropertiesChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveTimelinePropertiesChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn PlaybackInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackInfoChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlaybackInfoChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlaybackInfoChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PlaybackInfoChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePlaybackInfoChanged))
+            (windows_core::Interface::vtable(self).PlaybackInfoChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn MediaPropertiesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlaybackInfoChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePlaybackInfoChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn MediaPropertiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaPropertiesChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MediaPropertiesChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MediaPropertiesChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MediaPropertiesChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMediaPropertiesChanged))
+            (windows_core::Interface::vtable(self).MediaPropertiesChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveMediaPropertiesChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveMediaPropertiesChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for GlobalSystemMediaTransportControlsSession {
@@ -207,33 +201,29 @@ impl GlobalSystemMediaTransportControlsSessionManager {
             (windows_core::Interface::vtable(self).GetSessions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn CurrentSessionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn CurrentSessionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentSessionChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CurrentSessionChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, CurrentSessionChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CurrentSessionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCurrentSessionChanged))
+            (windows_core::Interface::vtable(self).CurrentSessionChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn SessionsChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveCurrentSessionChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCurrentSessionChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn SessionsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SessionsChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SessionsChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, SessionsChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SessionsChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSessionsChanged))
+            (windows_core::Interface::vtable(self).SessionsChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveSessionsChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSessionsChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn RequestAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IGlobalSystemMediaTransportControlsSessionManagerStatics(|this| unsafe {
@@ -312,10 +302,10 @@ impl GlobalSystemMediaTransportControlsSessionMediaProperties {
             (windows_core::Interface::vtable(self).AlbumTrackCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackType(&self) -> windows_core::Result<super::MediaPlaybackType> {
+    pub fn PlaybackType(&self) -> windows_core::Result<windows_reference::IReference<super::MediaPlaybackType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::MediaPlaybackType>| r__.Value())
+            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -465,28 +455,28 @@ impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
             (windows_core::Interface::vtable(self).PlaybackStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackType(&self) -> windows_core::Result<super::MediaPlaybackType> {
+    pub fn PlaybackType(&self) -> windows_core::Result<windows_reference::IReference<super::MediaPlaybackType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::MediaPlaybackType>| r__.Value())
+            (windows_core::Interface::vtable(self).PlaybackType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn AutoRepeatMode(&self) -> windows_core::Result<super::MediaPlaybackAutoRepeatMode> {
+    pub fn AutoRepeatMode(&self) -> windows_core::Result<windows_reference::IReference<super::MediaPlaybackAutoRepeatMode>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AutoRepeatMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::MediaPlaybackAutoRepeatMode>| r__.Value())
+            (windows_core::Interface::vtable(self).AutoRepeatMode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PlaybackRate(&self) -> windows_core::Result<f64> {
+    pub fn PlaybackRate(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PlaybackRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).PlaybackRate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn IsShuffleActive(&self) -> windows_core::Result<bool> {
+    pub fn IsShuffleActive(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsShuffleActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
+            (windows_core::Interface::vtable(self).IsShuffleActive)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

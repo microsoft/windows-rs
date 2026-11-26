@@ -159,13 +159,13 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<HolographicStereoTransform>
+    pub fn TryGetViewTransform<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<HolographicStereoTransform>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetViewTransform)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<HolographicStereoTransform>| r__.Value())
+            (windows_core::Interface::vtable(self).TryGetViewTransform)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProjectionTransform(&self) -> windows_core::Result<HolographicStereoTransform> {
@@ -175,23 +175,23 @@ impl HolographicCameraPose {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Perception::Spatial::SpatialBoundingFrustum>
+    pub fn TryGetCullingFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetCullingFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>| r__.Value())
+            (windows_core::Interface::vtable(self).TryGetCullingFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::super::Perception::Spatial::SpatialBoundingFrustum>
+    pub fn TryGetVisibleFrustum<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetVisibleFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingFrustum>| r__.Value())
+            (windows_core::Interface::vtable(self).TryGetVisibleFrustum)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn NearPlaneDistance(&self) -> windows_core::Result<f64> {
@@ -972,33 +972,29 @@ impl HolographicSpace {
     {
         unsafe { (windows_core::Interface::vtable(self).SetDirect3D11Device)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CameraAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn CameraAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HolographicSpaceCameraAddedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HolographicSpaceCameraAddedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, HolographicSpaceCameraAddedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CameraAdded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCameraAdded))
+            (windows_core::Interface::vtable(self).CameraAdded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CameraRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveCameraAdded(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCameraAdded)(windows_core::Interface::as_raw(self), cookie).ok() }
+    }
+    pub fn CameraRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<HolographicSpaceCameraRemovedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, HolographicSpaceCameraRemovedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, HolographicSpaceCameraRemovedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CameraRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCameraRemoved))
+            (windows_core::Interface::vtable(self).CameraRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveCameraRemoved(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCameraRemoved)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn CreateNextFrame(&self) -> windows_core::Result<HolographicFrame> {
         unsafe {
@@ -1013,20 +1009,19 @@ impl HolographicSpace {
             (windows_core::Interface::vtable(this).UserPresence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserPresenceChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn UserPresenceChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).UserPresenceChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveUserPresenceChanged))
+            (windows_core::Interface::vtable(this).UserPresenceChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveUserPresenceChanged(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveUserPresenceChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn WaitForNextFrameReady(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IHolographicSpace2>(self)?;
@@ -1072,19 +1067,17 @@ impl HolographicSpace {
             (windows_core::Interface::vtable(this).IsAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsAvailableChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn IsAvailableChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IHolographicSpaceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).IsAvailableChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveIsAvailableChanged))
+            (windows_core::Interface::vtable(this).IsAvailableChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
+    }
+    pub fn RemoveIsAvailableChanged(token: i64) -> windows_core::Result<()> {
+        Self::IHolographicSpaceStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveIsAvailableChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     pub fn IsConfigured() -> windows_core::Result<bool> {
         Self::IHolographicSpaceStatics3(|this| unsafe {

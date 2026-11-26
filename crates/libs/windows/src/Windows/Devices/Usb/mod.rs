@@ -879,25 +879,29 @@ impl UsbDeviceClass {
     pub fn SetClassCode(&self, value: u8) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetClassCode)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn SubclassCode(&self) -> windows_core::Result<u8> {
+    pub fn SubclassCode(&self) -> windows_core::Result<windows_reference::IReference<u8>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SubclassCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u8>| r__.Value())
+            (windows_core::Interface::vtable(self).SubclassCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetSubclassCode(&self, value: Option<u8>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u8> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetSubclassCode)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetSubclassCode<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u8>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetSubclassCode)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ProtocolCode(&self) -> windows_core::Result<u8> {
+    pub fn ProtocolCode(&self) -> windows_core::Result<windows_reference::IReference<u8>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProtocolCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u8>| r__.Value())
+            (windows_core::Interface::vtable(self).ProtocolCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetProtocolCode(&self, value: Option<u8>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u8> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetProtocolCode)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetProtocolCode<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u8>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetProtocolCode)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for UsbDeviceClass {
@@ -1435,19 +1439,17 @@ impl UsbInterruptInPipe {
             (windows_core::Interface::vtable(self).ClearStallAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn DataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<UsbInterruptInEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, UsbInterruptInEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, UsbInterruptInEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDataReceived))
+            (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveDataReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDataReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for UsbInterruptInPipe {

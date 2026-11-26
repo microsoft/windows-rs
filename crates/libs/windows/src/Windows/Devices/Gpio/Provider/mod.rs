@@ -108,19 +108,17 @@ pub struct IGpioControllerProvider_Vtbl {
 windows_core::imp::define_winrt_interface!(IGpioPinProvider, IGpioPinProvider_Vtbl, 0x42344cb7_6abc_40ff_9ce7_73b85301b900, b"Windows.Devices.Gpio.Provider.IGpioPinProvider");
 windows_core::imp::interface_hierarchy!(IGpioPinProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IGpioPinProvider {
-    pub fn ValueChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ValueChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GpioPinProviderValueChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, GpioPinProviderValueChangedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GpioPinProviderValueChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ValueChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveValueChanged))
+            (windows_core::Interface::vtable(self).ValueChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveValueChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveValueChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn DebounceTimeout(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {

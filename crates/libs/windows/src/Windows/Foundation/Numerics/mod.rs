@@ -1,3 +1,8 @@
+pub use windows_numerics::Matrix3x2;
+pub use windows_numerics::Matrix4x4;
+pub use windows_numerics::Vector2;
+pub use windows_numerics::Vector3;
+pub use windows_numerics::Vector4;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Plane {

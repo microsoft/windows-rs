@@ -185,19 +185,17 @@ impl WiFiAdapter {
             (windows_core::Interface::vtable(self).NetworkReport)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn AvailableNetworksChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn AvailableNetworksChanged<P0>(&self, args: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).AvailableNetworksChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAvailableNetworksChanged))
+            (windows_core::Interface::vtable(self).AvailableNetworksChanged)(windows_core::Interface::as_raw(self), args.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveAvailableNetworksChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAvailableNetworksChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn ConnectAsync<P0>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind) -> windows_core::Result<windows_future::IAsyncOperation<WiFiConnectionResult>>
     where
@@ -686,25 +684,29 @@ impl WiFiOnDemandHotspotNetworkProperties {
     pub fn SetAvailability(&self, value: WiFiOnDemandHotspotAvailability) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAvailability)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn RemainingBatteryPercent(&self) -> windows_core::Result<u32> {
+    pub fn RemainingBatteryPercent(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemainingBatteryPercent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).RemainingBatteryPercent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetRemainingBatteryPercent(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetRemainingBatteryPercent<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetRemainingBatteryPercent)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn CellularBars(&self) -> windows_core::Result<WiFiOnDemandHotspotCellularBars> {
+    pub fn CellularBars(&self) -> windows_core::Result<windows_reference::IReference<WiFiOnDemandHotspotCellularBars>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellularBars)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<WiFiOnDemandHotspotCellularBars>| r__.Value())
+            (windows_core::Interface::vtable(self).CellularBars)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetCellularBars(&self, value: Option<WiFiOnDemandHotspotCellularBars>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<WiFiOnDemandHotspotCellularBars> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetCellularBars)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetCellularBars<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<WiFiOnDemandHotspotCellularBars>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetCellularBars)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn IsMetered(&self) -> windows_core::Result<bool> {
         unsafe {

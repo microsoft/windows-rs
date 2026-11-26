@@ -227,17 +227,6 @@ impl AddPackageOptions {
         let this = &windows_core::Interface::cast::<IAddPackageOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLimitToExistingPackages)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PackageOperationPriority(&self) -> windows_core::Result<PackageOperationPriority> {
-        let this = &windows_core::Interface::cast::<IAddPackageOptions3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageOperationPriority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetPackageOperationPriority(&self, value: PackageOperationPriority) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IAddPackageOptions3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPackageOperationPriority)(windows_core::Interface::as_raw(this), value).ok() }
-    }
 }
 impl windows_core::RuntimeType for AddPackageOptions {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IAddPackageOptions>();
@@ -825,14 +814,6 @@ pub struct IAddPackageOptions2_Vtbl {
     pub LimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetLimitToExistingPackages: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_winrt_interface!(IAddPackageOptions3, IAddPackageOptions3_Vtbl, 0xcba622a7_aa31_45ab_8b88_40d08b0a8b27, b"Windows.Management.Deployment.IAddPackageOptions3");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAddPackageOptions3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageOperationPriority) -> windows_core::HRESULT,
-    pub SetPackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, PackageOperationPriority) -> windows_core::HRESULT,
-}
 windows_core::imp::define_winrt_interface!(IAppInstallerManager, IAppInstallerManager_Vtbl, 0xe7ee21c3_2103_53ee_9b18_68afeab0033d, b"Windows.Management.Deployment.IAppInstallerManager");
 #[repr(C)]
 #[doc(hidden)]
@@ -1391,14 +1372,6 @@ windows_core::imp::define_winrt_interface!(IStagePackageOptions2, IStagePackageO
 pub struct IStagePackageOptions2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ExpectedDigests: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_winrt_interface!(IStagePackageOptions3, IStagePackageOptions3_Vtbl, 0xce392e55_1743_4945_ad43_9e5add4be96d, b"Windows.Management.Deployment.IStagePackageOptions3");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStagePackageOptions3_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub PackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PackageOperationPriority) -> windows_core::HRESULT,
-    pub SetPackageOperationPriority: unsafe extern "system" fn(*mut core::ffi::c_void, PackageOperationPriority) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IUpdateSharedPackageContainerOptions, IUpdateSharedPackageContainerOptions_Vtbl, 0x80672e83_7194_59f9_b5b9_daa5375f130a, b"Windows.Management.Deployment.IUpdateSharedPackageContainerOptions");
 #[repr(C)]
@@ -2141,21 +2114,6 @@ impl windows_core::RuntimeName for PackageManagerDebugSettings {
 }
 unsafe impl Send for PackageManagerDebugSettings {}
 unsafe impl Sync for PackageManagerDebugSettings {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct PackageOperationPriority(pub i32);
-impl PackageOperationPriority {
-    pub const Low: Self = Self(0);
-    pub const Normal: Self = Self(1);
-    pub const High: Self = Self(2);
-}
-impl windows_core::imp::TypeKind for PackageOperationPriority {
-    type TypeKind = windows_core::imp::CopyType;
-}
-impl windows_core::RuntimeType for PackageOperationPriority {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Deployment.PackageOperationPriority;i4)");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Management.Deployment.PackageOperationPriority");
-}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageState(pub i32);
@@ -3078,17 +3036,6 @@ impl StagePackageOptions {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpectedDigests)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
-    }
-    pub fn PackageOperationPriority(&self) -> windows_core::Result<PackageOperationPriority> {
-        let this = &windows_core::Interface::cast::<IStagePackageOptions3>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PackageOperationPriority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetPackageOperationPriority(&self, value: PackageOperationPriority) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IStagePackageOptions3>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetPackageOperationPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
 impl windows_core::RuntimeType for StagePackageOptions {

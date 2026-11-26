@@ -6,6 +6,21 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
+pub use windows_future::AsyncActionCompletedHandler;
+pub use windows_future::AsyncActionProgressHandler;
+pub use windows_future::AsyncActionWithProgressCompletedHandler;
+pub use windows_future::AsyncOperationCompletedHandler;
+pub use windows_future::AsyncOperationProgressHandler;
+pub use windows_future::AsyncOperationWithProgressCompletedHandler;
+pub use windows_future::AsyncStatus;
+pub use windows_future::IAsyncAction;
+pub use windows_future::IAsyncActionWithProgress;
+pub use windows_future::IAsyncInfo;
+pub use windows_future::IAsyncOperation;
+pub use windows_future::IAsyncOperationWithProgress;
+pub use windows_reference::IReference;
+pub use windows_time::DateTime;
+pub use windows_time::TimeSpan;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Deferral(windows_core::IUnknown);
@@ -333,19 +348,17 @@ impl IMemoryBufferReference {
             (windows_core::Interface::vtable(self).Capacity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosed))
+            (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveClosed)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IClosable>(self)?;
@@ -358,7 +371,7 @@ impl windows_core::RuntimeName for IMemoryBufferReference {
 pub trait IMemoryBufferReference_Impl: IClosable_Impl {
     fn Capacity(&self) -> windows_core::Result<u32>;
     fn Closed(&self, handler: windows_core::Ref<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
-    fn RemoveClosed(&self, token: i64) -> windows_core::Result<()>;
+    fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl IMemoryBufferReference_Vtbl {
     pub const fn new<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>() -> Self {
@@ -392,10 +405,10 @@ impl IMemoryBufferReference_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveClosed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMemoryBufferReference_Impl::RemoveClosed(this, token).into()
+                IMemoryBufferReference_Impl::RemoveClosed(this, cookie).into()
             }
         }
         Self {

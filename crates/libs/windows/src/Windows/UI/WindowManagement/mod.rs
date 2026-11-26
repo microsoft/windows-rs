@@ -129,47 +129,41 @@ impl AppWindow {
             (windows_core::Interface::vtable(self).TryShowAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppWindowChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppWindowChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, AppWindowChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveChanged))
+            (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppWindowClosedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppWindowClosedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, AppWindowClosedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosed))
+            (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CloseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveClosed)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppWindowCloseRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppWindowCloseRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, AppWindowCloseRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CloseRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCloseRequested))
+            (windows_core::Interface::vtable(self).CloseRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCloseRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn TryCreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<Self>> {
         Self::IAppWindowStatics(|this| unsafe {
@@ -347,6 +341,13 @@ impl windows_core::RuntimeType for AppWindowClosedReason {
 pub struct AppWindowFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowFrame {
+    #[cfg(feature = "UI_Composition")]
+    pub fn DragRegionVisuals(&self) -> windows_core::Result<windows_collections::IVector<super::Composition::IVisualElement>> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).DragRegionVisuals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
+        }
+    }
     pub fn GetFrameStyle(&self) -> windows_core::Result<AppWindowFrameStyle> {
         let this = &windows_core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
@@ -514,95 +515,113 @@ unsafe impl Sync for AppWindowPresenter {}
 pub struct AppWindowTitleBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowTitleBar {
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn BackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).BackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetBackgroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetBackgroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonBackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonBackgroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonBackgroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonForegroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonForegroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonForegroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonHoverBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonHoverBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonHoverBackgroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonHoverForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonHoverForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonHoverForegroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonInactiveBackgroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonInactiveForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonInactiveForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonInactiveForegroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonPressedBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonPressedBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonPressedBackgroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ButtonPressedForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ButtonPressedForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetButtonPressedForegroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn ExtendsContentIntoTitleBar(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -613,35 +632,41 @@ impl AppWindowTitleBar {
     pub fn SetExtendsContentIntoTitleBar(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExtendsContentIntoTitleBar)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ForegroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn ForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).ForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetForegroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetForegroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InactiveBackgroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn InactiveBackgroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InactiveBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).InactiveBackgroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetInactiveBackgroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InactiveForegroundColor(&self) -> windows_core::Result<super::Color> {
+    pub fn InactiveForegroundColor(&self) -> windows_core::Result<windows_reference::IReference<super::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InactiveForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).InactiveForegroundColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetInactiveForegroundColor(&self, value: Option<super::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetInactiveForegroundColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetInactiveForegroundColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn IsVisible(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -822,19 +847,17 @@ impl DisplayRegion {
             (windows_core::Interface::vtable(self).WindowingEnvironment)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveChanged))
+            (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for DisplayRegion {
@@ -966,6 +989,10 @@ windows_core::imp::define_winrt_interface!(IAppWindowFrame, IAppWindowFrame_Vtbl
 #[doc(hidden)]
 pub struct IAppWindowFrame_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "UI_Composition")]
+    pub DragRegionVisuals: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "UI_Composition"))]
+    DragRegionVisuals: usize,
 }
 windows_core::imp::define_winrt_interface!(IAppWindowFrameStyle, IAppWindowFrameStyle_Vtbl, 0xac412946_e1ac_5230_944a_c60873dcf4a9, b"Windows.UI.WindowManagement.IAppWindowFrameStyle");
 #[repr(C)]
@@ -1183,19 +1210,17 @@ impl WindowingEnvironment {
             (windows_core::Interface::vtable(self).GetDisplayRegions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<WindowingEnvironmentChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, WindowingEnvironmentChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, WindowingEnvironmentChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveChanged))
+            (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn FindAll() -> windows_core::Result<windows_collections::IVectorView<Self>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {

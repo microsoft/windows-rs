@@ -11,19 +11,17 @@ impl ActionCatalog {
             (windows_core::Interface::vtable(self).GetAllActions)(windows_core::Interface::as_raw(self), &mut result_size__, &mut result__).map(|| windows_core::Array::<ActionDefinition>::from_raw_parts(result__.cast(), result_size__))
         }
     }
-    pub fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveChanged))
+            (windows_core::Interface::vtable(self).Changed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetActionsForInputs(&self, inputentities: &[Option<super::ActionEntity>]) -> windows_core::Result<windows_core::Array<ActionInstance>> {
         let this = &windows_core::Interface::cast::<IActionCatalog2>(self)?;
@@ -152,17 +150,6 @@ impl ActionDefinition {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentlyAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetIconFullPath<P0>(&self, qualifiervalues: P0) -> windows_core::Result<windows_core::HSTRING>
-    where
-        P0: windows_core::Param<super::super::super::Foundation::Collections::PropertySet>,
-    {
-        let this = &windows_core::Interface::cast::<IActionDefinition5>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetIconFullPath)(windows_core::Interface::as_raw(this), qualifiervalues.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     pub fn Close(&self) -> windows_core::Result<()> {
@@ -419,16 +406,6 @@ windows_core::imp::define_winrt_interface!(IActionDefinition4, IActionDefinition
 pub struct IActionDefinition4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentlyAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-}
-windows_core::imp::define_winrt_interface!(IActionDefinition5, IActionDefinition5_Vtbl, 0x5bea33ef_d325_53a8_8db3_0d771f4d1e54, b"Windows.AI.Actions.Hosting.IActionDefinition5");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IActionDefinition5_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetIconFullPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetIconFullPath: usize,
 }
 windows_core::imp::define_winrt_interface!(IActionEntityRegistrationInfo, IActionEntityRegistrationInfo_Vtbl, 0xc3b92bdb_03c3_5a9e_b049_002fa0405699, b"Windows.AI.Actions.Hosting.IActionEntityRegistrationInfo");
 #[repr(C)]

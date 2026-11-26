@@ -142,16 +142,6 @@ pub struct IWorkflowPrintTicket_Vtbl {
     pub SetParameterInitializerAsString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub MergeAndValidateTicket: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_winrt_interface!(IWorkflowPrintTicketFactory, IWorkflowPrintTicketFactory_Vtbl, 0x966d1166_d9c7_569e_b7d8_f2b341c8f976, b"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketFactory");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWorkflowPrintTicketFactory_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    CreateInstance: usize,
-}
 windows_core::imp::define_winrt_interface!(IWorkflowPrintTicketValidationResult, IWorkflowPrintTicketValidationResult_Vtbl, 0x0ad1f392_da7b_4a36_bf36_6a99a62e2059, b"Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketValidationResult");
 #[repr(C)]
 #[doc(hidden)]
@@ -801,20 +791,6 @@ impl WorkflowPrintTicket {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MergeAndValidateTicket)(windows_core::Interface::as_raw(self), deltashematicket.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
-    }
-    #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<P1>(printername: &windows_core::HSTRING, printticketstream: P1) -> windows_core::Result<Self>
-    where
-        P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
-    {
-        Self::IWorkflowPrintTicketFactory(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticketstream.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
-        })
-    }
-    fn IWorkflowPrintTicketFactory<R, F: FnOnce(&IWorkflowPrintTicketFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<WorkflowPrintTicket, IWorkflowPrintTicketFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
     }
 }
 impl windows_core::RuntimeType for WorkflowPrintTicket {

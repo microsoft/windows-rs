@@ -273,33 +273,29 @@ impl SerialDevice {
             (windows_core::Interface::vtable(self).OutputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ErrorReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ErrorReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ErrorReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ErrorReceivedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, ErrorReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ErrorReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveErrorReceived))
+            (windows_core::Interface::vtable(self).ErrorReceived)(windows_core::Interface::as_raw(self), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PinChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveErrorReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveErrorReceived)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn PinChanged<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PinChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PinChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PinChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PinChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePinChanged))
+            (windows_core::Interface::vtable(self).PinChanged)(windows_core::Interface::as_raw(self), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemovePinChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePinChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {

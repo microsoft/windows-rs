@@ -1,0 +1,2006 @@
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: Option<*const super::super::Networking::WinSock::SOCKADDR>, traffictype: QOS_TRAFFIC_TYPE, flags: Option<u32>, flowid: *mut u32) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSAddSocketToFlow(qoshandle : super::super::Foundation::HANDLE, socket : super::super::Networking::WinSock::SOCKET, destaddr : *const super::super::Networking::WinSock::SOCKADDR, traffictype : QOS_TRAFFIC_TYPE, flags : u32, flowid : *mut u32) -> windows_core::BOOL);
+    unsafe { QOSAddSocketToFlow(qoshandle, socket, destaddr.unwrap_or(core::mem::zeroed()) as _, traffictype, flags.unwrap_or(core::mem::zeroed()) as _, flowid as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
+pub unsafe fn QOSCancel(qoshandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSCancel(qoshandle : super::super::Foundation::HANDLE, overlapped : *const super::super::System::IO::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { QOSCancel(qoshandle, overlapped) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QOSCloseHandle(qoshandle: super::super::Foundation::HANDLE) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSCloseHandle(qoshandle : super::super::Foundation::HANDLE) -> windows_core::BOOL);
+    unsafe { QOSCloseHandle(qoshandle) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSCreateHandle(version : *const QOS_VERSION, qoshandle : *mut super::super::Foundation::HANDLE) -> windows_core::BOOL);
+    unsafe { QOSCreateHandle(version, qoshandle as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, size: *mut u32, buffer: *mut core::ffi::c_void) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSEnumerateFlows(qoshandle : super::super::Foundation::HANDLE, size : *mut u32, buffer : *mut core::ffi::c_void) -> windows_core::BOOL);
+    unsafe { QOSEnumerateFlows(qoshandle, size as _, buffer as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
+pub unsafe fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: Option<*mut u32>, buffer: Option<*mut core::ffi::c_void>, flags: Option<u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSNotifyFlow(qoshandle : super::super::Foundation::HANDLE, flowid : u32, operation : QOS_NOTIFY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { QOSNotifyFlow(qoshandle, flowid, operation, size.unwrap_or(core::mem::zeroed()) as _, buffer.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
+pub unsafe fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut core::ffi::c_void, flags: Option<u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSQueryFlow(qoshandle : super::super::Foundation::HANDLE, flowid : u32, operation : QOS_QUERY_FLOW, size : *mut u32, buffer : *mut core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { QOSQueryFlow(qoshandle, flowid, operation, size as _, buffer as _, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: Option<super::super::Networking::WinSock::SOCKET>, flowid: u32, flags: Option<u32>) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSRemoveSocketFromFlow(qoshandle : super::super::Foundation::HANDLE, socket : super::super::Networking::WinSock::SOCKET, flowid : u32, flags : u32) -> windows_core::BOOL);
+    unsafe { QOSRemoveSocketFromFlow(qoshandle, socket.unwrap_or(core::mem::zeroed()) as _, flowid, flags.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
+pub unsafe fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const core::ffi::c_void, flags: Option<u32>, overlapped: Option<*mut super::super::System::IO::OVERLAPPED>) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSSetFlow(qoshandle : super::super::Foundation::HANDLE, flowid : u32, operation : QOS_SET_FLOW, size : u32, buffer : *const core::ffi::c_void, flags : u32, overlapped : *mut super::super::System::IO::OVERLAPPED) -> windows_core::BOOL);
+    unsafe { QOSSetFlow(qoshandle, flowid, operation, size, buffer, flags.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: Option<u32>) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSStartTrackingClient(qoshandle : super::super::Foundation::HANDLE, destaddr : *const super::super::Networking::WinSock::SOCKADDR, flags : u32) -> windows_core::BOOL);
+    unsafe { QOSStartTrackingClient(qoshandle, destaddr, flags.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: Option<u32>) -> windows_core::BOOL {
+    windows_core::link!("qwave.dll" "system" fn QOSStopTrackingClient(qoshandle : super::super::Foundation::HANDLE, destaddr : *const super::super::Networking::WinSock::SOCKADDR, flags : u32) -> windows_core::BOOL);
+    unsafe { QOSStopTrackingClient(qoshandle, destaddr, flags.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcAddFilter(flowhandle : super::super::Foundation::HANDLE, pgenericfilter : *const TC_GEN_FILTER, pfilterhandle : *mut super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcAddFilter(flowhandle, pgenericfilter, pfilterhandle as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn TcAddFlow(ifchandle: super::super::Foundation::HANDLE, clflowctx: super::super::Foundation::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcAddFlow(ifchandle : super::super::Foundation::HANDLE, clflowctx : super::super::Foundation::HANDLE, flags : u32, pgenericflow : *const TC_GEN_FLOW, pflowhandle : *mut super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcAddFlow(ifchandle, clflowctx, flags, pgenericflow, pflowhandle as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcCloseInterface(ifchandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcCloseInterface(ifchandle : super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcCloseInterface(ifchandle) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcDeleteFilter(filterhandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcDeleteFilter(filterhandle : super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcDeleteFilter(filterhandle) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcDeleteFlow(flowhandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcDeleteFlow(flowhandle : super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcDeleteFlow(flowhandle) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcDeregisterClient(clienthandle : super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcDeregisterClient(clienthandle) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn TcEnumerateFlows(ifchandle: super::super::Foundation::HANDLE, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcEnumerateFlows(ifchandle : super::super::Foundation::HANDLE, penumhandle : *mut super::super::Foundation::HANDLE, pflowcount : *mut u32, pbufsize : *mut u32, buffer : *mut ENUMERATION_BUFFER) -> u32);
+    unsafe { TcEnumerateFlows(ifchandle, penumhandle as _, pflowcount as _, pbufsize as _, buffer as _) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[inline]
+pub unsafe fn TcEnumerateInterfaces(clienthandle: super::super::Foundation::HANDLE, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcEnumerateInterfaces(clienthandle : super::super::Foundation::HANDLE, pbuffersize : *mut u32, interfacebuffer : *mut TC_IFC_DESCRIPTOR) -> u32);
+    unsafe { TcEnumerateInterfaces(clienthandle, pbuffersize as _, interfacebuffer as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, pflowname: &mut [u8]) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::super::Foundation::HANDLE, strsize : u32, pflowname : windows_core::PSTR) -> u32);
+    unsafe { TcGetFlowNameA(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_mut_ptr())) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, pflowname: &mut [u16]) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::super::Foundation::HANDLE, strsize : u32, pflowname : windows_core::PWSTR) -> u32);
+    unsafe { TcGetFlowNameW(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_mut_ptr())) }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn TcModifyFlow(flowhandle: super::super::Foundation::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcModifyFlow(flowhandle : super::super::Foundation::HANDLE, pgenericflow : *const TC_GEN_FLOW) -> u32);
+    unsafe { TcModifyFlow(flowhandle, pgenericflow) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcOpenInterfaceA<P0>(pinterfacename: P0, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("traffic.dll" "system" fn TcOpenInterfaceA(pinterfacename : windows_core::PCSTR, clienthandle : super::super::Foundation::HANDLE, clifcctx : super::super::Foundation::HANDLE, pifchandle : *mut super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcOpenInterfaceA(pinterfacename.param().abi(), clienthandle, clifcctx, pifchandle as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcOpenInterfaceW<P0>(pinterfacename: P0, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("traffic.dll" "system" fn TcOpenInterfaceW(pinterfacename : windows_core::PCWSTR, clienthandle : super::super::Foundation::HANDLE, clifcctx : super::super::Foundation::HANDLE, pifchandle : *mut super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcOpenInterfaceW(pinterfacename.param().abi(), clienthandle, clifcctx, pifchandle as _) }
+}
+#[inline]
+pub unsafe fn TcQueryFlowA<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("traffic.dll" "system" fn TcQueryFlowA(pflowname : windows_core::PCSTR, pguidparam : *const windows_core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+    unsafe { TcQueryFlowA(pflowname.param().abi(), pguidparam, pbuffersize as _, buffer as _) }
+}
+#[inline]
+pub unsafe fn TcQueryFlowW<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("traffic.dll" "system" fn TcQueryFlowW(pflowname : windows_core::PCWSTR, pguidparam : *const windows_core::GUID, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+    unsafe { TcQueryFlowW(pflowname.param().abi(), pguidparam, pbuffersize as _, buffer as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, notifychange: bool, pbuffersize: *mut u32, buffer: *mut core::ffi::c_void) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcQueryInterface(ifchandle : super::super::Foundation::HANDLE, pguidparam : *const windows_core::GUID, notifychange : bool, pbuffersize : *mut u32, buffer : *mut core::ffi::c_void) -> u32);
+    unsafe { TcQueryInterface(ifchandle, pguidparam, notifychange, pbuffersize as _, buffer as _) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcRegisterClient(tciversion : u32, clregctx : super::super::Foundation::HANDLE, clienthandlerlist : *const TCI_CLIENT_FUNC_LIST, pclienthandle : *mut super::super::Foundation::HANDLE) -> u32);
+    unsafe { TcRegisterClient(tciversion, clregctx, clienthandlerlist, pclienthandle as _) }
+}
+#[inline]
+pub unsafe fn TcSetFlowA<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
+where
+    P0: windows_core::Param<windows_core::PCSTR>,
+{
+    windows_core::link!("traffic.dll" "system" fn TcSetFlowA(pflowname : windows_core::PCSTR, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+    unsafe { TcSetFlowA(pflowname.param().abi(), pguidparam, buffersize, buffer) }
+}
+#[inline]
+pub unsafe fn TcSetFlowW<P0>(pflowname: P0, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32
+where
+    P0: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("traffic.dll" "system" fn TcSetFlowW(pflowname : windows_core::PCWSTR, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+    unsafe { TcSetFlowW(pflowname.param().abi(), pguidparam, buffersize, buffer) }
+}
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const windows_core::GUID, buffersize: u32, buffer: *const core::ffi::c_void) -> u32 {
+    windows_core::link!("traffic.dll" "system" fn TcSetInterface(ifchandle : super::super::Foundation::HANDLE, pguidparam : *const windows_core::GUID, buffersize : u32, buffer : *const core::ffi::c_void) -> u32);
+    unsafe { TcSetInterface(ifchandle, pguidparam, buffersize, buffer) }
+}
+pub const ABLE_TO_RECV_RSVP: u32 = 50002;
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ADDRESS_LIST_DESCRIPTOR {
+    pub MediaType: u32,
+    pub AddressList: super::Ndis::NETWORK_ADDRESS_LIST,
+}
+pub const ADM_CTRL_FAILED: u32 = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct ADSPEC {
+    pub adspec_header: RsvpObjHdr,
+    pub adspec_body: IS_ADSPEC_BODY,
+}
+pub const AD_FLAG_BREAK_BIT: u32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AD_GENERAL_PARAMS {
+    pub IntServAwareHopCount: u32,
+    pub PathBandwidthEstimate: u32,
+    pub MinimumLatency: u32,
+    pub PathMTU: u32,
+    pub Flags: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AD_GUARANTEED {
+    pub CTotal: u32,
+    pub DTotal: u32,
+    pub CSum: u32,
+    pub DSum: u32,
+}
+pub const ALLOWED_TO_SEND_DATA: u32 = 50001;
+pub const ANY_DEST_ADDR: u32 = 4294967295;
+pub type CBADMITRESULT = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut POLICY_DECISION) -> *mut u32>;
+pub type CBGETRSVPOBJECTS = Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
+pub const CONTROLLED_DELAY_SERV: u32 = 4;
+pub const CONTROLLED_LOAD_SERV: u32 = 5;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct CONTROL_SERVICE {
+    pub Length: u32,
+    pub Service: u32,
+    pub Overrides: AD_GENERAL_PARAMS,
+    pub Anonymous: CONTROL_SERVICE_0,
+}
+impl Default for CONTROL_SERVICE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union CONTROL_SERVICE_0 {
+    pub Guaranteed: AD_GUARANTEED,
+    pub ParamBuffer: [PARAM_BUFFER; 1],
+}
+impl Default for CONTROL_SERVICE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const CREDENTIAL_SUB_TYPE_ASCII_ID: u32 = 1;
+pub const CREDENTIAL_SUB_TYPE_KERBEROS_TKT: u32 = 3;
+pub const CREDENTIAL_SUB_TYPE_PGP_CERT: u32 = 5;
+pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2;
+pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4;
+pub const CURRENT_TCI_VERSION: u32 = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct CtrlLoadFlowspec {
+    pub CL_spec_serv_hdr: IntServServiceHdr,
+    pub CL_spec_parm_hdr: IntServParmHdr,
+    pub CL_spec_parms: GenTspecParms,
+}
+pub const DD_TCP_DEVICE_NAME: windows_core::PCWSTR = windows_core::w!("\\Device\\Tcp");
+pub const DUP_RESULTS: u32 = 4;
+pub const END_TO_END_QOSABILITY: u32 = 50006;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ENUMERATION_BUFFER {
+    pub Length: u32,
+    pub OwnerProcessId: u32,
+    pub FlowNameLength: u16,
+    pub FlowName: [u16; 256],
+    pub pFlow: *mut TC_GEN_FLOW,
+    pub NumberOfFilters: u32,
+    pub GenericFilter: [TC_GEN_FILTER; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for ENUMERATION_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const ERROR_ADDRESS_TYPE_NOT_SUPPORTED: u32 = 7511;
+pub const ERROR_DS_MAPPING_EXISTS: u32 = 7518;
+pub const ERROR_DUPLICATE_FILTER: u32 = 7509;
+pub const ERROR_FILTER_CONFLICT: u32 = 7510;
+pub const ERROR_INCOMPATABLE_QOS: u32 = 7513;
+pub const ERROR_INCOMPATIBLE_TCI_VERSION: u32 = 7501;
+pub const ERROR_INVALID_ADDRESS_TYPE: u32 = 7508;
+pub const ERROR_INVALID_DIFFSERV_FLOW: u32 = 7517;
+pub const ERROR_INVALID_DS_CLASS: u32 = 7520;
+pub const ERROR_INVALID_FLOW_MODE: u32 = 7516;
+pub const ERROR_INVALID_PEAK_RATE: u32 = 7504;
+pub const ERROR_INVALID_QOS_PRIORITY: u32 = 7506;
+pub const ERROR_INVALID_SD_MODE: u32 = 7505;
+pub const ERROR_INVALID_SERVICE_TYPE: u32 = 7502;
+pub const ERROR_INVALID_SHAPE_RATE: u32 = 7519;
+pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503;
+pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507;
+pub const ERROR_NO_MORE_INFO: u32 = 1;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct ERROR_SPEC {
+    pub errs_header: RsvpObjHdr,
+    pub errs_u: ERROR_SPEC_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for ERROR_SPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union ERROR_SPEC_0 {
+    pub errs_ipv4: Error_Spec_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for ERROR_SPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const ERROR_SPECF_InPlace: u32 = 1;
+pub const ERROR_SPECF_NotGuilty: u32 = 2;
+pub const ERROR_TC_NOT_SUPPORTED: u32 = 7514;
+pub const ERROR_TC_OBJECT_LENGTH_INVALID: u32 = 7515;
+pub const ERROR_TC_SUPPORTED_OBJECTS_EXIST: u32 = 7512;
+pub const ERROR_TOO_MANY_CLIENTS: u32 = 7521;
+pub const ERR_FORWARD_OK: u32 = 32768;
+pub const ERR_Usage_globl: u32 = 0;
+pub const ERR_Usage_local: u32 = 16;
+pub const ERR_Usage_serv: u32 = 17;
+pub const ERR_global_mask: u32 = 4095;
+pub const EXPIRED_CREDENTIAL: u32 = 4;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Error_Spec_IPv4 {
+    pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
+    pub errs_flags: u8,
+    pub errs_code: u8,
+    pub errs_value: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Error_Spec_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const FILTERSPECV4: FilterType = FilterType(1);
+pub const FILTERSPECV4_GPI: FilterType = FilterType(4);
+pub const FILTERSPECV6: FilterType = FilterType(2);
+pub const FILTERSPECV6_FLOW: FilterType = FilterType(3);
+pub const FILTERSPECV6_GPI: FilterType = FilterType(5);
+pub const FILTERSPEC_END: FilterType = FilterType(6);
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FILTER_SPEC {
+    pub filt_header: RsvpObjHdr,
+    pub filt_u: FILTER_SPEC_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FILTER_SPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FILTER_SPEC_0 {
+    pub filt_ipv4: Filter_Spec_IPv4,
+    pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FILTER_SPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct FLOWDESCRIPTOR {
+    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
+    pub NumFilters: u32,
+    pub FilterList: *mut RSVP_FILTERSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOWDESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct FLOW_DESC {
+    pub u1: FLOW_DESC_0,
+    pub u2: FLOW_DESC_1,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOW_DESC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FLOW_DESC_0 {
+    pub stspec: *mut SENDER_TSPEC,
+    pub isflow: *mut IS_FLOWSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOW_DESC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union FLOW_DESC_1 {
+    pub stemp: *mut FILTER_SPEC,
+    pub fspec: *mut FILTER_SPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for FLOW_DESC_1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const FLOW_DURATION: u32 = 5;
+pub const FORCE_IMMEDIATE_REFRESH: u32 = 1;
+pub const FSCTL_TCP_BASE: u32 = 18;
+pub const FVEB_UNLOCK_FLAG_AUK_OSFVEINFO: u32 = 512;
+pub const FVEB_UNLOCK_FLAG_CACHED: u32 = 1;
+pub const FVEB_UNLOCK_FLAG_EXTERNAL: u32 = 32;
+pub const FVEB_UNLOCK_FLAG_MEDIA: u32 = 2;
+pub const FVEB_UNLOCK_FLAG_NBP: u32 = 256;
+pub const FVEB_UNLOCK_FLAG_NONE: u32 = 0;
+pub const FVEB_UNLOCK_FLAG_PASSPHRASE: u32 = 128;
+pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16;
+pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64;
+pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct FilterType(pub i32);
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Filter_Spec_IPv4 {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_unused: u16,
+    pub filt_port: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Filter_Spec_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Filter_Spec_IPv4GPI {
+    pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub filt_gpi: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Filter_Spec_IPv4GPI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const GENERAL_INFO: u32 = 1;
+pub const GQOS_API: u32 = 56400;
+pub const GQOS_ERRORCODE_UNKNOWN: u32 = 4294967295;
+pub const GQOS_ERRORVALUE_UNKNOWN: u32 = 4294967295;
+pub const GQOS_KERNEL_TC: u32 = 56700;
+pub const GQOS_KERNEL_TC_SYS: u32 = 56500;
+pub const GQOS_NET_ADMISSION: u32 = 56100;
+pub const GQOS_NET_POLICY: u32 = 56200;
+pub const GQOS_NO_ERRORCODE: u32 = 0;
+pub const GQOS_NO_ERRORVALUE: u32 = 0;
+pub const GQOS_RSVP: u32 = 56300;
+pub const GQOS_RSVP_SYS: u32 = 56600;
+pub const GUARANTEED_SERV: u32 = 2;
+pub const GUAR_ADSPARM_C: i32 = 131;
+pub const GUAR_ADSPARM_Csum: i32 = 135;
+pub const GUAR_ADSPARM_Ctot: i32 = 133;
+pub const GUAR_ADSPARM_D: i32 = 132;
+pub const GUAR_ADSPARM_Dsum: i32 = 136;
+pub const GUAR_ADSPARM_Dtot: i32 = 134;
+pub const GUID_QOS_BESTEFFORT_BANDWIDTH: windows_core::GUID = windows_core::GUID::from_u128(0xed885290_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_ENABLE_AVG_STATS: windows_core::GUID = windows_core::GUID::from_u128(0xbafb6d11_27c4_4801_a46f_ef8080c188c8);
+pub const GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: windows_core::GUID = windows_core::GUID::from_u128(0xaa966725_d3e9_4c55_b335_2a00279a1e64);
+pub const GUID_QOS_FLOW_8021P_CONFORMING: windows_core::GUID = windows_core::GUID::from_u128(0x08c1e013_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_8021P_NONCONFORMING: windows_core::GUID = windows_core::GUID::from_u128(0x09023f91_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_COUNT: windows_core::GUID = windows_core::GUID::from_u128(0x1147f880_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_FLOW_IP_CONFORMING: windows_core::GUID = windows_core::GUID::from_u128(0x07f99a8b_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_IP_NONCONFORMING: windows_core::GUID = windows_core::GUID::from_u128(0x087a5987_fcd2_11d2_be1e_00a0c99ee63b);
+pub const GUID_QOS_FLOW_MODE: windows_core::GUID = windows_core::GUID::from_u128(0x5c82290a_515a_11d2_8e58_00c04fc9bfcb);
+pub const GUID_QOS_ISSLOW_FLOW: windows_core::GUID = windows_core::GUID::from_u128(0xabf273a4_ee07_11d2_be1b_00a0c99ee63b);
+pub const GUID_QOS_LATENCY: windows_core::GUID = windows_core::GUID::from_u128(0xfc408ef0_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_MAX_OUTSTANDING_SENDS: windows_core::GUID = windows_core::GUID::from_u128(0x161ffa86_6120_11d1_2c91_00aa00574915);
+pub const GUID_QOS_NON_BESTEFFORT_LIMIT: windows_core::GUID = windows_core::GUID::from_u128(0x185c44e0_40ed_11d1_2c91_00aa00574915);
+pub const GUID_QOS_REMAINING_BANDWIDTH: windows_core::GUID = windows_core::GUID::from_u128(0xc4c51720_40ec_11d1_2c91_00aa00574915);
+pub const GUID_QOS_STATISTICS_BUFFER: windows_core::GUID = windows_core::GUID::from_u128(0xbb2c0980_e900_11d1_b07e_0080c71382bf);
+pub const GUID_QOS_TIMER_RESOLUTION: windows_core::GUID = windows_core::GUID::from_u128(0xba10cc88_f13e_11d2_be1b_00a0c99ee63b);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct Gads_parms_t {
+    pub Gads_serv_hdr: IntServServiceHdr,
+    pub Gads_Ctot_hdr: IntServParmHdr,
+    pub Gads_Ctot: u32,
+    pub Gads_Dtot_hdr: IntServParmHdr,
+    pub Gads_Dtot: u32,
+    pub Gads_Csum_hdr: IntServParmHdr,
+    pub Gads_Csum: u32,
+    pub Gads_Dsum_hdr: IntServParmHdr,
+    pub Gads_Dsum: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GenAdspecParams {
+    pub gen_parm_hdr: IntServServiceHdr,
+    pub gen_parm_hopcnt_hdr: IntServParmHdr,
+    pub gen_parm_hopcnt: u32,
+    pub gen_parm_pathbw_hdr: IntServParmHdr,
+    pub gen_parm_path_bw: f32,
+    pub gen_parm_minlat_hdr: IntServParmHdr,
+    pub gen_parm_min_latency: u32,
+    pub gen_parm_compmtu_hdr: IntServParmHdr,
+    pub gen_parm_composed_MTU: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GenTspec {
+    pub gen_Tspec_serv_hdr: IntServServiceHdr,
+    pub gen_Tspec_parm_hdr: IntServParmHdr,
+    pub gen_Tspec_parms: GenTspecParms,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GenTspecParms {
+    pub TB_Tspec_r: f32,
+    pub TB_Tspec_b: f32,
+    pub TB_Tspec_p: f32,
+    pub TB_Tspec_m: u32,
+    pub TB_Tspec_M: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GuarFlowSpec {
+    pub Guar_serv_hdr: IntServServiceHdr,
+    pub Guar_Tspec_hdr: IntServParmHdr,
+    pub Guar_Tspec_parms: GenTspecParms,
+    pub Guar_Rspec_hdr: IntServParmHdr,
+    pub Guar_Rspec: GuarRspec,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct GuarRspec {
+    pub Guar_R: f32,
+    pub Guar_S: u32,
+}
+pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct HSP_UPGRADE_IMAGEDATA {
+    pub hashAlgID: u16,
+    pub digestSize: u16,
+    pub digest: [u8; 64],
+    pub fileName: [u16; 64],
+}
+impl Default for HSP_UPGRADE_IMAGEDATA {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const IDENTITY_CHANGED: u32 = 5;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IDPE_ATTR {
+    pub PeAttribLength: u16,
+    pub PeAttribType: u8,
+    pub PeAttribSubType: u8,
+    pub PeAttribValue: [u8; 4],
+}
+impl Default for IDPE_ATTR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct ID_ERROR_OBJECT {
+    pub usIdErrLength: u16,
+    pub ucAType: u8,
+    pub ucSubType: u8,
+    pub usReserved: u16,
+    pub usIdErrorValue: u16,
+    pub ucIdErrData: [u8; 4],
+}
+impl Default for ID_ERROR_OBJECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const IF_MIB_STATS_ID: u32 = 1;
+pub const INFO_NOT_AVAILABLE: u32 = 4294967295;
+pub const INSUFFICIENT_PRIVILEGES: u32 = 3;
+pub const INTSERV_VERSION0: u32 = 0;
+pub const INTSERV_VERS_MASK: u32 = 240;
+pub const INV_LPM_HANDLE: u32 = 1;
+pub const INV_REQ_HANDLE: u32 = 3;
+pub const INV_RESULTS: u32 = 5;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IN_ADDR_IPV4 {
+    pub Addr: u32,
+    pub AddrBytes: [u8; 4],
+}
+impl Default for IN_ADDR_IPV4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IN_ADDR_IPV6 {
+    pub Addr: [u8; 16],
+}
+impl Default for IN_ADDR_IPV6 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IPX_PATTERN {
+    pub Src: IPX_PATTERN_0,
+    pub Dest: IPX_PATTERN_0,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct IPX_PATTERN_0 {
+    pub NetworkAddress: u32,
+    pub NodeAddress: [u8; 6],
+    pub Socket: u16,
+}
+impl Default for IPX_PATTERN_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const IP_INTFC_INFO_ID: u32 = 259;
+pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258;
+pub const IP_MIB_STATS_ID: u32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IP_PATTERN {
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub SrcAddr: u32,
+    pub DstAddr: u32,
+    pub S_un: IP_PATTERN_0,
+    pub ProtocolId: u8,
+    pub Reserved3: [u8; 3],
+}
+impl Default for IP_PATTERN {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IP_PATTERN_0 {
+    pub S_un_ports: IP_PATTERN_0_0,
+    pub S_un_icmp: IP_PATTERN_0_1,
+    pub S_Spi: u32,
+}
+impl Default for IP_PATTERN_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IP_PATTERN_0_0 {
+    pub s_srcport: u16,
+    pub s_dstport: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IP_PATTERN_0_1 {
+    pub s_type: u8,
+    pub s_code: u8,
+    pub filler: u16,
+}
+pub const ISPH_FLG_INV: u32 = 128;
+pub const ISSH_BREAK_BIT: u32 = 128;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct IS_ADSPEC_BODY {
+    pub adspec_mh: IntServMainHdr,
+    pub adspec_genparms: GenAdspecParams,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IS_FLOWSPEC {
+    pub flow_header: RsvpObjHdr,
+    pub flow_body: IntServFlowSpec,
+}
+impl Default for IS_FLOWSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const IS_GUAR_RSPEC: i32 = 130;
+pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = int_serv_wkp(10);
+pub const IS_WKP_HOP_CNT: int_serv_wkp = int_serv_wkp(4);
+pub const IS_WKP_MIN_LATENCY: int_serv_wkp = int_serv_wkp(8);
+pub const IS_WKP_PATH_BW: int_serv_wkp = int_serv_wkp(6);
+pub const IS_WKP_Q_TSPEC: int_serv_wkp = int_serv_wkp(128);
+pub const IS_WKP_TB_TSPEC: int_serv_wkp = int_serv_wkp(127);
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServFlowSpec {
+    pub spec_mh: IntServMainHdr,
+    pub spec_u: IntServFlowSpec_0,
+}
+impl Default for IntServFlowSpec {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IntServFlowSpec_0 {
+    pub CL_spec: CtrlLoadFlowspec,
+    pub G_spec: GuarFlowSpec,
+    pub Q_spec: QualAppFlowSpec,
+}
+impl Default for IntServFlowSpec_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IntServMainHdr {
+    pub ismh_version: u8,
+    pub ismh_unused: u8,
+    pub ismh_len32b: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IntServParmHdr {
+    pub isph_parm_num: u8,
+    pub isph_flags: u8,
+    pub isph_len32b: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IntServServiceHdr {
+    pub issh_service: u8,
+    pub issh_flags: u8,
+    pub issh_len32b: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IntServTspecBody {
+    pub st_mh: IntServMainHdr,
+    pub tspec_u: IntServTspecBody_0,
+}
+impl Default for IntServTspecBody {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IntServTspecBody_0 {
+    pub gen_stspec: GenTspec,
+    pub qual_stspec: QualTspec,
+}
+impl Default for IntServTspecBody_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const LINE_RATE: u32 = 50003;
+pub const LOCAL_QOSABILITY: u32 = 50005;
+pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct LPMIPTABLE {
+    pub ulIfIndex: u32,
+    pub MediaType: u32,
+    pub IfIpAddr: super::super::Networking::WinSock::IN_ADDR,
+    pub IfNetMask: super::super::Networking::WinSock::IN_ADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for LPMIPTABLE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const LPM_API_VERSION_1: u32 = 1;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct LPM_HANDLE(pub *mut core::ffi::c_void);
+impl Default for LPM_HANDLE {
+    fn default() -> Self {
+        Self(core::ptr::null_mut())
+    }
+}
+impl LPM_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default)]
+pub struct LPM_INIT_INFO {
+    pub PcmVersionNumber: u32,
+    pub ResultTimeLimit: u32,
+    pub ConfiguredLpmCount: i32,
+    pub AllocMemory: PALLOCMEM,
+    pub FreeMemory: PFREEMEM,
+    pub PcmAdmitResultCallback: CBADMITRESULT,
+    pub GetRsvpObjectsCallback: CBGETRSVPOBJECTS,
+}
+pub const LPM_OK: u32 = 0;
+pub const LPM_PE_ALL_TYPES: u32 = 0;
+pub const LPM_PE_APP_IDENTITY: u32 = 3;
+pub const LPM_PE_USER_IDENTITY: u32 = 2;
+pub const LPM_RESULT_DEFER: u32 = 1;
+pub const LPM_RESULT_READY: u32 = 0;
+pub const LPM_TIME_OUT: u32 = 2;
+pub const LPV_DONT_CARE: u32 = 65534;
+pub const LPV_DROP_MSG: u32 = 65533;
+pub const LPV_MAX_PRIORITY: u32 = 65280;
+pub const LPV_MIN_PRIORITY: u32 = 1;
+pub const LPV_REJECT: u32 = 65535;
+pub const LPV_RESERVED: u32 = 0;
+pub const MAX_HSP_UPGRADE_FILENAME_LENGTH: u32 = 64;
+pub const MAX_PHYSADDR_SIZE: u32 = 8;
+pub const MAX_STRING_LENGTH: u32 = 256;
+pub const MODERATELY_DELAY_SENSITIVE: u32 = 4294967293;
+pub const OSDEVICE_TYPE_BLOCKIO_CDROM: u32 = 65539;
+pub const OSDEVICE_TYPE_BLOCKIO_FILE: u32 = 65541;
+pub const OSDEVICE_TYPE_BLOCKIO_HARDDISK: u32 = 65537;
+pub const OSDEVICE_TYPE_BLOCKIO_PARTITION: u32 = 65540;
+pub const OSDEVICE_TYPE_BLOCKIO_RAMDISK: u32 = 65542;
+pub const OSDEVICE_TYPE_BLOCKIO_REMOVABLEDISK: u32 = 65538;
+pub const OSDEVICE_TYPE_BLOCKIO_VIRTUALHARDDISK: u32 = 65543;
+pub const OSDEVICE_TYPE_CIMFS: u32 = 393216;
+pub const OSDEVICE_TYPE_COMPOSITE: u32 = 327680;
+pub const OSDEVICE_TYPE_SERIAL: u32 = 131072;
+pub const OSDEVICE_TYPE_UDP: u32 = 196608;
+pub const OSDEVICE_TYPE_UNKNOWN: u32 = 0;
+pub const OSDEVICE_TYPE_VMBUS: u32 = 262144;
+pub const Opt_Distinct: u32 = 8;
+pub const Opt_Explicit: u32 = 2;
+pub const Opt_Share_mask: u32 = 24;
+pub const Opt_Shared: u32 = 16;
+pub const Opt_SndSel_mask: u32 = 7;
+pub const Opt_Wildcard: u32 = 1;
+pub type PALLOCMEM = Option<unsafe extern "system" fn(size: u32) -> *mut core::ffi::c_void>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct PARAM_BUFFER {
+    pub ParameterId: u32,
+    pub Length: u32,
+    pub Buffer: [u8; 1],
+}
+impl Default for PARAM_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const PCM_VERSION_1: u32 = 1;
+pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2;
+pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1;
+pub const PE_TYPE_APPID: u32 = 3;
+pub type PFREEMEM = Option<unsafe extern "system" fn(pv: *mut core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POLICY_DATA {
+    pub PolicyObjHdr: RsvpObjHdr,
+    pub usPeOffset: u16,
+    pub usReserved: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct POLICY_DECISION {
+    pub lpvResult: u32,
+    pub wPolicyErrCode: u16,
+    pub wPolicyErrValue: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct POLICY_ELEMENT {
+    pub usPeLength: u16,
+    pub usPeType: u16,
+    pub ucPeData: [u8; 4],
+}
+impl Default for POLICY_ELEMENT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const POLICY_ERRV_CRAZY_FLOWSPEC: u32 = 57;
+pub const POLICY_ERRV_EXPIRED_CREDENTIALS: u32 = 4;
+pub const POLICY_ERRV_EXPIRED_USER_TOKEN: u32 = 51;
+pub const POLICY_ERRV_GLOBAL_DEF_FLOW_COUNT: u32 = 1;
+pub const POLICY_ERRV_GLOBAL_DEF_FLOW_DURATION: u32 = 9;
+pub const POLICY_ERRV_GLOBAL_DEF_FLOW_RATE: u32 = 17;
+pub const POLICY_ERRV_GLOBAL_DEF_PEAK_RATE: u32 = 25;
+pub const POLICY_ERRV_GLOBAL_DEF_SUM_FLOW_RATE: u32 = 33;
+pub const POLICY_ERRV_GLOBAL_DEF_SUM_PEAK_RATE: u32 = 41;
+pub const POLICY_ERRV_GLOBAL_GRP_FLOW_COUNT: u32 = 2;
+pub const POLICY_ERRV_GLOBAL_GRP_FLOW_DURATION: u32 = 10;
+pub const POLICY_ERRV_GLOBAL_GRP_FLOW_RATE: u32 = 18;
+pub const POLICY_ERRV_GLOBAL_GRP_PEAK_RATE: u32 = 26;
+pub const POLICY_ERRV_GLOBAL_GRP_SUM_FLOW_RATE: u32 = 34;
+pub const POLICY_ERRV_GLOBAL_GRP_SUM_PEAK_RATE: u32 = 42;
+pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_COUNT: u32 = 4;
+pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_DURATION: u32 = 12;
+pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_FLOW_RATE: u32 = 20;
+pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_PEAK_RATE: u32 = 28;
+pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_FLOW_RATE: u32 = 36;
+pub const POLICY_ERRV_GLOBAL_UNAUTH_USER_SUM_PEAK_RATE: u32 = 44;
+pub const POLICY_ERRV_GLOBAL_USER_FLOW_COUNT: u32 = 3;
+pub const POLICY_ERRV_GLOBAL_USER_FLOW_DURATION: u32 = 11;
+pub const POLICY_ERRV_GLOBAL_USER_FLOW_RATE: u32 = 19;
+pub const POLICY_ERRV_GLOBAL_USER_PEAK_RATE: u32 = 27;
+pub const POLICY_ERRV_GLOBAL_USER_SUM_FLOW_RATE: u32 = 35;
+pub const POLICY_ERRV_GLOBAL_USER_SUM_PEAK_RATE: u32 = 43;
+pub const POLICY_ERRV_IDENTITY_CHANGED: u32 = 5;
+pub const POLICY_ERRV_INSUFFICIENT_PRIVILEGES: u32 = 3;
+pub const POLICY_ERRV_NO_ACCEPTS: u32 = 55;
+pub const POLICY_ERRV_NO_MEMORY: u32 = 56;
+pub const POLICY_ERRV_NO_MORE_INFO: u32 = 1;
+pub const POLICY_ERRV_NO_PRIVILEGES: u32 = 50;
+pub const POLICY_ERRV_NO_RESOURCES: u32 = 52;
+pub const POLICY_ERRV_PRE_EMPTED: u32 = 53;
+pub const POLICY_ERRV_SUBNET_DEF_FLOW_COUNT: u32 = 5;
+pub const POLICY_ERRV_SUBNET_DEF_FLOW_DURATION: u32 = 13;
+pub const POLICY_ERRV_SUBNET_DEF_FLOW_RATE: u32 = 21;
+pub const POLICY_ERRV_SUBNET_DEF_PEAK_RATE: u32 = 29;
+pub const POLICY_ERRV_SUBNET_DEF_SUM_FLOW_RATE: u32 = 37;
+pub const POLICY_ERRV_SUBNET_DEF_SUM_PEAK_RATE: u32 = 45;
+pub const POLICY_ERRV_SUBNET_GRP_FLOW_COUNT: u32 = 6;
+pub const POLICY_ERRV_SUBNET_GRP_FLOW_DURATION: u32 = 14;
+pub const POLICY_ERRV_SUBNET_GRP_FLOW_RATE: u32 = 22;
+pub const POLICY_ERRV_SUBNET_GRP_PEAK_RATE: u32 = 30;
+pub const POLICY_ERRV_SUBNET_GRP_SUM_FLOW_RATE: u32 = 38;
+pub const POLICY_ERRV_SUBNET_GRP_SUM_PEAK_RATE: u32 = 46;
+pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_COUNT: u32 = 8;
+pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_DURATION: u32 = 16;
+pub const POLICY_ERRV_SUBNET_UNAUTH_USER_FLOW_RATE: u32 = 24;
+pub const POLICY_ERRV_SUBNET_UNAUTH_USER_PEAK_RATE: u32 = 32;
+pub const POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_FLOW_RATE: u32 = 40;
+pub const POLICY_ERRV_SUBNET_UNAUTH_USER_SUM_PEAK_RATE: u32 = 48;
+pub const POLICY_ERRV_SUBNET_USER_FLOW_COUNT: u32 = 7;
+pub const POLICY_ERRV_SUBNET_USER_FLOW_DURATION: u32 = 15;
+pub const POLICY_ERRV_SUBNET_USER_FLOW_RATE: u32 = 23;
+pub const POLICY_ERRV_SUBNET_USER_PEAK_RATE: u32 = 31;
+pub const POLICY_ERRV_SUBNET_USER_SUM_FLOW_RATE: u32 = 39;
+pub const POLICY_ERRV_SUBNET_USER_SUM_PEAK_RATE: u32 = 47;
+pub const POLICY_ERRV_UNKNOWN: u32 = 0;
+pub const POLICY_ERRV_UNKNOWN_USER: u32 = 49;
+pub const POLICY_ERRV_UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2;
+pub const POLICY_ERRV_USER_CHANGED: u32 = 54;
+pub const POLICY_LOCATOR_SUB_TYPE_ASCII_DN: u32 = 1;
+pub const POLICY_LOCATOR_SUB_TYPE_ASCII_DN_ENC: u32 = 3;
+pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN: u32 = 2;
+pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4;
+pub const POSITIVE_INFINITY_RATE: u32 = 4294967294;
+pub const PREDICTIVE_SERV: u32 = 3;
+pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(2);
+pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(1);
+pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(3);
+pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(0);
+pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(4);
+pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(2);
+pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0);
+pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(1);
+pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0);
+pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = QOS_QUERY_FLOW(2);
+pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = QOS_QUERY_FLOW(1);
+pub const QOSSPBASE: u32 = 50000;
+pub const QOSSP_ERR_BASE: u32 = 56000;
+pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = QOS_SET_FLOW(2);
+pub const QOSSetOutgoingRate: QOS_SET_FLOW = QOS_SET_FLOW(1);
+pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0);
+pub const QOSShapeAndMark: QOS_SHAPING = QOS_SHAPING(1);
+pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0);
+pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(3);
+pub const QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(1);
+pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(0);
+pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(5);
+pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(2);
+pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(4);
+pub const QOSUseNonConformantMarkings: QOS_SHAPING = QOS_SHAPING(2);
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct QOS_DESTADDR {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub SocketAddress: *const super::super::Networking::WinSock::SOCKADDR,
+    pub SocketAddressLength: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for QOS_DESTADDR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct QOS_DIFFSERV {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSFieldCount: u32,
+    pub DiffservRule: [u8; 1],
+}
+impl Default for QOS_DIFFSERV {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_DIFFSERV_RULE {
+    pub InboundDSField: u8,
+    pub ConformingOutboundDSField: u8,
+    pub NonConformingOutboundDSField: u8,
+    pub ConformingUserPriority: u8,
+    pub NonConformingUserPriority: u8,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_DS_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub DSField: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_FLOWRATE_OUTGOING {
+    pub Bandwidth: u64,
+    pub ShapingBehavior: QOS_SHAPING,
+    pub Reason: QOS_FLOWRATE_REASON,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_FLOWRATE_REASON(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_FLOW_FUNDAMENTALS {
+    pub BottleneckBandwidthSet: windows_core::BOOL,
+    pub BottleneckBandwidth: u64,
+    pub AvailableBandwidthSet: windows_core::BOOL,
+    pub AvailableBandwidth: u64,
+    pub RTTSet: windows_core::BOOL,
+    pub RTT: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct QOS_FRIENDLY_NAME {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub FriendlyName: [u16; 256],
+}
+impl Default for QOS_FRIENDLY_NAME {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const QOS_GENERAL_ID_BASE: u32 = 2000;
+pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256;
+pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_NOTIFY_FLOW(pub i32);
+pub const QOS_NOT_SPECIFIED: u32 = 4294967295;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_OBJECT_HDR {
+    pub ObjectType: u32,
+    pub ObjectLength: u32,
+}
+pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_PACKET_PRIORITY {
+    pub ConformantDSCPValue: u32,
+    pub NonConformantDSCPValue: u32,
+    pub ConformantL2Value: u32,
+    pub NonConformantL2Value: u32,
+}
+pub const QOS_QUERYFLOW_FRESH: u32 = 1;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_QUERY_FLOW(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SD_MODE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapeDiscardMode: u32,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SET_FLOW(pub i32);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SHAPING(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_SHAPING_RATE {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub ShapingRate: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_TCP_TRAFFIC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_TRAFFIC_CLASS {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub TrafficClass: u32,
+}
+pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_TRAFFIC_TYPE(pub i32);
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QOS_VERSION {
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+}
+pub const QUALITATIVE_SERV: u32 = 6;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QualAppFlowSpec {
+    pub Q_spec_serv_hdr: IntServServiceHdr,
+    pub Q_spec_parm_hdr: IntServParmHdr,
+    pub Q_spec_parms: QualTspecParms,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QualTspec {
+    pub qual_Tspec_serv_hdr: IntServServiceHdr,
+    pub qual_Tspec_parm_hdr: IntServParmHdr,
+    pub qual_Tspec_parms: QualTspecParms,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct QualTspecParms {
+    pub TB_Tspec_M: u32,
+}
+pub const RCVD_PATH_TEAR: u32 = 1;
+pub const RCVD_RESV_TEAR: u32 = 2;
+pub const RESOURCES_ALLOCATED: u32 = 1;
+pub const RESOURCES_MODIFIED: u32 = 2;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RESV_STYLE {
+    pub style_header: RsvpObjHdr,
+    pub style_word: u32,
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct RHANDLE(pub *mut core::ffi::c_void);
+impl Default for RHANDLE {
+    fn default() -> Self {
+        Self(core::ptr::null_mut())
+    }
+}
+impl RHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 as _ || self.0 == 0 as _
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_ADSPEC {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub GeneralParams: AD_GENERAL_PARAMS,
+    pub NumberOfServices: u32,
+    pub Services: [CONTROL_SERVICE; 1],
+}
+impl Default for RSVP_ADSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const RSVP_DEFAULT_STYLE: u32 = 0;
+pub const RSVP_Err_ADMISSION: u32 = 1;
+pub const RSVP_Err_AMBIG_FILTER: u32 = 9;
+pub const RSVP_Err_API_ERROR: u32 = 20;
+pub const RSVP_Err_BAD_DSTPORT: u32 = 7;
+pub const RSVP_Err_BAD_SNDPORT: u32 = 8;
+pub const RSVP_Err_BAD_STYLE: u32 = 5;
+pub const RSVP_Err_NONE: u32 = 0;
+pub const RSVP_Err_NO_PATH: u32 = 3;
+pub const RSVP_Err_NO_SENDER: u32 = 4;
+pub const RSVP_Err_POLICY: u32 = 2;
+pub const RSVP_Err_PREEMPTED: u32 = 12;
+pub const RSVP_Err_RSVP_SYS_ERROR: u32 = 23;
+pub const RSVP_Err_TC_ERROR: u32 = 21;
+pub const RSVP_Err_TC_SYS_ERROR: u32 = 22;
+pub const RSVP_Err_UNKNOWN_CTYPE: u32 = 14;
+pub const RSVP_Err_UNKNOWN_STYLE: u32 = 6;
+pub const RSVP_Err_UNKN_OBJ_CLASS: u32 = 13;
+pub const RSVP_Erv_API: u32 = 2;
+pub const RSVP_Erv_Bandwidth: u32 = 2;
+pub const RSVP_Erv_Bucket_szie: u32 = 32770;
+pub const RSVP_Erv_Conflict_Serv: u32 = 1;
+pub const RSVP_Erv_Crazy_Flowspec: u32 = 3;
+pub const RSVP_Erv_Crazy_Tspec: u32 = 4;
+pub const RSVP_Erv_DelayBnd: u32 = 1;
+pub const RSVP_Erv_Flow_Rate: u32 = 32769;
+pub const RSVP_Erv_MEMORY: u32 = 1;
+pub const RSVP_Erv_MTU: u32 = 3;
+pub const RSVP_Erv_Min_Policied_size: u32 = 32772;
+pub const RSVP_Erv_No_Serv: u32 = 2;
+pub const RSVP_Erv_Nonev: u32 = 0;
+pub const RSVP_Erv_Other: u32 = 0;
+pub const RSVP_Erv_Peak_Rate: u32 = 32771;
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC {
+    pub Type: FilterType,
+    pub Anonymous: RSVP_FILTERSPEC_0,
+}
+impl Default for RSVP_FILTERSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union RSVP_FILTERSPEC_0 {
+    pub FilterSpecV4: RSVP_FILTERSPEC_V4,
+    pub FilterSpecV6: RSVP_FILTERSPEC_V6,
+    pub FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW,
+    pub FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI,
+    pub FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI,
+}
+impl Default for RSVP_FILTERSPEC_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V4 {
+    pub Address: IN_ADDR_IPV4,
+    pub Unused: u16,
+    pub Port: u16,
+}
+impl Default for RSVP_FILTERSPEC_V4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct RSVP_FILTERSPEC_V4_GPI {
+    pub Address: IN_ADDR_IPV4,
+    pub GeneralPortId: u32,
+}
+impl Default for RSVP_FILTERSPEC_V4_GPI {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RSVP_FILTERSPEC_V6 {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u16,
+    pub Port: u16,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RSVP_FILTERSPEC_V6_FLOW {
+    pub Address: IN_ADDR_IPV6,
+    pub UnUsed: u8,
+    pub FlowLabel: [u8; 3],
+}
+impl Default for RSVP_FILTERSPEC_V6_FLOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RSVP_FILTERSPEC_V6_GPI {
+    pub Address: IN_ADDR_IPV6,
+    pub GeneralPortId: u32,
+}
+pub const RSVP_FIXED_FILTER_STYLE: u32 = 2;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_HOP {
+    pub hop_header: RsvpObjHdr,
+    pub hop_u: RSVP_HOP_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_HOP {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_HOP_0 {
+    pub hop_ipv4: Rsvp_Hop_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_HOP_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RSVP_MSG_OBJS {
+    pub RsvpMsgType: i32,
+    pub pRsvpSession: *mut RSVP_SESSION,
+    pub pRsvpFromHop: *mut RSVP_HOP,
+    pub pRsvpToHop: *mut RSVP_HOP,
+    pub pResvStyle: *mut RESV_STYLE,
+    pub pRsvpScope: *mut RSVP_SCOPE,
+    pub FlowDescCount: i32,
+    pub pFlowDescs: *mut FLOW_DESC,
+    pub PdObjectCount: i32,
+    pub ppPdObjects: *mut *mut POLICY_DATA,
+    pub pErrorSpec: *mut ERROR_SPEC,
+    pub pAdspec: *mut ADSPEC,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_MSG_OBJS {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const RSVP_OBJECT_ID_BASE: u32 = 1000;
+pub const RSVP_PATH: u32 = 1;
+pub const RSVP_PATH_ERR: u32 = 3;
+pub const RSVP_PATH_TEAR: u32 = 5;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RSVP_POLICY {
+    pub Len: u16,
+    pub Type: u16,
+    pub Info: [u8; 4],
+}
+impl Default for RSVP_POLICY {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RSVP_POLICY_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub NumPolicyElement: u32,
+    pub PolicyElement: [RSVP_POLICY; 1],
+}
+impl Default for RSVP_POLICY_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct RSVP_RESERVE_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub Style: u32,
+    pub ConfirmRequest: u32,
+    pub PolicyElementList: *mut RSVP_POLICY_INFO,
+    pub NumFlowDesc: u32,
+    pub FlowDescList: *mut FLOWDESCRIPTOR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_RESERVE_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const RSVP_RESV: u32 = 2;
+pub const RSVP_RESV_ERR: u32 = 4;
+pub const RSVP_RESV_TEAR: u32 = 6;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_SCOPE {
+    pub scopl_header: RsvpObjHdr,
+    pub scope_u: RSVP_SCOPE_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SCOPE {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_SCOPE_0 {
+    pub scopl_ipv4: Scope_list_ipv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SCOPE_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct RSVP_SESSION {
+    pub sess_header: RsvpObjHdr,
+    pub sess_u: RSVP_SESSION_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SESSION {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub union RSVP_SESSION_0 {
+    pub sess_ipv4: Session_IPv4,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for RSVP_SESSION_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RSVP_STATUS_INFO {
+    pub ObjectHdr: QOS_OBJECT_HDR,
+    pub StatusCode: u32,
+    pub ExtendedStatus1: u32,
+    pub ExtendedStatus2: u32,
+}
+pub const RSVP_WILDCARD_STYLE: u32 = 1;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct RsvpObjHdr {
+    pub obj_length: u16,
+    pub obj_class: u8,
+    pub obj_ctype: u8,
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Rsvp_Hop_IPv4 {
+    pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub hop_LIH: u32,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Rsvp_Hop_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct SENDER_TSPEC {
+    pub stspec_header: RsvpObjHdr,
+    pub stspec_body: IntServTspecBody,
+}
+impl Default for SENDER_TSPEC {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SERVICETYPE_BESTEFFORT: u32 = 1;
+pub const SERVICETYPE_CONTROLLEDLOAD: u32 = 2;
+pub const SERVICETYPE_GENERAL_INFORMATION: u32 = 5;
+pub const SERVICETYPE_GUARANTEED: u32 = 3;
+pub const SERVICETYPE_NETWORK_CONTROL: u32 = 10;
+pub const SERVICETYPE_NETWORK_UNAVAILABLE: u32 = 4;
+pub const SERVICETYPE_NOCHANGE: u32 = 6;
+pub const SERVICETYPE_NONCONFORMING: u32 = 9;
+pub const SERVICETYPE_NOTRAFFIC: u32 = 0;
+pub const SERVICETYPE_QUALITATIVE: u32 = 13;
+pub const SERVICE_BESTEFFORT: u32 = 2147549184;
+pub const SERVICE_CONTROLLEDLOAD: u32 = 2147614720;
+pub const SERVICE_GUARANTEED: u32 = 2147745792;
+pub const SERVICE_NO_QOS_SIGNALING: u32 = 1073741824;
+pub const SERVICE_NO_TRAFFIC_CONTROL: u32 = 2164260864;
+pub const SERVICE_QUALITATIVE: u32 = 2149580800;
+pub const SESSFLG_E_Police: u32 = 1;
+pub const SIPAERROR_FIRMWAREFAILURE: u32 = 196609;
+pub const SIPAERROR_INTERNALFAILURE: u32 = 196611;
+pub const SIPAEVENTTYPE_AGGREGATION: u32 = 1073741824;
+pub const SIPAEVENTTYPE_AUTHORITY: u32 = 393216;
+pub const SIPAEVENTTYPE_CONTAINER: u32 = 65536;
+pub const SIPAEVENTTYPE_DRTM: u32 = 786432;
+pub const SIPAEVENTTYPE_ELAM: u32 = 589824;
+pub const SIPAEVENTTYPE_ERROR: u32 = 196608;
+pub const SIPAEVENTTYPE_INFORMATION: u32 = 131072;
+pub const SIPAEVENTTYPE_KSR: u32 = 720896;
+pub const SIPAEVENTTYPE_LOADEDMODULE: u32 = 458752;
+pub const SIPAEVENTTYPE_NONMEASURED: u32 = 2147483648;
+pub const SIPAEVENTTYPE_OSPARAMETER: u32 = 327680;
+pub const SIPAEVENTTYPE_PREOSPARAMETER: u32 = 262144;
+pub const SIPAEVENTTYPE_TRUSTPOINT: u32 = 524288;
+pub const SIPAEVENTTYPE_VBS: u32 = 655360;
+pub const SIPAEVENT_APPLICATION_RETURN: u32 = 131076;
+pub const SIPAEVENT_APPLICATION_SVN: u32 = 131081;
+pub const SIPAEVENT_AUTHENTICODEHASH: u32 = 458756;
+pub const SIPAEVENT_AUTHORITYISSUER: u32 = 458757;
+pub const SIPAEVENT_AUTHORITYPUBKEY: u32 = 393218;
+pub const SIPAEVENT_AUTHORITYPUBLISHER: u32 = 458760;
+pub const SIPAEVENT_AUTHORITYSERIAL: u32 = 458758;
+pub const SIPAEVENT_AUTHORITYSHA1THUMBPRINT: u32 = 458761;
+pub const SIPAEVENT_BITLOCKER_UNLOCK: u32 = 131077;
+pub const SIPAEVENT_BOOTCOUNTER: u32 = 131074;
+pub const SIPAEVENT_BOOTDEBUGGING: u32 = 262145;
+pub const SIPAEVENT_BOOT_REVOCATION_LIST: u32 = 262146;
+pub const SIPAEVENT_CODEINTEGRITY: u32 = 327682;
+pub const SIPAEVENT_COUNTERID: u32 = 131079;
+pub const SIPAEVENT_DATAEXECUTIONPREVENTION: u32 = 327684;
+pub const SIPAEVENT_DRIVER_LOAD_POLICY: u32 = 327694;
+pub const SIPAEVENT_DRTM_AMD_SMM_HASH: u32 = 786435;
+pub const SIPAEVENT_DRTM_AMD_SMM_SIGNER_KEY: u32 = 786436;
+pub const SIPAEVENT_DRTM_SMM_LEVEL: u32 = 786434;
+pub const SIPAEVENT_DRTM_STATE_AUTH: u32 = 786433;
+pub const SIPAEVENT_DUMPS_DISABLED: u32 = 327717;
+pub const SIPAEVENT_DUMP_ENCRYPTION_ENABLED: u32 = 327718;
+pub const SIPAEVENT_DUMP_ENCRYPTION_KEY_DIGEST: u32 = 327719;
+pub const SIPAEVENT_ELAM_CONFIGURATION: u32 = 589826;
+pub const SIPAEVENT_ELAM_KEYNAME: u32 = 589825;
+pub const SIPAEVENT_ELAM_MEASURED: u32 = 589828;
+pub const SIPAEVENT_ELAM_POLICY: u32 = 589827;
+pub const SIPAEVENT_EVENTCOUNTER: u32 = 131078;
+pub const SIPAEVENT_FILEPATH: u32 = 458753;
+pub const SIPAEVENT_FLIGHTSIGNING: u32 = 327713;
+pub const SIPAEVENT_HASHALGORITHMID: u32 = 458755;
+pub const SIPAEVENT_HIBERNATION_DISABLED: u32 = 327716;
+pub const SIPAEVENT_HYPERVISOR_BOOT_DMA_PROTECTION: u32 = 327728;
+pub const SIPAEVENT_HYPERVISOR_DEBUG: u32 = 327693;
+pub const SIPAEVENT_HYPERVISOR_IOMMU_POLICY: u32 = 327692;
+pub const SIPAEVENT_HYPERVISOR_LAUNCH_TYPE: u32 = 327690;
+pub const SIPAEVENT_HYPERVISOR_MMIO_NX_POLICY: u32 = 327696;
+pub const SIPAEVENT_HYPERVISOR_MSR_FILTER_POLICY: u32 = 327697;
+pub const SIPAEVENT_HYPERVISOR_PATH: u32 = 327691;
+pub const SIPAEVENT_IMAGEBASE: u32 = 458759;
+pub const SIPAEVENT_IMAGESIZE: u32 = 458754;
+pub const SIPAEVENT_IMAGEVALIDATED: u32 = 458762;
+pub const SIPAEVENT_INFORMATION: u32 = 131073;
+pub const SIPAEVENT_KSR_SIGNATURE: u32 = 720897;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    pub SignAlgID: u32,
+    pub SignatureLength: u32,
+    pub Signature: [u8; 1],
+}
+impl Default for SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_LSAISO_CONFIG: u32 = 327720;
+pub const SIPAEVENT_MODULE_HSP: u32 = 458764;
+pub const SIPAEVENT_MODULE_SVN: u32 = 458763;
+pub const SIPAEVENT_MORBIT_API_STATUS: u32 = 131083;
+pub const SIPAEVENT_MORBIT_NOT_CANCELABLE: u32 = 131080;
+pub const SIPAEVENT_NOAUTHORITY: u32 = 393217;
+pub const SIPAEVENT_OSDEVICE: u32 = 327688;
+pub const SIPAEVENT_OSKERNELDEBUG: u32 = 327681;
+pub const SIPAEVENT_OS_REVOCATION_LIST: u32 = 327699;
+pub const SIPAEVENT_PAGEFILE_ENCRYPTION_ENABLED: u32 = 327714;
+pub const SIPAEVENT_PHYSICALADDRESSEXTENSION: u32 = 327687;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    pub CreationTime: i64,
+    pub DigestLength: u32,
+    pub HashAlgID: u16,
+    pub Digest: [u8; 1],
+}
+impl Default for SIPAEVENT_REVOCATION_LIST_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_SAFEMODE: u32 = 327685;
+pub const SIPAEVENT_SBCP_INFO: u32 = 327721;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    pub PayloadVersion: u32,
+    pub VarDataOffset: u32,
+    pub HashAlgID: u16,
+    pub DigestLength: u16,
+    pub Options: u32,
+    pub SignersCount: u32,
+    pub VarData: [u8; 1],
+}
+impl Default for SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_SI_POLICY: u32 = 327695;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_SI_POLICY_PAYLOAD {
+    pub PolicyVersion: u64,
+    pub PolicyNameLength: u16,
+    pub HashAlgID: u16,
+    pub DigestLength: u32,
+    pub VarLengthData: [u8; 1],
+}
+impl Default for SIPAEVENT_SI_POLICY_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_SMT_STATUS: u32 = 327700;
+pub const SIPAEVENT_SVN_CHAIN_STATUS: u32 = 131082;
+pub const SIPAEVENT_SYSTEMROOT: u32 = 327689;
+pub const SIPAEVENT_TESTSIGNING: u32 = 327683;
+pub const SIPAEVENT_TRANSFER_CONTROL: u32 = 131075;
+pub const SIPAEVENT_VBS_DUMP_USES_AMEROOT: u32 = 655369;
+pub const SIPAEVENT_VBS_HVCI_POLICY: u32 = 655367;
+pub const SIPAEVENT_VBS_IOMMU_REQUIRED: u32 = 655363;
+pub const SIPAEVENT_VBS_MANDATORY_ENFORCEMENT: u32 = 655366;
+pub const SIPAEVENT_VBS_MICROSOFT_BOOT_CHAIN_REQUIRED: u32 = 655368;
+pub const SIPAEVENT_VBS_MMIO_NX_REQUIRED: u32 = 655364;
+pub const SIPAEVENT_VBS_MSR_FILTERING_REQUIRED: u32 = 655365;
+pub const SIPAEVENT_VBS_SECUREBOOT_REQUIRED: u32 = 655362;
+pub const SIPAEVENT_VBS_VSM_NOSECRETS_ENFORCED: u32 = 655370;
+pub const SIPAEVENT_VBS_VSM_REQUIRED: u32 = 655361;
+pub const SIPAEVENT_VSM_IDKS_INFO: u32 = 327715;
+pub const SIPAEVENT_VSM_IDK_INFO: u32 = 327712;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    pub KeyAlgID: u32,
+    pub Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
+}
+impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    pub RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO,
+}
+impl Default for SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct SIPAEVENT_VSM_IDK_RSA_INFO {
+    pub KeyBitLength: u32,
+    pub PublicExpLengthBytes: u32,
+    pub ModulusSizeBytes: u32,
+    pub PublicKeyData: [u8; 1],
+}
+impl Default for SIPAEVENT_VSM_IDK_RSA_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const SIPAEVENT_VSM_LAUNCH_TYPE: u32 = 327698;
+pub const SIPAEVENT_WINPE: u32 = 327686;
+pub const SIPAEV_ACTION: u32 = 5;
+pub const SIPAEV_AMD_SL_EVENT_BASE: u32 = 32768;
+pub const SIPAEV_AMD_SL_LOAD: u32 = 32769;
+pub const SIPAEV_AMD_SL_LOAD_1: u32 = 32774;
+pub const SIPAEV_AMD_SL_PSP_FW_SPLT: u32 = 32770;
+pub const SIPAEV_AMD_SL_PUB_KEY: u32 = 32772;
+pub const SIPAEV_AMD_SL_SEPARATOR: u32 = 32775;
+pub const SIPAEV_AMD_SL_SVN: u32 = 32773;
+pub const SIPAEV_AMD_SL_TSME_RB_FUSE: u32 = 32771;
+pub const SIPAEV_COMPACT_HASH: u32 = 12;
+pub const SIPAEV_CPU_MICROCODE: u32 = 9;
+pub const SIPAEV_EFI_ACTION: u32 = 2147483655;
+pub const SIPAEV_EFI_BOOT_SERVICES_APPLICATION: u32 = 2147483651;
+pub const SIPAEV_EFI_BOOT_SERVICES_DRIVER: u32 = 2147483652;
+pub const SIPAEV_EFI_EVENT_BASE: u32 = 2147483648;
+pub const SIPAEV_EFI_GPT_EVENT: u32 = 2147483654;
+pub const SIPAEV_EFI_HANDOFF_TABLES: u32 = 2147483657;
+pub const SIPAEV_EFI_HANDOFF_TABLES2: u32 = 2147483659;
+pub const SIPAEV_EFI_HCRTM_EVENT: u32 = 2147483664;
+pub const SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB: u32 = 2147483656;
+pub const SIPAEV_EFI_PLATFORM_FIRMWARE_BLOB2: u32 = 2147483658;
+pub const SIPAEV_EFI_RUNTIME_SERVICES_DRIVER: u32 = 2147483653;
+pub const SIPAEV_EFI_SPDM_FIRMWARE_BLOB: u32 = 2147483873;
+pub const SIPAEV_EFI_SPDM_FIRMWARE_CONFIG: u32 = 2147483874;
+pub const SIPAEV_EFI_VARIABLE_AUTHORITY: u32 = 2147483872;
+pub const SIPAEV_EFI_VARIABLE_BOOT: u32 = 2147483650;
+pub const SIPAEV_EFI_VARIABLE_BOOT2: u32 = 2147483660;
+pub const SIPAEV_EFI_VARIABLE_DRIVER_CONFIG: u32 = 2147483649;
+pub const SIPAEV_EVENT_TAG: u32 = 6;
+pub const SIPAEV_IPL: u32 = 13;
+pub const SIPAEV_IPL_PARTITION_DATA: u32 = 14;
+pub const SIPAEV_NONHOST_CODE: u32 = 15;
+pub const SIPAEV_NONHOST_CONFIG: u32 = 16;
+pub const SIPAEV_NONHOST_INFO: u32 = 17;
+pub const SIPAEV_NO_ACTION: u32 = 3;
+pub const SIPAEV_OMIT_BOOT_DEVICE_EVENTS: u32 = 18;
+pub const SIPAEV_PLATFORM_CONFIG_FLAGS: u32 = 10;
+pub const SIPAEV_POST_CODE: u32 = 1;
+pub const SIPAEV_PREBOOT_CERT: u32 = 0;
+pub const SIPAEV_SEPARATOR: u32 = 4;
+pub const SIPAEV_S_CRTM_CONTENTS: u32 = 7;
+pub const SIPAEV_S_CRTM_VERSION: u32 = 8;
+pub const SIPAEV_TABLE_OF_DEVICES: u32 = 11;
+pub const SIPAEV_TXT_BIOSAC_REG_DATA: u32 = 1034;
+pub const SIPAEV_TXT_BOOT_POL_HASH: u32 = 1050;
+pub const SIPAEV_TXT_BPM_HASH: u32 = 1047;
+pub const SIPAEV_TXT_BPM_INFO_HASH: u32 = 1049;
+pub const SIPAEV_TXT_CAP_VALUE: u32 = 1279;
+pub const SIPAEV_TXT_COLD_BOOT_BIOS_HASH: u32 = 1045;
+pub const SIPAEV_TXT_COMBINED_HASH: u32 = 1027;
+pub const SIPAEV_TXT_CPU_SCRTM_STAT: u32 = 1035;
+pub const SIPAEV_TXT_ELEMENTS_HASH: u32 = 1037;
+pub const SIPAEV_TXT_EVENT_BASE: u32 = 1024;
+pub const SIPAEV_TXT_HASH_START: u32 = 1026;
+pub const SIPAEV_TXT_KM_HASH: u32 = 1046;
+pub const SIPAEV_TXT_KM_INFO_HASH: u32 = 1048;
+pub const SIPAEV_TXT_LCP_AUTHORITIES_HASH: u32 = 1043;
+pub const SIPAEV_TXT_LCP_CONTROL_HASH: u32 = 1036;
+pub const SIPAEV_TXT_LCP_DETAILS_HASH: u32 = 1042;
+pub const SIPAEV_TXT_LCP_HASH: u32 = 1041;
+pub const SIPAEV_TXT_MLE_HASH: u32 = 1028;
+pub const SIPAEV_TXT_NV_INFO_HASH: u32 = 1044;
+pub const SIPAEV_TXT_OSSINITDATA_CAP_HASH: u32 = 1039;
+pub const SIPAEV_TXT_PCR_MAPPING: u32 = 1025;
+pub const SIPAEV_TXT_RANDOM_VALUE: u32 = 1278;
+pub const SIPAEV_TXT_SINIT_PUBKEY_HASH: u32 = 1040;
+pub const SIPAEV_TXT_STM_HASH: u32 = 1038;
+pub const SIPAEV_UNUSED: u32 = 2;
+pub const SIPAHDRSIGNATURE: u32 = 1279476311;
+pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907;
+pub const SIPALOGVERSION: u32 = 1;
+pub const STATE_TIMEOUT: u32 = 4;
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Scope_list_ipv4 {
+    pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Scope_list_ipv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy)]
+pub struct Session_IPv4 {
+    pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
+    pub sess_protid: u8,
+    pub sess_flags: u8,
+    pub sess_destport: u16,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for Session_IPv4 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const TCBASE: u32 = 7500;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TCG_PCClientPCREventStruct {
+    pub pcrIndex: u32,
+    pub eventType: u32,
+    pub digest: [u8; 20],
+    pub eventDataSize: u32,
+    pub event: [u8; 1],
+}
+impl Default for TCG_PCClientPCREventStruct {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct TCG_PCClientTaggedEventStruct {
+    pub EventID: u32,
+    pub EventDataSize: u32,
+    pub EventData: [u8; 1],
+}
+impl Default for TCG_PCClientTaggedEventStruct {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_ADD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[repr(C)]
+#[cfg(feature = "Win32_Foundation")]
+#[derive(Clone, Copy, Debug, Default)]
+pub struct TCI_CLIENT_FUNC_LIST {
+    pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
+    pub ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER,
+    pub ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER,
+    pub ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER,
+}
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_DEL_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_MOD_FLOW_COMPLETE_HANDLER = Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[cfg(feature = "Win32_Foundation")]
+pub type TCI_NOTIFY_HANDLER = Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const core::ffi::c_void)>;
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct TC_GEN_FILTER {
+    pub AddressType: u16,
+    pub PatternSize: u32,
+    pub Pattern: *mut core::ffi::c_void,
+    pub Mask: *mut core::ffi::c_void,
+}
+impl Default for TC_GEN_FILTER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct TC_GEN_FLOW {
+    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub TcObjectsLength: u32,
+    pub TcObjects: [QOS_OBJECT_HDR; 1],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl Default for TC_GEN_FLOW {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct TC_IFC_DESCRIPTOR {
+    pub Length: u32,
+    pub pInterfaceName: windows_core::PWSTR,
+    pub pInterfaceID: windows_core::PWSTR,
+    pub AddressListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+pub const TC_NONCONF_BORROW: u32 = 0;
+pub const TC_NONCONF_BORROW_PLUS: u32 = 3;
+pub const TC_NONCONF_DISCARD: u32 = 2;
+pub const TC_NONCONF_SHAPE: u32 = 1;
+pub const TC_NOTIFY_FLOW_CLOSE: u32 = 5;
+pub const TC_NOTIFY_IFC_CHANGE: u32 = 3;
+pub const TC_NOTIFY_IFC_CLOSE: u32 = 2;
+pub const TC_NOTIFY_IFC_UP: u32 = 1;
+pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4;
+#[repr(C)]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct TC_SUPPORTED_INFO_BUFFER {
+    pub InstanceIDLength: u16,
+    pub InstanceID: [u16; 256],
+    pub InterfaceLuid: u64,
+    pub AddrListDesc: ADDRESS_LIST_DESCRIPTOR,
+}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
+impl Default for TC_SUPPORTED_INFO_BUFFER {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub const UNSUPPORTED_CREDENTIAL_TYPE: u32 = 2;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA3_256: u32 = 32;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA3_384: u32 = 64;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA3_512: u32 = 128;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA_1: u32 = 1;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA_2_256: u32 = 2;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA_2_384: u32 = 4;
+pub const WBCL_DIGEST_ALG_BITMAP_SHA_2_512: u32 = 8;
+pub const WBCL_DIGEST_ALG_BITMAP_SM3_256: u32 = 16;
+pub const WBCL_DIGEST_ALG_ID_SHA3_256: u32 = 39;
+pub const WBCL_DIGEST_ALG_ID_SHA3_384: u32 = 40;
+pub const WBCL_DIGEST_ALG_ID_SHA3_512: u32 = 41;
+pub const WBCL_DIGEST_ALG_ID_SHA_1: u32 = 4;
+pub const WBCL_DIGEST_ALG_ID_SHA_2_256: u32 = 11;
+pub const WBCL_DIGEST_ALG_ID_SHA_2_384: u32 = 12;
+pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13;
+pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18;
+pub const WBCL_HASH_LEN_SHA1: u32 = 20;
+#[repr(C, packed(1))]
+#[derive(Clone, Copy)]
+pub struct WBCL_Iterator {
+    pub firstElementPtr: *mut core::ffi::c_void,
+    pub logSize: u32,
+    pub currentElementPtr: *mut core::ffi::c_void,
+    pub currentElementSize: u32,
+    pub digestSize: u16,
+    pub logFormat: u16,
+    pub numberOfDigests: u32,
+    pub digestSizes: *mut core::ffi::c_void,
+    pub supportedAlgorithms: u32,
+    pub hashAlgorithm: u16,
+}
+impl Default for WBCL_Iterator {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[derive(Clone, Copy, Default)]
+pub struct WBCL_LogHdr {
+    pub signature: u32,
+    pub version: u32,
+    pub entries: u32,
+    pub length: u32,
+}
+pub const WBCL_MAX_HSP_UPGRADE_HASH_LEN: u32 = 64;
+pub const class_ADSPEC: u32 = 13;
+pub const class_CONFIRM: u32 = 15;
+pub const class_ERROR_SPEC: u32 = 6;
+pub const class_FILTER_SPEC: u32 = 10;
+pub const class_FLOWSPEC: u32 = 9;
+pub const class_INTEGRITY: u32 = 4;
+pub const class_IS_FLOWSPEC: u32 = 9;
+pub const class_MAX: u32 = 15;
+pub const class_NULL: u32 = 0;
+pub const class_POLICY_DATA: u32 = 14;
+pub const class_RSVP_HOP: u32 = 3;
+pub const class_SCOPE: u32 = 7;
+pub const class_SENDER_TEMPLATE: u32 = 11;
+pub const class_SENDER_TSPEC: u32 = 12;
+pub const class_SESSION: u32 = 1;
+pub const class_SESSION_GROUP: u32 = 2;
+pub const class_STYLE: u32 = 8;
+pub const class_TIME_VALUES: u32 = 5;
+pub const ctype_ADSPEC_INTSERV: u32 = 2;
+pub const ctype_ERROR_SPEC_ipv4: u32 = 1;
+pub const ctype_FILTER_SPEC_ipv4: u32 = 1;
+pub const ctype_FILTER_SPEC_ipv4GPI: u32 = 4;
+pub const ctype_FLOWSPEC_Intserv0: u32 = 2;
+pub const ctype_POLICY_DATA: u32 = 1;
+pub const ctype_RSVP_HOP_ipv4: u32 = 1;
+pub const ctype_SCOPE_list_ipv4: u32 = 1;
+pub const ctype_SENDER_TEMPLATE_ipv4: u32 = 1;
+pub const ctype_SENDER_TEMPLATE_ipv4GPI: u32 = 4;
+pub const ctype_SENDER_TSPEC: u32 = 2;
+pub const ctype_SESSION_ipv4: u32 = 1;
+pub const ctype_SESSION_ipv4GPI: u32 = 3;
+pub const ctype_STYLE: u32 = 1;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct int_serv_wkp(pub i32);
+pub const ioctl_code: u32 = 1;
+pub const mCOMPANY: u32 = 402653184;
+pub const mIOC_IN: u32 = 2147483648;
+pub const mIOC_OUT: u32 = 1073741824;
+pub const mIOC_VENDOR: u32 = 67108864;

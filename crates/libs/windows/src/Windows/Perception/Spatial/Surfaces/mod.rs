@@ -133,13 +133,13 @@ impl SpatialSurfaceInfo {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<super::SpatialBoundingOrientedBox>
+    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_reference::IReference<super::SpatialBoundingOrientedBox>>
     where
         P0: windows_core::Param<super::SpatialCoordinateSystem>,
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TryGetBounds)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::SpatialBoundingOrientedBox>| r__.Value())
+            (windows_core::Interface::vtable(self).TryGetBounds)(windows_core::Interface::as_raw(self), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> windows_core::Result<windows_future::IAsyncOperation<SpatialSurfaceMesh>> {
@@ -394,19 +394,17 @@ impl SpatialSurfaceObserver {
     {
         unsafe { (windows_core::Interface::vtable(self).SetBoundingVolumes)(windows_core::Interface::as_raw(self), bounds.param().abi()).ok() }
     }
-    pub fn ObservedSurfacesChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ObservedSurfacesChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveObservedSurfacesChanged))
+            (windows_core::Interface::vtable(self).ObservedSurfacesChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveObservedSurfacesChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveObservedSurfacesChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {

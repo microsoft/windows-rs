@@ -8,8 +8,8 @@ impl IGraphicsEffect {
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
+    pub fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
 }
 impl windows_core::RuntimeName for IGraphicsEffect {
@@ -17,7 +17,7 @@ impl windows_core::RuntimeName for IGraphicsEffect {
 }
 pub trait IGraphicsEffect_Impl: IGraphicsEffectSource_Impl {
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 impl IGraphicsEffect_Vtbl {
     pub const fn new<Identity: IGraphicsEffect_Impl, const OFFSET: isize>() -> Self {
@@ -36,10 +36,10 @@ impl IGraphicsEffect_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IGraphicsEffect_Impl::SetName(this, &*(&raw const value).cast()).into()
+                IGraphicsEffect_Impl::SetName(this, &*(&raw const name).cast()).into()
             }
         }
         Self { base__: windows_core::IInspectable_Vtbl::new::<Identity, OFFSET>(), Name: Name::<Identity, OFFSET>, SetName: SetName::<Identity, OFFSET> }

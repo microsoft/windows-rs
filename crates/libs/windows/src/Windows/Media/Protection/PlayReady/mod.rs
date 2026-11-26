@@ -561,11 +561,11 @@ impl INDLicenseFetchDescriptor {
             (windows_core::Interface::vtable(self).LicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INDCustomData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), licensefetchchallengecustomdata.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
@@ -575,7 +575,7 @@ pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
     fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
     fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
     fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, value: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
+    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
 }
 impl INDLicenseFetchDescriptor_Vtbl {
     pub const fn new<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>() -> Self {
@@ -627,10 +627,10 @@ impl INDLicenseFetchDescriptor_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetLicenseFetchChallengeCustomData<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, licensefetchchallengecustomdata: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, core::mem::transmute_copy(&value)).into()
+                INDLicenseFetchDescriptor_Impl::SetLicenseFetchChallengeCustomData(this, core::mem::transmute_copy(&licensefetchchallengecustomdata)).into()
             }
         }
         Self {
@@ -895,8 +895,8 @@ impl INDRegistrationCompletedEventArgs {
             (windows_core::Interface::vtable(self).TransmitterCertificateAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTransmitterCertificateAccepted(&self, value: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetTransmitterCertificateAccepted)(windows_core::Interface::as_raw(self), value).ok() }
+    pub fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetTransmitterCertificateAccepted)(windows_core::Interface::as_raw(self), accept).ok() }
     }
 }
 impl windows_core::RuntimeName for INDRegistrationCompletedEventArgs {
@@ -906,7 +906,7 @@ pub trait INDRegistrationCompletedEventArgs_Impl: windows_core::IUnknownImpl {
     fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
     fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties>;
     fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool>;
-    fn SetTransmitterCertificateAccepted(&self, value: bool) -> windows_core::Result<()>;
+    fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()>;
 }
 impl INDRegistrationCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -955,10 +955,10 @@ impl INDRegistrationCompletedEventArgs_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetTransmitterCertificateAccepted<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, accept: bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                INDRegistrationCompletedEventArgs_Impl::SetTransmitterCertificateAccepted(this, value).into()
+                INDRegistrationCompletedEventArgs_Impl::SetTransmitterCertificateAccepted(this, accept).into()
             }
         }
         Self {
@@ -1914,10 +1914,10 @@ impl IPlayReadyLicense {
             (windows_core::Interface::vtable(self).UsableForPlay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32> {
@@ -3056,75 +3056,65 @@ impl windows_core::RuntimeType for NDCertificateType {
 pub struct NDClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, windows_core::IInspectable);
 impl NDClient {
-    pub fn RegistrationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RegistrationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDRegistrationCompletedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDRegistrationCompletedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDRegistrationCompletedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).RegistrationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRegistrationCompleted))
+            (windows_core::Interface::vtable(self).RegistrationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ProximityDetectionCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveRegistrationCompleted(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveRegistrationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ProximityDetectionCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDProximityDetectionCompletedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDProximityDetectionCompletedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDProximityDetectionCompletedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ProximityDetectionCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveProximityDetectionCompleted))
+            (windows_core::Interface::vtable(self).ProximityDetectionCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn LicenseFetchCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveProximityDetectionCompleted(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveProximityDetectionCompleted)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn LicenseFetchCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDLicenseFetchCompletedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDLicenseFetchCompletedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDLicenseFetchCompletedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).LicenseFetchCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveLicenseFetchCompleted))
+            (windows_core::Interface::vtable(self).LicenseFetchCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ReRegistrationNeeded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveLicenseFetchCompleted(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveLicenseFetchCompleted)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ReRegistrationNeeded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ReRegistrationNeeded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveReRegistrationNeeded))
+            (windows_core::Interface::vtable(self).ReRegistrationNeeded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ClosedCaptionDataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveReRegistrationNeeded(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveReRegistrationNeeded)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ClosedCaptionDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<INDClosedCaptionDataReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, INDClosedCaptionDataReceivedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, INDClosedCaptionDataReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosedCaptionDataReceived))
+            (windows_core::Interface::vtable(self).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveClosedCaptionDataReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveClosedCaptionDataReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn StartAsync<P0, P2, P3>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P2, licensefetchdescriptor: P3) -> windows_core::Result<windows_future::IAsyncOperation<INDStartResult>>
     where
@@ -3325,11 +3315,11 @@ impl NDLicenseFetchDescriptor {
             (windows_core::Interface::vtable(self).LicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<INDCustomData>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(self), licensefetchchallengecustomdata.param().abi()).ok() }
     }
     pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_core::Result<Self>
     where
@@ -4286,10 +4276,10 @@ impl PlayReadyLicense {
             (windows_core::Interface::vtable(self).UsableForPlay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32> {
@@ -5222,16 +5212,16 @@ impl PlayReadyStatics {
             (windows_core::Interface::vtable(this).ProtectionSystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HardwareDRMDisabledAtTime() -> windows_core::Result<windows_time::DateTime> {
+    pub fn HardwareDRMDisabledAtTime() -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         Self::IPlayReadyStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareDRMDisabledAtTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).HardwareDRMDisabledAtTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    pub fn HardwareDRMDisabledUntilTime() -> windows_core::Result<windows_time::DateTime> {
+    pub fn HardwareDRMDisabledUntilTime() -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         Self::IPlayReadyStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HardwareDRMDisabledUntilTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).HardwareDRMDisabledUntilTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     pub fn ResetHardwareDRMDisabled() -> windows_core::Result<()> {
