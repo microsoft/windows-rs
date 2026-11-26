@@ -3,21 +3,15 @@ use std::fmt::Write;
 use windows_metadata::reader::{File, Index, Item, TypeCategory};
 use windows_metadata::{Signature, Type};
 
-/// The metadata that backs the published `windows` and `windows-sys` crates. Both crates share the
-/// same namespace-to-feature taxonomy, so a single index answers which feature owns a metadata
-/// API. Rich bindings may project some metadata type names to sibling crates. These are the
-/// header-namespaced winmds staged by [`prepare_metadata`] under `target` - the same remap
-/// `tool-package` applies - so the page reports the crates' actual header-stem features such as
-/// `winnt` and `d2d`.
-const WINMD: [&str; 2] = [
-    "target/features/Windows.Win32.winmd",
-    "target/features/Windows.winmd",
+/// The pinned metadata that `tool-package` generates the published `windows` and `windows-sys`
+/// crates from. Both crates share the same namespace-to-feature taxonomy, so a single index answers
+/// which feature owns a metadata API. Rich bindings may project some metadata type names to sibling
+/// crates.
+const WINMD: [&str; 3] = [
+    "crates/tools/package/compat/Windows.Win32.winmd",
+    "crates/tools/package/compat/Windows.Wdk.winmd",
+    "crates/tools/package/compat/Windows.winmd",
 ];
-
-/// Throwaway directory (under `target`, not committed) holding the remapped Win32/WDK winmd plus a
-/// copy of the WinRT `Windows.winmd`.
-const PACKAGE_DIR: &str = "target/features";
-const REMAP_OUTPUT: &str = "target/features/Windows.Win32.winmd";
 
 /// The folder published to GitHub Pages by `web.yml`; regenerated and checked
 /// in by `gen.yml` like every other tool's output. Nested under `features` so
@@ -35,22 +29,8 @@ struct Entry {
 
 fn main() {
     let time = std::time::Instant::now();
-    prepare_metadata();
     generate_page(OUTPUT);
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
-}
-
-/// Remaps the flat canonical Win32/WDK winmds into the header-based namespaces used by the
-/// published `windows` and `windows-sys` crates. It reuses `tool-package` routing so the feature
-/// names cannot drift, then stages the WinRT winmd alongside. Everything is written under
-/// `target`; only the generated page is checked in.
-fn prepare_metadata() {
-    std::fs::create_dir_all(PACKAGE_DIR)
-        .unwrap_or_else(|e| panic!("failed to create `{PACKAGE_DIR}`: {e}"));
-    tool_package::remap::run(&tool_package::remap_plan(), REMAP_OUTPUT);
-    let winrt = format!("{PACKAGE_DIR}/Windows.winmd");
-    std::fs::copy(tool_package::WINRT_WINMD, &winrt)
-        .unwrap_or_else(|e| panic!("failed to stage `{}`: {e}", tool_package::WINRT_WINMD));
 }
 
 /// Loads the bundled metadata and projects every type, function, constant, and
@@ -131,7 +111,7 @@ fn load() -> (Vec<String>, Vec<Entry>) {
 
 /// Collects the additional feature-bearing namespaces referenced by a method or
 /// function signature: every namespace named by a parameter or the return type,
-/// minus the API's own namespace and the always-compiled `Foundation` ones.
+/// minus the API's own namespace.
 fn signature_features(signature: &Signature, own: &str, index: &Index) -> Vec<String> {
     let mut referenced = Vec::new();
     for ty in signature.types.iter().chain([&signature.return_type]) {
@@ -140,7 +120,7 @@ fn signature_features(signature: &Signature, own: &str, index: &Index) -> Vec<St
 
     let mut extras: Vec<String> = referenced
         .into_iter()
-        .filter(|ns| ns != own && !always_on(ns) && index.contains_namespace(ns))
+        .filter(|ns| ns != own && index.contains_namespace(ns))
         .collect();
     extras.sort();
     extras.dedup();
@@ -162,18 +142,11 @@ fn collect_namespaces(ty: &Type, out: &mut Vec<String>) {
     }
 }
 
-/// The two namespaces that are always compiled and so never need a feature.
-fn always_on(namespace: &str) -> bool {
-    namespace == "Windows.Foundation" || namespace == "Windows.Win32.Foundation"
-}
-
 /// Emits a single self-contained, dependency-free `index.html` that searches an
 /// inlined index in the browser. The Cargo feature for each API is derived in
-/// the page from its namespace (mirroring `namespace_feature`: the `Windows.Win32`
-/// umbrella is stripped to the bare header stem, otherwise the leading `Windows`
-/// is dropped and the rest joined with `_`; the two `Foundation` namespaces are
-/// always compiled and need no feature), and a method or function also lists the
-/// extra features its signature pulls in. Inlining keeps it to one file that works
+/// the page from its namespace (the leading `Windows` is dropped and the rest
+/// joined with `_`), and a method or function also lists the extra features its
+/// signature pulls in. Inlining keeps it to one file that works
 /// both when hosted and when opened directly from disk (a `file://` page cannot
 /// `fetch` a sibling file).
 fn generate_page(dir: &str) {
@@ -268,18 +241,8 @@ const status = document.getElementById('status');
 const results = document.getElementById('results');
 
 function featureOf(ns) {
-  if (ns === 'Windows.Foundation' || ns === 'Windows.Win32.Foundation') return null;
-  if (ns.startsWith('Windows.Win32.')) return ns.slice('Windows.Win32.'.length).replaceAll('.', '_');
   const parts = ns.split('.').slice(1);
   return parts.length ? parts.join('_') : null;
-}
-
-// Win32 types (every non-WinRT type, including the kernel-mode WDK headers) are flattened into a
-// single Win32 module, so the Rust path drops the per-header stem even though the feature
-// (featureOf) is still per-header.
-function flatPath(ns) {
-  if (ns.startsWith('Windows.Win32.')) return ['Win32'];
-  return ns.split('.').slice(1);
 }
 
 function run() {
@@ -292,7 +255,7 @@ function run() {
   const rows = [];
   for (const [name, nsIdx, extras] of DATA.items) {
     const ns = DATA.namespaces[nsIdx];
-    const path = flatPath(ns);
+    const path = ns.split('.').slice(1);
     const full = (path.length ? path.join('::') + '::' : '') + name;
     const hit = re ? re.test(full) : full.toLowerCase().includes(query.toLowerCase());
     if (!hit) continue;

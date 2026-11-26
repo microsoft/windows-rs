@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows_registry::*;
 use windows_result::*;
-use windows_sys::Win32::*;
+use windows_sys::Win32::Foundation::ERROR_ACCESS_DENIED;
 
 #[test]
 fn read_write() {
@@ -19,7 +19,7 @@ fn read_write() {
 
     assert_eq!(
         key.get_u64("u64").unwrap_err().code(),
-        WIN32_ERROR(ERROR_ACCESS_DENIED as u32).into()
+        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
     );
 
     let key = CURRENT_USER.options().read().open(test_key).unwrap();
@@ -28,6 +28,6 @@ fn read_write() {
 
     assert_eq!(
         key.set_u64("u64", 123u64).unwrap_err().code(),
-        WIN32_ERROR(ERROR_ACCESS_DENIED as u32).into()
+        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
     );
 }

@@ -1,56 +1,41 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
-
-unsafe fn create_xml_reader<T: Interface>() -> Result<T> {
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateXmlReader(&T::IID, &mut result__, None).ok()? };
-    unsafe { imp::from_abi(result__) }
-}
-
-unsafe fn create_xml_writer<T: Interface>() -> Result<T> {
-    let mut result__ = core::ptr::null_mut();
-    unsafe { CreateXmlWriter(&T::IID, &mut result__, None).ok()? };
-    unsafe { imp::from_abi(result__) }
-}
+use windows::{
+    Win32::Data::Xml::XmlLite::*, Win32::System::Com::StructuredStorage::*, Win32::System::Com::*,
+    core::*,
+};
 
 #[test]
 fn test() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let writer: IXmlWriter = create_xml_writer()?;
-        writer.SetOutput(&stream).ok()?;
+        let mut writer: Option<IXmlWriter> = None;
+        CreateXmlWriter(&IXmlWriter::IID, &mut writer as *mut _ as _, None)?;
+        let writer = writer.unwrap();
+        writer.SetOutput(&stream)?;
 
-        writer.WriteStartDocument(XmlStandalone_Omit).ok()?;
-        writer.WriteStartElement(None, w!("html"), None).ok()?;
-        writer
-            .WriteElementString(
-                None,
-                w!("head"),
-                None,
-                w!("The quick brown fox jumps over the lazy dog"),
-            )
-            .ok()?;
-        writer.WriteStartElement(None, w!("body"), None).ok()?;
-        writer.WriteChars(None, 0).ok()?;
-        writer
-            .WriteChars(Some([0x52, 0x75, 0x73, 0x74].as_ptr()), 4)
-            .ok()?;
-        writer.WriteEndDocument().ok()?;
-        writer.Flush().ok()?;
+        writer.WriteStartDocument(XmlStandalone_Omit)?;
+        writer.WriteStartElement(None, w!("html"), None)?;
+        writer.WriteElementString(
+            None,
+            w!("head"),
+            None,
+            w!("The quick brown fox jumps over the lazy dog"),
+        )?;
+        writer.WriteStartElement(None, w!("body"), None)?;
+        writer.WriteChars(None)?;
+        writer.WriteChars(Some(&[0x52, 0x75, 0x73, 0x74]))?;
+        writer.WriteEndDocument()?;
+        writer.Flush()?;
 
-        let mut pos = ULARGE_INTEGER { QuadPart: 0 };
-        stream
-            .Seek(
-                LARGE_INTEGER { QuadPart: 0 },
-                STREAM_SEEK_SET as u32,
-                Some(&mut pos),
-            )
-            .ok()?;
-        assert_eq!(pos.QuadPart, 0);
+        let mut pos = 0;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos))?;
+        assert_eq!(pos, 0);
 
-        let reader: IXmlReader = create_xml_reader()?;
-        reader.SetInput(&stream).ok()?;
+        let mut reader: Option<IXmlReader> = None;
+        CreateXmlReader(&IXmlReader::IID, &mut reader as *mut _ as _, None)?;
+        let reader = reader.unwrap();
+        reader.SetInput(&stream)?;
 
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
@@ -62,7 +47,7 @@ fn test() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        reader.GetLocalName(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "html"
@@ -71,7 +56,7 @@ fn test() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        reader.GetLocalName(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "head"
@@ -86,15 +71,7 @@ fn test() -> Result<()> {
         let mut chars_read = 0;
         let mut read_count = 0;
 
-        while reader
-            .ReadValueChunk(
-                chunk.as_mut_ptr(),
-                chunk.len().try_into().unwrap(),
-                &mut chars_read,
-            )
-            .is_ok()
-            && chars_read > 0
-        {
+        while reader.ReadValueChunk(&mut chunk, &mut chars_read).is_ok() && chars_read > 0 {
             message.extend_from_slice(&chunk[0..chars_read as usize]);
             read_count += 1;
         }
@@ -117,13 +94,7 @@ fn test() -> Result<()> {
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Text);
 
-        reader
-            .ReadValueChunk(
-                chunk.as_mut_ptr(),
-                chunk.len().try_into().unwrap(),
-                &mut chars_read,
-            )
-            .ok()?;
+        reader.ReadValueChunk(&mut chunk, &mut chars_read).ok()?;
         assert_eq!(chars_read, 4);
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(
@@ -142,31 +113,25 @@ fn lite() -> Result<()> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
 
-        let writer: IXmlWriterLite = create_xml_writer()?;
-        writer.SetOutput(&stream).ok()?;
+        let mut writer: Option<IXmlWriterLite> = None;
+        CreateXmlWriter(&IXmlWriterLite::IID, &mut writer as *mut _ as _, None)?;
+        let writer = writer.unwrap();
+        writer.SetOutput(&stream)?;
 
-        writer.WriteStartElement(w!("html").as_ptr(), 4).ok()?;
-        writer
-            .WriteAttributeString(w!("no-value").as_ptr(), 8, None, 0)
-            .ok()?;
-        writer
-            .WriteAttributeString(w!("with-value").as_ptr(), 10, Some(w!("value").as_ptr()), 5)
-            .ok()?;
-        writer.WriteEndElement(w!("html").as_ptr(), 4).ok()?;
-        writer.Flush().ok()?;
+        writer.WriteStartElement(&HSTRING::from("html"))?;
+        writer.WriteAttributeString(&HSTRING::from("no-value"), None)?;
+        writer.WriteAttributeString(&HSTRING::from("with-value"), Some(&HSTRING::from("value")))?;
+        writer.WriteEndElement(&HSTRING::from("html"))?;
+        writer.Flush()?;
 
-        let mut pos = ULARGE_INTEGER { QuadPart: 0 };
-        stream
-            .Seek(
-                LARGE_INTEGER { QuadPart: 0 },
-                STREAM_SEEK_SET as u32,
-                Some(&mut pos),
-            )
-            .ok()?;
-        assert_eq!(pos.QuadPart, 0);
+        let mut pos = 0;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut pos))?;
+        assert_eq!(pos, 0);
 
-        let reader: IXmlReader = create_xml_reader()?;
-        reader.SetInput(&stream).ok()?;
+        let mut reader: Option<IXmlReader> = None;
+        CreateXmlReader(&IXmlReader::IID, &mut reader as *mut _ as _, None)?;
+        let reader = reader.unwrap();
+        reader.SetInput(&stream)?;
 
         let mut name = PCWSTR::null();
         let mut name_len = 0;
@@ -174,24 +139,22 @@ fn lite() -> Result<()> {
         let mut node_type = XmlNodeType_None;
         reader.Read(Some(&mut node_type)).ok()?;
         assert_eq!(node_type, XmlNodeType_Element);
-        reader.GetLocalName(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "html"
         );
 
-        let mut count = 0;
-        reader.GetAttributeCount(&mut count).ok()?;
-        assert_eq!(count, 2);
+        assert_eq!(reader.GetAttributeCount()?, 2);
         reader.MoveToFirstAttribute().ok()?;
 
-        reader.GetLocalName(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "no-value"
         );
 
-        reader.GetValue(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetValue(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             ""
@@ -199,13 +162,13 @@ fn lite() -> Result<()> {
 
         reader.MoveToNextAttribute().ok()?;
 
-        reader.GetLocalName(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "with-value"
         );
 
-        reader.GetValue(&mut name, Some(&mut name_len)).ok()?;
+        reader.GetValue(&mut name, Some(&mut name_len))?;
         assert_eq!(
             String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "value"

@@ -1,9 +1,6 @@
 use super::*;
 use std::path::{Path, PathBuf};
 
-mod remap;
-pub use remap::Remapper;
-
 /// An error encountered while reading, combining, or writing metadata.
 pub struct Error(String);
 

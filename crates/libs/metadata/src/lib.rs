@@ -34,7 +34,7 @@ pub use signature::*;
 
 pub use reader::{AsRow, HasAttributes};
 
-/// Metadata merge and namespace remapping support.
+/// Metadata merge support.
 #[cfg(feature = "writer")]
 pub mod merge;
 
@@ -42,13 +42,6 @@ pub mod merge;
 #[cfg(feature = "writer")]
 pub fn merge() -> merge::Merger {
     merge::Merger::new()
-}
-
-/// Creates a [`merge::Remapper`] that rewrites a flat winmd into a header-based namespace
-/// partition for `--package` generation.
-#[cfg(feature = "writer")]
-pub fn remap() -> merge::Remapper {
-    merge::Remapper::new()
 }
 
 /// Removes the generic arity suffix beginning with a backtick.

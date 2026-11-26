@@ -1,12 +1,14 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
+use windows::{
+    Wdk::System::OfflineRegistry::*, Win32::Foundation::*, Win32::Graphics::Direct3D::Fxc::*,
+    Win32::Graphics::Gdi::*, Win32::Graphics::Printing::*, Win32::System::Threading::*, core::*,
+};
 
 #[test]
 fn linker() -> Result<()> {
     unsafe {
-        let mut linker = None;
-        D3DCreateLinker(&mut linker).ok()?;
-        assert!(linker.is_some());
+        let linker = D3DCreateLinker()?;
+        assert!(!linker.as_raw().is_null());
         Ok(())
     }
 }
@@ -33,9 +35,7 @@ fn gdi() {
 #[test]
 fn wait_on_address() {
     unsafe {
-        WaitOnAddress(std::ptr::null(), std::ptr::null_mut(), 0, None)
-            .ok()
-            .unwrap_err();
+        WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, None).unwrap_err();
     }
 }
 
@@ -43,15 +43,15 @@ fn wait_on_address() {
 #[test]
 fn not_dll() {
     unsafe {
-        _ = GetSpoolFileHandle(HANDLE::default());
+        _ = GetSpoolFileHandle(PRINTER_HANDLE::default());
     }
 }
 
 #[test]
 fn wdk() {
     unsafe {
-        let mut hive: ORHKEY = core::ptr::null_mut();
-        assert_eq!(ORCreateHive(&mut hive), 0);
-        assert_eq!(ORCloseHive(hive), 0);
+        let mut hive = ORHKEY::default();
+        assert_eq!(ORCreateHive(&mut hive), ERROR_SUCCESS);
+        assert_eq!(ORCloseHive(hive), ERROR_SUCCESS);
     }
 }

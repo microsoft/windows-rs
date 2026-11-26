@@ -14,8 +14,8 @@ Use this crate for inspectors and generators, not for calling Windows APIs.
 windows-metadata = "0.101"
 ```
 
-The default `writer` feature enables writing, merging, and remapping. Set `default-features = false`
-for reader-only tools.
+The default `writer` feature enables writing and merging. Set `default-features = false` for
+reader-only tools.
 
 Given a `Windows.winmd` file:
 
@@ -42,7 +42,6 @@ bytes when a separate file is not available.
 | Query several files | `reader::Index::new` |
 | Select a target architecture | `reader::Index::new_for_architecture` |
 | Combine metadata files | `merge()` |
-| Change namespace ownership | `remap()` |
 | Construct tables | `writer::File`, then `into_stream` |
 
 Rows borrow the index, so keep it alive while using them. `expect` requires one matching

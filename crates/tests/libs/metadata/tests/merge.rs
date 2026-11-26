@@ -53,7 +53,7 @@ fn assert_field_layouts(index: &reader::Index, namespace: &str, second_offset: u
 }
 
 #[test]
-fn field_layouts_survive_merge_and_remap() {
+fn field_layouts_survive_merge() {
     let root = std::path::Path::new(env!("CARGO_TARGET_TMPDIR"));
     let input = root.join("field-layout-source.winmd");
     let bytes = field_layout_bytes(8);
@@ -72,18 +72,7 @@ fn field_layouts_survive_merge_and_remap() {
         }
         merger.merge().unwrap();
         assert_field_layouts(&reader::Index::read(&merged).unwrap(), "Test", 8);
-
-        let remapped = root.join(format!("field-layout-remapped-{union}.winmd"));
-        remap()
-            .input(&merged)
-            .source("Test")
-            .fallback("Moved")
-            .output(&remapped)
-            .remap()
-            .unwrap();
-        assert_field_layouts(&reader::Index::read(&remapped).unwrap(), "Moved", 8);
         std::fs::remove_file(merged).unwrap();
-        std::fs::remove_file(remapped).unwrap();
     }
     std::fs::remove_file(input).unwrap();
 }

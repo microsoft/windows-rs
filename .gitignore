@@ -6,6 +6,7 @@
 *.lock
 *.winmd
 !crates/libs/default/*.winmd
+!crates/tools/package/compat/*.winmd
 obj
 bin
 aot-publish

@@ -10,12 +10,12 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [target.'cfg(windows)'.dependencies]
-windows-core = { workspace = true, default-features = false, optional = true }
-windows-time = { workspace = true, optional = true }
+windows-core = { workspace = true, default-features = false }
+windows-time = { workspace = true, default-features = false }
 
 [features]
 default = ["std"]
-std = ["dep:windows-core", "windows-core/std", "dep:windows-time", "windows-time/std"]
+std = ["windows-core/std", "windows-time/std"]
 
 [lints]
 workspace = true

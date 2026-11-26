@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows_registry::*;
 use windows_result::*;
-use windows_sys::Win32::*;
+use windows_sys::Win32::{Foundation::ERROR_ACCESS_DENIED, System::Registry::*};
 
 #[test]
 fn access() {
@@ -11,7 +11,7 @@ fn access() {
     let key = CURRENT_USER
         .options()
         .create()
-        .access(KEY_WRITE as u32)
+        .access(KEY_WRITE)
         .open(test_key)
         .unwrap();
 
@@ -19,12 +19,12 @@ fn access() {
 
     assert_eq!(
         key.get_u64("u64").unwrap_err().code(),
-        WIN32_ERROR(ERROR_ACCESS_DENIED as u32).into()
+        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
     );
 
     let key = CURRENT_USER
         .options()
-        .access(KEY_READ as u32)
+        .access(KEY_READ)
         .open(test_key)
         .unwrap();
 
@@ -32,7 +32,7 @@ fn access() {
 
     assert_eq!(
         key.set_u64("u64", 123u64).unwrap_err().code(),
-        WIN32_ERROR(ERROR_ACCESS_DENIED as u32).into()
+        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
     );
 }
 
@@ -44,35 +44,29 @@ fn flags() {
 
     // `read` and `write` equate to `KEY_READ` and `KEY_WRITE`
     options.read().write();
-    assert_eq!(get_access(&options), (KEY_READ | KEY_WRITE) as u32);
+    assert_eq!(get_access(&options), KEY_READ | KEY_WRITE);
 
     // Combine additional access rights
-    options.access(KEY_WOW64_32KEY as u32);
-    assert_eq!(
-        get_access(&options),
-        (KEY_WOW64_32KEY | KEY_READ | KEY_WRITE) as u32
-    );
+    options.access(KEY_WOW64_32KEY);
+    assert_eq!(get_access(&options), KEY_WOW64_32KEY | KEY_READ | KEY_WRITE);
 
     // Start with specific access rights
     let mut options = CURRENT_USER.options();
-    options.access((KEY_WOW64_32KEY | KEY_QUERY_VALUE) as u32);
-    assert_eq!(
-        get_access(&options),
-        (KEY_WOW64_32KEY | KEY_QUERY_VALUE) as u32
-    );
+    options.access(KEY_WOW64_32KEY | KEY_QUERY_VALUE);
+    assert_eq!(get_access(&options), KEY_WOW64_32KEY | KEY_QUERY_VALUE);
 
     // `read` is additive
     options.read();
     assert_eq!(
         get_access(&options),
-        (KEY_WOW64_32KEY | KEY_QUERY_VALUE | KEY_READ) as u32
+        KEY_WOW64_32KEY | KEY_QUERY_VALUE | KEY_READ
     );
 
     // `write` is additive
     options.write();
     assert_eq!(
         get_access(&options),
-        (KEY_WOW64_32KEY | KEY_QUERY_VALUE | KEY_READ | KEY_WRITE) as u32
+        KEY_WOW64_32KEY | KEY_QUERY_VALUE | KEY_READ | KEY_WRITE
     );
 }
 
@@ -81,26 +75,26 @@ fn wow64() {
     // `wow64_32` and `wow64_64` select the 32-bit / 64-bit registry view.
     let mut options = CURRENT_USER.options();
     options.wow64_32();
-    assert_eq!(get_access(&options), KEY_WOW64_32KEY as u32);
+    assert_eq!(get_access(&options), KEY_WOW64_32KEY);
 
     // The two views are mutually exclusive; the last call wins.
     options.wow64_64();
-    assert_eq!(get_access(&options), KEY_WOW64_64KEY as u32);
+    assert_eq!(get_access(&options), KEY_WOW64_64KEY);
     options.wow64_32();
-    assert_eq!(get_access(&options), KEY_WOW64_32KEY as u32);
+    assert_eq!(get_access(&options), KEY_WOW64_32KEY);
 
     // The view flag is additive with `read`/`write` and other access rights.
-    options.read().write().access(KEY_QUERY_VALUE as u32);
+    options.read().write().access(KEY_QUERY_VALUE);
     assert_eq!(
         get_access(&options),
-        (KEY_WOW64_32KEY | KEY_READ | KEY_WRITE | KEY_QUERY_VALUE) as u32
+        KEY_WOW64_32KEY | KEY_READ | KEY_WRITE | KEY_QUERY_VALUE
     );
 
     // Switching views preserves the other access bits.
     options.wow64_64();
     assert_eq!(
         get_access(&options),
-        (KEY_WOW64_64KEY | KEY_READ | KEY_WRITE | KEY_QUERY_VALUE) as u32
+        KEY_WOW64_64KEY | KEY_READ | KEY_WRITE | KEY_QUERY_VALUE
     );
 }
 

@@ -1,5 +1,9 @@
 #![cfg(windows)]
-use windows::Win32::*;
+use windows::{
+    Wdk::Foundation::ACCESS_STATE, Win32::Graphics::Dxgi::DXGI_ADAPTER_DESC1,
+    Win32::NetworkManagement::IpHelper::IPV6_ADDRESS_EX, Win32::System::Diagnostics::Debug::*,
+    Win32::System::Environment::*, Win32::UI::WindowsAndMessaging::NCCALCSIZE_PARAMS,
+};
 
 #[test]
 #[cfg(target_arch = "x86_64")]
@@ -23,14 +27,12 @@ fn arch() {
 fn arch_feature() {
     assert_eq!(1232, size_of::<CONTEXT>());
 
-    extern "C" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
+    extern "system" fn callback(_: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32 {
         64
     }
 
     let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Some(callback);
-    assert_eq!(64, unsafe {
-        callback.unwrap()(PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR::default())
-    });
+    assert_eq!(64, unsafe { callback.unwrap()(std::ptr::null()) });
 }
 
 #[test]
@@ -39,14 +41,12 @@ fn arch_feature() {
 fn arch_feature() {
     assert_eq!(716, size_of::<CONTEXT>());
 
-    extern "C" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
+    extern "system" fn callback(_: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32 {
         32
     }
 
     let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Some(callback);
-    assert_eq!(32, unsafe {
-        callback.unwrap()(PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR::default())
-    });
+    assert_eq!(32, unsafe { callback.unwrap()(std::ptr::null()) });
 }
 
 #[test]

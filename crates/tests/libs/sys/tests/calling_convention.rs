@@ -1,11 +1,14 @@
 #![cfg(windows)]
-use windows_sys::{Win32::*, core::*};
+use windows_sys::{
+    Win32::Foundation::*, Win32::Networking::Ldap::*, Win32::System::SystemInformation::*,
+    Win32::UI::WindowsAndMessaging::*, core::*,
+};
 
 #[test]
 fn calling_convention() {
     unsafe {
         // This function requires cdecl on x86.
-        assert_eq!(ERROR_BUSY as u32, LdapMapErrorToWin32(LDAP_BUSY as u32));
+        assert_eq!(ERROR_BUSY, LdapMapErrorToWin32(LDAP_BUSY as u32));
 
         // This function requires stdcall on x86.
         GetTickCount();

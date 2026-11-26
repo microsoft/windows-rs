@@ -1,19 +1,38 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
+use windows::{
+    Win32::Foundation::*,
+    Win32::Gaming::HasExpandedResources,
+    Win32::Graphics::Direct3D::Fxc::*,
+    Win32::Graphics::{
+        Direct2D::CLSID_D2D1Shadow, Direct3D11::D3DDisassemble11Trace,
+        Direct3D12::D3D12_DEFAULT_BLEND_FACTOR_ALPHA, Dxgi::Common::*, Dxgi::*,
+    },
+    Win32::Networking::Ldap::PLDAPSearch,
+    Win32::Security::Authorization::*,
+    Win32::System::Com::StructuredStorage::*,
+    Win32::System::Com::*,
+    Win32::System::{Diagnostics::Debug::*, Threading::*},
+    Win32::UI::{
+        Accessibility::UIA_ScrollPatternNoScroll,
+        Controls::Dialogs::CHOOSECOLORW,
+        WindowsAndMessaging::{PROPENUMPROCA, PROPENUMPROCW, WM_KEYUP},
+    },
+    core::*,
+};
 
 #[test]
 fn signed_enum32() {
-    assert!(ACCESS_MODE::default() == 0);
+    assert!(ACCESS_MODE::default().0 == 0);
     let e: ACCESS_MODE = REVOKE_ACCESS;
     assert!(e == REVOKE_ACCESS);
 }
 
 #[test]
 fn unsigned_enum32() {
-    assert!(DXGI_ADAPTER_FLAG::default() == 0);
+    assert!(DXGI_ADAPTER_FLAG::default().0 == 0);
 
     let both = DXGI_ADAPTER_FLAG_SOFTWARE | DXGI_ADAPTER_FLAG_REMOTE;
-    assert!(both == 3);
+    assert!(both.0 == 3);
 }
 
 #[test]
@@ -80,7 +99,7 @@ fn size32() {
 
 #[test]
 fn constant() {
-    assert_eq!(WM_KEYUP, 257i32);
+    assert_eq!(WM_KEYUP, 257u32);
     assert_eq!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA, 1f32);
     assert_eq!(UIA_ScrollPatternNoScroll, -1f64);
     assert_eq!(
@@ -100,12 +119,12 @@ fn constant() {
 #[test]
 fn function() -> Result<()> {
     unsafe {
-        let event = CreateEventW(None, true, false, None);
-        SetEvent(event).ok()?;
+        let event = CreateEventW(None, true, false, None)?;
+        SetEvent(event)?;
 
         WaitForSingleObject(event, 0);
 
-        CloseHandle(event).ok()?;
+        CloseHandle(event)?;
         Ok(())
     }
 }
@@ -114,7 +133,7 @@ fn function() -> Result<()> {
 fn bool_as_error() {
     unsafe {
         helpers::set_thread_ui_language();
-        let error = SetEvent(core::ptr::null_mut()).ok().unwrap_err();
+        let error = SetEvent(HANDLE(core::ptr::null_mut())).unwrap_err();
 
         assert_eq!(error.code(), HRESULT(-2147024890));
         let message: String = error.message();
@@ -134,15 +153,9 @@ fn com() -> Result<()> {
             .ok()?;
         assert!(copied == 4);
 
-        let mut position = ULARGE_INTEGER::default();
-        stream
-            .Seek(
-                LARGE_INTEGER { QuadPart: 0 },
-                STREAM_SEEK_SET as u32,
-                Some(&mut position),
-            )
-            .ok()?;
-        assert!(position.QuadPart == 0);
+        let mut position = 0;
+        stream.Seek(0, STREAM_SEEK_SET, Some(&mut position))?;
+        assert!(position == 0);
 
         let mut values = vec![0, 0, 0, 0];
         let mut copied = 0;
@@ -166,7 +179,11 @@ fn com_inheritance() {
         let factory: IDXGIFactory7 = CreateDXGIFactory1().unwrap();
 
         // IDXGIFactory
-        assert!(factory.MakeWindowAssociation(HWND::default(), 0).is_ok());
+        assert!(
+            factory
+                .MakeWindowAssociation(HWND::default(), DXGI_MWA_FLAGS::default())
+                .is_ok()
+        );
 
         // IDXGIFactory1
         assert!(factory.IsCurrent().as_bool());
@@ -175,14 +192,12 @@ fn com_inheritance() {
         _ = factory.IsWindowedStereoEnabled();
 
         // IDXGIFactory3
-        assert!(factory.GetCreationFlags() == 0);
+        assert!(factory.GetCreationFlags() == DXGI_CREATE_FACTORY_FLAGS(0));
 
         // IDXGIFactory7 (default)
-        let mut cookie = 0;
         assert!(
             factory
-                .RegisterAdaptersChangedEvent(HANDLE::default(), &mut cookie)
-                .ok()
+                .RegisterAdaptersChangedEvent(HANDLE::default())
                 .unwrap_err()
                 .code()
                 == DXGI_ERROR_INVALID_CALL
@@ -194,13 +209,11 @@ fn com_inheritance() {
 #[test]
 fn onecore_imports() -> Result<()> {
     unsafe {
-        let mut has_expanded_resources = BOOL::default();
-        HasExpandedResources(&mut has_expanded_resources).ok()?;
+        _ = HasExpandedResources()?;
 
-        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 
-        let mut port = 0;
-        uri.GetPort(&mut port).ok()?;
+        let port = uri.GetPort()?;
         assert!(port == 80);
 
         MiniDumpWriteDump(
@@ -212,7 +225,6 @@ fn onecore_imports() -> Result<()> {
             None,
             None,
         )
-        .ok()
         .unwrap_err();
 
         assert!(D3DDisassemble11Trace(std::ptr::null(), 0, None, 0, 0, 0).is_err());
@@ -224,10 +236,9 @@ fn onecore_imports() -> Result<()> {
 #[test]
 fn interface() -> Result<()> {
     unsafe {
-        let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;
+        let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 
-        let mut domain = BSTR::default();
-        uri.GetDomain(&mut domain).ok()?;
+        let domain = uri.GetDomain()?;
         assert!(domain == "kennykerr.ca");
     }
     Ok(())
@@ -238,16 +249,16 @@ fn interface() -> Result<()> {
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);
-        assert!(BOOL(789) == a.unwrap()(123 as HWND, s!("hello a"), 456 as HANDLE));
+        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), s!("hello a"), HANDLE(456 as _)));
 
         let a: PROPENUMPROCW = Some(callback_w);
-        assert!(BOOL(789) == a.unwrap()(123 as HWND, w!("hello w"), 456 as HANDLE));
+        assert!(BOOL(789) == a.unwrap()(HWND(123 as _), w!("hello w"), HANDLE(456 as _)));
     }
 }
 
 extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BOOL {
-    assert!(param0 as usize == 123);
-    assert!(param2 as usize == 456);
+    assert!(param0.0 as usize == 123);
+    assert!(param2.0 as usize == 456);
 
     let s = unsafe { param1.to_string().unwrap() };
     assert!(s == "hello a");
@@ -255,8 +266,8 @@ extern "system" fn callback_a(param0: HWND, param1: PCSTR, param2: HANDLE) -> BO
 }
 
 extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> BOOL {
-    assert!(param0 as usize == 123);
-    assert!(param2 as usize == 456);
+    assert!(param0.0 as usize == 123);
+    assert!(param2.0 as usize == 456);
     let s = unsafe { param1.to_string().unwrap() };
     assert!(s == "hello w");
     BOOL(789)
@@ -264,7 +275,7 @@ extern "system" fn callback_w(param0: HWND, param1: PCWSTR, param2: HANDLE) -> B
 
 #[test]
 fn empty_struct() {
-    let ldap: PLDAPSearch = 123 as _;
-    assert!(ldap == 123 as _);
+    let ldap = PLDAPSearch(123);
+    assert!(ldap.0 == 123);
     assert!(size_of::<PLDAPSearch>() == size_of::<usize>());
 }

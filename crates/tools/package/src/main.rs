@@ -1,59 +1,12 @@
-use tool_package::remap;
-use tool_package::{WINRT_WINMD, remap_plan};
-
-/// Throwaway `--in` directory feeding `--package` generation (under `target`, not committed).
-/// Holds the remapped header-namespaced Win32/WDK winmd plus a copy of the WinRT `Windows.winmd`.
-const PACKAGE_DIR: &str = "target/package";
-const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
-
-/// Generates the published `windows` and `windows-sys` package crates.
+/// Generates the published `windows` and `windows-sys` package crates from the pinned metadata in
+/// `crates/tools/package/compat`.
 ///
-/// This is separated from `tool-bindings` because package generation uses
-/// `--package` mode (per-namespace files + Cargo.toml feature gates) which
-/// is an internal bindgen feature not intended for external use.
+/// This is separated from `tool-bindings` because package generation uses `--package` mode
+/// (per-namespace files + Cargo.toml feature gates) which is an internal bindgen feature not
+/// intended for external use.
 fn main() {
     let time = std::time::Instant::now();
-
-    // Synthesise the header-based namespace partition from the flat canonical winmd. The Win32
-    // SDK is logically a flat global namespace, so the canonical winmd is flat; but `--package`
-    // derives file layout and Cargo features from namespaces, so the published crates need a
-    // partition. One namespace per defining header (`.rdl` stem) gives a mechanical, source-derived
-    // one. The Win32 and WDK RDL directories are read together so WDK's references to Win32 types
-    // resolve to the remapped Win32 namespaces.
-    let plan = remap_plan();
-
-    let summary = remap::run(&plan, REMAP_OUTPUT);
-
-    // The WinRT metadata is already namespaced; copy it verbatim into the `--in` directory so the
-    // `windows` crate can project it alongside the remapped Win32/WDK partition.
-    std::fs::copy(WINRT_WINMD, format!("{PACKAGE_DIR}/Windows.winmd"))
-        .unwrap_or_else(|e| panic!("failed to stage `{WINRT_WINMD}`: {e}"));
-
-    verify(&summary);
-
-    // The `windows-sys` crate (sys-style package).
     windows_bindgen::bindgen(["--etc", "crates/tools/package/src/sys.txt"]);
-
-    // The `windows` crate (full-fidelity package).
     windows_bindgen::bindgen(["--etc", "crates/tools/package/src/windows.txt"]);
-
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
-}
-
-/// Asserts the header partition took effect (every Win32/WDK header stem lands in its own
-/// `Windows.Win32.<header>` namespace and the flat `Windows.Win32` namespace contains no types
-/// directly) and reports the synthesized namespace/item totals.
-fn verify(summary: &[(String, usize)]) {
-    let index = windows_metadata::reader::Index::read(REMAP_OUTPUT)
-        .unwrap_or_else(|| panic!("failed to read remapped winmd `{REMAP_OUTPUT}`"));
-
-    assert!(
-        !index.contains_namespace("Windows.Win32"),
-        "flat `Windows.Win32` namespace survived the remap (types were not routed)"
-    );
-
-    let namespaces = summary.len();
-    let items: usize = summary.iter().map(|(_, n)| n).sum();
-    assert!(namespaces > 0, "remap produced no header-stem namespaces");
-    println!("Header partition: {namespaces} namespace(s), {items} item(s)");
 }

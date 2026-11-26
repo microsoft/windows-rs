@@ -1,5 +1,7 @@
 #![cfg(windows)]
-use windows_sys::{Win32::*, core::*};
+use windows_sys::{
+    Win32::Foundation::*, Win32::System::Threading::*, Win32::UI::WindowsAndMessaging::*, core::*,
+};
 
 #[test]
 fn simple() {
@@ -14,8 +16,8 @@ fn simple() {
 #[test]
 fn types() {
     // Unscoped enums
-    let _: i32 = CS_HREDRAW | CS_VREDRAW;
-    let _: i32 = CS_HREDRAW | CS_VREDRAW;
+    let _: WNDCLASS_STYLES = CS_HREDRAW | CS_VREDRAW;
+    let _: u32 = CS_HREDRAW | CS_VREDRAW;
 
     // Constant
     let _: HRESULT = E_FAIL;
