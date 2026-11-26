@@ -32,6 +32,43 @@ mod tests;
 ///
 /// let _: IValue = Value(123).into();
 /// ```
+///
+/// Implementations must be `Send + Sync`: COM calls may overlap, and another thread may release
+/// the final reference. `Agile = false` does not enforce thread affinity in the MTA.
+///
+/// A `Send` field that is not `Sync` cannot be published, even with agility disabled:
+///
+/// ```compile_fail,E0277
+/// use std::cell::Cell;
+/// use windows_core::*;
+///
+/// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
+/// unsafe trait IValue: IUnknown {}
+///
+/// #[implement(IValue, Agile = false)]
+/// struct Value(Cell<u32>);
+///
+/// impl IValue_Impl for Value_Impl {}
+///
+/// let _: IValue = Value(Cell::new(0)).into();
+/// ```
+///
+/// A `Sync` field that is not `Send` is also rejected, including for static storage:
+///
+/// ```compile_fail,E0277
+/// use std::sync::MutexGuard;
+/// use windows_core::*;
+///
+/// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
+/// unsafe trait IValue: IUnknown {}
+///
+/// #[implement(IValue)]
+/// struct Value(Option<MutexGuard<'static, ()>>);
+///
+/// impl IValue_Impl for Value_Impl {}
+///
+/// let _ = Value(None).into_static();
+/// ```
 #[proc_macro_attribute]
 pub fn implement(
     attributes: proc_macro::TokenStream,

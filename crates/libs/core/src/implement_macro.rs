@@ -44,6 +44,25 @@
 //! let outer = Foo.into_outer();
 //! let interface: IFoo = outer.to_interface();
 //! ```
+//!
+//! Implementations must be `Send + Sync`, since COM calls may overlap and another thread may
+//! release the final reference:
+//!
+//! ```compile_fail,E0277
+//! use std::rc::Rc;
+//! use windows_core::*;
+//!
+//! interface_decl! {
+//!     unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl): IUnknown
+//!         = 0x094d70d6_5202_44b8_abb8_43860da5aca2 {}
+//! }
+//!
+//! struct Foo(Rc<()>);
+//! implement_decl! { impl Foo as Foo_Impl: [IFoo] }
+//! impl IFoo_Impl for Foo_Impl {}
+//!
+//! let _: IFoo = Foo(Rc::new(())).into();
+//! ```
 
 /// Declares a Rust type as the COM implementer of one or more interfaces, without using
 /// the `#[implement]` proc-macro.
