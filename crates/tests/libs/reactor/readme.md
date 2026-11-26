@@ -23,9 +23,10 @@ CI enables animation effects on its disposable runners; the tests do not change 
 Scale transition coverage also requires animations. It observes centered intermediate rendering,
 including interrupted transitions, clearing scale, resizing, and removal.
 WinUI hides an element immediately when its scale changes to zero; the tests check growth from zero
-and shrinkage to a nonzero factor, not animated collapse to zero. To reproduce the native limitation,
-run the `scale` fixture and invoke `full`, `transition`, then `zero`. The same sequence with a plain
-WinUI Border and a three-second `Vector3Transition` shows the same immediate disappearance.
+and shrinkage to a nonzero factor, not animated collapse to zero. To reproduce the native
+limitation, run the `scale` fixture and invoke `full`, `transition`, then `zero`. The same sequence
+with a plain WinUI Border and a three-second `Vector3Transition` shows the same immediate
+disappearance.
 Cases are serialized and run in separate fixture processes with bounded timeouts. Failures report
 the child process's stdout/stderr log directory; successful cases remove their logs.
 
@@ -59,12 +60,12 @@ distinguish direct indexed access from eager enumeration. Read-only vectors reje
 `E_NOTIMPL`; ComboBox selection is checked by index and object.
 
 `collection-live-mutable`, `collection-live-read-only`, `collection-live-shared`, and
-`collection-live-trusted` compare marshaled mutable vectors, instrumented read-only vectors, and both
-shared read-only storage modes in ComboBox, AutoSuggestBox, BreadcrumbBar, and RadioButtons.
+`collection-live-trusted` compare marshaled mutable vectors, instrumented read-only vectors, and
+both shared read-only storage modes in ComboBox, AutoSuggestBox, BreadcrumbBar, and RadioButtons.
 UI Automation exercises selection and invocation across source replacement and clearing.
-Instrumented sources must receive indexed
-reads and no mutation attempts, including during teardown. These cases do not measure performance,
-verify pixels, or test final native destruction on another thread.
+Instrumented sources must receive indexed reads and no mutation attempts, including during
+teardown. These cases do not measure performance, verify pixels, or test final native destruction
+on another thread.
 
 ## Scroll layout
 
@@ -77,9 +78,10 @@ children.
 
 ## Button padding
 
-`button-padding` compares a 24-DIP FontIcon in a 40-DIP Subtle button against an unclipped reference.
-It checks padding at mount, uniform and asymmetric updates, zero padding, and restoration of the
-native default when omitted. Rendered icon bounds, button identity, and click delivery are observed.
+`button-padding` compares a 24-DIP FontIcon in a 40-DIP Subtle button against an unclipped
+reference. It checks padding at mount, uniform and asymmetric updates, zero padding, and
+restoration of the native default when omitted. Rendered icon bounds, button identity, and click
+delivery are observed.
 
 ## Context snapshots
 
@@ -154,7 +156,8 @@ composition effects, shadows, or transforms apply to WinUI's backdrop surface.
 
 `canvas-submitted-input` stages a two-row layout separately from drawing it. Its `submitted`
 marker is updated from `Canvas::on_submitted`, not from the draw callback. New-frame clicks wait
-for that marker; staged or failed drawing must leave old-frame hit testing intact. Click sequence
+for that marker; staged or failed drawing must leave old-frame hit testing intact. An unbalanced
+native clip stack tests `EndDraw` failure separately from a draw-callback error. Click sequence
 numbers prevent an old result from satisfying a later assertion. The fixture also checks callback
 invalidation and removal. Its device-loss case returns an error from the draw callback; it does
 not remove the native device or measure physical display.
@@ -185,9 +188,9 @@ its callback window alive, to force a real `NIM_MODIFY` failure. They check refu
 retry on an unchanged declaration, current callbacks, and removal with pending work.
 The image case also changes the requested path while both image and tooltip updates are pending.
 It loads the same image through distinct paths to exercise replacement, not pixel appearance.
-Each case sends `TaskbarCreated` only to that callback window to restore the registration; it does not
-restart Explorer or reproduce the cause of a post-resume Shell failure. Headless tests check the image
-and tooltip payload retained on failure and applied on a successful retry.
+Each case sends `TaskbarCreated` only to that callback window to restore the registration; it does
+not restart Explorer or reproduce the cause of a post-resume Shell failure. Headless tests check
+the image and tooltip payload retained on failure and applied on a successful retry.
 
 ## Opt-in drag/drop coverage
 

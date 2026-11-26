@@ -2,15 +2,10 @@
 raw bindings.
 
 Prefer the focused crates below when they cover the functionality you need. For additional APIs,
-[`windows-bindgen`](../crates/libs/bindgen/readme.md) can generate a minimal project-specific
-binding, while [`windows`](../crates/libs/windows/readme.md) and
-[`windows-sys`](../crates/libs/sys/readme.md) provide broad API coverage behind feature flags for
-binary applications.
-
-Reusable libraries should avoid the `windows` and `windows-sys` umbrella crates. They add
-dependency weight and version churn, and several libraries can bring incompatible versions of the
-same large crate into one dependency tree. Prefer the focused crates for shared Windows types and
-generate any remaining private bindings with `windows-bindgen`.
+[`windows`](../crates/libs/windows/readme.md) and
+[`windows-sys`](../crates/libs/sys/readme.md) provide pre-generated bindings behind feature flags.
+Use [`windows-bindgen`](../crates/libs/bindgen/readme.md) when you want to generate a
+project-specific set of bindings instead.
 
 Each crate README provides setup, a working example, and essential usage guidance. Follow its
 links for API documentation and samples.
@@ -86,10 +81,6 @@ These crates implement macros exported by `windows-core`. Applications should us
 | [windows-interface](../crates/libs/interface/readme.md) | Implements the `#[interface]` macro. |
 
 ### Windows API bindings
-
-Use `windows-bindgen` when the focused crates above do not cover the APIs you need. Binary
-applications may instead prefer the convenience of the pre-generated `windows` or `windows-sys`
-umbrella crate.
 
 | Crate | Description |
 | --- | --- |

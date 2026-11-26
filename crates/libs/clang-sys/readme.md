@@ -12,7 +12,8 @@ Most header-processing tools should use [windows-clang](https://docs.rs/windows-
 The crate requires a matched `libclang.dll` and `windows_clang.dll` pair for its
 `LIBCLANG_VERSION`. A stock libclang installation alone is not sufficient.
 
-From this repository, build the pair and select it for the current PowerShell session:
+From a repository checkout matching your crate version, build the pair and select it for the
+current PowerShell session:
 
 ```powershell
 $env:LIBCLANG_PATH = cargo run -q -p tool-clang -- path
@@ -49,3 +50,5 @@ Loading checks the runtime version and companion ABI. Distribute both libraries 
 Keep translation units alive while using their cursors and types. Dispose owned strings and
 handles with the matching native functions. Raw handle types do not confer ownership or thread
 safety. Check supplementary query statuses before reading their outputs.
+Do not create libclang indices while another native session is parsing; index creation initializes
+LLVM's process-global target registry.

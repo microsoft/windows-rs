@@ -8,9 +8,9 @@ ownership, COM wrappers, or automatic error conversion.
 - 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/windows-sys)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/sys)
 
-Prefer a [focused crate][crates] when one covers the task. Reusable libraries should generate
-narrow private bindings with [windows-bindgen](https://docs.rs/windows-bindgen).
-Use `windows-sys` when a binary application needs a broad, pre-generated raw API.
+Prefer a [focused crate][crates] when one covers the task. Use `windows-sys` for a broad,
+pre-generated raw API, or [windows-bindgen](https://docs.rs/windows-bindgen) to generate
+project-specific bindings.
 
 ## Get started
 
@@ -27,8 +27,7 @@ println!("{milliseconds} ms since startup");
 ```
 
 Features follow namespaces, such as `Win32_System_SystemInformation`. Types used in a signature
-may need supporting features.
-Check OS availability separately from compile-time features.
+may need supporting features. Check OS availability separately from compile-time features.
 
 ## Keep the FFI boundary small
 

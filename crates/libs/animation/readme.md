@@ -44,16 +44,6 @@ Schedule and update with absolute seconds from the same monotonic clock, not fra
 deltas. On each frame, call `Manager::update` before reading variables and drawing.
 The application decides when another frame is needed.
 
-| Transition | Use |
-| --- | --- |
-| `linear` | Constant-rate movement |
-| `accelerate_decelerate` | Ease-in and ease-out |
-| `instantaneous` | A scheduled jump |
-
-Acceleration and deceleration ratios must sum to <= 1.0. Use storyboard keyframes to coordinate
-several variables or start a transition after another finishes. For one variable, use
-`Manager::schedule_transition` directly.
-
 The [Canvas clock](https://github.com/microsoft/windows-rs/tree/master/crates/samples/canvas/clock)
 shows a live frame loop. For retained visuals animated by Windows, use
 [windows-composition](https://docs.rs/windows-composition) instead.

@@ -18,9 +18,6 @@ windows-future = "0.101"
 ```rust,no_run
 use windows_future::IAsyncOperation;
 
-let ready = IAsyncOperation::ready(Ok(123));
-assert_eq!(ready.join().unwrap(), 123);
-
 let operation = IAsyncOperation::spawn(|| Ok(456));
 assert_eq!(operation.join().unwrap(), 456);
 ```
@@ -37,18 +34,15 @@ These styles also apply to `IAsyncAction` and the progress interfaces. Each deli
 `Result`. Choose one style per operation: WinRT permits assigning its completion handler only
 once. Do not block a UI thread with `join`.
 
-Operations created with `ready` or `spawn` transfer their successful result once, without cloning.
-Further calls to `GetResults` return `E_ILLEGAL_METHOD_CALL`; `Status` and `ErrorCode` remain available.
-This also applies to their progress-interface variants, which do not produce intermediate results.
-Results need `Send`, not `Sync`. Actions have no value to consume, and stored errors remain available.
-Native operations consumed through this crate retain their own result-retrieval contracts.
+Consume the successful result of an operation created with `ready` or `spawn` only once.
+Native operations retain their own result-retrieval contracts.
 
 `spawn` runs a `Send + 'static` closure on the Windows thread pool. It does not make apartment-bound
 objects safe to use there. Cancelling an operation created with `spawn` does not interrupt the
-closure. The progress variants of `spawn` do not report intermediate progress.
+closure.
 
 `spawn` does not initialize COM. To deliver apartment-bound native completion callbacks from its
 workers, establish an MTA (for example, with `windows_core::init_mta()`) and keep the handler's
-apartment initialized and dispatching calls. Callback failures do not change the operation's result.
+apartment initialized and dispatching calls.
 
 The default `std` feature supplies `.await`, `ready`, and `spawn`.

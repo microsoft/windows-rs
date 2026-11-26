@@ -8,6 +8,10 @@
 /// as the function, lives in the type namespace, and is useful for storing or
 /// passing around the function pointer (for example, after resolving the
 /// symbol at runtime via `GetProcAddress`).
+///
+/// An optional literal after the ABI selects a different export name. Use `ordinal(N)` in its
+/// place for an ordinal in `1..=65535`. Use a documented stable ordinal or the target import
+/// library's ordinal, not a number observed in one DLL build.
 #[cfg(all(windows, target_arch = "x86"))]
 #[macro_export]
 macro_rules! link {
@@ -39,6 +43,10 @@ macro_rules! link {
 /// as the function, lives in the type namespace, and is useful for storing or
 /// passing around the function pointer (for example, after resolving the
 /// symbol at runtime via `GetProcAddress`).
+///
+/// An optional literal after the ABI selects a different export name. Use `ordinal(N)` in its
+/// place for an ordinal in `1..=65535`. Use a documented stable ordinal or the target import
+/// library's ordinal, not a number observed in one DLL build.
 #[cfg(all(windows, not(target_arch = "x86")))]
 #[macro_export]
 macro_rules! link {
@@ -70,6 +78,10 @@ macro_rules! link {
 /// as the function, lives in the type namespace, and is useful for storing or
 /// passing around the function pointer (for example, after resolving the
 /// symbol at runtime via `GetProcAddress`).
+///
+/// An optional literal after the ABI selects a different export name. Use `ordinal(N)` in its
+/// place for an ordinal in `1..=65535`. Use a documented stable ordinal or the target import
+/// library's ordinal, not a number observed in one DLL build.
 #[cfg(not(windows))]
 #[macro_export]
 macro_rules! link {

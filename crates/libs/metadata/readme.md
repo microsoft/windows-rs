@@ -34,22 +34,9 @@ assert_eq!(fields[1].name(), "Y");
 [windows-default](https://docs.rs/windows-default) supplies the standard metadata as embedded
 bytes when a separate file is not available.
 
-## Load and query
-
-| Task | API |
-| --- | --- |
-| Read bytes | `reader::File::new` |
-| Query several files | `reader::Index::new` |
-| Select a target architecture | `reader::Index::new_for_architecture` |
-| Combine metadata files | `merge()` |
-| Construct tables | `writer::File`, then `into_stream` |
-
 Rows borrow the index, so keep it alive while using them. `expect` requires one matching
 definition; use `get` when duplicates are possible, including architecture-specific variants.
 Include a component's dependencies when resolving its referenced types.
-
-Use `MethodDef::params_by_sequence` to associate parameter rows with signature positions rather
-than assuming table order. Sequence zero describes the return value.
 
 For text authoring or decompilation, start with [windows-rdl](https://docs.rs/windows-rdl).
 For generated Rust APIs, use [windows-bindgen](https://docs.rs/windows-bindgen).

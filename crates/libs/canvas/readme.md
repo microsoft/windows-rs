@@ -29,8 +29,10 @@ fn draw_frame(chain: &mut SwapChain) -> Result<bool> {
 }
 ```
 
-Finish and drop the drawing session before presenting. Clear or fully cover each frame unless
-retaining old pixels is intentional.
+Finish and drop the drawing session before presenting. `present` checks the native drawing result
+before submitting the frame: `Ok(false)` means device loss, and other failures return an error.
+Successful submission does not establish that the frame has reached the display.
+Clear or fully cover each frame unless retaining old pixels is intentional.
 
 ## Choose a host
 
@@ -51,21 +53,8 @@ redraws, `animated_canvas` for every frame, or `canvas_invalidated` with an `Inv
 input-driven drawings. Rebuild cached device-dependent resources when `ctx.device_changed()` is
 true.
 
-Use `Canvas::animated(draw).device_factory(GpuDevice::new_warp)` to select software rendering.
-The factory runs at creation and recovery; it must replace removed devices rather than clone them.
-For several plots, prefer drawing into regions of one canvas to share its device and swap chain.
-
-## Add drawing operations
-
-Use `PathBuilder` for geometry, `TextLayout` for reusable or measured text, and `load_bitmap` for
-images. Text formats and layouts come from [windows-text](https://docs.rs/windows-text); add it as a
-dependency to draw text. `with_transform` scopes a transform without leaving it active for later
-commands. Drawing dimensions are in device-independent pixels.
-
-To call Direct2D or DXGI through other bindings, such as the `windows` crate, `as_interface`
-borrows the interface behind a `DrawingSession`, `Path`, or `SwapChain`, and `to_interface`
-queries for other interfaces. `DrawingSession::from_borrowed_context` accepts a device context
-from any bindings.
+Drawing dimensions are in device-independent pixels. Text formats and layouts come from
+[windows-text](https://docs.rs/windows-text); add it as a dependency to draw text.
 
 See the [transform][transform], [text layout][text], and [circles][circles] samples.
 

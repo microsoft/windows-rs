@@ -32,7 +32,3 @@ if OsVersion::current() >= REQUIRED {
 Keep the threshold beside the feature it guards. `OsVersion` compares major version, minor version,
 service pack, and build in that order. A sufficient version does not guarantee optional components,
 drivers, hardware, or policies; check those capabilities separately.
-
-`is_server()` distinguishes server from workstation releases, not installed server roles.
-`revision()` returns the update build revision (UBR), separate from `OsVersion` comparisons.
-A revision of zero can also mean its registry query failed.

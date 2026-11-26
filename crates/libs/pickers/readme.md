@@ -14,6 +14,7 @@ The default `system` feature accepts a `windows-window` owner:
 
 ```toml
 [dependencies]
+windows-core = "0.101"
 windows-pickers = "0.101"
 windows-window = "0.101"
 ```
@@ -25,6 +26,7 @@ use windows_pickers::{OpenFilePicker, Result};
 use windows_window::Window;
 
 fn pick_rust_file(window: &Window) -> Result<()> {
+    let _apartment = windows_core::init_sta()?;
     let path = OpenFilePicker::new()
         .title("Open a Rust source file")
         .filter_extensions("Rust source", ["rs"])
@@ -39,9 +41,9 @@ fn pick_rust_file(window: &Window) -> Result<()> {
 # }
 ```
 
-The UI thread must use a COM STA. Follow an existing framework's apartment setup or retain a
-`windows_core::init_sta()` guard. Keep the owner window alive until the synchronous modal call
-returns.
+The thread showing the dialog must use a COM STA. Use an existing framework's apartment setup
+or retain an `init_sta()` guard as above. Keep the owner window alive until the synchronous modal
+call returns.
 
 ## Configure a picker
 
@@ -51,21 +53,15 @@ returns.
 | `FolderPicker` | One folder, or several through `show_multiple` |
 | `SaveFilePicker` | A proposed save path |
 
-Use `suggested_name` and `default_extension` for save names. Use `default_folder` when the Shell
-has no remembered location, or `folder` to force the initial location. Folder paths may be
-relative or canonical, and a folder that does not exist is ignored. A stable `client_id` GUID lets
-related pickers share Shell history. `initial_filter` is a zero-based index.
-
 Single-selection methods return `Ok(None)` on cancellation; multiple-selection methods return an
 empty vector. Other failures remain errors. A save result is only a path: opening it can still
 fail or race with another process, even after overwrite confirmation.
 
 ## Use another host
 
-For another HWND owner, disable default features and use `show_for_hwnd`. A null handle shows an
-unowned dialog. The owner must remain valid throughout the dialog. It may belong to another thread,
-such as when a framework runs dialogs on a dedicated STA thread, but that thread must keep
-processing messages until the dialog returns.
+For another HWND owner, use `show_for_hwnd`; the `system` feature is not required. A null handle
+shows an unowned dialog. The owner must remain valid throughout the dialog. If it belongs to
+another thread, that thread must keep processing messages until the dialog returns.
 
 For Reactor, enable `reactor` and use `request` or `request_multiple` to map the result into a
 component message. Do not call modal `show` inline during an update. A request returning `false`

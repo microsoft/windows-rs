@@ -43,6 +43,4 @@ Use the convention documented for the API, then propagate failures with `.ok()?`
 For last-error APIs, call `BOOL::ok` or `Error::from_thread` immediately after failure.
 Another Windows call can overwrite the thread's error.
 
-`Error::from_hresult` stores only the code; converting with `Error::from` can capture COM error
-information. `WIN32_ERROR::from_error` recovers a mapped Win32 code when handling a specific
-condition. `Error` implements `core::error::Error`; the default `std` feature adds I/O conversions.
+`Error` implements `core::error::Error`; the default `std` feature adds I/O conversions.

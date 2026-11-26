@@ -24,9 +24,9 @@ mod Example {
 }
 ```
 
-Use `#[winrt]` for WinRT contracts or `#[win32]` for native API declarations. WinRT interfaces
-need a GUID, explicit or automatic, and every explicit argument needs `#[in]` or `#[out]`.
-RDL looks like Rust but is a separate language.
+RDL looks like Rust but is a separate language. WinRT interfaces need a GUID and each explicit
+argument needs a direction, as shown above. See the [language reference][reference] for native
+API declarations and other contracts.
 
 ## Compile and inspect metadata
 
@@ -52,11 +52,10 @@ windows_rdl::writer()
 
 References resolve names without copying their definitions into the output. Use
 `reference_default()` for standard Windows types or `reference("dependency.winmd")` for another
-component. Writer references likewise resolve external types and attributes without emitting them.
+component.
 
 Pass the `.winmd` to [windows-bindgen](https://docs.rs/windows-bindgen) for Rust bindings or
 [cppwinrt](https://docs.rs/cppwinrt) for C++ headers. Keep the RDL as the reviewed source and
 regenerate the binary metadata when it changes.
 
-Use a dedicated output directory with writer `split` or `partition`: these modes remove existing
-`.rdl` files there.
+[reference]: https://github.com/microsoft/windows-rs/blob/master/crates/libs/rdl/rdl.md

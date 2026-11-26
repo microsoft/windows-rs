@@ -30,12 +30,10 @@ assert_eq!((transform.m31, transform.m32), (10.0, 20.0));
 
 ## Use vectors and transforms
 
-Vector multiplication is component-wise; scalar arithmetic uses `f32`. Use squared length or
-distance when only a comparison is needed, and check for zero length before normalizing.
+Vector multiplication is component-wise; scalar arithmetic uses `f32`. Check for zero length
+before normalizing.
 
-`Matrix3x2` provides translation, scale, rotation, and skew, including transforms around a center.
-Rotation and skew angles are in degrees. Matrix multiplication order matters: check representative
-points instead of assuming another math library's convention.
+Rotation and skew angles are in degrees. Matrix multiplication order matters.
 
 Equality is exact floating-point equality. Use a tolerance for computed values. The default `std`
 feature supplies square-root and trigonometric operations.

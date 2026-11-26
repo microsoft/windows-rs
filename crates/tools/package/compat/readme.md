@@ -1,8 +1,11 @@
-These `.winmd` files are the metadata used to generate the last `windows` 0.62 and `windows-sys`
-0.61 releases (release 71). `tool-package` uses them to generate interim releases of those crates
-against the current `windows-core` and related crates, to ease migration of existing dependents.
+# Package compatibility metadata
 
-The files are identical to `crates/libs/bindgen/default` at the `71` tag.
+`tool-package` uses these pinned `.winmd` files to generate `windows` and `windows-sys` against
+the current runtime crates while retaining their compatibility metadata. This is separate from
+the metadata in `windows-default` used for focused bindings.
+
+The files match `crates/libs/bindgen/default` at tag `71`, the metadata baseline for `windows`
+0.62 and `windows-sys` 0.61.
 
 | File | Source | Version |
 | --- | --- | --- |
@@ -12,4 +15,14 @@ The files are identical to `crates/libs/bindgen/default` at the `71` tag.
 
 These files use the Win32 metadata attribute vocabulary in `Windows.Win32.Foundation.Metadata`.
 `windows-bindgen` recognizes it in `--package` mode and projects handles, enums, and related
-types as the 0.62 releases did.
+types using the compatibility rules.
+
+From the repository root, regenerate both packages with:
+
+```console
+cargo run -p tool-package --quiet
+```
+
+The tool reads `crates/tools/package/src/windows.txt` and `sys.txt`, then rewrites generated
+sources and Cargo feature lists in `crates/libs/windows` and `crates/libs/sys`. Review the diff;
+do not edit generated files or replace these metadata inputs as part of a routine SDK refresh.

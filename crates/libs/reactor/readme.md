@@ -15,8 +15,9 @@ Reactor is a preview; public APIs may change.
 windows-reactor = "0.101"
 ```
 
-Apps use an installed Windows App Runtime by default. To ship the runtime with your app, configure
-a [self-contained build](https://docs.rs/windows-reactor-setup).
+Apps use an installed Windows App Runtime by default; this version targets runtime 2.6.4.
+To ship the runtime with your app, configure a
+[self-contained build](https://docs.rs/windows-reactor-setup).
 
 ```rust,no_run
 use windows_reactor::*;
@@ -65,16 +66,12 @@ fn main() {
 }
 ```
 
-Run it with `cargo run`. A click sends a message to `update`, which changes the state. Reactor
-then calls `view` again and updates only the controls that changed.
+Run it with `cargo run`. Updates and rendering run on the UI thread; keep `update` and `view`
+quick, and use `spawn_background` for blocking work.
 
-## Showcase
+## Samples
 
-Clone the repository and run these samples from its root.
-
-### Gallery
-
-Browse WinUI controls built with Reactor.
+Clone the repository and run the Gallery from its root to browse WinUI controls:
 
 ```sh
 cargo run -p reactor-gallery
@@ -82,41 +79,9 @@ cargo run -p reactor-gallery
 
 ![Reactor gallery](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/reactor-gallery.png)
 
-### Solitaire
-
-A complete game built from standard controls.
-
-```sh
-cargo run -p reactor-solitaire
-```
-
-![Solitaire](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/reactor-solitaire.png)
-
-### Stacker
-
-Reactor, Canvas, and Composition together.
-
-```sh
-cargo run -p reactor-stacker
-```
-
-![Stacker](https://raw.githubusercontent.com/microsoft/windows-rs/0f40f10dba392ab1e61bebd31c0563d12127117f/docs/reactor-stacker.png)
-
-## Next steps
-
-| To | Use | Sample |
-| --- | --- | --- |
-| Edit text and other values | Set the value from state, handle its change event in `update` | [Controlled input][controlled] |
-| Split the UI into parts | `View::component`, with input that implements `Clone + PartialEq` | [Component input][component] |
-| Keep state with list items | `KeyedView` with a stable key per item, not its index | [Keyed list][keyed] |
-| Run blocking work | `spawn_background`; the work returns a message | [Async state][async] |
-| Focus a newly mounted control | `use_effect` and `ElementRef` | [Effects][effects] |
-| Share state across windows | `App::run_application`, with window inputs and callbacks | [Navigation][navigation] |
-| Keep per-row work with its owner | Keyed components and `spawn_background` | [Workbench][workbench] |
-| Add a tray icon | `ApplicationView::notify_icon` | [Notification icon][notifyicon] |
-| Remember window placement | `initial_placement` and `on_window_placement` | [Window placement][placement] |
-
-Updates and rendering run on the UI thread, so keep `update` and `view` quick.
+The [controlled input][controlled], [component input][component], and [async state][async] samples
+show how to connect controls to state, split an application into components, and run background
+work.
 
 ## Ship the app
 
@@ -127,10 +92,4 @@ staged runtime files alongside the executable.
 
 [controlled]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/controlled
 [component]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/component-input
-[keyed]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/keyed-list-reorder
-[effects]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/use-effect
 [async]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/async-state
-[navigation]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/navigation
-[workbench]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/workbench
-[notifyicon]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/notifyicon
-[placement]: https://github.com/microsoft/windows-rs/tree/master/crates/samples/reactor/window-placement-registry
