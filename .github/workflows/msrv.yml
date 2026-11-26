@@ -74,10 +74,6 @@ jobs:
       - name: Check windows-window
         run:  cargo check -p windows-window --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.88 && rustup default 1.88
-      - name: Check windows-sys
-        run:  cargo check -p windows-sys --all-features
-      - name: Rust version
         run: rustup update --no-self-update 1.85 && rustup default 1.85
       - name: Check windows-collections
         run:  cargo check -p windows-collections --all-features
@@ -99,6 +95,8 @@ jobs:
         run:  cargo check -p windows-result --all-features
       - name: Check windows-strings
         run:  cargo check -p windows-strings --all-features
+      - name: Check windows-sys
+        run:  cargo check -p windows-sys --all-features
       - name: Check windows-threading
         run:  cargo check -p windows-threading --all-features
       - name: Check windows-time
