@@ -1750,7 +1750,7 @@ fn fixed_pointer_styles() {
                     .args(["check", "--quiet", "--manifest-path"])
                     .arg(&manifest);
                 if package {
-                    command.args(["--no-default-features", "--features", "fixture"]);
+                    command.args(["--no-default-features", "--features", "Win32_fixture"]);
                 }
                 let result = command.output().unwrap();
                 assert!(
@@ -1892,40 +1892,47 @@ fn enum_constant_shadow_styles() {
     }
 }
 
+fn default_metadata_output(name: &str, style: &str, filters: &[&str]) -> String {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("default-metadata");
+    std::fs::create_dir_all(&scratch).unwrap();
+    let output = scratch.join(format!("{name}.rs"));
+    let mut builder = windows_bindgen::builder();
+    builder.filters(filters).output(&output);
+    match style {
+        "full" => {
+            builder.full();
+        }
+        "sys" => {
+            builder.sys();
+        }
+        _ => unreachable!(),
+    }
+    builder.write();
+    std::fs::read_to_string(output).unwrap()
+}
+
 #[test]
 fn real_variadic_exports_are_raw_sys_only() {
-    let rich =
-        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/authz/mod.rs").unwrap();
-    assert!(!rich.contains("pub unsafe fn AuthzReportSecurityEvent("));
-
-    let sys = std::fs::read_to_string("../../../libs/sys/src/Windows/Win32/authz/mod.rs").unwrap();
+    let sys = default_metadata_output("variadic-sys", "sys", &["AuthzReportSecurityEvent"]);
     assert!(sys.contains(
-        "windows_link::link!(\"authz.dll\" \"C\" fn AuthzReportSecurityEvent(dwflags : super::DWORD, \
-         heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : super::DWORD, pusersid : \
-         super::PSID, dwcount : super::DWORD, ...) -> windows_sys::core::BOOL);"
+        "windows_link::link!(\"authz.dll\" \"C\" fn AuthzReportSecurityEvent(dwflags : DWORD, \
+         heventprovider : AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid : DWORD, pusersid : PSID, \
+         dwcount : DWORD, ...) -> BOOL);"
     ));
 }
 
 #[test]
 fn real_inout_parameters_remain_output_capable() {
-    let wingdi =
-        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/wingdi/mod.rs").unwrap();
-    assert!(wingdi.contains(
-        "pub unsafe fn DPtoLP(hdc: super::HDC, lppt: super::LPPOINT, c: i32) -> \
-         windows_core::BOOL"
+    let rich = default_metadata_output("inout", "full", &["DPtoLP", "CryptProtectMemory"]);
+    assert!(
+        rich.contains(
+            "pub unsafe fn DPtoLP(hdc: HDC, lppt: LPPOINT, c: i32) -> windows_core::BOOL"
+        )
+    );
+    assert!(rich.contains("pub type LPPOINT = *mut POINT;"));
+    assert!(rich.contains(
+        "pub unsafe fn CryptProtectMemory(\n    pdatain: LPVOID,\n    cbdatain: DWORD,\n    \
+         dwflags: DWORD,\n) -> windows_core::BOOL"
     ));
-    let windef =
-        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/windef/mod.rs").unwrap();
-    assert!(windef.contains("pub type LPPOINT = *mut POINT;"));
-
-    let dpapi =
-        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/dpapi/mod.rs").unwrap();
-    assert!(dpapi.contains(
-        "pub unsafe fn CryptProtectMemory(pdatain: super::LPVOID, cbdatain: super::DWORD, \
-         dwflags: super::DWORD) -> windows_core::BOOL"
-    ));
-    let minwindef =
-        std::fs::read_to_string("../../../libs/windows/src/Windows/Win32/minwindef/mod.rs")
-            .unwrap();
-    assert!(minwindef.contains("pub type LPVOID = *mut core::ffi::c_void;"));
+    assert!(rich.contains("pub type LPVOID = *mut core::ffi::c_void;"));
 }

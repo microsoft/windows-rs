@@ -93,54 +93,6 @@ fn leading_and_per_pointer_const() {
 }
 
 #[test]
-fn fixed_pointer_remap() {
-    let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("..\\..\\..\\..\\target");
-    let source = root.join("test-metadata-fixed-pointer-source.winmd");
-    let output = root.join("test-metadata-fixed-pointer-remapped.winmd");
-    let ty = |namespace| {
-        Type::ArrayFixed(
-            Box::new(Type::Ptr64(
-                Box::new(Type::PtrConst(
-                    Box::new(Type::value_named(namespace, "Target")),
-                    1,
-                )),
-                false,
-            )),
-            2,
-        )
-    };
-    let mut file = writer::File::new("fixed");
-    let base = writer::TypeDefOrRef::TypeRef(file.TypeRef("System", "ValueType"));
-    let flags = TypeAttributes::Public | TypeAttributes::SequentialLayout;
-    file.TypeDef("Source", "Holder", base, flags);
-    file.Field("addresses", &ty("Source"), FieldAttributes::Public);
-    file.TypeDef("Source", "Target", base, flags);
-    file.Field("value", &Type::I32, FieldAttributes::Public);
-    std::fs::write(&source, file.into_stream()).unwrap();
-    remap()
-        .input(&source)
-        .source("Source")
-        .fallback("Destination")
-        .output(&output)
-        .remap()
-        .unwrap();
-    let index = Index::read(&output).unwrap();
-    assert_eq!(
-        index
-            .expect("Destination", "Holder")
-            .fields()
-            .next()
-            .unwrap()
-            .ty(),
-        ty("Destination")
-    );
-    index.expect("Destination", "Target");
-    for path in [source, output] {
-        std::fs::remove_file(path).unwrap();
-    }
-}
-
-#[test]
 fn malformed_fixed_pointer_modifiers() {
     let mut file = writer::File::new("fixed-modifiers");
     let modifier = file.TypeRef("Windows.Win32.Metadata", "NativePointer64Attribute");

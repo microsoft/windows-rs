@@ -1,32 +1,28 @@
 pub struct GameBar;
 impl GameBar {
-    pub fn VisibilityChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn VisibilityChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveVisibilityChanged))
+            (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn IsInputRedirectedChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveVisibilityChanged(token: i64) -> windows_core::Result<()> {
+        Self::IGameBarStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveVisibilityChanged)(windows_core::Interface::as_raw(this), token).ok() })
+    }
+    pub fn IsInputRedirectedChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveIsInputRedirectedChanged))
+            (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
+    }
+    pub fn RemoveIsInputRedirectedChanged(token: i64) -> windows_core::Result<()> {
+        Self::IGameBarStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveIsInputRedirectedChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     pub fn Visible() -> windows_core::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
@@ -164,19 +160,17 @@ impl GameChatOverlayMessageSource {
         static SHARED: windows_core::imp::FactoryCache<GameChatOverlayMessageSource, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<GameChatMessageReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, GameChatMessageReceivedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, GameChatMessageReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMessageReceived))
+            (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveMessageReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveMessageReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetDelayBeforeClosingAfterMessageReceived(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDelayBeforeClosingAfterMessageReceived)(windows_core::Interface::as_raw(self), value).ok() }

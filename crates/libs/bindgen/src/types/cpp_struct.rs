@@ -89,7 +89,11 @@ impl CppStruct {
     }
 
     // Handle-like typedefs have one primitive instance field named Value and no nested types.
+    // Legacy Win32 metadata marks every strongly typed handle with `NativeTypedef` instead.
     pub fn is_handle(&self, reader: &Reader) -> bool {
+        if reader.legacy() {
+            return self.def.has_attribute("NativeTypedefAttribute");
+        }
         if !self.nested.is_empty() {
             return false;
         }
@@ -138,8 +142,9 @@ impl CppStruct {
     }
 
     // Native typedefs over named types render as transparent aliases, not wrapper structs.
-    pub fn is_native_typedef(&self) -> bool {
-        if self.def.find_attribute("NativeTypedefAttribute").is_none() {
+    // Legacy Win32 metadata uses `NativeTypedef` for handles instead (see `is_handle`).
+    pub fn is_native_typedef(&self, reader: &Reader) -> bool {
+        if reader.legacy() || self.def.find_attribute("NativeTypedefAttribute").is_none() {
             return false;
         }
 
@@ -230,6 +235,9 @@ impl CppStruct {
     }
 
     pub fn write(&self, config: &Config) -> TokenStream {
+        if let Some(ty) = config.reader.legacy_core_type(self.def) {
+            return config.write_legacy_core_type(&ty);
+        }
         if self.has_interface_bases(config.reader) {
             return self.write_native_object(config);
         }
@@ -253,7 +261,7 @@ impl CppStruct {
             };
         }
 
-        if self.is_native_typedef() {
+        if self.is_native_typedef(config.reader) {
             let name = to_ident(self.name);
             let field = self.def.fields().next().unwrap();
             let ty = field
@@ -404,6 +412,8 @@ impl CppStruct {
 
         if config.bindgen.style.is_sys() || is_copyable {
             derive.extend(["Clone", "Copy"]);
+        } else if config.reader.legacy() && legacy::is_variant(self.type_name()) {
+            // The `windows` crate extensions implement `Clone`.
         } else if has_explicit_layout {
             manual_clone = Some(quote! {
                 #cfg
@@ -751,7 +761,9 @@ impl CppStruct {
         cfg: &TokenStream,
         arches: i32,
     ) -> TokenStream {
+        // Win32metadata bit-field ranges are unchecked; legacy projections omit accessors.
         if config.bindgen.style.is_sys()
+            || config.reader.legacy()
             || !self
                 .def
                 .fields()
@@ -960,8 +972,10 @@ fn bitfield_scalar(ty: &Type, config: &Config, arch: i32) -> (Type, Vec<TokenStr
         }
         assert!(seen.insert(scalar.clone()), "cyclic bitfield type");
         let wrap = match &scalar {
-            Type::CppEnum(ty) => ty.def.has_attribute("ScopedEnumAttribute"),
-            Type::CppStruct(ty) if ty.is_handle(config.reader) || ty.is_native_typedef() => {
+            Type::CppEnum(ty) => config.enum_is_newtype(ty.def),
+            Type::CppStruct(ty)
+                if ty.is_handle(config.reader) || ty.is_native_typedef(config.reader) =>
+            {
                 !config.typedef_emits_bare(ty.def)
             }
             Type::BOOL | Type::HRESULT | Type::NTSTATUS | Type::RPC_STATUS => {
@@ -1255,6 +1269,9 @@ impl Dependencies for CppStruct {
     fn combine(&self, dependencies: &mut TypeMap, reader: &Reader) {
         for ty in self.definition_types(reader) {
             ty.combine(dependencies, reader);
+        }
+        if let Some(target) = legacy_also_usable_for(self.def, reader) {
+            target.combine(dependencies, reader);
         }
     }
 }

@@ -268,47 +268,41 @@ impl PlayToConnection {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionStateChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToConnectionStateChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToConnectionStateChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
+            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Transferred<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn Transferred<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionTransferredEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToConnectionTransferredEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToConnectionTransferredEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Transferred)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTransferred))
+            (windows_core::Interface::vtable(self).Transferred)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Error<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveTransferred(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveTransferred)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn Error<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToConnectionErrorEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToConnectionErrorEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToConnectionErrorEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveError))
+            (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveError(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveError)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for PlayToConnection {
@@ -454,33 +448,29 @@ unsafe impl Sync for PlayToConnectionTransferredEventArgs {}
 pub struct PlayToManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayToManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PlayToManager {
-    pub fn SourceRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SourceRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToSourceRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToSourceRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToSourceRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SourceRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceRequested))
+            (windows_core::Interface::vtable(self).SourceRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn SourceSelected<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveSourceRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSourceRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn SourceSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlayToSourceSelectedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlayToSourceSelectedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlayToSourceSelectedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SourceSelected)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceSelected))
+            (windows_core::Interface::vtable(self).SourceSelected)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveSourceSelected(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSourceSelected)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetDefaultSourceSelection(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultSourceSelection)(windows_core::Interface::as_raw(self), value).ok() }
@@ -530,131 +520,113 @@ impl PlayToReceiver {
         static SHARED: windows_core::imp::FactoryCache<PlayToReceiver, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn PlayRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn PlayRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PlayRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePlayRequested))
+            (windows_core::Interface::vtable(self).PlayRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PauseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlayRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePlayRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn PauseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PauseRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePauseRequested))
+            (windows_core::Interface::vtable(self).PauseRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn SourceChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePauseRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePauseRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn SourceChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SourceChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SourceChangeRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, SourceChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SourceChangeRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSourceChangeRequested))
+            (windows_core::Interface::vtable(self).SourceChangeRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackRateChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveSourceChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSourceChangeRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn PlaybackRateChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackRateChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PlaybackRateChangeRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePlaybackRateChangeRequested))
+            (windows_core::Interface::vtable(self).PlaybackRateChangeRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CurrentTimeChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlaybackRateChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePlaybackRateChangeRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn CurrentTimeChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CurrentTimeChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CurrentTimeChangeRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, CurrentTimeChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CurrentTimeChangeRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCurrentTimeChangeRequested))
+            (windows_core::Interface::vtable(self).CurrentTimeChangeRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn MuteChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveCurrentTimeChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCurrentTimeChangeRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn MuteChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MuteChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MuteChangeRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MuteChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MuteChangeRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMuteChangeRequested))
+            (windows_core::Interface::vtable(self).MuteChangeRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn VolumeChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveMuteChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveMuteChangeRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn VolumeChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VolumeChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VolumeChangeRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, VolumeChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).VolumeChangeRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveVolumeChangeRequested))
+            (windows_core::Interface::vtable(self).VolumeChangeRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeUpdateRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveVolumeChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveVolumeChangeRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn TimeUpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).TimeUpdateRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTimeUpdateRequested))
+            (windows_core::Interface::vtable(self).TimeUpdateRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn StopRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveTimeUpdateRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveTimeUpdateRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn StopRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).StopRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStopRequested))
+            (windows_core::Interface::vtable(self).StopRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveStopRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStopRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn NotifyVolumeChange(&self, volume: f64, mute: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NotifyVolumeChange)(windows_core::Interface::as_raw(self), volume, mute).ok() }
@@ -1015,10 +987,10 @@ impl SourceChangeRequestedEventArgs {
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Date(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn Date(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -1028,10 +1000,10 @@ impl SourceChangeRequestedEventArgs {
             (windows_core::Interface::vtable(self).Thumbnail)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Rating(&self) -> windows_core::Result<u32> {
+    pub fn Rating(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Rating)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).Rating)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {

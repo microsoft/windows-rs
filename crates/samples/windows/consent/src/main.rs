@@ -1,5 +1,7 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Security::Credentials::UI::*, Win32::*, core::*};
+    use windows::{
+        Security::Credentials::UI::*, Win32::Foundation::*, Win32::System::WinRT::*, core::*,
+    };
     use windows_future::*;
 
     unsafe {

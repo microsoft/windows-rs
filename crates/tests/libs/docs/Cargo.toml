@@ -10,7 +10,7 @@ features = ["std", "Data_Xml_Dom"]
 
 [dev-dependencies.windows-sys]
 workspace = true
-features = ["sysinfoapi"]
+features = ["Win32_System_SystemInformation"]
 
 [lints]
 workspace = true

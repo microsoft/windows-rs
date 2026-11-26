@@ -1,5 +1,8 @@
 #![cfg(all(windows, any(target_arch = "x86", target_arch = "x86_64")))]
-use windows_sys::Win32::*;
+use windows_sys::{
+    Wdk::Foundation::ACCESS_STATE, Win32::System::Diagnostics::Debug::*,
+    Win32::System::Environment::*,
+};
 
 #[test]
 #[cfg(target_arch = "x86_64")]
@@ -23,12 +26,12 @@ fn arch() {
 fn arch_feature() {
     assert_eq!(1232, size_of::<CONTEXT>());
 
-    extern "C" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
+    extern "system" fn callback(_: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32 {
         64
     }
 
     let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Some(callback);
-    assert_eq!(64, unsafe { callback.unwrap()(core::ptr::null_mut()) });
+    assert_eq!(64, unsafe { callback.unwrap()(core::ptr::null()) });
 }
 
 #[test]
@@ -37,10 +40,10 @@ fn arch_feature() {
 fn arch_feature() {
     assert_eq!(716, size_of::<CONTEXT>());
 
-    extern "C" fn callback(_: PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR) -> i32 {
+    extern "system" fn callback(_: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32 {
         32
     }
 
     let callback: VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = Some(callback);
-    assert_eq!(32, unsafe { callback.unwrap()(core::ptr::null_mut()) });
+    assert_eq!(32, unsafe { callback.unwrap()(core::ptr::null()) });
 }

@@ -65,10 +65,10 @@ impl core::ops::Not for DataClasses {
 pub struct ESim(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ESim, windows_core::IUnknown, windows_core::IInspectable);
 impl ESim {
-    pub fn AvailableMemoryInBytes(&self) -> windows_core::Result<i32> {
+    pub fn AvailableMemoryInBytes(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AvailableMemoryInBytes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).AvailableMemoryInBytes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Eid(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -125,19 +125,17 @@ impl ESim {
             (windows_core::Interface::vtable(self).ResetAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ProfileChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ProfileChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ProfileChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveProfileChanged))
+            (windows_core::Interface::vtable(self).ProfileChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveProfileChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveProfileChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Discover(&self) -> windows_core::Result<ESimDiscoverResult> {
         let this = &windows_core::Interface::cast::<IESim2>(self)?;
@@ -167,11 +165,11 @@ impl ESim {
             (windows_core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(serveraddress), core::mem::transmute_copy(matchingid), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SlotIndex(&self) -> windows_core::Result<i32> {
+    pub fn SlotIndex(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         let this = &windows_core::Interface::cast::<IESim3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SlotIndex)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(this).SlotIndex)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -362,19 +360,17 @@ impl ESimManager {
             (windows_core::Interface::vtable(this).TryCreateESimWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    pub fn ServiceInfoChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ServiceInfoChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IESimManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ServiceInfoChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveServiceInfoChanged))
+            (windows_core::Interface::vtable(this).ServiceInfoChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
+    }
+    pub fn RemoveServiceInfoChanged(token: i64) -> windows_core::Result<()> {
+        Self::IESimManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveServiceInfoChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
     fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ESimManager, IESimManagerStatics> = windows_core::imp::FactoryCache::new();
@@ -661,19 +657,17 @@ impl ESimProfileMetadata {
             (windows_core::Interface::vtable(self).PostponeInstallAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
+            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for ESimProfileMetadata {
@@ -876,75 +870,65 @@ impl ESimWatcher {
     pub fn Stop(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn Added<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimAddedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ESimAddedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, ESimAddedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Added)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAdded))
+            (windows_core::Interface::vtable(self).Added)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAdded)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).EnumerationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveEnumerationCompleted))
+            (windows_core::Interface::vtable(self).EnumerationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Removed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimRemovedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ESimRemovedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, ESimRemovedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Removed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRemoved))
+            (windows_core::Interface::vtable(self).Removed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveRemoved)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Stopped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStopped))
+            (windows_core::Interface::vtable(self).Stopped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Updated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStopped)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ESimUpdatedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ESimUpdatedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, ESimUpdatedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Updated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveUpdated))
+            (windows_core::Interface::vtable(self).Updated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveUpdated)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for ESimWatcher {
@@ -2642,75 +2626,65 @@ impl MobileBroadbandAccountWatcher {
         static SHARED: windows_core::imp::FactoryCache<MobileBroadbandAccountWatcher, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn AccountAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn AccountAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).AccountAdded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAccountAdded))
+            (windows_core::Interface::vtable(self).AccountAdded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn AccountUpdated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveAccountAdded(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAccountAdded)(windows_core::Interface::as_raw(self), cookie).ok() }
+    }
+    pub fn AccountUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountUpdatedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountUpdatedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountUpdatedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).AccountUpdated)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAccountUpdated))
+            (windows_core::Interface::vtable(self).AccountUpdated)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn AccountRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveAccountUpdated(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAccountUpdated)(windows_core::Interface::as_raw(self), cookie).ok() }
+    }
+    pub fn AccountRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandAccountEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandAccountEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).AccountRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAccountRemoved))
+            (windows_core::Interface::vtable(self).AccountRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn EnumerationCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveAccountRemoved(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveAccountRemoved)(windows_core::Interface::as_raw(self), cookie).ok() }
+    }
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).EnumerationCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveEnumerationCompleted))
+            (windows_core::Interface::vtable(self).EnumerationCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Stopped<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveEnumerationCompleted(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(self), cookie).ok() }
+    }
+    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Stopped)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStopped))
+            (windows_core::Interface::vtable(self).Stopped)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveStopped(&self, cookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStopped)(windows_core::Interface::as_raw(self), cookie).ok() }
     }
     pub fn Status(&self) -> windows_core::Result<MobileBroadbandAccountWatcherStatus> {
         unsafe {
@@ -2799,52 +2773,52 @@ unsafe impl Sync for MobileBroadbandAntennaSar {}
 pub struct MobileBroadbandCellCdma(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellCdma, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellCdma {
-    pub fn BaseStationId(&self) -> windows_core::Result<i32> {
+    pub fn BaseStationId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BaseStationId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).BaseStationId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn BaseStationPNCode(&self) -> windows_core::Result<i32> {
+    pub fn BaseStationPNCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BaseStationPNCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).BaseStationPNCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn BaseStationLatitude(&self) -> windows_core::Result<f64> {
+    pub fn BaseStationLatitude(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BaseStationLatitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).BaseStationLatitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn BaseStationLongitude(&self) -> windows_core::Result<f64> {
+    pub fn BaseStationLongitude(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BaseStationLongitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).BaseStationLongitude)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn BaseStationLastBroadcastGpsTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn BaseStationLastBroadcastGpsTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BaseStationLastBroadcastGpsTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).BaseStationLastBroadcastGpsTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn NetworkId(&self) -> windows_core::Result<i32> {
+    pub fn NetworkId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NetworkId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).NetworkId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PilotSignalStrengthInDB(&self) -> windows_core::Result<f64> {
+    pub fn PilotSignalStrengthInDB(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PilotSignalStrengthInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).PilotSignalStrengthInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SystemId(&self) -> windows_core::Result<i32> {
+    pub fn SystemId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SystemId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).SystemId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2866,28 +2840,28 @@ unsafe impl Sync for MobileBroadbandCellCdma {}
 pub struct MobileBroadbandCellGsm(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellGsm, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellGsm {
-    pub fn BaseStationId(&self) -> windows_core::Result<i32> {
+    pub fn BaseStationId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BaseStationId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).BaseStationId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn CellId(&self) -> windows_core::Result<i32> {
+    pub fn CellId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ChannelNumber(&self) -> windows_core::Result<i32> {
+    pub fn ChannelNumber(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn LocationAreaCode(&self) -> windows_core::Result<i32> {
+    pub fn LocationAreaCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LocationAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).LocationAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2896,16 +2870,16 @@ impl MobileBroadbandCellGsm {
             (windows_core::Interface::vtable(self).ProviderId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReceivedSignalStrengthInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReceivedSignalStrengthInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReceivedSignalStrengthInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReceivedSignalStrengthInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<i32> {
+    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2927,22 +2901,22 @@ unsafe impl Sync for MobileBroadbandCellGsm {}
 pub struct MobileBroadbandCellLte(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellLte, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellLte {
-    pub fn CellId(&self) -> windows_core::Result<i32> {
+    pub fn CellId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ChannelNumber(&self) -> windows_core::Result<i32> {
+    pub fn ChannelNumber(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PhysicalCellId(&self) -> windows_core::Result<i32> {
+    pub fn PhysicalCellId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PhysicalCellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).PhysicalCellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -2951,28 +2925,28 @@ impl MobileBroadbandCellLte {
             (windows_core::Interface::vtable(self).ProviderId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<i32> {
+    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TrackingAreaCode(&self) -> windows_core::Result<i32> {
+    pub fn TrackingAreaCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TrackingAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).TrackingAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2994,22 +2968,22 @@ unsafe impl Sync for MobileBroadbandCellLte {}
 pub struct MobileBroadbandCellNR(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellNR, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellNR {
-    pub fn CellId(&self) -> windows_core::Result<i64> {
+    pub fn CellId(&self) -> windows_core::Result<windows_reference::IReference<i64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i64>| r__.Value())
+            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ChannelNumber(&self) -> windows_core::Result<i32> {
+    pub fn ChannelNumber(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PhysicalCellId(&self) -> windows_core::Result<i32> {
+    pub fn PhysicalCellId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PhysicalCellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).PhysicalCellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3018,34 +2992,34 @@ impl MobileBroadbandCellNR {
             (windows_core::Interface::vtable(self).ProviderId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReferenceSignalReceivedPowerInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReferenceSignalReceivedPowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReferenceSignalReceivedQualityInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReferenceSignalReceivedQualityInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimingAdvanceInNanoseconds(&self) -> windows_core::Result<i32> {
+    pub fn TimingAdvanceInNanoseconds(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimingAdvanceInNanoseconds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).TimingAdvanceInNanoseconds)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TrackingAreaCode(&self) -> windows_core::Result<i32> {
+    pub fn TrackingAreaCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TrackingAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).TrackingAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<f64> {
+    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3067,34 +3041,34 @@ unsafe impl Sync for MobileBroadbandCellNR {}
 pub struct MobileBroadbandCellTdscdma(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellTdscdma, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellTdscdma {
-    pub fn CellId(&self) -> windows_core::Result<i32> {
+    pub fn CellId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn CellParameterId(&self) -> windows_core::Result<i32> {
+    pub fn CellParameterId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellParameterId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).CellParameterId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ChannelNumber(&self) -> windows_core::Result<i32> {
+    pub fn ChannelNumber(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn LocationAreaCode(&self) -> windows_core::Result<i32> {
+    pub fn LocationAreaCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LocationAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).LocationAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PathLossInDB(&self) -> windows_core::Result<f64> {
+    pub fn PathLossInDB(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PathLossInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).PathLossInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3103,16 +3077,16 @@ impl MobileBroadbandCellTdscdma {
             (windows_core::Interface::vtable(self).ProviderId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<i32> {
+    pub fn TimingAdvanceInBitPeriods(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).TimingAdvanceInBitPeriods)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3134,34 +3108,34 @@ unsafe impl Sync for MobileBroadbandCellTdscdma {}
 pub struct MobileBroadbandCellUmts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MobileBroadbandCellUmts, windows_core::IUnknown, windows_core::IInspectable);
 impl MobileBroadbandCellUmts {
-    pub fn CellId(&self) -> windows_core::Result<i32> {
+    pub fn CellId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).CellId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ChannelNumber(&self) -> windows_core::Result<i32> {
+    pub fn ChannelNumber(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).ChannelNumber)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn LocationAreaCode(&self) -> windows_core::Result<i32> {
+    pub fn LocationAreaCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LocationAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).LocationAreaCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PathLossInDB(&self) -> windows_core::Result<f64> {
+    pub fn PathLossInDB(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PathLossInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).PathLossInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PrimaryScramblingCode(&self) -> windows_core::Result<i32> {
+    pub fn PrimaryScramblingCode(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrimaryScramblingCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).PrimaryScramblingCode)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -3170,16 +3144,16 @@ impl MobileBroadbandCellUmts {
             (windows_core::Interface::vtable(self).ProviderId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<f64> {
+    pub fn ReceivedSignalCodePowerInDBm(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).ReceivedSignalCodePowerInDBm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<f64> {
+    pub fn SignalToNoiseRatioInDB(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).SignalToNoiseRatioInDB)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -3612,20 +3586,19 @@ impl MobileBroadbandDeviceServiceCommandSession {
     pub fn CloseSession(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CloseSession)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn CommandReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn CommandReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceCommandEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceCommandEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceCommandEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveCommandReceived))
+            (windows_core::Interface::vtable(this).CommandReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveCommandReceived(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandDeviceServiceCommandSession2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveCommandReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandDeviceServiceCommandSession {
@@ -3685,19 +3658,17 @@ impl MobileBroadbandDeviceServiceDataSession {
     pub fn CloseSession(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CloseSession)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn DataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DataReceived<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceDataReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceDataReceivedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceDataReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDataReceived))
+            (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveDataReceived(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDataReceived)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandDeviceServiceDataSession {
@@ -3904,20 +3875,19 @@ impl MobileBroadbandModem {
             (windows_core::Interface::vtable(this).IsInEmergencyCallMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsInEmergencyCallModeChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn IsInEmergencyCallModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).IsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged))
+            (windows_core::Interface::vtable(this).IsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveIsInEmergencyCallModeChanged(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMobileBroadbandModem3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveIsInEmergencyCallModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn SetIsPassthroughEnabledWithSlotIndexAsync(&self, value: bool, slotindex: i32) -> windows_core::Result<windows_future::IAsyncOperation<MobileBroadbandModemStatus>> {
         let this = &windows_core::Interface::cast::<IMobileBroadbandModem4>(self)?;
@@ -4684,19 +4654,17 @@ impl MobileBroadbandSarManager {
             (windows_core::Interface::vtable(self).HysteresisTimerPeriod)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TransmissionStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn TransmissionStateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandTransmissionStateChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandTransmissionStateChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandTransmissionStateChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).TransmissionStateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveTransmissionStateChanged))
+            (windows_core::Interface::vtable(self).TransmissionStateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveTransmissionStateChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveTransmissionStateChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn EnableBackoffAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
         unsafe {
@@ -4849,33 +4817,29 @@ impl MobileBroadbandSlotManager {
             (windows_core::Interface::vtable(self).SetCurrentSlotAsync)(windows_core::Interface::as_raw(self), slotindex, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SlotInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SlotInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandSlotInfoChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandSlotInfoChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandSlotInfoChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SlotInfoChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSlotInfoChanged))
+            (windows_core::Interface::vtable(self).SlotInfoChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CurrentSlotIndexChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveSlotInfoChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSlotInfoChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn CurrentSlotIndexChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandCurrentSlotIndexChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, MobileBroadbandCurrentSlotIndexChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandCurrentSlotIndexChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CurrentSlotIndexChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCurrentSlotIndexChanged))
+            (windows_core::Interface::vtable(self).CurrentSlotIndexChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveCurrentSlotIndexChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCurrentSlotIndexChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for MobileBroadbandSlotManager {

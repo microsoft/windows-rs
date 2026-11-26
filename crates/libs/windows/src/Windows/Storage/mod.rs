@@ -173,19 +173,17 @@ impl ApplicationData {
             (windows_core::Interface::vtable(self).TemporaryFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn DataChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DataChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DataChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDataChanged))
+            (windows_core::Interface::vtable(self).DataChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveDataChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDataChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SignalDataChanged(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SignalDataChanged)(windows_core::Interface::as_raw(self)).ok() }
@@ -339,20 +337,19 @@ impl ApplicationDataCompositeValue {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
+        P0: windows_core::Param<windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
-        let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveMapChanged))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -510,20 +507,19 @@ impl ApplicationDataContainerSettings {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>, windows_core::Ref<windows_collections::IMapChangedEventArgs<windows_core::HSTRING>>) + Send + Sync + 'static,
+        P0: windows_core::Param<windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
-        let handler = <windows_collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveMapChanged))
+            (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<windows_collections::IObservableMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -5013,19 +5009,17 @@ impl StorageLibrary {
             (windows_core::Interface::vtable(self).SaveFolder)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn DefinitionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DefinitionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DefinitionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDefinitionChanged))
+            (windows_core::Interface::vtable(self).DefinitionChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveDefinitionChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDefinitionChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn ChangeTracker(&self) -> windows_core::Result<StorageLibraryChangeTracker> {
         let this = &windows_core::Interface::cast::<IStorageLibrary2>(self)?;

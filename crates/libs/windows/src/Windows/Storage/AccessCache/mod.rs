@@ -894,19 +894,17 @@ impl StorageItemMostRecentlyUsedList {
             (windows_core::Interface::vtable(this).MaximumItemsAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ItemRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ItemRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ItemRemovedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, ItemRemovedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, ItemRemovedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ItemRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveItemRemoved))
+            (windows_core::Interface::vtable(self).ItemRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveItemRemoved(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveItemRemoved)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn AddWithMetadataAndVisibility<P0>(&self, file: P0, metadata: &windows_core::HSTRING, visibility: RecentStorageItemVisibility) -> windows_core::Result<windows_core::HSTRING>
     where

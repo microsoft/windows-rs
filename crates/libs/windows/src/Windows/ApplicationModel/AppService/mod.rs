@@ -102,33 +102,29 @@ impl AppServiceConnection {
             (windows_core::Interface::vtable(self).SendMessageAsync)(windows_core::Interface::as_raw(self), message.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn RequestReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RequestReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppServiceRequestReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppServiceRequestReceivedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, AppServiceRequestReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).RequestReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRequestReceived))
+            (windows_core::Interface::vtable(self).RequestReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ServiceClosed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveRequestReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveRequestReceived)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ServiceClosed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppServiceClosedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, AppServiceClosedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, AppServiceClosedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ServiceClosed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveServiceClosed))
+            (windows_core::Interface::vtable(self).ServiceClosed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveServiceClosed(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveServiceClosed)(windows_core::Interface::as_raw(self), token).ok() }
     }
     #[cfg(feature = "System_RemoteSystems")]
     pub fn OpenRemoteAsync<P0>(&self, remotesystemconnectionrequest: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppServiceConnectionStatus>>

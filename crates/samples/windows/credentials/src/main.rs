@@ -1,16 +1,17 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::{CRED_ENUMERATE_ALL_CREDENTIALS, CREDENTIALW, CredEnumerateW, CredFree};
+    use windows::Win32::Security::Credentials::{
+        CRED_ENUMERATE_ALL_CREDENTIALS, CREDENTIALW, CredEnumerateW, CredFree,
+    };
 
     let mut count = 0;
     let mut credentials_ptr = std::ptr::null_mut();
     unsafe {
         CredEnumerateW(
             None,
-            Some(CRED_ENUMERATE_ALL_CREDENTIALS as u32),
+            Some(CRED_ENUMERATE_ALL_CREDENTIALS),
             &mut count,
             &mut credentials_ptr,
-        )
-        .ok()?;
+        )?;
 
         let credentials =
             std::slice::from_raw_parts::<&CREDENTIALW>(credentials_ptr as _, count as usize);
@@ -27,7 +28,7 @@ fn main() -> windows::core::Result<()> {
             println!();
         }
 
-        CredFree(credentials_ptr.cast());
+        CredFree(credentials_ptr as *const _);
     }
 
     Ok(())

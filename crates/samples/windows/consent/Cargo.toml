@@ -5,11 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows = { workspace = true, default-features = true, features = [
-    "Security_Credentials_UI",
-    "userconsentverifierinterop",
-    "windef",
-] }
+windows = { workspace = true, default-features = true, features = ["Security_Credentials_UI", "Win32_System_WinRT"] }
 windows-future = { workspace = true }
 
 [lints]

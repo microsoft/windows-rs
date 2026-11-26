@@ -90,7 +90,7 @@ pub(super) fn native_layout(ty: &Type, reader: &Reader, arch: i32) -> NativeLayo
                 record.def.arches() == 0 || record.def.arches() & arch != 0,
                 "unavailable native layout for {full_name:?}"
             );
-            if record.is_native_typedef() {
+            if record.is_native_typedef(reader) {
                 return native_layout(
                     &record
                         .def

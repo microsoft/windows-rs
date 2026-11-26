@@ -32,6 +32,9 @@ pub mod Storage;
 pub mod System;
 #[cfg(feature = "UI")]
 pub mod UI;
+#[cfg(feature = "Wdk")]
+pub mod Wdk;
 #[cfg(feature = "Web")]
 pub mod Web;
+#[cfg(feature = "Win32")]
 pub mod Win32;

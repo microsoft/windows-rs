@@ -25,19 +25,17 @@ impl GeolocationProvider {
     pub fn ClearOverridePosition(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearOverridePosition)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn IsOverriddenChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn IsOverriddenChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::super::super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).IsOverriddenChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveIsOverriddenChanged))
+            (windows_core::Interface::vtable(self).IsOverriddenChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveIsOverriddenChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveIsOverriddenChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for GeolocationProvider {

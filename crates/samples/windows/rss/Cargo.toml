@@ -6,10 +6,7 @@ publish = false
 
 [dependencies]
 futures = "0.3"
-windows = { workspace = true, default-features = true, features = [
-    "Foundation",
-    "Web_Syndication",
-] }
+windows = { workspace = true, default-features = true, features = ["Foundation", "Web_Syndication"] }
 
 [lints]
 workspace = true

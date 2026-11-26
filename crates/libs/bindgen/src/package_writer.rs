@@ -122,19 +122,7 @@ impl Config<'_> {
             }
 
             let directory = output.join("src").join(tree.namespace.replace('.', "/"));
-
-            // Flat Win32/WDK umbrellas glob-reexport private per-header child modules.
-            let flatten_children = is_flat_container(tree.namespace);
-
             let mut tokens = TokenStream::new();
-
-            if flatten_children {
-                // Duplicate Win32 free constants stay reachable through their header modules.
-                tokens.combine(quote! { #![allow(ambiguous_glob_reexports)] });
-            }
-
-            // Prelude-name constants are shadowed back to the prelude after glob reexports.
-            let mut prelude_shadows: BTreeMap<&'static str, BTreeSet<String>> = BTreeMap::new();
 
             for (name, tree) in &tree.nested {
                 if prunable.contains(tree.namespace) {
@@ -142,58 +130,16 @@ impl Config<'_> {
                 }
 
                 let name = to_ident(name);
-
-                if flatten_children {
-                    let feature = tree.feature();
-                    let arches = reexport_arches(tree);
-
-                    for ty in &tree.types {
-                        if matches!(ty, Type::CppConst(_))
-                            && prelude_value_shadow(ty.type_name().name()).is_some()
-                        {
-                            prelude_shadows
-                                .entry(ty.type_name().name())
-                                .or_default()
-                                .insert(feature.clone());
-                        }
-                    }
-
-                    tokens.combine(quote! {
-                        #[cfg(feature = #feature)]
-                        pub mod #name;
-                        #[cfg(feature = #feature)]
-                        #arches
-                        pub use #name::*;
-                    });
-                } else if is_flat_container(tree.namespace) {
-                    // The umbrella is always present; only per-header children are feature-gated.
-                    tokens.combine(quote! {
-                        pub mod #name;
-                    });
-                } else {
-                    let feature = tree.feature();
-
-                    tokens.combine(quote! {
-                        #[cfg(feature = #feature)]
-                        pub mod #name;
-                    });
-                }
-            }
-
-            for (name, features) in &prelude_shadows {
-                let shadow = prelude_value_shadow(name).unwrap();
-                let features: Vec<&String> = features.iter().collect();
-
-                let cfg = if features.len() == 1 {
-                    quote! { #[cfg(#(feature = #features)*)] }
-                } else {
-                    quote! { #[cfg(any( #(feature = #features),* ))] }
-                };
+                let feature = namespace_feature(tree.namespace);
 
                 tokens.combine(quote! {
-                    #cfg
-                    pub use #shadow;
+                    #[cfg(feature = #feature)]
+                    pub mod #name;
                 });
+            }
+
+            if self.reader.legacy() {
+                tokens.combine(self.write_legacy_reexports(tree.namespace));
             }
 
             let config = self
@@ -220,14 +166,6 @@ impl Config<'_> {
             }
         }
 
-        let feature_namespaces: BTreeSet<&str> = trees
-            .iter()
-            .skip(1)
-            .map(|tree| tree.namespace)
-            .filter(|namespace| !prunable.contains(namespace))
-            .filter(|namespace| !is_flat_container(namespace))
-            .collect();
-
         // Sort feature lines by feature name for stable Cargo.toml output.
         let mut feature_lines: Vec<String> = Vec::new();
 
@@ -236,46 +174,35 @@ impl Config<'_> {
                 continue;
             }
 
-            // The flat umbrella has no feature; its per-header children do.
-            if is_flat_container(tree.namespace) {
+            let feature = namespace_feature(tree.namespace);
+
+            // Legacy features depend on their parent; Win32 and WDK roots need `Win32_Foundation`.
+            if self.reader.legacy() {
+                if let Some((dependency, _)) = feature.rsplit_once('_') {
+                    feature_lines.push(format!("{feature} = [\"{dependency}\"]"));
+                } else if namespace_starts_with(tree.namespace, "Windows.Win32")
+                    || namespace_starts_with(tree.namespace, "Windows.Wdk")
+                {
+                    feature_lines.push(format!("{feature} = [\"Win32_Foundation\"]"));
+                } else if tree.namespace == "Windows.Foundation" {
+                    feature_lines.push(format!("{feature} = []"));
+                } else {
+                    feature_lines.push(format!("{feature} = [\"Foundation\"]"));
+                }
                 continue;
             }
 
-            let feature = tree.feature();
-
-            // Dependencies follow namespace shape: Win32 peers, WinRT parent, or Foundation.
+            // Nested namespaces depend on their parent; WinRT roots depend on Foundation.
             let (parent, _leaf) = tree.namespace.rsplit_once('.').unwrap();
 
-            if parent == "Windows.Win32" {
-                // Win32 header features depend on the other header stems their APIs reference.
-                let config = self.with_namespace(tree.namespace);
-                let mut dependencies = BTreeSet::new();
-
-                for ty in &tree.types {
-                    let cfg = Cfg::new(&ty.dependencies(config.reader), &config);
-                    dependencies.extend(cfg.features);
-                }
-
-                dependencies.remove(tree.namespace);
-
-                // Sort dependencies by emitted feature name.
-                let list = dependencies
-                    .iter()
-                    .filter(|namespace| feature_namespaces.contains(*namespace))
-                    .map(|namespace| namespace_feature(namespace))
-                    .collect::<BTreeSet<_>>()
-                    .into_iter()
-                    .map(|feature| format!("\"{feature}\""))
-                    .collect::<Vec<_>>()
-                    .join(", ");
-
-                feature_lines.push(format!("{feature} = [{list}]"));
-            } else if parent != "Windows" {
-                // Nested WinRT namespaces depend on their parent root feature.
+            if parent != "Windows" {
                 let dependency = namespace_feature(parent);
 
                 feature_lines.push(format!("{feature} = [\"{dependency}\"]"));
-            } else if tree.namespace == "Windows.Foundation" {
+            } else if tree.namespace == "Windows.Foundation"
+                || tree.namespace == "Windows.Win32"
+                || tree.namespace == "Windows.Wdk"
+            {
                 feature_lines.push(format!("{feature} = []"));
             } else {
                 feature_lines.push(format!("{feature} = [\"Foundation\"]"));
@@ -316,35 +243,25 @@ impl Config<'_> {
     }
 }
 
-fn reexport_arches(tree: &TypeTree) -> TokenStream {
-    if !tree.nested.is_empty() {
-        return quote! {};
-    }
-    let mut arches = 0;
-    for ty in &tree.types {
-        let bits = ty.arches();
-        if bits == 0 {
-            return quote! {};
-        }
-        arches |= bits;
-    }
-    write_arch_bits(arches)
-}
+impl Config<'_> {
+    /// Legacy packages defined types now owned by sibling crates, such as `IReference` and
+    /// `DateTime`; re-export them at their metadata paths.
+    fn write_legacy_reexports(&self, namespace: &str) -> TokenStream {
+        let mut names: Vec<_> = self
+            .plan
+            .external
+            .iter()
+            .filter(|(name, _)| name.namespace() == namespace)
+            .map(|(name, reference)| format!("{reference}::{}", name.name()))
+            .collect();
 
-/// Always-present umbrella module for flat Win32 header stems.
-fn is_flat_container(namespace: &str) -> bool {
-    namespace == "Windows.Win32"
-}
+        names.sort();
 
-/// Prelude item shadowed by a flat Win32/WDK free constant, if any.
-fn prelude_value_shadow(name: &str) -> Option<TokenStream> {
-    Some(match name {
-        "None" => quote! { core::option::Option::None },
-        "Some" => quote! { core::option::Option::Some },
-        "Ok" => quote! { core::result::Result::Ok },
-        "Err" => quote! { core::result::Result::Err },
-        _ => return None,
-    })
+        let names = names
+            .iter()
+            .map(|name| name.parse::<TokenStream>().unwrap());
+        quote! { #(pub use #names;)* }
+    }
 }
 
 fn for_each<I, F, T>(i: I, f: F)

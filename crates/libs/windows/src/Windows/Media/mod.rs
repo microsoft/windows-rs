@@ -149,40 +149,46 @@ impl AudioFrame {
             (windows_core::Interface::vtable(this).IsReadOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).RelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetIsDiscontinuous(&self, value: bool) -> windows_core::Result<()> {
@@ -445,34 +451,40 @@ impl IMediaFrame {
             (windows_core::Interface::vtable(self).IsReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetRelativeTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetRelativeTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RelativeTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).RelativeTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetSystemRelativeTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetSystemRelativeTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SystemRelativeTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).SystemRelativeTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetIsDiscontinuous(&self, value: bool) -> windows_core::Result<()> {
@@ -1178,173 +1190,149 @@ unsafe impl Send for ImageDisplayProperties {}
 unsafe impl Sync for ImageDisplayProperties {}
 pub struct MediaControl;
 impl MediaControl {
-    pub fn SoundLevelChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SoundLevelChanged<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveSoundLevelChanged))
+            (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn PlayPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveSoundLevelChanged(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveSoundLevelChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn PlayPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).PlayPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePlayPressed))
+            (windows_core::Interface::vtable(this).PlayPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn PausePressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlayPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePlayPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn PausePressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).PausePressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePausePressed))
+            (windows_core::Interface::vtable(this).PausePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn StopPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePausePressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePausePressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn StopPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).StopPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveStopPressed))
+            (windows_core::Interface::vtable(this).StopPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn PlayPauseTogglePressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveStopPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveStopPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn PlayPauseTogglePressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).PlayPauseTogglePressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePlayPauseTogglePressed))
+            (windows_core::Interface::vtable(this).PlayPauseTogglePressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RecordPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlayPauseTogglePressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePlayPauseTogglePressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn RecordPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).RecordPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveRecordPressed))
+            (windows_core::Interface::vtable(this).RecordPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn NextTrackPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveRecordPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecordPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn NextTrackPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).NextTrackPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveNextTrackPressed))
+            (windows_core::Interface::vtable(this).NextTrackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn PreviousTrackPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveNextTrackPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNextTrackPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn PreviousTrackPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).PreviousTrackPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePreviousTrackPressed))
+            (windows_core::Interface::vtable(this).PreviousTrackPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn FastForwardPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePreviousTrackPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemovePreviousTrackPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn FastForwardPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).FastForwardPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveFastForwardPressed))
+            (windows_core::Interface::vtable(this).FastForwardPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RewindPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveFastForwardPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFastForwardPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn RewindPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).RewindPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveRewindPressed))
+            (windows_core::Interface::vtable(this).RewindPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn ChannelUpPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveRewindPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRewindPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn ChannelUpPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ChannelUpPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveChannelUpPressed))
+            (windows_core::Interface::vtable(this).ChannelUpPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn ChannelDownPressed<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveChannelUpPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChannelUpPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
+    }
+    pub fn ChannelDownPressed<P0>(handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::EventHandler<windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         Self::IMediaControl(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ChannelDownPressed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveChannelDownPressed))
+            (windows_core::Interface::vtable(this).ChannelDownPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
+    }
+    pub fn RemoveChannelDownPressed(cookie: i64) -> windows_core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChannelDownPressed)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
     pub fn SoundLevel() -> windows_core::Result<SoundLevel> {
         Self::IMediaControl(|this| unsafe {
@@ -1642,45 +1630,43 @@ impl MediaTimelineController {
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn PositionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn PositionChanged<P0>(&self, positionchangedeventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PositionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePositionChanged))
+            (windows_core::Interface::vtable(self).PositionChanged)(windows_core::Interface::as_raw(self), positionchangedeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePositionChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePositionChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
+    }
+    pub fn StateChanged<P0>(&self, statechangedeventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStateChanged))
+            (windows_core::Interface::vtable(self).StateChanged)(windows_core::Interface::as_raw(self), statechangedeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn RemoveStateChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStateChanged)(windows_core::Interface::as_raw(self), eventcookie).ok() }
+    }
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn IsLoopingEnabled(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
@@ -1693,35 +1679,33 @@ impl MediaTimelineController {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsLoopingEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Failed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Failed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<MediaTimelineControllerFailedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, MediaTimelineControllerFailedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
-        let handler = <super::Foundation::TypedEventHandler<Self, MediaTimelineControllerFailedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveFailed))
+            (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Ended<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveFailed(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveFailed)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Ended<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
         let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
-        let handler = <super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Ended)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveEnded))
+            (windows_core::Interface::vtable(this).Ended)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveEnded(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IMediaTimelineController2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveEnded)(windows_core::Interface::as_raw(this), token).ok() }
     }
 }
 impl windows_core::RuntimeType for MediaTimelineController {
@@ -2079,33 +2063,29 @@ impl SystemMediaTransportControls {
     pub fn SetIsChannelDownEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIsChannelDownEnabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ButtonPressed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemMediaTransportControlsButtonPressedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsButtonPressedEventArgs>>,
     {
-        let handler = <super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsButtonPressedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ButtonPressed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveButtonPressed))
+            (windows_core::Interface::vtable(self).ButtonPressed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PropertyChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveButtonPressed(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveButtonPressed)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn PropertyChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SystemMediaTransportControlsPropertyChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsPropertyChangedEventArgs>>,
     {
-        let handler = <super::Foundation::TypedEventHandler<Self, SystemMediaTransportControlsPropertyChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PropertyChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePropertyChanged))
+            (windows_core::Interface::vtable(self).PropertyChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemovePropertyChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePropertyChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn AutoRepeatMode(&self) -> windows_core::Result<MediaPlaybackAutoRepeatMode> {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
@@ -2147,65 +2127,61 @@ impl SystemMediaTransportControls {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UpdateTimelineProperties)(windows_core::Interface::as_raw(this), timelineproperties.param().abi()).ok() }
     }
-    pub fn PlaybackPositionChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn PlaybackPositionChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackPositionChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PlaybackPositionChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        let handler = <super::Foundation::TypedEventHandler<Self, PlaybackPositionChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).PlaybackPositionChangeRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePlaybackPositionChangeRequested))
+            (windows_core::Interface::vtable(this).PlaybackPositionChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackRateChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlaybackPositionChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemovePlaybackPositionChangeRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn PlaybackRateChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PlaybackRateChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        let handler = <super::Foundation::TypedEventHandler<Self, PlaybackRateChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemovePlaybackRateChangeRequested))
+            (windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ShuffleEnabledChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlaybackRateChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemovePlaybackRateChangeRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn ShuffleEnabledChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<ShuffleEnabledChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, ShuffleEnabledChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        let handler = <super::Foundation::TypedEventHandler<Self, ShuffleEnabledChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ShuffleEnabledChangeRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveShuffleEnabledChangeRequested))
+            (windows_core::Interface::vtable(this).ShuffleEnabledChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn AutoRepeatModeChangeRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveShuffleEnabledChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveShuffleEnabledChangeRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn AutoRepeatModeChangeRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AutoRepeatModeChangeRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::Foundation::TypedEventHandler<Self, AutoRepeatModeChangeRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        let handler = <super::Foundation::TypedEventHandler<Self, AutoRepeatModeChangeRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).AutoRepeatModeChangeRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveAutoRepeatModeChangeRequested))
+            (windows_core::Interface::vtable(this).AutoRepeatModeChangeRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveAutoRepeatModeChangeRequested(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveAutoRepeatModeChangeRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::ISystemMediaTransportControlsStatics(|this| unsafe {
@@ -2556,40 +2532,46 @@ impl VideoFrame {
             (windows_core::Interface::vtable(this).IsReadOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn RelativeTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).RelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetSystemRelativeTime(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetSystemRelativeTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSystemRelativeTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn SystemRelativeTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).SystemRelativeTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetDuration<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Duration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IMediaFrame>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetIsDiscontinuous(&self, value: bool) -> windows_core::Result<()> {
@@ -2635,16 +2617,16 @@ impl VideoFrame {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CopyToWithBoundsAsync<P0>(&self, frame: P0, sourcebounds: Option<super::Graphics::Imaging::BitmapBounds>, destinationbounds: Option<super::Graphics::Imaging::BitmapBounds>) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn CopyToWithBoundsAsync<P0, P1, P2>(&self, frame: P0, sourcebounds: P1, destinationbounds: P2) -> windows_core::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<Self>,
+        P1: windows_core::Param<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds>>,
+        P2: windows_core::Param<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds>>,
     {
         let this = &windows_core::Interface::cast::<IVideoFrame2>(self)?;
-        let sourcebounds__ = sourcebounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as From<_>>::from);
-        let destinationbounds__ = destinationbounds.map(<windows_reference::IReference<super::Graphics::Imaging::BitmapBounds> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), windows_core::Param::param(sourcebounds__.as_ref()).abi(), windows_core::Param::param(destinationbounds__.as_ref()).abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
+            (windows_core::Interface::vtable(this).CopyToWithBoundsAsync)(windows_core::Interface::as_raw(this), frame.param().abi(), sourcebounds.param().abi(), destinationbounds.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Graphics_Imaging")]

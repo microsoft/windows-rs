@@ -98,33 +98,29 @@ impl CachedFileUpdaterUI {
             (windows_core::Interface::vtable(self).UpdateTarget)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn FileUpdateRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn FileUpdateRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<FileUpdateRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, FileUpdateRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, FileUpdateRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).FileUpdateRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveFileUpdateRequested))
+            (windows_core::Interface::vtable(self).FileUpdateRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn UIRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveFileUpdateRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveFileUpdateRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn UIRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).UIRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveUIRequested))
+            (windows_core::Interface::vtable(self).UIRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveUIRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveUIRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn UIStatus(&self) -> windows_core::Result<UIStatus> {
         unsafe {
@@ -495,19 +491,17 @@ impl IStorageProviderKnownFolderSyncInfoSource {
             (windows_core::Interface::vtable(self).GetKnownFolderSyncInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn KnownFolderSyncInfoChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn KnownFolderSyncInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).KnownFolderSyncInfoChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveKnownFolderSyncInfoChanged))
+            (windows_core::Interface::vtable(self).KnownFolderSyncInfoChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveKnownFolderSyncInfoChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveKnownFolderSyncInfoChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
@@ -1195,19 +1189,17 @@ impl IStorageProviderStatusUISource {
             (windows_core::Interface::vtable(self).GetStatusUI)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn StatusUIChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn StatusUIChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).StatusUIChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveStatusUIChanged))
+            (windows_core::Interface::vtable(self).StatusUIChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveStatusUIChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveStatusUIChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeName for IStorageProviderStatusUISource {
@@ -2540,16 +2532,18 @@ impl StorageProviderQuotaUI {
         unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedLabel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn QuotaUsedColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn QuotaUsedColor(&self) -> windows_core::Result<windows_reference::IReference<super::super::UI::Color>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QuotaUsedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::UI::Color>| r__.Value())
+            (windows_core::Interface::vtable(self).QuotaUsedColor)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetQuotaUsedColor(&self, value: Option<super::super::UI::Color>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::UI::Color> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetQuotaUsedColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::super::UI::Color>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetQuotaUsedColor)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for StorageProviderQuotaUI {

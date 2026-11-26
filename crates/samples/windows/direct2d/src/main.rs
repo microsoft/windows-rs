@@ -1,5 +1,10 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::*;
+    use windows::Win32::{
+        Foundation::*, Graphics::Direct2D::Common::*, Graphics::Direct2D::*, Graphics::Direct3D::*,
+        Graphics::Direct3D11::*, Graphics::Dxgi::Common::*, Graphics::Dxgi::*, Graphics::Gdi::*,
+        System::Com::*, System::Performance::*, System::SystemInformation::*,
+        UI::WindowsAndMessaging::*,
+    };
     use windows::core::*;
 
     use std::cell::RefCell;
@@ -37,8 +42,7 @@ fn main() -> windows::core::Result<()> {
 
     impl Angles {
         fn now() -> Self {
-            let mut time = SYSTEMTIME::default();
-            unsafe { GetLocalTime(&mut time) };
+            let time = unsafe { GetLocalTime() };
 
             let second = (time.wSecond as f32 + time.wMilliseconds as f32 / 1000.0) * 6.0;
             let minute = time.wMinute as f32 * 6.0 + second / 60.0;
@@ -64,9 +68,8 @@ fn main() -> windows::core::Result<()> {
             let mut dpiy = 0.0;
             unsafe { factory.GetDesktopDpi(&mut dpi, &mut dpiy) };
 
-            let mut frequency = LARGE_INTEGER { QuadPart: 0 };
-            unsafe { QueryPerformanceFrequency(&mut frequency).ok()? };
-            let frequency = unsafe { frequency.QuadPart };
+            let mut frequency = 0;
+            unsafe { QueryPerformanceFrequency(&mut frequency)? };
 
             let variable = manager.create_variable(0.0)?;
             manager.schedule_transition(&variable, &transition, get_time(frequency)?)?;
@@ -111,19 +114,15 @@ fn main() -> windows::core::Result<()> {
             self.draw(target)?;
 
             unsafe {
-                target.EndDraw(None, None).ok()?;
+                target.EndDraw(None, None)?;
             }
 
-            if let Err(error) = self.present(1, 0) {
+            if let Err(error) = self.present(1, DXGI_PRESENT(0)) {
                 if error.code() == DXGI_STATUS_OCCLUDED {
                     unsafe {
-                        self.dxfactory
-                            .RegisterOcclusionStatusWindow(
-                                self.handle,
-                                WM_USER as u32,
-                                &mut self.occlusion,
-                            )
-                            .ok()?;
+                        self.occlusion = self
+                            .dxfactory
+                            .RegisterOcclusionStatusWindow(self.handle, WM_USER)?;
                     }
                     self.visible = false;
                 } else {
@@ -146,7 +145,7 @@ fn main() -> windows::core::Result<()> {
             self.shadow = None;
         }
 
-        fn present(&self, sync: u32, flags: u32) -> Result<()> {
+        fn present(&self, sync: u32, flags: DXGI_PRESENT) -> Result<()> {
             unsafe { self.swapchain.as_ref().unwrap().Present(sync, flags).ok() }
         }
 
@@ -157,25 +156,21 @@ fn main() -> windows::core::Result<()> {
             unsafe {
                 self.manager.update(get_time(self.frequency)?)?;
 
-                target.Clear(Some(&D2D_COLOR_F {
+                target.Clear(Some(&D2D1_COLOR_F {
                     r: 1.0,
                     g: 1.0,
                     b: 1.0,
                     a: 1.0,
                 }));
 
-                let mut previous = None;
-                target.GetTarget(&mut previous);
-                let previous = previous.ok_or_else(Error::empty)?;
+                let previous = target.GetTarget()?;
                 target.SetTarget(clock);
                 target.Clear(None);
                 self.draw_clock()?;
                 target.SetTarget(&previous);
                 target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
 
-                let mut output = None;
-                shadow.GetOutput(&mut output);
-                let output = output.ok_or_else(Error::empty)?;
+                let output = shadow.GetOutput()?;
 
                 target.DrawImage(
                     &output,
@@ -310,7 +305,7 @@ fn main() -> windows::core::Result<()> {
 
                 if unsafe {
                     swapchain
-                        .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0)
+                        .ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, DXGI_SWAP_CHAIN_FLAG(0))
                         .is_ok()
                 } {
                     create_swapchain_bitmap(swapchain, target)?;
@@ -327,7 +322,7 @@ fn main() -> windows::core::Result<()> {
 
         fn message_handler(&mut self, message: u32, wparam: WPARAM) -> bool {
             unsafe {
-                match message as i32 {
+                match message {
                     WM_PAINT => {
                         let mut ps = PAINTSTRUCT::default();
                         BeginPaint(self.handle, &mut ps);
@@ -335,7 +330,7 @@ fn main() -> windows::core::Result<()> {
                         _ = EndPaint(self.handle, &ps);
                     }
                     WM_SIZE => {
-                        if wparam != SIZE_MINIMIZED as usize {
+                        if wparam.0 != SIZE_MINIMIZED as usize {
                             self.resize_swapchain_bitmap().unwrap();
                         }
                     }
@@ -350,7 +345,7 @@ fn main() -> windows::core::Result<()> {
                         }
                     }
                     WM_ACTIVATE => {
-                        self.visible = (wparam >> 16) as u16 == 0;
+                        self.visible = (wparam.0 >> 16) as u16 == 0;
                     }
                     WM_DESTROY => {
                         PostQuitMessage(0);
@@ -366,14 +361,14 @@ fn main() -> windows::core::Result<()> {
 
     fn get_time(frequency: i64) -> Result<f64> {
         unsafe {
-            let mut time = LARGE_INTEGER { QuadPart: 0 };
-            QueryPerformanceCounter(&mut time).ok()?;
-            Ok(time.QuadPart as f64 / frequency as f64)
+            let mut time = 0;
+            QueryPerformanceCounter(&mut time)?;
+            Ok(time as f64 / frequency as f64)
         }
     }
 
     fn create_brush(target: &ID2D1DeviceContext) -> Result<ID2D1SolidColorBrush> {
-        let color = D2D_COLOR_F {
+        let color = D2D1_COLOR_F {
             r: 0.92,
             g: 0.38,
             b: 0.208,
@@ -404,16 +399,7 @@ fn main() -> windows::core::Result<()> {
             options.debugLevel = D2D1_DEBUG_LEVEL_INFORMATION;
         }
 
-        unsafe {
-            let mut result__ = core::ptr::null_mut();
-            D2D1CreateFactory(
-                D2D1_FACTORY_TYPE_SINGLE_THREADED,
-                &ID2D1Factory1::IID,
-                Some(&options),
-                &mut result__,
-            )
-            .and_then(|| imp::from_abi(result__))
-        }
+        unsafe { D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, Some(&options)) }
     }
 
     fn create_style(factory: &ID2D1Factory1) -> Result<ID2D1StrokeStyle1> {
@@ -423,7 +409,7 @@ fn main() -> windows::core::Result<()> {
             ..Default::default()
         };
 
-        unsafe { factory.CreateStrokeStyle(&props, None, 0) }
+        unsafe { factory.CreateStrokeStyle(&props, None) }
     }
 
     fn create_transition() -> Result<Transition> {
@@ -431,10 +417,10 @@ fn main() -> windows::core::Result<()> {
     }
 
     fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> {
-        let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT as u32;
+        let mut flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 
         if cfg!(debug_assertions) {
-            flags |= D3D11_CREATE_DEVICE_DEBUG as u32;
+            flags |= D3D11_CREATE_DEVICE_DEBUG;
         }
 
         let mut device = None;
@@ -446,13 +432,12 @@ fn main() -> windows::core::Result<()> {
                 HMODULE::default(),
                 flags,
                 None,
-                0,
-                D3D11_SDK_VERSION as u32,
+                D3D11_SDK_VERSION,
                 Some(&mut device),
                 None,
                 None,
             )
-            .map(|| device.unwrap())
+            .map(|()| device.unwrap())
         }
     }
 
@@ -532,7 +517,7 @@ fn main() -> windows::core::Result<()> {
     }
 
     unsafe {
-        CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;
+        CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
     }
 
     let app = Rc::new(RefCell::new(App::new()?));
@@ -542,12 +527,12 @@ fn main() -> windows::core::Result<()> {
         .on_message(move |_, message, wparam, _| {
             handler
                 .borrow_mut()
-                .message_handler(message, wparam)
+                .message_handler(message, WPARAM(wparam))
                 .then_some(0)
         })
         .create()?;
 
-    app.borrow_mut().handle = window.hwnd() as HWND;
+    app.borrow_mut().handle = HWND(window.hwnd());
 
     run_with(move || {
         let mut app = app.borrow_mut();

@@ -26,28 +26,15 @@ fn preserve_sig_flags_roundtrip() {
         .write()
         .unwrap();
     let merged = dir.join("merged.winmd");
-    let remapped = dir.join("remapped.winmd");
     metadata::merge()
         .input(&first)
         .output(&merged)
         .merge()
         .unwrap();
-    metadata::remap()
-        .input(&merged)
-        .source("Test")
-        .fallback("Moved")
-        .output(&remapped)
-        .remap()
-        .unwrap();
-    for (path, namespace) in [
-        (first, "Test"),
-        (second, "Test"),
-        (merged, "Test"),
-        (remapped, "Moved"),
-    ] {
+    for path in [first, second, merged] {
         let index = metadata::reader::Index::read(path).unwrap();
         for name in ["Apis", "Results", "Callback"] {
-            let def = index.expect(namespace, name);
+            let def = index.expect("Test", name);
             assert!(
                 def.attributes()
                     .next()

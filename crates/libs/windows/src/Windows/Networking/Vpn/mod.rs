@@ -96,15 +96,6 @@ pub struct IVpnChannel6_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     ActivateForeground: usize,
 }
-windows_core::imp::define_winrt_interface!(IVpnChannel7Preview, IVpnChannel7Preview_Vtbl, 0x19862972_f14b_406b_bf10_f72ee323771b, b"Windows.Networking.Vpn.IVpnChannel7Preview");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IVpnChannel7Preview_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub SetErrorMessageWithDetails: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub ConnectionDetail: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub DisconnectReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnDisconnectReasonPreview) -> windows_core::HRESULT,
-}
 windows_core::imp::define_winrt_interface!(IVpnChannelActivityEventArgs, IVpnChannelActivityEventArgs_Vtbl, 0xa36c88f2_afdc_4775_855d_d4ac0a35fc55, b"Windows.Networking.Vpn.IVpnChannelActivityEventArgs");
 #[repr(C)]
 #[doc(hidden)]
@@ -171,14 +162,6 @@ impl IVpnChannelStatics_Vtbl {
 pub struct IVpnChannelStatics_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ProcessEventAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_winrt_interface!(IVpnConnectionDetailsPreview, IVpnConnectionDetailsPreview_Vtbl, 0xbbd3e70b_1ab8_49c9_9fb1_dc78564058d4, b"Windows.Networking.Vpn.IVpnConnectionDetailsPreview");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IVpnConnectionDetailsPreview_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VpnConnectionTypePreview) -> windows_core::HRESULT,
-    pub Attempt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IVpnCredential, IVpnCredential_Vtbl, 0xb7e78af3_a46d_404b_8729_1832522853ac, b"Windows.Networking.Vpn.IVpnCredential");
 windows_core::imp::interface_hierarchy!(IVpnCredential, windows_core::IUnknown, windows_core::IInspectable);
@@ -826,16 +809,6 @@ pub struct IVpnManagementAgent_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     ConnectProfileWithPasswordCredentialAsync: usize,
     pub DisconnectProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_winrt_interface!(IVpnManagementAgent2Preview, IVpnManagementAgent2Preview_Vtbl, 0x73791cc7_acd7_491b_8bed_e9a17c3433da, b"Windows.Networking.Vpn.IVpnManagementAgent2Preview");
-#[repr(C)]
-#[doc(hidden)]
-pub struct IVpnManagementAgent2Preview_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetAlwaysOnActiveProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub GetAlwaysOnActiveProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAlwaysOnActiveProfile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetAlwaysOnActiveProfileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_winrt_interface!(IVpnNamespaceAssignment, IVpnNamespaceAssignment_Vtbl, 0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6, b"Windows.Networking.Vpn.IVpnNamespaceAssignment");
 #[repr(C)]
@@ -1697,19 +1670,17 @@ impl VpnChannel {
             (windows_core::Interface::vtable(self).Configuration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ActivityChange<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ActivityChange<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VpnChannelActivityEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ActivityChange)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveActivityChange))
+            (windows_core::Interface::vtable(self).ActivityChange)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveActivityChange(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveActivityChange)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetPlugInContext<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1767,20 +1738,19 @@ impl VpnChannel {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).StartExistingTransports)(windows_core::Interface::as_raw(this), assignedclientipv4list.param().abi(), assignedclientipv6list.param().abi(), vpninterfaceid.param().abi(), assignedroutes.param().abi(), assigneddomainname.param().abi(), mtusize, maxframesize, reserved).ok() }
     }
-    pub fn ActivityStateChange<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ActivityStateChange<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VpnChannelActivityStateChangedArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityStateChangedArgs>>,
     {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, VpnChannelActivityStateChangedArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ActivityStateChange)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveActivityStateChange))
+            (windows_core::Interface::vtable(this).ActivityStateChange)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveActivityStateChange(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveActivityStateChange)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetVpnSendPacketBuffer(&self) -> windows_core::Result<VpnPacketBuffer> {
         let this = &windows_core::Interface::cast::<IVpnChannel2>(self)?;
@@ -1935,24 +1905,6 @@ impl VpnChannel {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActivateForeground)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagerelativeappid), sharedcontext.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
-        }
-    }
-    pub fn SetErrorMessageWithDetails(&self, message: &windows_core::HSTRING, errcode: u32) -> windows_core::Result<()> {
-        let this = &windows_core::Interface::cast::<IVpnChannel7Preview>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetErrorMessageWithDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(message), errcode).ok() }
-    }
-    pub fn ConnectionDetail(&self) -> windows_core::Result<VpnConnectionDetailsPreview> {
-        let this = &windows_core::Interface::cast::<IVpnChannel7Preview>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ConnectionDetail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
-        }
-    }
-    pub fn DisconnectReason(&self) -> windows_core::Result<VpnDisconnectReasonPreview> {
-        let this = &windows_core::Interface::cast::<IVpnChannel7Preview>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DisconnectReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
     pub fn ProcessEventAsync<P0, P1>(thirdpartyplugin: P0, event: P1) -> windows_core::Result<()>
@@ -2135,55 +2087,6 @@ impl core::ops::Not for VpnChannelRequestCredentialsOptions {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VpnConnectionDetailsPreview(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VpnConnectionDetailsPreview, windows_core::IUnknown, windows_core::IInspectable);
-impl VpnConnectionDetailsPreview {
-    pub fn Type(&self) -> windows_core::Result<VpnConnectionTypePreview> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Attempt(&self) -> windows_core::Result<u32> {
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Attempt)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
-        }
-    }
-}
-impl windows_core::RuntimeType for VpnConnectionDetailsPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVpnConnectionDetailsPreview>();
-}
-unsafe impl windows_core::Interface for VpnConnectionDetailsPreview {
-    type Vtable = <IVpnConnectionDetailsPreview as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVpnConnectionDetailsPreview as windows_core::Interface>::IID;
-    const INSPECTABLE: bool = true;
-}
-impl windows_core::RuntimeName for VpnConnectionDetailsPreview {
-    const NAME: &'static str = "Windows.Networking.Vpn.VpnConnectionDetailsPreview";
-}
-unsafe impl Send for VpnConnectionDetailsPreview {}
-unsafe impl Sync for VpnConnectionDetailsPreview {}
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VpnConnectionTypePreview(pub i32);
-impl VpnConnectionTypePreview {
-    pub const NoConnection: Self = Self(0);
-    pub const PlatformUXInitiated: Self = Self(1);
-    pub const ApiInitiated: Self = Self(2);
-    pub const Auto: Self = Self(3);
-    pub const FastReconnect: Self = Self(4);
-    pub const PluginCrashReconnect: Self = Self(5);
-}
-impl windows_core::imp::TypeKind for VpnConnectionTypePreview {
-    type TypeKind = windows_core::imp::CopyType;
-}
-impl windows_core::RuntimeType for VpnConnectionTypePreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnConnectionTypePreview;i4)");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Vpn.VpnConnectionTypePreview");
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2931,31 +2834,6 @@ impl windows_core::RuntimeType for VpnDataPathType {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Vpn.VpnDataPathType");
 }
 #[repr(transparent)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct VpnDisconnectReasonPreview(pub i32);
-impl VpnDisconnectReasonPreview {
-    pub const Unknown: Self = Self(0);
-    pub const NotDisconnected: Self = Self(1);
-    pub const PlatformUXInitiated: Self = Self(2);
-    pub const ApiInitiated: Self = Self(3);
-    pub const Standby: Self = Self(4);
-    pub const NetworkFailure: Self = Self(5);
-    pub const ServiceStop: Self = Self(6);
-    pub const UserLogOff: Self = Self(7);
-    pub const Shutdown: Self = Self(8);
-    pub const PluginUninstall: Self = Self(9);
-    pub const CaptivePortalDetected: Self = Self(10);
-    pub const AppTriggerDisconnect: Self = Self(11);
-    pub const EnteredTrustedNetwork: Self = Self(12);
-}
-impl windows_core::imp::TypeKind for VpnDisconnectReasonPreview {
-    type TypeKind = windows_core::imp::CopyType;
-}
-impl windows_core::RuntimeType for VpnDisconnectReasonPreview {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.Vpn.VpnDisconnectReasonPreview;i4)");
-    const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.Vpn.VpnDisconnectReasonPreview");
-}
-#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VpnDomainNameAssignment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VpnDomainNameAssignment, windows_core::IUnknown, windows_core::IInspectable);
@@ -3326,37 +3204,6 @@ impl VpnManagementAgent {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisconnectProfileAsync)(windows_core::Interface::as_raw(self), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
-        }
-    }
-    pub fn GetAlwaysOnActiveProfile(&self) -> windows_core::Result<IVpnProfile> {
-        let this = &windows_core::Interface::cast::<IVpnManagementAgent2Preview>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAlwaysOnActiveProfile)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
-        }
-    }
-    pub fn GetAlwaysOnActiveProfileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<IVpnProfile>> {
-        let this = &windows_core::Interface::cast::<IVpnManagementAgent2Preview>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetAlwaysOnActiveProfileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
-        }
-    }
-    pub fn SetAlwaysOnActiveProfile<P0>(&self, profile: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnManagementAgent2Preview>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetAlwaysOnActiveProfile)(windows_core::Interface::as_raw(this), profile.param().abi()).ok() }
-    }
-    pub fn SetAlwaysOnActiveProfileAsync<P0>(&self, profile: P0) -> windows_core::Result<windows_future::IAsyncOperation<VpnManagementErrorStatus>>
-    where
-        P0: windows_core::Param<IVpnProfile>,
-    {
-        let this = &windows_core::Interface::cast::<IVpnManagementAgent2Preview>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetAlwaysOnActiveProfileAsync)(windows_core::Interface::as_raw(this), profile.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

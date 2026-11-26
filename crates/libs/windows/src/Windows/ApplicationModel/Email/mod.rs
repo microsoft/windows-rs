@@ -1120,19 +1120,17 @@ impl EmailMailbox {
             (windows_core::Interface::vtable(self).TryProposeNewTimeForMeetingAsync)(windows_core::Interface::as_raw(self), meeting.param().abi(), newstarttime, newduration, core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn MailboxChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MailboxChanged<P0>(&self, phandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, EmailMailboxChangedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, EmailMailboxChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MailboxChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMailboxChanged))
+            (windows_core::Interface::vtable(self).MailboxChanged)(windows_core::Interface::as_raw(self), phandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveMailboxChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveMailboxChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SmartSendMessageAsync<P0>(&self, message: P0, smartsend: bool) -> windows_core::Result<windows_future::IAsyncAction>
     where
@@ -1399,25 +1397,29 @@ impl EmailMailboxAutoReplySettings {
     pub fn SetResponseKind(&self, value: EmailMailboxAutoReplyMessageResponseKind) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResponseKind)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn StartTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn StartTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetStartTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetStartTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::DateTime>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn EndTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn EndTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).EndTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetEndTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetEndTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetEndTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::DateTime>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetEndTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn InternalReply(&self) -> windows_core::Result<EmailMailboxAutoReply> {
         unsafe {
@@ -1928,16 +1930,16 @@ impl EmailMailboxPolicies {
             (windows_core::Interface::vtable(self).AllowSmimeSoftCertificates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn RequiredSmimeEncryptionAlgorithm(&self) -> windows_core::Result<EmailMailboxSmimeEncryptionAlgorithm> {
+    pub fn RequiredSmimeEncryptionAlgorithm(&self) -> windows_core::Result<windows_reference::IReference<EmailMailboxSmimeEncryptionAlgorithm>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequiredSmimeEncryptionAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<EmailMailboxSmimeEncryptionAlgorithm>| r__.Value())
+            (windows_core::Interface::vtable(self).RequiredSmimeEncryptionAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn RequiredSmimeSigningAlgorithm(&self) -> windows_core::Result<EmailMailboxSmimeSigningAlgorithm> {
+    pub fn RequiredSmimeSigningAlgorithm(&self) -> windows_core::Result<windows_reference::IReference<EmailMailboxSmimeSigningAlgorithm>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequiredSmimeSigningAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<EmailMailboxSmimeSigningAlgorithm>| r__.Value())
+            (windows_core::Interface::vtable(self).RequiredSmimeSigningAlgorithm)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MustEncryptSmimeMessages(&self) -> windows_core::Result<bool> {
@@ -1962,15 +1964,19 @@ impl EmailMailboxPolicies {
         let this = &windows_core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAllowSmimeSoftCertificates)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetRequiredSmimeEncryptionAlgorithm(&self, value: Option<EmailMailboxSmimeEncryptionAlgorithm>) -> windows_core::Result<()> {
+    pub fn SetRequiredSmimeEncryptionAlgorithm<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<EmailMailboxSmimeEncryptionAlgorithm>>,
+    {
         let this = &windows_core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<EmailMailboxSmimeEncryptionAlgorithm> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetRequiredSmimeEncryptionAlgorithm)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequiredSmimeEncryptionAlgorithm)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SetRequiredSmimeSigningAlgorithm(&self, value: Option<EmailMailboxSmimeSigningAlgorithm>) -> windows_core::Result<()> {
+    pub fn SetRequiredSmimeSigningAlgorithm<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<EmailMailboxSmimeSigningAlgorithm>>,
+    {
         let this = &windows_core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<EmailMailboxSmimeSigningAlgorithm> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetRequiredSmimeSigningAlgorithm)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetRequiredSmimeSigningAlgorithm)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn SetMustEncryptSmimeMessages(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
@@ -2056,19 +2062,17 @@ impl EmailMailboxSyncManager {
             (windows_core::Interface::vtable(self).SyncAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SyncStatusChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SyncStatusChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSyncStatusChanged))
+            (windows_core::Interface::vtable(self).SyncStatusChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveSyncStatusChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSyncStatusChanged)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn SetStatus(&self, value: EmailMailboxSyncStatus) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
@@ -2229,15 +2233,17 @@ impl EmailMeetingInfo {
     pub fn SetAppointmentRoamingId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAppointmentRoamingId)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn AppointmentOriginalStartTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn AppointmentOriginalStartTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AppointmentOriginalStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).AppointmentOriginalStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetAppointmentOriginalStartTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetAppointmentOriginalStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetAppointmentOriginalStartTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::DateTime>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetAppointmentOriginalStartTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn Duration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
@@ -2275,35 +2281,41 @@ impl EmailMeetingInfo {
     pub fn SetLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ProposedStartTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn ProposedStartTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProposedStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ProposedStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetProposedStartTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetProposedStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetProposedStartTime<P0>(&self, proposedstarttime: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::DateTime>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetProposedStartTime)(windows_core::Interface::as_raw(self), proposedstarttime.param().abi()).ok() }
     }
-    pub fn ProposedDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn ProposedDuration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProposedDuration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).ProposedDuration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetProposedDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetProposedDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetProposedDuration<P0>(&self, duration: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetProposedDuration)(windows_core::Interface::as_raw(self), duration.param().abi()).ok() }
     }
-    pub fn RecurrenceStartTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn RecurrenceStartTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RecurrenceStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).RecurrenceStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetRecurrenceStartTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetRecurrenceStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetRecurrenceStartTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::DateTime>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetRecurrenceStartTime)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
     pub fn Recurrence(&self) -> windows_core::Result<super::Appointments::AppointmentRecurrence> {
@@ -2664,17 +2676,19 @@ impl EmailMessage {
         let this = &windows_core::Interface::cast::<IEmailMessage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSender)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SentTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn SentTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         let this = &windows_core::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SentTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).SentTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetSentTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+    pub fn SetSentTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::DateTime>>,
+    {
         let this = &windows_core::Interface::cast::<IEmailMessage2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetSentTime)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSentTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn MeetingInfo(&self) -> windows_core::Result<EmailMeetingInfo> {
         let this = &windows_core::Interface::cast::<IEmailMessage2>(self)?;

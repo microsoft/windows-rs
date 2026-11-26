@@ -2,7 +2,7 @@ use super::*;
 use std::sync::*;
 use windows_metadata::reader::{Item, TypeCategory};
 
-fn resolve(name: TypeName, item: Item<'static>) -> Type {
+fn resolve(name: TypeName, item: Item<'static>, legacy: bool) -> Type {
     match item {
         Item::Type(def) => {
             if def.flags().contains(TypeAttributes::WindowsRuntime) {
@@ -26,7 +26,9 @@ fn resolve(name: TypeName, item: Item<'static>) -> Type {
                     TypeCategory::Delegate => Type::CppDelegate(CppDelegate { def }),
                     TypeCategory::Enum => Type::CppEnum(CppEnum { def }),
                     TypeCategory::Interface => Type::CppInterface(CppInterface { def }),
-                    TypeCategory::Struct => Type::CppStruct(make_struct(def, name.name(), None)),
+                    TypeCategory::Struct => {
+                        Type::CppStruct(make_struct(def, name.name(), None, legacy))
+                    }
                     _ => unreachable!(),
                 }
             }
@@ -44,7 +46,14 @@ fn resolve(name: TypeName, item: Item<'static>) -> Type {
     }
 }
 
-fn make_struct(def: TypeDef, name: &'static str, enclosing: Option<TypeName>) -> CppStruct {
+/// Legacy metadata names nested structs by their position among all nested types, as the
+/// `windows` 0.62 releases did.
+fn make_struct(
+    def: TypeDef,
+    name: &'static str,
+    enclosing: Option<TypeName>,
+    legacy: bool,
+) -> CppStruct {
     let index = def.index();
     let mut ty = CppStruct {
         def,
@@ -68,18 +77,23 @@ fn make_struct(def: TypeDef, name: &'static str, enclosing: Option<TypeName>) ->
         .map(|(index, child)| (child, index))
         .collect();
 
-    for nested_def in index.nested(def) {
+    for (position, nested_def) in index.nested(def).enumerate() {
         if nested_def.category() == TypeCategory::Struct {
+            let name = if legacy {
+                format!("{}_{position}", ty.name)
+            } else {
+                match anonymous.get(&nested_def) {
+                    Some(index) => format!("{}_{index}", ty.name),
+                    None => format!("{}_{}", ty.name, nested_def.name()),
+                }
+            };
             ty.nested.insert(
                 nested_def.name(),
                 make_struct(
                     nested_def,
-                    match anonymous.get(&nested_def) {
-                        Some(index) => format!("{}_{index}", ty.name),
-                        None => format!("{}_{}", ty.name, nested_def.name()),
-                    }
-                    .leak(),
+                    name.leak(),
                     Some(enclosing.unwrap_or(ty.type_name())),
+                    legacy,
                 ),
             );
         }
@@ -122,6 +136,7 @@ pub struct Reader {
     enum_members: HashMap<&'static str, HashMap<&'static str, Vec<(Field, i32)>>>,
     cache: RwLock<HashMap<TypeName, CachedTypes>>,
     project_numerics: bool,
+    legacy: bool,
 }
 
 impl Reader {
@@ -133,9 +148,32 @@ impl Reader {
         Self::from_index(windows_metadata::reader::Index::new(files).leak(), false)
     }
 
+    /// Package generation also interprets the Win32 metadata vocabulary
+    /// (`Windows.Win32.Foundation.Metadata`) used by the `windows` 0.62 releases, when the inputs
+    /// use it.
+    pub fn new_package(files: Vec<File>, sys: bool) -> Self {
+        let index = windows_metadata::reader::Index::new(files).leak();
+        let legacy = index
+            .get_item(
+                "Windows.Win32.Foundation.Metadata",
+                "NativeTypedefAttribute",
+            )
+            .next()
+            .is_some();
+        Self::build(index, !sys, legacy)
+    }
+
     pub fn from_index(
         index: &'static windows_metadata::reader::Index,
         project_numerics: bool,
+    ) -> Self {
+        Self::build(index, project_numerics, false)
+    }
+
+    fn build(
+        index: &'static windows_metadata::reader::Index,
+        project_numerics: bool,
+        legacy: bool,
     ) -> Self {
         let project_numerics = project_numerics && has_numerics(index);
 
@@ -145,13 +183,14 @@ impl Reader {
             enum_members: HashMap::new(),
             cache: RwLock::new(HashMap::new()),
             project_numerics,
+            legacy,
         };
 
         for namespace in index.namespaces() {
             if index
                 .namespace_items(namespace)
                 .any(|(name, item)| match item {
-                    Item::Type(_) => Type::remap(namespace, name, project_numerics) == Remap::None,
+                    Item::Type(_) => reader.remap(namespace, name) == Remap::None,
                     _ => reader.item_name(item).is_some(),
                 })
             {
@@ -160,7 +199,7 @@ impl Reader {
         }
 
         for (namespace, name, def) in index.iter() {
-            if Type::remap(namespace, name, project_numerics) != Remap::None
+            if reader.remap(namespace, name) != Remap::None
                 || def.flags().contains(TypeAttributes::WindowsRuntime)
                 || def.category() != TypeCategory::Enum
                 || def.has_attribute("ScopedEnumAttribute")
@@ -188,11 +227,51 @@ impl Reader {
         reader
     }
 
+    /// Whether the inputs use the legacy Win32 metadata vocabulary, projected as in the `windows`
+    /// 0.62 releases. See [`Reader::new_package`].
+    pub fn legacy(&self) -> bool {
+        self.legacy
+    }
+
+    /// Maps metadata names to core types or other names; see [`Type::remap`]. Legacy metadata
+    /// follows the `windows` 0.62 mapping: the `BOOLEAN` and `CHAR` typedefs are Rust primitives
+    /// (`BOOLEAN` is `u8` rather than `bool`, which has a different ABI),
+    /// `D2D_VECTOR_3F` is not a numerics type, and the status types stay at their metadata paths
+    /// (see [`Reader::legacy_core_type`]).
+    pub fn remap(&self, namespace: &str, name: &str) -> Remap {
+        if self.legacy {
+            match (namespace, name) {
+                ("Windows.Win32.Foundation", "BOOLEAN") => return Remap::Type(Type::U8),
+                ("Windows.Win32.Foundation", "CHAR") => return Remap::Type(Type::I8),
+                ("Windows.Win32.Foundation", "NTSTATUS")
+                | ("Windows.Win32.System.Rpc", "RPC_STATUS")
+                | ("Windows.Win32.Graphics.Direct2D.Common", "D2D_VECTOR_3F") => {
+                    return Remap::None;
+                }
+                _ => {}
+            }
+        }
+        Type::remap(namespace, name, self.project_numerics)
+    }
+
+    /// Returns the core type that a legacy metadata status definition re-exports, so the
+    /// `windows` 0.62 paths name the same type as `windows-core`.
+    pub fn legacy_core_type(&self, def: TypeDef) -> Option<Type> {
+        if !self.legacy {
+            return None;
+        }
+        match (def.namespace(), def.name()) {
+            ("Windows.Win32.Foundation", "NTSTATUS") => Some(Type::NTSTATUS),
+            ("Windows.Win32.System.Rpc", "RPC_STATUS") => Some(Type::RPC_STATUS),
+            _ => None,
+        }
+    }
+
     fn item_name(&self, item: Item<'static>) -> Option<&'static str> {
         match item {
             Item::Type(def) => {
                 let name = windows_metadata::trim_tick(def.name());
-                if Type::remap(def.namespace(), name, self.project_numerics) != Remap::None {
+                if self.remap(def.namespace(), name) != Remap::None {
                     return None;
                 }
                 let category = def.category();
@@ -208,10 +287,13 @@ impl Reader {
                 Some(name)
             }
             Item::Fn(method) => {
-                if let Some(map) = method.impl_map()
-                    && map.import_scope().name() == "FORCEINLINE"
-                {
-                    return None;
+                if let Some(map) = method.impl_map() {
+                    // Legacy packages also omit functions imported by ordinal.
+                    if map.import_scope().name() == "FORCEINLINE"
+                        || (self.legacy && map.import_name().starts_with('#'))
+                    {
+                        return None;
+                    }
                 }
                 Some(method.name())
             }
@@ -273,7 +355,7 @@ impl Reader {
                     self.index
                         .get_item(name.namespace(), name.name())
                         .filter(|item| self.item_name(*item).is_some())
-                        .map(|item| resolve(name, item)),
+                        .map(|item| resolve(name, item, self.legacy)),
                 );
                 if let Some(members) = self
                     .enum_members
@@ -313,10 +395,6 @@ impl Reader {
                 types.into()
             })
             .clone()
-    }
-
-    pub fn project_numerics(&self) -> bool {
-        self.project_numerics
     }
 
     #[track_caller]

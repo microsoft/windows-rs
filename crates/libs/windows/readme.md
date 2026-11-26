@@ -33,8 +33,8 @@ fn main() -> Result<()> {
 }
 ```
 
-WinRT features follow namespaces, such as `Data_Xml_Dom`. Win32 features follow header groups,
-such as `handleapi` and `synchapi`, with APIs under `windows::Win32`. Supporting types may need
+Features follow namespaces, such as `Data_Xml_Dom` for `windows::Data::Xml::Dom` and
+`Win32_System_Threading` for `windows::Win32::System::Threading`. Supporting types may need
 additional features. Feature availability does not guarantee availability on the running OS.
 
 ## Read the Rust signature

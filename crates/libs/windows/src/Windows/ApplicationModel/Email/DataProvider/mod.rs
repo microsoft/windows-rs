@@ -3,215 +3,185 @@
 pub struct EmailDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmailDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl EmailDataProviderConnection {
-    pub fn MailboxSyncRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MailboxSyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxSyncManagerSyncRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSyncManagerSyncRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSyncManagerSyncRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MailboxSyncRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMailboxSyncRequested))
+            (windows_core::Interface::vtable(self).MailboxSyncRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DownloadMessageRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveMailboxSyncRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveMailboxSyncRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn DownloadMessageRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDownloadMessageRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadMessageRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadMessageRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DownloadMessageRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDownloadMessageRequested))
+            (windows_core::Interface::vtable(self).DownloadMessageRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DownloadAttachmentRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveDownloadMessageRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDownloadMessageRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn DownloadAttachmentRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDownloadAttachmentRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadAttachmentRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDownloadAttachmentRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DownloadAttachmentRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDownloadAttachmentRequested))
+            (windows_core::Interface::vtable(self).DownloadAttachmentRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveDownloadAttachmentRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDownloadAttachmentRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn CreateFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxCreateFolderRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxCreateFolderRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxCreateFolderRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CreateFolderRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCreateFolderRequested))
+            (windows_core::Interface::vtable(self).CreateFolderRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DeleteFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveCreateFolderRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCreateFolderRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn DeleteFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxDeleteFolderRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDeleteFolderRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxDeleteFolderRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DeleteFolderRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDeleteFolderRequested))
+            (windows_core::Interface::vtable(self).DeleteFolderRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn EmptyFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveDeleteFolderRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDeleteFolderRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn EmptyFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxEmptyFolderRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxEmptyFolderRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxEmptyFolderRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).EmptyFolderRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveEmptyFolderRequested))
+            (windows_core::Interface::vtable(self).EmptyFolderRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn MoveFolderRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveEmptyFolderRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveEmptyFolderRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn MoveFolderRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxMoveFolderRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxMoveFolderRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxMoveFolderRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MoveFolderRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMoveFolderRequested))
+            (windows_core::Interface::vtable(self).MoveFolderRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateMeetingResponseRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveMoveFolderRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveMoveFolderRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn UpdateMeetingResponseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxUpdateMeetingResponseRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxUpdateMeetingResponseRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxUpdateMeetingResponseRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).UpdateMeetingResponseRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveUpdateMeetingResponseRequested))
+            (windows_core::Interface::vtable(self).UpdateMeetingResponseRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ForwardMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveUpdateMeetingResponseRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveUpdateMeetingResponseRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ForwardMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxForwardMeetingRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxForwardMeetingRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxForwardMeetingRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ForwardMeetingRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveForwardMeetingRequested))
+            (windows_core::Interface::vtable(self).ForwardMeetingRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ProposeNewTimeForMeetingRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveForwardMeetingRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveForwardMeetingRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ProposeNewTimeForMeetingRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxProposeNewTimeForMeetingRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ProposeNewTimeForMeetingRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveProposeNewTimeForMeetingRequested))
+            (windows_core::Interface::vtable(self).ProposeNewTimeForMeetingRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoReplySettingsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveProposeNewTimeForMeetingRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveProposeNewTimeForMeetingRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn SetAutoReplySettingsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxSetAutoReplySettingsRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSetAutoReplySettingsRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxSetAutoReplySettingsRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SetAutoReplySettingsRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetAutoReplySettingsRequested))
+            (windows_core::Interface::vtable(self).SetAutoReplySettingsRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn GetAutoReplySettingsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveSetAutoReplySettingsRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSetAutoReplySettingsRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn GetAutoReplySettingsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxGetAutoReplySettingsRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxGetAutoReplySettingsRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxGetAutoReplySettingsRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).GetAutoReplySettingsRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveGetAutoReplySettingsRequested))
+            (windows_core::Interface::vtable(self).GetAutoReplySettingsRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ResolveRecipientsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveGetAutoReplySettingsRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveGetAutoReplySettingsRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ResolveRecipientsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxResolveRecipientsRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxResolveRecipientsRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxResolveRecipientsRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ResolveRecipientsRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveResolveRecipientsRequested))
+            (windows_core::Interface::vtable(self).ResolveRecipientsRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ValidateCertificatesRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveResolveRecipientsRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveResolveRecipientsRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ValidateCertificatesRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxValidateCertificatesRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxValidateCertificatesRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxValidateCertificatesRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ValidateCertificatesRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveValidateCertificatesRequested))
+            (windows_core::Interface::vtable(self).ValidateCertificatesRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ServerSearchReadBatchRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveValidateCertificatesRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveValidateCertificatesRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn ServerSearchReadBatchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxServerSearchReadBatchRequestEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxServerSearchReadBatchRequestEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, EmailMailboxServerSearchReadBatchRequestEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ServerSearchReadBatchRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveServerSearchReadBatchRequested))
+            (windows_core::Interface::vtable(self).ServerSearchReadBatchRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveServerSearchReadBatchRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveServerSearchReadBatchRequested)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }

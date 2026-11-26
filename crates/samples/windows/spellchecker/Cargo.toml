@@ -7,12 +7,7 @@ publish = false
 [dependencies.windows]
 workspace = true
 default-features = true
-features = [
-    "combaseapi",
-    "objbase",
-    "objidlbase",
-    "spellcheck",
-]
+features = ["Win32_Globalization", "Win32_System_Com"]
 
 [lints]
 workspace = true

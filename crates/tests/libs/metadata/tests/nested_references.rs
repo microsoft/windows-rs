@@ -165,29 +165,12 @@ fn nested_signature_identity() {
 }
 
 #[test]
-fn nested_references_survive_merge_and_remap() {
+fn nested_references_survive_merge() {
     let input = output("input");
     std::fs::write(&input, fixture(&Type::I32)).unwrap();
     let merged = output("merged");
     merge().input(&input).output(&merged).merge().unwrap();
     assert_references(&Index::read(&merged).unwrap(), "Test", "Test", &Type::I32);
-
-    let remapped = output("remapped");
-    merge::Remapper::new()
-        .input(&merged)
-        .source("Test")
-        .route("A", "Routed.First")
-        .route("B", "Routed.Second")
-        .fallback("Wrong")
-        .output(&remapped)
-        .remap()
-        .unwrap();
-    assert_references(
-        &Index::read(&remapped).unwrap(),
-        "Routed.First",
-        "Routed.Second",
-        &Type::I32,
-    );
 }
 
 #[test]

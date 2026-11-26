@@ -5,13 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows = { workspace = true, default-features = true, features = [
-    "handleapi",
-    "securitybaseapi",
-    "winbase",
-    "winerror",
-    "winnt",
-] }
+windows = { workspace = true, default-features = true, features = ["Win32_Security", "Win32_System_Memory", "Win32_System_Threading"] }
 
 [lints]
 workspace = true

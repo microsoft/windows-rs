@@ -1,6 +1,6 @@
+--in crates/tools/package/compat
 --out crates/libs/windows
 --full
---in target/package
 --package
 --rustfmt max_width=800,newline_style=Unix
 
@@ -15,7 +15,9 @@
     !Windows::Services::Cortana
     !Windows::System::Power::Diagnostics
     !Windows::System::Preview
-    !Windows::UI::Composition
     !Windows::UI::Xaml
-    !Windows::Win32::Metadata
-    !Windows::Win32::uianimation
+    !Windows::Win32::Foundation::Metadata
+    !Windows::Win32::System::Diagnostics::Debug::WebApp
+    !Windows::Win32::System::WinRT::Xaml
+    !Windows::Win32::UI::Xaml
+    !Windows::Win32::Web::MsHtml

@@ -177,7 +177,11 @@ reading/authoring that metadata. The reactor / canvas / webview pipelines layer 
    - `crates/libs/time/src/bindings.rs`, `numerics`, `reference`, etc.
 
 4. **`tool-package`** - generates the published `windows` and `windows-sys` package crates using
-   `--package` mode (per-namespace files + Cargo.toml features).
+   `--package` mode (per-namespace files + Cargo.toml features) from the pinned metadata in
+   `crates/tools/package/compat`. That metadata carries the older Win32metadata attributes, so
+   bindgen applies its legacy rules and the output stays close to `windows` 0.62 and
+   `windows-sys` 0.61 while depending on the latest `windows-core` and companion crates. The
+   hand-written `crates/libs/windows/src/extensions` are not regenerated.
 
 After regenerating, verify: `cargo check -p <affected-crate> --quiet`.
 
@@ -446,9 +450,6 @@ for reproducible bugs. Remove resolved entries rather than appending a history o
   observations; no published ntdll/offreg import depends on them. Publishing kernel exports such
   as `ClfsCreateMarshallingArea` or `IoSetFsTrackOffsetState` needs a separate home for kernel
   metadata, not a per-name or per-header preference.
-- Shared type traversal: compare `write_type` in `crates/libs/metadata/src/merge/mod.rs` with
-  `Remapper::write_type` in `merge/remap.rs`; keep signature and nominal-reference handling
-  consistent.
 - SAL transport ownership: review the split between the producer in `crates/tools/win32/src/sal.h`
   and capture-time decoder in `crates/libs/clang/src/sal/transport.rs`; changes must keep them
   synchronized.

@@ -199,12 +199,12 @@ impl BackgroundDownloader {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetServerCredential<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -215,12 +215,12 @@ impl BackgroundDownloader {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetProxyCredential<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
     }
     pub fn Method(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -634,12 +634,12 @@ impl BackgroundUploader {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetServerCredential<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetServerCredential)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -650,12 +650,12 @@ impl BackgroundUploader {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetProxyCredential<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetProxyCredential)(windows_core::Interface::as_raw(this), credential.param().abi()).ok() }
     }
     pub fn Method(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -916,10 +916,10 @@ impl ContentPrefetcher {
             (windows_core::Interface::vtable(this).IndirectContentUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    pub fn LastSuccessfulPrefetchTime() -> windows_core::Result<windows_time::DateTime> {
+    pub fn LastSuccessfulPrefetchTime() -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         Self::IContentPrefetcherTime(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).LastSuccessfulPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(this).LastSuccessfulPrefetchTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
     fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
@@ -1069,20 +1069,19 @@ impl DownloadOperation {
             (windows_core::Interface::vtable(this).GetDownloadedRanges)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn RangesDownloaded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RangesDownloaded<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<BackgroundTransferRangesDownloadedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, BackgroundTransferRangesDownloadedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, BackgroundTransferRangesDownloadedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveRangesDownloaded))
+            (windows_core::Interface::vtable(this).RangesDownloaded)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveRangesDownloaded(&self, eventcookie: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveRangesDownloaded)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
     pub fn SetRequestedUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
@@ -1100,11 +1099,11 @@ impl DownloadOperation {
         }
     }
     #[cfg(feature = "Web")]
-    pub fn CurrentWebErrorStatus(&self) -> windows_core::Result<super::super::Web::WebErrorStatus> {
+    pub fn CurrentWebErrorStatus(&self) -> windows_core::Result<windows_reference::IReference<super::super::Web::WebErrorStatus>> {
         let this = &windows_core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).CurrentWebErrorStatus)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Web::WebErrorStatus>| r__.Value())
+            (windows_core::Interface::vtable(this).CurrentWebErrorStatus)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn MakeCurrentInTransferGroup(&self) -> windows_core::Result<()> {
@@ -1241,11 +1240,11 @@ impl IBackgroundTransferBase {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetServerCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetServerCredential<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetServerCredential)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetServerCredential)(windows_core::Interface::as_raw(self), credential.param().abi()).ok() }
     }
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
@@ -1255,11 +1254,11 @@ impl IBackgroundTransferBase {
         }
     }
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetProxyCredential<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetProxyCredential<P0>(&self, credential: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Security::Credentials::PasswordCredential>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetProxyCredential)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetProxyCredential)(windows_core::Interface::as_raw(self), credential.param().abi()).ok() }
     }
     pub fn Method(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
@@ -1297,9 +1296,9 @@ impl windows_core::RuntimeName for IBackgroundTransferBase {
 pub trait IBackgroundTransferBase_Impl: windows_core::IUnknownImpl {
     fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ServerCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetServerCredential(&self, value: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
+    fn SetServerCredential(&self, credential: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn ProxyCredential(&self) -> windows_core::Result<super::super::Security::Credentials::PasswordCredential>;
-    fn SetProxyCredential(&self, value: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
+    fn SetProxyCredential(&self, credential: windows_core::Ref<super::super::Security::Credentials::PasswordCredential>) -> windows_core::Result<()>;
     fn Method(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetMethod(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Group(&self) -> windows_core::Result<windows_core::HSTRING>;
@@ -1331,10 +1330,10 @@ impl IBackgroundTransferBase_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetServerCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetServerCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credential: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTransferBase_Impl::SetServerCredential(this, core::mem::transmute_copy(&value)).into()
+                IBackgroundTransferBase_Impl::SetServerCredential(this, core::mem::transmute_copy(&credential)).into()
             }
         }
         unsafe extern "system" fn ProxyCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -1352,10 +1351,10 @@ impl IBackgroundTransferBase_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetProxyCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetProxyCredential<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, credential: *mut core::ffi::c_void) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTransferBase_Impl::SetProxyCredential(this, core::mem::transmute_copy(&value)).into()
+                IBackgroundTransferBase_Impl::SetProxyCredential(this, core::mem::transmute_copy(&credential)).into()
             }
         }
         unsafe extern "system" fn Method<Identity: IBackgroundTransferBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {

@@ -921,19 +921,17 @@ impl windows_core::RuntimeType for PrintHolePunch {
 pub struct PrintManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintManager, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintManager {
-    pub fn PrintTaskRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn PrintTaskRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PrintTaskRequestedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PrintTaskRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PrintTaskRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePrintTaskRequested))
+            (windows_core::Interface::vtable(self).PrintTaskRequested)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemovePrintTaskRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePrintTaskRequested)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<Self> {
         Self::IPrintManagerStatic(|this| unsafe {
@@ -1473,61 +1471,53 @@ impl PrintTask {
             (windows_core::Interface::vtable(self).Options)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Previewing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Previewing<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Previewing)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePreviewing))
+            (windows_core::Interface::vtable(self).Previewing)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Submitting<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePreviewing(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePreviewing)(windows_core::Interface::as_raw(self), eventcookie).ok() }
+    }
+    pub fn Submitting<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Submitting)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSubmitting))
+            (windows_core::Interface::vtable(self).Submitting)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Progressing<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveSubmitting(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveSubmitting)(windows_core::Interface::as_raw(self), eventcookie).ok() }
+    }
+    pub fn Progressing<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskProgressingEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PrintTaskProgressingEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PrintTaskProgressingEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Progressing)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveProgressing))
+            (windows_core::Interface::vtable(self).Progressing)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Completed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveProgressing(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveProgressing)(windows_core::Interface::as_raw(self), eventcookie).ok() }
+    }
+    pub fn Completed<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskCompletedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, PrintTaskCompletedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, PrintTaskCompletedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCompleted))
+            (windows_core::Interface::vtable(self).Completed)(windows_core::Interface::as_raw(self), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveCompleted(&self, eventcookie: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCompleted)(windows_core::Interface::as_raw(self), eventcookie).ok() }
     }
     pub fn SetIsPreviewEnabled(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintTask2>(self)?;

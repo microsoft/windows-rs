@@ -1,12 +1,14 @@
 fn main() -> windows::core::Result<()> {
-    use windows::Win32::*;
+    use windows::Win32::{
+        Foundation::HWND, Graphics::Gdi::ValidateRect, UI::WindowsAndMessaging::*,
+    };
     use windows_window::{Window, run};
 
     let _window = Window::new("Window Messages")
-        .on_message(|hwnd, message, wparam, lparam| match message as i32 {
+        .on_message(|hwnd, message, wparam, lparam| match message {
             WM_PAINT => {
                 println!("WM_PAINT");
-                unsafe { _ = ValidateRect(Some(hwnd as HWND), None) };
+                unsafe { _ = ValidateRect(Some(HWND(hwnd)), None) };
                 Some(0)
             }
             WM_LBUTTONDOWN => {

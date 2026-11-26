@@ -292,18 +292,18 @@ impl ConnectionProfile {
             (windows_core::Interface::vtable(this).WlanConnectionProfileDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_reference::IReference<windows_core::GUID>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ServiceProviderGuid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_core::GUID>| r__.Value())
+            (windows_core::Interface::vtable(this).ServiceProviderGuid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn GetSignalBars(&self) -> windows_core::Result<u8> {
+    pub fn GetSignalBars(&self) -> windows_core::Result<windows_reference::IReference<u8>> {
         let this = &windows_core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetSignalBars)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u8>| r__.Value())
+            (windows_core::Interface::vtable(this).GetSignalBars)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn GetDomainConnectivityLevel(&self) -> windows_core::Result<DomainConnectivityLevel> {
@@ -440,50 +440,58 @@ impl ConnectionProfileFilter {
             (windows_core::Interface::vtable(self).NetworkCostType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetServiceProviderGuid(&self, value: Option<windows_core::GUID>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<windows_core::GUID> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetServiceProviderGuid)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetServiceProviderGuid<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_core::GUID>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetServiceProviderGuid)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ServiceProviderGuid(&self) -> windows_core::Result<windows_reference::IReference<windows_core::GUID>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ServiceProviderGuid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_core::GUID>| r__.Value())
+            (windows_core::Interface::vtable(self).ServiceProviderGuid)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetIsRoaming(&self, value: Option<bool>) -> windows_core::Result<()> {
+    pub fn SetIsRoaming<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<bool>>,
+    {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetIsRoaming)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsRoaming)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IsRoaming(&self) -> windows_core::Result<bool> {
+    pub fn IsRoaming(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsRoaming)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
+            (windows_core::Interface::vtable(this).IsRoaming)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetIsOverDataLimit(&self, value: Option<bool>) -> windows_core::Result<()> {
+    pub fn SetIsOverDataLimit<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<bool>>,
+    {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetIsOverDataLimit)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsOverDataLimit)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IsOverDataLimit(&self) -> windows_core::Result<bool> {
+    pub fn IsOverDataLimit(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsOverDataLimit)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
+            (windows_core::Interface::vtable(this).IsOverDataLimit)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetIsBackgroundDataUsageRestricted(&self, value: Option<bool>) -> windows_core::Result<()> {
+    pub fn SetIsBackgroundDataUsageRestricted<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<bool>>,
+    {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<bool> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IsBackgroundDataUsageRestricted(&self) -> windows_core::Result<bool> {
+    pub fn IsBackgroundDataUsageRestricted(&self) -> windows_core::Result<windows_reference::IReference<bool>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).IsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<bool>| r__.Value())
+            (windows_core::Interface::vtable(this).IsBackgroundDataUsageRestricted)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -494,16 +502,18 @@ impl ConnectionProfileFilter {
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetPurposeGuid(&self, value: Option<windows_core::GUID>) -> windows_core::Result<()> {
+    pub fn SetPurposeGuid<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_core::GUID>>,
+    {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_core::GUID> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetPurposeGuid)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetPurposeGuid)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn PurposeGuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn PurposeGuid(&self) -> windows_core::Result<windows_reference::IReference<windows_core::GUID>> {
         let this = &windows_core::Interface::cast::<IConnectionProfileFilter3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).PurposeGuid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_core::GUID>| r__.Value())
+            (windows_core::Interface::vtable(this).PurposeGuid)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -623,34 +633,34 @@ impl DataPlanStatus {
             (windows_core::Interface::vtable(self).DataPlanUsage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn DataLimitInMegabytes(&self) -> windows_core::Result<u32> {
+    pub fn DataLimitInMegabytes(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DataLimitInMegabytes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).DataLimitInMegabytes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn InboundBitsPerSecond(&self) -> windows_core::Result<u64> {
+    pub fn InboundBitsPerSecond(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).InboundBitsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).InboundBitsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn OutboundBitsPerSecond(&self) -> windows_core::Result<u64> {
+    pub fn OutboundBitsPerSecond(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OutboundBitsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).OutboundBitsPerSecond)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn NextBillingCycle(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn NextBillingCycle(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).NextBillingCycle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).NextBillingCycle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn MaxTransferSizeInMegabytes(&self) -> windows_core::Result<u32> {
+    pub fn MaxTransferSizeInMegabytes(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MaxTransferSizeInMegabytes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).MaxTransferSizeInMegabytes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1097,10 +1107,10 @@ impl IPInformation {
             (windows_core::Interface::vtable(self).NetworkAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PrefixLength(&self) -> windows_core::Result<u8> {
+    pub fn PrefixLength(&self) -> windows_core::Result<windows_reference::IReference<u8>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrefixLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u8>| r__.Value())
+            (windows_core::Interface::vtable(self).PrefixLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -1425,19 +1435,17 @@ impl NetworkInformation {
             (windows_core::Interface::vtable(this).GetSortedEndpointPairs)(windows_core::Interface::as_raw(this), destinationlist.param().abi(), sortoptions, &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         })
     }
-    pub fn NetworkStatusChanged<F>(handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn NetworkStatusChanged<P0>(networkstatushandler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<windows_core::IInspectable>) + Send + Sync + 'static,
+        P0: windows_core::Param<NetworkStatusChangedEventHandler>,
     {
-        let handler = <NetworkStatusChangedEventHandler>::new(move |a0| {
-            handler(a0);
-            Ok(())
-        });
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveNetworkStatusChanged))
+            (windows_core::Interface::vtable(this).NetworkStatusChanged)(windows_core::Interface::as_raw(this), networkstatushandler.param().abi(), &mut result__).map(|| result__)
         })
+    }
+    pub fn RemoveNetworkStatusChanged(eventcookie: i64) -> windows_core::Result<()> {
+        Self::INetworkInformationStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveNetworkStatusChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() })
     }
     pub fn FindConnectionProfilesAsync<P0>(pprofilefilter: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ConnectionProfile>>>
     where

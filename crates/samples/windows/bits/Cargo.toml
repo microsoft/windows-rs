@@ -6,15 +6,8 @@ publish = false
 
 [dependencies]
 windows = { workspace = true, default-features = true, features = [
-    "bits",
-    "combaseapi",
-    "objbase",
-    "objidlbase",
-    "oleidl",
-    "winbase",
-    "winnt",
-    "wtypes",
-    "wtypesbase",
+    "Win32_System_Com",
+    "Win32_Networking_BackgroundIntelligentTransferService",
 ] }
 windows-core = { workspace = true }
 

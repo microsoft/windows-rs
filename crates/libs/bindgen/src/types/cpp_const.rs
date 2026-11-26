@@ -203,8 +203,10 @@ impl CppConst {
                 };
                 // Bare-alias constants cannot use tuple constructors; wrap only concrete newtype
                 // layers.
-                let unscoped_enum_const = self.is_enum_member
-                    || matches!(&field_ty, Type::CppEnum(e) if !e.def.has_attribute("ScopedEnumAttribute"));
+                let unscoped_enum_const = match &field_ty {
+                    Type::CppEnum(e) => !config.enum_is_newtype(e.def),
+                    _ => self.is_enum_member,
+                };
                 let field_ty_bare_alias =
                     matches!(&field_ty, Type::CppStruct(s) if config.typedef_emits_bare(s.def));
                 let emit_alias_const =
@@ -225,7 +227,8 @@ impl CppConst {
                     // Transparent native typedef aliases cannot be tuple constructors.
                     let ctor = match &field_ty {
                         Type::CppStruct(s)
-                            if !s.is_handle(config.reader) && s.is_native_typedef() =>
+                            if !s.is_handle(config.reader)
+                                && s.is_native_typedef(config.reader) =>
                         {
                             underlying_ty.write_name(config)
                         }
@@ -249,10 +252,125 @@ impl CppConst {
                     }
                 }
             }
+        } else if let Some(input) = legacy_constant_initializer(self.field, config.reader) {
+            let Type::CppStruct(record) = &field_ty else {
+                panic!("legacy constant `{}` is not a struct", self.field.name());
+            };
+            let mut input = input.as_str();
+            let mut fields = quote! {};
+            for field in record.def.fields() {
+                let (value, rest) = config.legacy_field_initializer(field, input);
+                input = rest;
+                fields.combine(value);
+            }
+            let ty = field_ty.write_name(config);
+            quote! {
+                #cfg
+                pub const #name: #ty = #ty { #fields };
+            }
         } else {
             panic!()
         }
     }
+}
+
+// Win32metadata encodes struct constants as `ConstantAttribute` initializer text.
+fn legacy_constant_initializer(field: Field, reader: &Reader) -> Option<String> {
+    if !reader.legacy() {
+        return None;
+    }
+    match field
+        .find_attribute("ConstantAttribute")?
+        .value()
+        .into_iter()
+        .next()
+    {
+        Some((_, Value::Utf8(input))) => Some(input),
+        _ => panic!("invalid constant initializer on `{}`", field.name()),
+    }
+}
+
+impl Config<'_> {
+    fn legacy_field_initializer<'a>(&self, field: Field, input: &'a str) -> (TokenStream, &'a str) {
+        let name = to_ident(field.name());
+
+        match field.field_type(None, self.reader) {
+            Type::GUID => {
+                let (literals, rest) = read_literal_array(input, 11);
+                let value = self.write_guid_value(&GUID(
+                    literals[0].parse().unwrap(),
+                    literals[1].parse().unwrap(),
+                    literals[2].parse().unwrap(),
+                    literals[3].parse().unwrap(),
+                    literals[4].parse().unwrap(),
+                    literals[5].parse().unwrap(),
+                    literals[6].parse().unwrap(),
+                    literals[7].parse().unwrap(),
+                    literals[8].parse().unwrap(),
+                    literals[9].parse().unwrap(),
+                    literals[10].parse().unwrap(),
+                ));
+                (quote! { #name: #value, }, rest)
+            }
+            Type::ArrayFixed(_, len) => {
+                let (literals, rest) = read_literal_array(input, len);
+                let literals = literals
+                    .iter()
+                    .map(|literal| literal.parse::<TokenStream>().unwrap());
+                (quote! { #name: [#(#literals,)*], }, rest)
+            }
+            Type::PtrMut(..) => {
+                // Win32metadata initializes pointers with integers; only null is representable.
+                let (_, rest) = read_literal(input);
+                (quote! { #name: core::ptr::null_mut(), }, rest)
+            }
+            ty => {
+                let (literal, rest) = read_literal(input);
+                let literal = literal.parse::<TokenStream>().unwrap();
+                let value = write_newtype_wrap(&ty, &literal, self);
+                (quote! { #name: #value, }, rest)
+            }
+        }
+    }
+}
+
+fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
+    let mut input = read_token(input, b'{');
+    let mut result = vec![];
+    for _ in 0..len {
+        let (literal, rest) = read_literal(input);
+        result.push(literal);
+        input = rest;
+    }
+    (result, read_token(input, b'}'))
+}
+
+fn read_literal(input: &str) -> (&str, &str) {
+    let mut start = None;
+    let mut end = 0;
+    for (pos, c) in input.bytes().enumerate() {
+        if start.is_none() {
+            if c != b' ' && c != b',' {
+                start = Some(pos);
+            }
+        } else if c == b' ' || c == b',' || c == b'}' {
+            break;
+        }
+        end += 1;
+    }
+    let start = start.unwrap_or_else(|| panic!("literal expected in `{input}`"));
+    (&input[start..end], &input[end..])
+}
+
+fn read_token(input: &str, token: u8) -> &str {
+    for (pos, c) in input.bytes().enumerate() {
+        if c == token {
+            return &input[pos + 1..];
+        } else if c != b' ' && c != b',' {
+            break;
+        }
+    }
+    panic!("`{}` expected", token.escape_ascii());
 }
 
 fn pointer_const_value(field_ty: &Type, value: &Value, config: &Config) -> TokenStream {
@@ -427,9 +545,11 @@ impl Dependencies for CppConst {
 
 fn is_ansi_encoding(row: Field) -> bool {
     row.attributes().any(|attribute| {
-        attribute.namespace() == "Windows.Win32.Metadata"
-            && attribute.name() == "EncodingAttribute"
-            && matches!(attribute.value().first(), Some((_, Value::Utf8(encoding))) if encoding.as_str() == "ansi")
+        matches!(
+            (attribute.namespace(), attribute.name()),
+            ("Windows.Win32.Metadata", "EncodingAttribute")
+                | ("Windows.Win32.Foundation.Metadata", "NativeEncodingAttribute")
+        ) && matches!(attribute.value().first(), Some((_, Value::Utf8(encoding))) if encoding.as_str() == "ansi")
     })
 }
 
@@ -450,7 +570,7 @@ fn resolves_to_guid(ty: &Type, reader: &Reader) -> bool {
             return true;
         }
         match &ty {
-            Type::CppStruct(s) if s.is_native_typedef() => {
+            Type::CppStruct(s) if s.is_native_typedef(reader) => {
                 ty = s.def.underlying_type_ext(reader);
             }
             _ => return false,

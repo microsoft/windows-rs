@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+    use windows::{Win32::Foundation::*, Win32::UI::Controls::*, core::*};
 
     extern "system" fn callback(
         _: HWND,
@@ -8,7 +8,7 @@ fn main() -> windows::core::Result<()> {
         _: LPARAM,
         _: isize,
     ) -> HRESULT {
-        if notification == TDN_BUTTON_CLICKED as u32 {
+        if notification == TDN_BUTTON_CLICKED.0 as u32 {
             println!("button clicked");
         }
 
@@ -37,7 +37,7 @@ fn main() -> windows::core::Result<()> {
 
         let mut selection = 0;
 
-        TaskDialogIndirect(&config, Some(&mut selection), None, None).ok()?;
+        TaskDialogIndirect(&config, Some(&mut selection), None, None)?;
 
         if selection == buttons[0].nButtonID {
             println!("custom button");

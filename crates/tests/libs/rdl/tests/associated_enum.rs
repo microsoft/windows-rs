@@ -58,10 +58,9 @@ fn associated_enum_alias_scope() {
 }
 
 #[test]
-fn associated_enum_preserves_storage_and_remaps_references() {
+fn associated_enum_preserves_storage_and_references() {
     let output = std::path::Path::new(env!("OUT_DIR"));
     let winmd = output.join("associated-enum.winmd");
-    let remapped = output.join("associated-enum-remapped.winmd");
     windows_rdl::reader()
         .reference_default()
         .input_text(
@@ -77,21 +76,13 @@ fn associated_enum_preserves_storage_and_remaps_references() {
         .output(&winmd)
         .write()
         .unwrap();
-    windows_metadata::remap()
-        .input(&winmd)
-        .source("Test")
-        .fallback("Api")
-        .route("Family", "Values")
-        .output(&remapped)
-        .remap()
-        .unwrap();
-    let index = reader::Index::read(&remapped).unwrap();
-    let method = index.expect("Api", "Apis").methods().next().unwrap();
+    let index = reader::Index::read(&winmd).unwrap();
+    let method = index.expect("Test", "Apis").methods().next().unwrap();
     assert_eq!(method.signature(&[]).return_type, Type::I32);
     assert_eq!(method.signature(&[]).types, [Type::I32]);
     let expected = vec![(
         String::new(),
-        Value::TypeName(windows_metadata::TypeName::named("Values", "Family")),
+        Value::TypeName(windows_metadata::TypeName::named("Test", "Family")),
     )];
     for param in method.params() {
         assert_eq!(
@@ -102,7 +93,7 @@ fn associated_enum_preserves_storage_and_remaps_references() {
             expected
         );
     }
-    let field = index.expect("Api", "Address").fields().next().unwrap();
+    let field = index.expect("Test", "Address").fields().next().unwrap();
     assert_eq!(field.ty(), Type::U16);
     assert_eq!(
         field

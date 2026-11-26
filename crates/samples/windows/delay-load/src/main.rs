@@ -1,5 +1,5 @@
 fn main() {
-    use windows::{Win32::*, core::*};
+    use windows::{Win32::Foundation::*, Win32::System::LibraryLoader::*, core::*};
 
     type ShellMessageBoxW = unsafe extern "C" fn(
         happinst: usize,
@@ -11,15 +11,11 @@ fn main() {
     ) -> i32;
 
     unsafe {
-        let library = LoadLibraryExA(
-            s!("shlwapi.dll"),
-            None,
-            LOAD_LIBRARY_SEARCH_DEFAULT_DIRS as u32,
-        );
-        if library.is_null() {
+        let Ok(library) = LoadLibraryExA(s!("shlwapi.dll"), None, LOAD_LIBRARY_SEARCH_DEFAULT_DIRS)
+        else {
             println!("Can't load shlwapi.dll");
             return;
-        }
+        };
 
         if let Some(address) = GetProcAddress(library, s!("ShellMessageBoxW")) {
             let api: ShellMessageBoxW = std::mem::transmute(address);

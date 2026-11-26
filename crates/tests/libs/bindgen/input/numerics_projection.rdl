@@ -18,7 +18,6 @@ mod Test {
         native_matrix: Windows::Win32::dwrite::DWRITE_MATRIX,
         native_size: Windows::Win32::dcommon::D2D_SIZE_F,
         unrelated_point: Windows::Graphics::D2D_POINT_2F,
-        flat_point: Windows::dcommon::D2D_POINT_2F,
         root_point: Windows::Win32::D2D_POINT_2F,
     }
 
@@ -110,13 +109,6 @@ mod Windows {
     }
 
     mod Graphics {
-        struct D2D_POINT_2F {
-            x: f32,
-            y: f32,
-        }
-    }
-
-    mod dcommon {
         struct D2D_POINT_2F {
             x: f32,
             y: f32,

@@ -17,11 +17,11 @@ workspace = true
 
 [dev-dependencies.windows-sys]
 workspace = true
-features = ["minwinbase", "minwindef", "winerror", "winnt", "winreg"]
+features = ["Win32_Foundation", "Win32_System_Registry"]
 
 [dev-dependencies.windows]
 workspace = true
-features = ["minwinbase", "minwindef", "winerror", "winnt", "winreg"]
+features = ["Win32_Foundation", "Win32_System_Registry"]
 
 [dependencies.windows-strings]
 workspace = true

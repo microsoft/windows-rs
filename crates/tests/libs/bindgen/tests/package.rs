@@ -1,4 +1,78 @@
 #[test]
+fn legacy_projection() {
+    let scratch = std::path::Path::new(env!("OUT_DIR")).join("legacy-projection");
+    std::fs::create_dir_all(scratch.join("src")).unwrap();
+    let crates = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .ancestors()
+        .nth(3)
+        .unwrap();
+    let manifest = scratch.join("Cargo.toml");
+    std::fs::write(
+        &manifest,
+        format!(
+            "[package]\nname = \"legacy-projection\"\nversion = \"0.0.0\"\n\
+             edition = \"2024\"\n[workspace]\n[dependencies]\n\
+             windows-core = {{ path = '{}' }}\n\
+             [lints.rust]\nwarnings = \"deny\"\nnonstandard_style = \"allow\"\n\
+             [features]\nWin32_Foundation = []\n# generated features\n",
+            crates.join("libs").join("core").display(),
+        ),
+    )
+    .unwrap();
+    windows_bindgen::builder()
+        .input(
+            crates
+                .join("tools")
+                .join("package")
+                .join("compat")
+                .join("Windows.Win32.winmd"),
+        )
+        .filters([
+            "Windows.Win32.Graphics.Direct3D11.ID3D11Device::{}",
+            "Windows.Win32.Graphics.DirectWrite.IDWriteFactory::{}",
+            "Windows.Win32.Graphics.Dxgi.IDXGIAdapter1::{}",
+            "Windows.Win32.Security.Authentication.Identity.RtlGenRandom",
+            "Windows.Win32.System.Com.ISequentialStream::{}",
+        ])
+        .implement("Windows.Win32.System.Com.ISequentialStream")
+        .full()
+        .package()
+        .output(&scratch)
+        .write();
+    std::fs::write(
+        scratch.join("src").join("lib.rs"),
+        "pub mod Windows;\n\
+         fn require_send_sync<T: Send + Sync>() {}\n\
+         pub fn check() {\n\
+             require_send_sync::<Windows::Win32::Graphics::Direct3D11::ID3D11Device>();\n\
+             require_send_sync::<Windows::Win32::Graphics::DirectWrite::IDWriteFactory>();\n\
+             require_send_sync::<Windows::Win32::Graphics::Dxgi::IDXGIAdapter1>();\n\
+         }\n\
+         pub const RTL_GEN_RANDOM: unsafe fn(*mut core::ffi::c_void, u32) -> u8 =\n\
+             Windows::Win32::Security::Authentication::Identity::RtlGenRandom;\n",
+    )
+    .unwrap();
+    let result = std::process::Command::new("cargo")
+        .args([
+            "check",
+            "--quiet",
+            "--offline",
+            "--all-features",
+            "--manifest-path",
+        ])
+        .arg(&manifest)
+        .arg("--target-dir")
+        .arg(scratch.join("target"))
+        .output()
+        .unwrap();
+    assert!(
+        result.status.success(),
+        "{}",
+        String::from_utf8_lossy(&result.stderr)
+    );
+}
+
+#[test]
 fn class_generic_hierarchy_features() {
     let scratch = std::path::Path::new(env!("OUT_DIR")).join("class-generic-hierarchy");
     std::fs::create_dir_all(&scratch).unwrap();
@@ -132,24 +206,24 @@ pub unsafe fn plain(value: &I) {
     unsafe { value.Plain() };
 }
 
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 pub unsafe fn annotated(value: &I) {
     unsafe { value.Annotated(Windows::Win32::Values::One) };
 }
 
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 pub struct Implementation;
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 impl Windows::Win32::Api::I_Impl for Implementation {
     fn Plain(&self) {}
     fn Annotated(&self, _: u32) {}
 }
-#[cfg(feature = "Values")]
+#[cfg(feature = "Win32_Values")]
 pub const VTABLE: I_Vtbl = I_Vtbl::new::<Implementation>();
 "#,
         )
         .unwrap();
-        for features in ["Api", "Api,Values"] {
+        for features in ["Win32_Api", "Win32_Api,Win32_Values"] {
             let result = std::process::Command::new("cargo")
                 .args([
                     "check",
@@ -261,8 +335,8 @@ pub unsafe fn aliases() {
     let _: i32 = unsafe { legacy::GetWindowLongPtrA() };
     let _: i32 = unsafe { split_legacy::SetWindowLongPtrW() };
     let _: i32 = unsafe { complete::GetWindowLongPtrW() };
-    let _: Narrow = Narrow { value: 1 };
-    assert_eq!(X86, 1);
+    let _: narrow::Narrow = narrow::Narrow { value: 1 };
+    assert_eq!(combined::X86, 1);
 }
 
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64"))]
@@ -275,13 +349,13 @@ pub unsafe fn aliases() {
     let _: isize = unsafe { legacy::GetWindowLongPtrA() };
     let _: isize = unsafe { split_legacy::SetWindowLongPtrW() };
     let _: isize = unsafe { complete::GetWindowLongPtrW() };
-    let _: Wide = Wide { value: 1 };
+    let _: wide::Wide = wide::Wide { value: 1 };
 }
 
 #[cfg(target_arch = "x86_64")]
-pub const CHECK: u32 = Windows::Win32::X64;
+pub const CHECK: u32 = Windows::Win32::combined::X64;
 #[cfg(target_arch = "aarch64")]
-pub const CHECK: u32 = Windows::Win32::ARM + Windows::Win32::ARM64;
+pub const CHECK: u32 = Windows::Win32::constants::ARM + Windows::Win32::combined::ARM64;
 "#).unwrap();
         for target in targets {
             let mut command = std::process::Command::new("cargo");

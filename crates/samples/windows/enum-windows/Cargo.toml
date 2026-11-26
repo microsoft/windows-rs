@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows = { workspace = true, default-features = true, features = ["winuser"] }
+windows = { workspace = true, default-features = true, features = ["Win32_UI_WindowsAndMessaging"] }
 
 [lints]
 workspace = true

@@ -50,25 +50,29 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(self).AvailableBitrates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn DesiredMinBitrate(&self) -> windows_core::Result<u32> {
+    pub fn DesiredMinBitrate(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredMinBitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).DesiredMinBitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDesiredMinBitrate(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredMinBitrate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetDesiredMinBitrate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredMinBitrate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn DesiredMaxBitrate(&self) -> windows_core::Result<u32> {
+    pub fn DesiredMaxBitrate(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredMaxBitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).DesiredMaxBitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDesiredMaxBitrate(&self, value: Option<u32>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredMaxBitrate)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetDesiredMaxBitrate<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredMaxBitrate)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn AudioOnlyPlayback(&self) -> windows_core::Result<bool> {
         unsafe {
@@ -91,75 +95,65 @@ impl AdaptiveMediaSource {
     pub fn SetInboundBitsPerSecondWindow(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInboundBitsPerSecondWindow)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DownloadBitrateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DownloadBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadBitrateChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadBitrateChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DownloadBitrateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDownloadBitrateChanged))
+            (windows_core::Interface::vtable(self).DownloadBitrateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PlaybackBitrateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveDownloadBitrateChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDownloadBitrateChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn PlaybackBitrateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourcePlaybackBitrateChangedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).PlaybackBitrateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemovePlaybackBitrateChanged))
+            (windows_core::Interface::vtable(self).PlaybackBitrateChanged)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DownloadRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemovePlaybackBitrateChanged(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemovePlaybackBitrateChanged)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn DownloadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadRequestedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DownloadRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDownloadRequested))
+            (windows_core::Interface::vtable(self).DownloadRequested)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DownloadCompleted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveDownloadRequested(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDownloadRequested)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn DownloadCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadCompletedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadCompletedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadCompletedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DownloadCompleted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDownloadCompleted))
+            (windows_core::Interface::vtable(self).DownloadCompleted)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn DownloadFailed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveDownloadCompleted(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDownloadCompleted)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn DownloadFailed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDownloadFailedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadFailedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDownloadFailedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DownloadFailed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDownloadFailed))
+            (windows_core::Interface::vtable(self).DownloadFailed)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveDownloadFailed(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDownloadFailed)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn AdvancedSettings(&self) -> windows_core::Result<AdaptiveMediaSourceAdvancedSettings> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource2>(self)?;
@@ -168,31 +162,33 @@ impl AdaptiveMediaSource {
             (windows_core::Interface::vtable(this).AdvancedSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn MinLiveOffset(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn MinLiveOffset(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MinLiveOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).MinLiveOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn MaxSeekableWindowSize(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn MaxSeekableWindowSize(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).MaxSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).MaxSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn DesiredSeekableWindowSize(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn DesiredSeekableWindowSize(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).DesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).DesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDesiredSeekableWindowSize(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+    pub fn SetDesiredSeekableWindowSize<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<windows_time::TimeSpan>>,
+    {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
-        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetDesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetDesiredSeekableWindowSize)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn Diagnostics(&self) -> windows_core::Result<AdaptiveMediaSourceDiagnostics> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
@@ -298,25 +294,29 @@ impl AdaptiveMediaSourceAdvancedSettings {
     pub fn SetAllSegmentsIndependent(&self, value: bool) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllSegmentsIndependent)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn DesiredBitrateHeadroomRatio(&self) -> windows_core::Result<f64> {
+    pub fn DesiredBitrateHeadroomRatio(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).DesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetDesiredBitrateHeadroomRatio(&self, value: Option<f64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f64> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetDesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetDesiredBitrateHeadroomRatio<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<f64>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetDesiredBitrateHeadroomRatio)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn BitrateDowngradeTriggerRatio(&self) -> windows_core::Result<f64> {
+    pub fn BitrateDowngradeTriggerRatio(&self) -> windows_core::Result<windows_reference::IReference<f64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<f64>| r__.Value())
+            (windows_core::Interface::vtable(self).BitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetBitrateDowngradeTriggerRatio(&self, value: Option<f64>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<f64> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetBitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetBitrateDowngradeTriggerRatio<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<f64>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetBitrateDowngradeTriggerRatio)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceAdvancedSettings {
@@ -337,22 +337,22 @@ unsafe impl Sync for AdaptiveMediaSourceAdvancedSettings {}
 pub struct AdaptiveMediaSourceCorrelatedTimes(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceCorrelatedTimes, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceCorrelatedTimes {
-    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn PresentationTimeStamp(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn PresentationTimeStamp(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PresentationTimeStamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).PresentationTimeStamp)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ProgramDateTime(&self) -> windows_core::Result<windows_time::DateTime> {
+    pub fn ProgramDateTime(&self) -> windows_core::Result<windows_reference::IReference<windows_time::DateTime>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ProgramDateTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
+            (windows_core::Interface::vtable(self).ProgramDateTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -445,28 +445,28 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (windows_core::Interface::vtable(self).DiagnosticType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestId(&self) -> windows_core::Result<i32> {
+    pub fn RequestId(&self) -> windows_core::Result<windows_reference::IReference<i32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RequestId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<i32>| r__.Value())
+            (windows_core::Interface::vtable(self).RequestId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).Position)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SegmentId(&self) -> windows_core::Result<u64> {
+    pub fn SegmentId(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).SegmentId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).SegmentId)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceType(&self) -> windows_core::Result<AdaptiveMediaSourceResourceType> {
+    pub fn ResourceType(&self) -> windows_core::Result<windows_reference::IReference<AdaptiveMediaSourceResourceType>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<AdaptiveMediaSourceResourceType>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceType)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ResourceUri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
@@ -475,22 +475,22 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (windows_core::Interface::vtable(self).ResourceUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Bitrate(&self) -> windows_core::Result<u32> {
+    pub fn Bitrate(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Bitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(self).Bitrate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
@@ -500,11 +500,11 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -554,19 +554,17 @@ impl windows_core::RuntimeType for AdaptiveMediaSourceDiagnosticType {
 pub struct AdaptiveMediaSourceDiagnostics(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveMediaSourceDiagnostics, windows_core::IUnknown, windows_core::IInspectable);
 impl AdaptiveMediaSourceDiagnostics {
-    pub fn DiagnosticAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DiagnosticAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<AdaptiveMediaSourceDiagnosticAvailableEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, AdaptiveMediaSourceDiagnosticAvailableEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DiagnosticAvailable)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDiagnosticAvailable))
+            (windows_core::Interface::vtable(self).DiagnosticAvailable)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveDiagnosticAvailable(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveDiagnosticAvailable)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceDiagnostics {
@@ -656,16 +654,16 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (windows_core::Interface::vtable(self).ResourceUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Web_Http")]
@@ -689,18 +687,18 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
             (windows_core::Interface::vtable(this).Statistics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -741,16 +739,16 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (windows_core::Interface::vtable(self).ResourceUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Web_Http")]
@@ -781,18 +779,18 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
             (windows_core::Interface::vtable(this).Statistics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -855,16 +853,16 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (windows_core::Interface::vtable(self).ResourceUri)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeOffset)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(self).ResourceByteRangeLength)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn Result(&self) -> windows_core::Result<AdaptiveMediaSourceDownloadResult> {
@@ -886,18 +884,18 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
             (windows_core::Interface::vtable(this).RequestId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn Position(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn ResourceDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn ResourceDuration(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceDuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn ResourceContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
@@ -984,29 +982,33 @@ impl AdaptiveMediaSourceDownloadResult {
     pub fn SetExtendedStatus(&self, value: u32) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExtendedStatus)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeOffset(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceByteRangeOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceByteRangeOffset)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetResourceByteRangeOffset(&self, value: Option<u64>) -> windows_core::Result<()> {
+    pub fn SetResourceByteRangeOffset<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u64>>,
+    {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u64> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeOffset)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeOffset)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<u64> {
+    pub fn ResourceByteRangeLength(&self) -> windows_core::Result<windows_reference::IReference<u64>> {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ResourceByteRangeLength)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u64>| r__.Value())
+            (windows_core::Interface::vtable(this).ResourceByteRangeLength)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetResourceByteRangeLength(&self, value: Option<u64>) -> windows_core::Result<()> {
+    pub fn SetResourceByteRangeLength<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u64>>,
+    {
         let this = &windows_core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u64> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeLength)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetResourceByteRangeLength)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for AdaptiveMediaSourceDownloadResult {
@@ -1033,22 +1035,22 @@ impl AdaptiveMediaSourceDownloadStatistics {
             (windows_core::Interface::vtable(self).ContentBytesReceivedCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeToHeadersReceived(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn TimeToHeadersReceived(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimeToHeadersReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).TimeToHeadersReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimeToFirstByteReceived(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn TimeToFirstByteReceived(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimeToFirstByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).TimeToFirstByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn TimeToLastByteReceived(&self) -> windows_core::Result<windows_time::TimeSpan> {
+    pub fn TimeToLastByteReceived(&self) -> windows_core::Result<windows_reference::IReference<windows_time::TimeSpan>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).TimeToLastByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
+            (windows_core::Interface::vtable(self).TimeToLastByteReceived)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }

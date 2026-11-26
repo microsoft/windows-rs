@@ -1,5 +1,8 @@
 #![cfg(windows)]
-use windows_sys::{Win32::*, core::*};
+use windows_sys::{
+    Win32::Graphics::Gdi::*, Win32::Graphics::Printing::*, Win32::System::ProcessStatus::*,
+    Win32::System::Threading::*, core::*,
+};
 
 #[test]
 fn gdi() {
@@ -49,6 +52,8 @@ fn psapi() {
 #[test]
 fn not_dll() {
     unsafe {
-        _ = GetSpoolFileHandle(std::ptr::null_mut());
+        _ = GetSpoolFileHandle(PRINTER_HANDLE {
+            Value: std::ptr::null_mut(),
+        });
     }
 }

@@ -671,20 +671,19 @@ impl SecondaryTile {
             (windows_core::Interface::vtable(this).RoamingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VisualElementsRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn VisualElementsRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<VisualElementsRequestedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, VisualElementsRequestedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, VisualElementsRequestedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).VisualElementsRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveVisualElementsRequested))
+            (windows_core::Interface::vtable(this).VisualElementsRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveVisualElementsRequested(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISecondaryTile2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveVisualElementsRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn CreateTile<P5>(tileid: &windows_core::HSTRING, shortname: &windows_core::HSTRING, displayname: &windows_core::HSTRING, arguments: &windows_core::HSTRING, tileoptions: TileOptions, logoreference: P5) -> windows_core::Result<Self>
     where
@@ -1037,15 +1036,17 @@ impl TileMixedRealityModel {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn SetBoundingBox(&self, value: Option<super::super::Perception::Spatial::SpatialBoundingBox>) -> windows_core::Result<()> {
-        let value__ = value.map(<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetBoundingBox)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+    pub fn SetBoundingBox<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>,
+    {
+        unsafe { (windows_core::Interface::vtable(self).SetBoundingBox)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn BoundingBox(&self) -> windows_core::Result<super::super::Perception::Spatial::SpatialBoundingBox> {
+    pub fn BoundingBox(&self) -> windows_core::Result<windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox>> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<super::super::Perception::Spatial::SpatialBoundingBox>| r__.Value())
+            (windows_core::Interface::vtable(self).BoundingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     pub fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> windows_core::Result<()> {

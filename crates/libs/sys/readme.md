@@ -18,15 +18,16 @@ Find the native function in the API reference and enable its feature:
 
 ```toml
 [dependencies]
-windows-sys = { version = "0.100", features = ["sysinfoapi"] }
+windows-sys = { version = "0.100", features = ["Win32_System_SystemInformation"] }
 ```
 
 ```rust,no_run
-let milliseconds = unsafe { windows_sys::Win32::GetTickCount64() };
+let milliseconds = unsafe { windows_sys::Win32::System::SystemInformation::GetTickCount64() };
 println!("{milliseconds} ms since startup");
 ```
 
-Win32 features follow header groups. Types used in a signature may need supporting features.
+Features follow namespaces, such as `Win32_System_SystemInformation`. Types used in a signature
+may need supporting features.
 Check OS availability separately from compile-time features.
 
 ## Keep the FFI boundary small

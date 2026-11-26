@@ -9,6 +9,21 @@ pub trait MethodDefExt {
 
 impl MethodDefExt for MethodDef {
     fn associated_enums(&self, reader: &Reader) -> Vec<Type> {
+        if reader.legacy() {
+            let MemberRefParent::TypeDef(owner) = self.parent() else {
+                unreachable!()
+            };
+            return self
+                .params()
+                .filter(|param| {
+                    !param
+                        .flags()
+                        .contains(windows_metadata::ParamAttributes::Out)
+                })
+                .filter_map(|param| legacy::associated_enum(param, owner.namespace(), reader))
+                .collect();
+        }
+
         self.params()
             .flat_map(|param| associated_enums(param, reader))
             .collect()
@@ -39,12 +54,22 @@ impl MethodDefExt for MethodDef {
             unreachable!()
         };
         let native = !owner.flags().contains(TypeAttributes::WindowsRuntime);
+        // Legacy Win32 metadata treats every parameter without `Out` as input and spells
+        // pointee constness with `ConstAttribute`.
+        let legacy = native && reader.legacy();
         let convert = if native {
             Type::from_native_signature_type
         } else {
             Type::from_metadata_type
         };
-        let return_type = convert(&meta_sig.return_type, None, generics, reader);
+        let mut return_type = convert(&meta_sig.return_type, None, generics, reader);
+        if legacy
+            && self
+                .params()
+                .any(|param| param.sequence() == 0 && param.has_attribute("ConstAttribute"))
+        {
+            return_type = return_type.to_const_type();
+        }
         return_type.assert_callable_value(reader);
         let param_map = match self.params_by_sequence(meta_sig.types.len()) {
             Ok(params) => Some(params),
@@ -84,11 +109,23 @@ impl MethodDefExt for MethodDef {
                 self.name(),
                 position + 1
             );
-            let param_is_input_only = def.is_some_and(|param| {
-                param.direction() == windows_metadata::reader::ParamDirection::Input
-            });
+            let param_is_input_only = if legacy {
+                def.is_some_and(|param| {
+                    !param
+                        .flags()
+                        .contains(windows_metadata::ParamAttributes::Out)
+                })
+            } else {
+                def.is_some_and(|param| {
+                    param.direction() == windows_metadata::reader::ParamDirection::Input
+                })
+            };
             let mut ty = convert(meta_ty, None, generics, reader);
             ty.assert_callable_value(reader);
+
+            if legacy && def.is_some_and(|param| param.has_attribute("ConstAttribute")) {
+                ty = ty.to_const_type();
+            }
 
             let native_reference = native
                 && matches!(
@@ -103,18 +140,26 @@ impl MethodDefExt for MethodDef {
             // A native argument without a metadata direction is still input when the callee
             // receives no caller-writable storage through it. Reserved arguments must be null or
             // zero, so the callee cannot write through them either.
-            let implied_input = native
-                && def.is_none_or(|param| {
-                    param.direction() == windows_metadata::reader::ParamDirection::Unspecified
-                })
-                && (ty.projection_type(reader).is_callee_immutable()
-                    || def.is_some_and(|param| param.is_reserved()));
+            let implied_input = (legacy && param_is_input_only)
+                || (native
+                    && def.is_none_or(|param| {
+                        param.direction() == windows_metadata::reader::ParamDirection::Unspecified
+                    })
+                    && (ty.projection_type(reader).is_callee_immutable()
+                        || def.is_some_and(|param| param.is_reserved())));
+
+            let associated_enum = if legacy && param_is_input_only {
+                def.and_then(|param| legacy::associated_enum(param, owner.namespace(), reader))
+            } else {
+                None
+            };
 
             params.push(Param {
                 def,
                 name,
                 ty,
                 implied_input,
+                associated_enum,
             });
         }
 

@@ -1,8 +1,8 @@
 #![cfg(windows)]
-use windows::{
-    Win32::HANDLE,
-    Win32::*,
-    Win32::{OVERLAPPED, OVERLAPPED_0_0},
+use windows::Win32::{
+    Foundation::HANDLE,
+    Graphics::Direct3D12::*,
+    System::IO::{OVERLAPPED, OVERLAPPED_0_0},
 };
 
 #[test]
@@ -22,9 +22,9 @@ fn test() {
     o.InternalHigh = 20;
     assert_eq!(o.InternalHigh, 20);
 
-    assert_eq!(o.hEvent, core::ptr::null_mut());
-    o.hEvent = 1 as HANDLE;
-    assert_eq!(o.hEvent, 1 as HANDLE);
+    assert_eq!(o.hEvent, HANDLE(core::ptr::null_mut()));
+    o.hEvent = HANDLE(1 as _);
+    assert_eq!(o.hEvent, HANDLE(1 as _));
 
     unsafe {
         assert_eq!(o.Anonymous.Pointer, core::ptr::null_mut());
@@ -70,7 +70,7 @@ fn test_arch() {
 fn d3d() {
     assert_eq!(size_of::<D3D12_INDIRECT_ARGUMENT_DESC>(), 16);
 
-    assert_eq!(D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW, 3);
+    assert_eq!(D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW.0, 3);
 
     let mut desc = D3D12_INDIRECT_ARGUMENT_DESC {
         Type: D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW,

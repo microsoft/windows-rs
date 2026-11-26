@@ -1086,29 +1086,33 @@ impl SmartCardAutomaticResponseApdu {
     {
         unsafe { (windows_core::Interface::vtable(self).SetResponseApdu)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub fn InputState(&self) -> windows_core::Result<u32> {
+    pub fn InputState(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(this).InputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetInputState(&self, value: Option<u32>) -> windows_core::Result<()> {
+    pub fn SetInputState<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
+    {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetInputState)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn OutputState(&self) -> windows_core::Result<u32> {
+    pub fn OutputState(&self) -> windows_core::Result<windows_reference::IReference<u32>> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OutputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__)).and_then(|r__: windows_reference::IReference<u32>| r__.Value())
+            (windows_core::Interface::vtable(this).OutputState)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn SetOutputState(&self, value: Option<u32>) -> windows_core::Result<()> {
+    pub fn SetOutputState<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_reference::IReference<u32>>,
+    {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        let value__ = value.map(<windows_reference::IReference<u32> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(this).SetOutputState)(windows_core::Interface::as_raw(this), windows_core::Param::param(value__.as_ref()).abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetOutputState)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn AllowWhenCryptogramGeneratorNotPrepared(&self) -> windows_core::Result<bool> {
         let this = &windows_core::Interface::cast::<ISmartCardAutomaticResponseApdu3>(self)?;
@@ -2214,35 +2218,33 @@ impl SmartCardEmulator {
             (windows_core::Interface::vtable(self).EnablementPolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn ApduReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ApduReceived<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmartCardEmulatorApduReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SmartCardEmulatorApduReceivedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, SmartCardEmulatorApduReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ApduReceived)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveApduReceived))
+            (windows_core::Interface::vtable(this).ApduReceived)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ConnectionDeactivated<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveApduReceived(&self, value: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveApduReceived)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ConnectionDeactivated<P0>(&self, value: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SmartCardEmulatorConnectionDeactivatedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, SmartCardEmulatorConnectionDeactivatedEventArgs>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
-        let handler = <super::super::Foundation::TypedEventHandler<Self, SmartCardEmulatorConnectionDeactivatedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ConnectionDeactivated)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveConnectionDeactivated))
+            (windows_core::Interface::vtable(this).ConnectionDeactivated)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveConnectionDeactivated(&self, value: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemoveConnectionDeactivated)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn Start(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<ISmartCardEmulator2>(self)?;
@@ -2365,15 +2367,15 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRespondWithStateAsync<P0>(&self, responseapdu: P0, nextstate: Option<u32>) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryRespondWithStateAsync<P0, P1>(&self, responseapdu: P0, nextstate: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
+        P1: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
-        let nextstate__ = nextstate.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRespondWithStateAsync)(windows_core::Interface::as_raw(this), responseapdu.param().abi(), windows_core::Param::param(nextstate__.as_ref()).abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRespondWithStateAsync)(windows_core::Interface::as_raw(this), responseapdu.param().abi(), nextstate.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
     #[cfg(feature = "Storage_Streams")]
@@ -2389,16 +2391,16 @@ impl SmartCardEmulatorApduReceivedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: Option<u32>) -> windows_core::Result<windows_future::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
+    pub fn TryRespondWithCryptogramsAndStateAsync<P0, P1, P2>(&self, responsetemplate: P0, cryptogramplacementsteps: P1, nextstate: P2) -> windows_core::Result<windows_future::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<windows_collections::IIterable<SmartCardCryptogramPlacementStep>>,
+        P2: windows_core::Param<windows_reference::IReference<u32>>,
     {
         let this = &windows_core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
-        let nextstate__ = nextstate.map(<windows_reference::IReference<u32> as From<_>>::from);
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(windows_core::Interface::as_raw(this), responsetemplate.param().abi(), cryptogramplacementsteps.param().abi(), windows_core::Param::param(nextstate__.as_ref()).abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
+            (windows_core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(windows_core::Interface::as_raw(this), responsetemplate.param().abi(), cryptogramplacementsteps.param().abi(), nextstate.param().abi(), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
 }
@@ -2907,33 +2909,29 @@ impl SmartCardReader {
             (windows_core::Interface::vtable(self).FindAllCardsAsync)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::imp::from_abi(result__))
         }
     }
-    pub fn CardAdded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn CardAdded<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CardAddedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CardAddedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, CardAddedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CardAdded)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCardAdded))
+            (windows_core::Interface::vtable(self).CardAdded)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn CardRemoved<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RemoveCardAdded(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCardAdded)(windows_core::Interface::as_raw(self), token).ok() }
+    }
+    pub fn CardRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<CardRemovedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Self, CardRemovedEventArgs>>,
     {
-        let handler = <super::super::Foundation::TypedEventHandler<Self, CardRemovedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).CardRemoved)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCardRemoved))
+            (windows_core::Interface::vtable(self).CardRemoved)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveCardRemoved(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveCardRemoved)(windows_core::Interface::as_raw(self), token).ok() }
     }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::ISmartCardReaderStatics(|this| unsafe {

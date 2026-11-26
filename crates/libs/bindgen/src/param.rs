@@ -5,8 +5,11 @@ pub struct Param {
     pub def: Option<MethodParam>,
     pub name: String,
     pub ty: Type,
-    /// Unspecified native direction whose type passes no caller-writable storage.
+    /// Unspecified native direction whose type passes no caller-writable storage, or a legacy
+    /// Win32 parameter without `Out`.
     pub implied_input: bool,
+    /// Legacy only: the enum accepted by an input integer parameter with `AssociatedEnumAttribute`.
+    pub associated_enum: Option<Type>,
 }
 
 impl std::ops::Deref for Param {

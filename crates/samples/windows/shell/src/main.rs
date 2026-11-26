@@ -1,17 +1,20 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{Win32::*, core::*};
+    use windows::{
+        Win32::System::Com::*, Win32::System::Variant::*, Win32::UI::Shell::*,
+        Win32::UI::WindowsAndMessaging::*, core::*,
+    };
 
     use std::mem::ManuallyDrop;
 
     fn variant_bstr(value: &str) -> VARIANT {
         VARIANT {
-            Anonymous: tagVARIANT_0 {
-                Anonymous: ManuallyDrop::new(tagVARIANT_0_0 {
-                    vt: VT_BSTR as VARTYPE,
+            Anonymous: VARIANT_0 {
+                Anonymous: ManuallyDrop::new(VARIANT_0_0 {
+                    vt: VT_BSTR,
                     wReserved1: 0,
                     wReserved2: 0,
                     wReserved3: 0,
-                    Anonymous: tagVARIANT_0_0_0 {
+                    Anonymous: VARIANT_0_0_0 {
                         bstrVal: ManuallyDrop::new(BSTR::from(value)),
                     },
                 }),
@@ -21,13 +24,13 @@ fn main() -> windows::core::Result<()> {
 
     fn variant_i4(value: i32) -> VARIANT {
         VARIANT {
-            Anonymous: tagVARIANT_0 {
-                Anonymous: ManuallyDrop::new(tagVARIANT_0_0 {
-                    vt: VT_I4 as VARTYPE,
+            Anonymous: VARIANT_0 {
+                Anonymous: ManuallyDrop::new(VARIANT_0_0 {
+                    vt: VT_I4,
                     wReserved1: 0,
                     wReserved2: 0,
                     wReserved3: 0,
-                    Anonymous: tagVARIANT_0_0_0 { lVal: value },
+                    Anonymous: VARIANT_0_0_0 { lVal: value },
                 }),
             },
         }
@@ -38,38 +41,36 @@ fn main() -> windows::core::Result<()> {
         args: &str,
         directory: &str,
         operation: &str,
-        show: u32,
+        show: SHOW_WINDOW_CMD,
     ) -> Result<()> {
         unsafe {
             let view: IShellView = find_desktop_folder_view()?;
-            let background: IDispatch = view.GetItemObject(SVGIO_BACKGROUND as u32)?;
+            let background: IDispatch = view.GetItemObject(SVGIO_BACKGROUND)?;
             let folder: IShellFolderViewDual = background.cast()?;
             let shell: IShellDispatch2 = folder.Application()?.cast()?;
 
             let mut args = variant_bstr(args);
             let mut directory = variant_bstr(directory);
             let mut operation = variant_bstr(operation);
-            let mut show = variant_i4(show as i32);
+            let mut show = variant_i4(show.0);
 
-            shell
-                .ShellExecute(&BSTR::from(file), &args, &directory, &operation, &show)
-                .ok()?;
+            shell.ShellExecute(&BSTR::from(file), &args, &directory, &operation, &show)?;
 
-            VariantClear(&mut args).ok()?;
-            VariantClear(&mut directory).ok()?;
-            VariantClear(&mut operation).ok()?;
-            VariantClear(&mut show).ok()?;
+            VariantClear(&mut args)?;
+            VariantClear(&mut directory)?;
+            VariantClear(&mut operation)?;
+            VariantClear(&mut show)?;
             Ok(())
         }
     }
 
     fn find_desktop_folder_view<T: Interface>() -> Result<T> {
         unsafe {
-            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL as u32)?;
+            let windows: IShellWindows = CoCreateInstance(&ShellWindows, None, CLSCTX_ALL)?;
             let mut handle = 0;
 
             let desktop = windows.FindWindowSW(
-                &variant_i4(CSIDL_DESKTOP),
+                &variant_i4(CSIDL_DESKTOP as i32),
                 &VARIANT::default(),
                 SWC_DESKTOP,
                 &mut handle,
@@ -77,11 +78,7 @@ fn main() -> windows::core::Result<()> {
             )?;
 
             let provider: IServiceProvider = desktop.cast()?;
-            let mut browser = core::ptr::null_mut();
-            provider
-                .QueryService(&SID_STopLevelBrowser, &IShellBrowser::IID, &mut browser)
-                .ok()?;
-            let browser: IShellBrowser = imp::from_abi(browser)?;
+            let browser: IShellBrowser = provider.QueryService(&SID_STopLevelBrowser)?;
             browser.QueryActiveShellView()?.cast()
         }
     }
@@ -93,6 +90,6 @@ fn main() -> windows::core::Result<()> {
         "",
         "",
         "",
-        SW_SHOWNORMAL as u32,
+        SW_SHOWNORMAL,
     )
 }

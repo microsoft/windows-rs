@@ -44,6 +44,5 @@ pub struct Values {
     pub native_matrix: DWRITE_MATRIX,
     pub native_size: D2D_SIZE_F,
     pub unrelated_point: D2D_POINT_2F,
-    pub flat_point: windows_numerics::Vector2,
     pub root_point: windows_numerics::Vector2,
 }

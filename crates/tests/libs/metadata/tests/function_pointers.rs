@@ -63,12 +63,11 @@ fn function_pointer_signatures() {
 }
 
 #[test]
-fn function_pointer_merge_and_remap() {
+fn function_pointer_merge() {
     let root = std::path::Path::new(env!("CARGO_TARGET_TMPDIR"));
     let source = root.join("test-metadata-function-pointers-source.winmd");
     let other = root.join("test-metadata-function-pointers-other.winmd");
     let merged = root.join("test-metadata-function-pointers-merged.winmd");
-    let remapped = root.join("test-metadata-function-pointers-remapped.winmd");
     let signature = |flags, input_ns, output_ns| {
         callback(
             flags,
@@ -112,31 +111,9 @@ fn function_pointer_merge_and_remap() {
             (6, signature(MethodCallAttributes::C, "Test", "Test")),
         ]
     );
-    remap()
-        .input(&merged)
-        .source("Test")
-        .fallback("Callbacks")
-        .route("Input", "Parameters")
-        .route("Output", "Results")
-        .output(&remapped)
-        .remap()
-        .unwrap();
-    let index = Index::read(&remapped).unwrap();
-    for def in index.get("Callbacks", "Callbacks") {
-        let flags = if def.arches() == 1 {
-            MethodCallAttributes::STDCALL
-        } else {
-            MethodCallAttributes::C
-        };
-        assert_eq!(
-            def.fields().next().unwrap().ty(),
-            signature(flags, "Parameters", "Results")
-        );
-    }
-    assert_eq!(index.get("Callbacks", "Callbacks").count(), 2);
-    index.expect("Parameters", "Input");
-    index.expect("Results", "Output");
-    for path in [source, other, merged, remapped] {
+    index.expect("Test", "Input");
+    index.expect("Test", "Output");
+    for path in [source, other, merged] {
         std::fs::remove_file(path).unwrap();
     }
 }

@@ -15,19 +15,17 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactory_Vtbl {
 windows_core::imp::define_winrt_interface!(ISysStorageProviderEventSource, ISysStorageProviderEventSource_Vtbl, 0x1f36c476_9546_536a_8381_2f9a2c08cedd, b"Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource");
 windows_core::imp::interface_hierarchy!(ISysStorageProviderEventSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ISysStorageProviderEventSource {
-    pub fn EventReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn EventReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
-        F: Fn(windows_core::Ref<Self>, windows_core::Ref<SysStorageProviderEventReceivedEventArgs>) + Send + Sync + 'static,
+        P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Self, SysStorageProviderEventReceivedEventArgs>>,
     {
-        let handler = <super::super::super::Foundation::TypedEventHandler<Self, SysStorageProviderEventReceivedEventArgs>>::new(move |a0, a1| {
-            handler(a0, a1);
-            Ok(())
-        });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).EventReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
-            Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveEventReceived))
+            (windows_core::Interface::vtable(self).EventReceived)(windows_core::Interface::as_raw(self), handler.param().abi(), &mut result__).map(|| result__)
         }
+    }
+    pub fn RemoveEventReceived(&self, token: i64) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).RemoveEventReceived)(windows_core::Interface::as_raw(self), token).ok() }
     }
 }
 impl windows_core::RuntimeName for ISysStorageProviderEventSource {

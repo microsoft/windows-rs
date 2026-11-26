@@ -1,5 +1,7 @@
 #![cfg(windows)]
-use windows::{Win32::*, core::*};
+use windows::{
+    Win32::Devices::Properties::*, Win32::System::Diagnostics::Debug::DebugPropertyInfo, core::*,
+};
 
 #[test]
 fn bstr_field() {

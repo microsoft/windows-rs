@@ -1,8 +1,6 @@
 #![cfg(windows)]
 use windows::{Devices::Enumeration::*, Foundation::*, core::*};
 use windows_collections::*;
-use windows_future::*;
-use windows_reference::*;
 
 #[test]
 fn signatures() {

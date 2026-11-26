@@ -778,11 +778,14 @@ impl Method {
         let vcall = build_vcall(&args);
 
         // Event add methods become revoker-returning wrappers; paired remove methods are hidden.
+        // Legacy packages keep both accessors as ordinary token-based methods.
         let raw_method_name = self.def.name();
         let is_event_add = !noexcept
+            && !config.reader.legacy()
             && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("add_");
-        let is_event_remove = self.def.flags().contains(MethodAttributes::SpecialName)
+        let is_event_remove = !config.reader.legacy()
+            && self.def.flags().contains(MethodAttributes::SpecialName)
             && raw_method_name.starts_with("remove_");
         let suppress_event_remove = is_event_remove
             && kind != InterfaceKind::Composable

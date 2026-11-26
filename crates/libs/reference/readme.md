@@ -34,6 +34,7 @@ Cloning the interface retains the same object. `Value()` retrieves the value thr
 interface call; propagate its result in application code. Read once at the boundary, then continue
 with ordinary Rust data.
 
-The crate requires Windows and the default `std` feature. `IReference<HSTRING>`
-also accepts Rust strings; use [windows-strings](https://docs.rs/windows-strings) for the string
-type. See [windows-collections](https://docs.rs/windows-collections) for collection interfaces.
+The crate requires Windows. Boxing values requires the default `std` feature.
+`IReference<HSTRING>` also accepts Rust strings; use
+[windows-strings](https://docs.rs/windows-strings) for the string type. See
+[windows-collections](https://docs.rs/windows-collections) for collection interfaces.

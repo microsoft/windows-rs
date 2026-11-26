@@ -52,6 +52,7 @@ use types::*;
 use value::*;
 use winmd::*;
 mod filter_parser;
+mod legacy;
 mod method_names;
 mod type_closure;
 use method_names::*;
@@ -570,7 +571,9 @@ impl Bindgen {
             default_reader(sys)
         } else {
             let input = expand_input(&self.input, self.input_default);
-            reader_storage = if sys {
+            reader_storage = if self.layout.is_package() {
+                Reader::new_package(input, sys)
+            } else if sys {
                 Reader::new_sys(input)
             } else {
                 Reader::new(input)
@@ -894,23 +897,9 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
-/// Collapses private per-header Win32 package namespaces to the public umbrella.
-fn flat_module_namespace(namespace: &str) -> &str {
-    const UMBRELLA: &str = "Windows.Win32";
-    if namespace.len() > UMBRELLA.len()
-        && namespace.starts_with(UMBRELLA)
-        && namespace.as_bytes()[UMBRELLA.len()] == b'.'
-    {
-        return UMBRELLA;
-    }
-    namespace
-}
-
 /// Derives the cargo-feature name for a `--package` namespace.
 fn namespace_feature(namespace: &str) -> String {
-    if let Some(stem) = namespace.strip_prefix("Windows.Win32.") {
-        stem.replace('.', "_")
-    } else if let Some((_, rest)) = namespace.split_once('.') {
+    if let Some((_, rest)) = namespace.split_once('.') {
         rest.replace('.', "_")
     } else {
         namespace.to_string()

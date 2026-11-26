@@ -275,7 +275,7 @@ impl CppInterface {
 
             result.combine(vtbl);
 
-            if self.def.is_agile() {
+            if self.def.is_agile() || (config.reader.legacy() && legacy::is_agile(self.def)) {
                 result.combine(quote! {
                     #cfg
                     unsafe impl Send for #name {}

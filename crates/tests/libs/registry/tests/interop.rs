@@ -3,7 +3,7 @@ use windows_registry::*;
 
 #[test]
 fn sys_interop() -> Result<()> {
-    use windows_sys::{Win32::HKEY, Win32::*};
+    use windows_sys::Win32::System::Registry::*;
 
     let test_key = "software\\windows-rs\\tests\\sys_interop";
     _ = CURRENT_USER.remove_tree(test_key);
@@ -42,7 +42,7 @@ fn sys_interop() -> Result<()> {
 
 #[test]
 fn windows_interop() -> Result<()> {
-    use windows::{Win32::HKEY, Win32::*};
+    use windows::Win32::System::Registry::*;
 
     let test_key = "software\\windows-rs\\tests\\windows_interop";
     _ = CURRENT_USER.remove_tree(test_key);
@@ -52,15 +52,15 @@ fn windows_interop() -> Result<()> {
     key.set_u32("2", 2)?;
     key.set_u32("3", 3)?;
 
-    let raw = key.as_raw() as HKEY;
+    let raw = HKEY(key.as_raw());
     std::mem::forget(key);
-    let owned = unsafe { Key::from_raw(raw.cast()) };
+    let owned = unsafe { Key::from_raw(raw.0) };
 
     let mut count = 0;
 
     unsafe {
-        windows_result::WIN32_ERROR(RegQueryInfoKeyW(
-            owned.as_raw().cast(),
+        RegQueryInfoKeyW(
+            HKEY(owned.as_raw()),
             None,
             None,
             None,
@@ -72,7 +72,7 @@ fn windows_interop() -> Result<()> {
             None,
             None,
             None,
-        ) as u32)
+        )
         .ok()?;
     };
 
