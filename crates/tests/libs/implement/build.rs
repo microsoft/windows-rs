@@ -17,6 +17,7 @@ fn main() {
             "CoUnmarshalInterface",
             "DROPEFFECT_LINK",
             "DROPEFFECT_MOVE",
+            "DispatchMessageW",
             "E_BOUNDS",
             "E_INVALIDARG",
             "E_NOINTERFACE",
@@ -37,10 +38,14 @@ fn main() {
             "IPropertyStoreCapabilities",
             "IServiceProvider",
             "IWeakReferenceSource::GetWeakReference",
+            "IWeakReference::Resolve",
             "MK_MBUTTON",
+            "PM_REMOVE",
+            "PeekMessageW",
             "REGCLS_AGILE",
             "REGCLS_MULTIPLEUSE",
             "S_OK",
+            "TranslateMessage",
             "VT_I4",
         ])
         .implements([

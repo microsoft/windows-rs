@@ -16,7 +16,7 @@ fn count() {
 
     // Query implies add_ref
     unsafe {
-        count.query(&IWeakReferenceSource::IID, core::ptr::null_mut());
+        count.query(&IWeakReferenceSource::IID, core::ptr::null_mut(), true);
     }
 
     // Ref count is now owned by tearoff

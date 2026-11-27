@@ -123,7 +123,7 @@ fn failed_resolution_releases_last_strong_reference() {
                 *result = this;
                 return HRESULT(0);
             }
-            *result = object.count.query(&*iid, this);
+            *result = object.count.query(&*iid, this, true);
             if !(*result).is_null() {
                 return HRESULT(0);
             }

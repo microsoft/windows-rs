@@ -199,7 +199,7 @@ impl<const N: usize, B: ComBase, T> ComCell<N, B, T> {
                 }
             }
 
-            let tear_off = self.count().query(iid, self.interface(0));
+            let tear_off = self.count().query(iid, self.interface(0), agile);
 
             if !tear_off.is_null() {
                 *interface = tear_off;
