@@ -41,9 +41,10 @@ Implement required base-interface traits as well as the declared interface.
 
 ## Threading and ownership
 
-Implementations must be `Send + Sync`. COM calls may overlap, and destruction must be valid on
-the thread that releases the final reference. Synchronize shared mutable state; the macro does not
-make thread-affine fields safe to share.
+Implementations must be `'static + Send + Sync`. Store owned data or references to static data,
+since interface references can outlive their creator. COM calls may overlap, and destruction must
+be valid on the thread that releases the final reference. Synchronize shared mutable state; the
+macro does not make thread-affine fields safe to share.
 
 Interface values retain the object through COM reference counting. Avoid ownership cycles or
 provide an explicit teardown path.

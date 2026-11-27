@@ -8,6 +8,8 @@ use core::ptr::NonNull;
 ///
 /// This is an implementation detail of the Windows crates. The `#[implement]` macro generates
 /// implementations so user code can use [`ComObject<T>`] instead of `ComObject<T_Impl>`.
+/// Implementation state must be `'static`, since even borrowed interface views can be cloned
+/// into owned interfaces that outlive their creator.
 ///
 /// ```compile_fail,E0133
 /// use windows_core::*;
@@ -19,7 +21,7 @@ use core::ptr::NonNull;
 /// let outer = Foo.into_outer();
 /// let interface: IFoo = outer.to_interface();
 /// ```
-pub trait ComObjectInner: Sized {
+pub trait ComObjectInner: Sized + 'static {
     /// The generated `<foo>_Impl` type (aka the "boxed" or "outer" type).
     type Outer: IUnknownImpl<Impl = Self>;
 
