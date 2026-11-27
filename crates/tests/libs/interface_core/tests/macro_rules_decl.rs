@@ -241,14 +241,25 @@ fn generic_implementer() {
         let mut value = 0;
         other.Sum(2, 3, &mut value).unwrap();
         assert_eq!(value, 15);
+        assert!(other.is_object::<Generic<i32>>());
+        assert!(!other.is_object::<Generic<&'static str>>());
+        assert_eq!(other.cast_object_ref::<Generic<i32>>().unwrap().0, 10);
+        let object = other.cast_object::<Generic<i32>>().unwrap();
 
         // QI across to ITest.
         let test: ITest = other.cast().unwrap();
         test.Void();
+        drop(other);
+        drop(test);
+        assert_eq!(object.0, 10);
 
         // A second monomorphization (T = &str) wires up independently.
         let other: IOther = Generic("abcd").into();
         other.Sum(1, 1, &mut value).unwrap();
         assert_eq!(value, 6);
+        assert_eq!(
+            other.cast_object_ref::<Generic<&'static str>>().unwrap().0,
+            "abcd"
+        );
     }
 }

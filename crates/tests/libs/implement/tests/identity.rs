@@ -173,6 +173,10 @@ fn classic_identity_is_not_inspectable() -> Result<()> {
     let unknown = IUnknown::from(Empty);
     let inspectable: IInspectable = unknown.cast()?;
     assert_eq!(inspectable.as_raw(), unknown.as_raw());
+    assert!(unknown.is_object::<Empty>());
+    unknown.cast_object_ref::<Empty>()?;
+    let object = unknown.cast_object::<Empty>()?;
+    assert_eq!(object.to_interface::<IUnknown>(), unknown);
     Ok(())
 }
 

@@ -119,7 +119,7 @@ macro_rules! __implement_decl {
         #[allow(non_camel_case_types)]
         $vis struct $impl_name<$($gp),*> where $($wc)* {
             __com: $crate::imp::ComCell<
-                { [$($idx),+].len() },
+                { [$($idx),+].len() + 1 },
                 $crate::__implement_decl!(@base $($compose)?),
                 $name<$($gp),*>,
             >,
@@ -132,11 +132,15 @@ macro_rules! __implement_decl {
                     <<$ty as $crate::Interface>::Vtable>::new::<Self, { -$idx }>();
             )+
 
+            const __RUST_OBJECT: $crate::imp::IRustObject_Vtbl =
+                $crate::imp::IRustObject_Vtbl::new::<Self, { -([$($idx),+].len() as isize) }>();
+
             #[inline(always)]
             $($const)? unsafe fn __new(this: $name<$($gp),*>) -> Self {
                 Self {
                     __com: unsafe { $crate::imp::ComCell::new(
-                        [$( $crate::imp::Vtable::new(&Self::$id) ),+],
+                        [$( $crate::imp::Vtable::new(&Self::$id), )+
+                            $crate::imp::Vtable::new(&Self::__RUST_OBJECT)],
                         $crate::__implement_decl!(@base_new $($compose)?),
                         this,
                     ) },
@@ -198,7 +202,7 @@ macro_rules! __implement_decl {
                         iid,
                         interface,
                         true,
-                        ::core::option::Option::Some(self as &dyn ::core::any::Any),
+                        ::core::option::Option::Some([$($idx),+].len()),
                         |iid| {
                             $(
                                 if <<$ty as $crate::Interface>::Vtable>::matches(iid)

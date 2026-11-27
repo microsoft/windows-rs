@@ -203,3 +203,67 @@ fn non_agile_weak_marshaling() {
 fn agile_weak_marshaling() {
     weak_marshaling(true);
 }
+
+fn downcast_marshaling(agile: bool) {
+    let _apartment = init_sta().unwrap();
+    let owner = thread::current().id();
+    let drops = Arc::new(Mutex::new(Vec::new()));
+    let probe = ThreadProbe {
+        owner,
+        drops: drops.clone(),
+    };
+    let object: IStringable = if agile {
+        AgileObject(probe).into()
+    } else {
+        ApartmentObject(probe).into()
+    };
+    if agile {
+        assert!(object.cast_object_ref::<AgileObject>().is_ok());
+    } else {
+        assert!(object.cast_object_ref::<ApartmentObject>().is_ok());
+    }
+    let reference = AgileReference::new(&object).unwrap();
+    let (ready_send, ready_receive) = mpsc::channel();
+    let (release_send, release_receive) = mpsc::channel();
+    let (done_send, done_receive) = mpsc::channel();
+    let worker = thread::spawn(move || {
+        let _apartment = init_sta().unwrap();
+        let proxy = reference.resolve().unwrap();
+        drop(reference);
+        let expected = if agile { "false" } else { "true" };
+        assert_eq!(proxy.ToString().unwrap(), expected);
+        if agile {
+            assert!(proxy.cast_object_ref::<AgileObject>().is_ok());
+            assert!(proxy.is_object::<AgileObject>());
+            assert!(proxy.cast_object::<AgileObject>().is_ok());
+        } else {
+            assert!(proxy.cast_object_ref::<ApartmentObject>().is_err());
+            assert!(!proxy.is_object::<ApartmentObject>());
+            assert!(proxy.cast_object::<ApartmentObject>().is_err());
+        }
+        assert_eq!(proxy.ToString().unwrap(), expected);
+        ready_send.send(()).unwrap();
+        release_receive
+            .recv_timeout(Duration::from_secs(10))
+            .unwrap();
+        drop(proxy);
+        done_send.send(thread::current().id()).unwrap();
+    });
+    receive_with_dispatch(&ready_receive);
+    drop(object);
+    assert!(drops.lock().unwrap().is_empty());
+    release_send.send(()).unwrap();
+    let caller = receive_with_dispatch(&done_receive);
+    worker.join().unwrap();
+    assert_eq!(*drops.lock().unwrap(), [if agile { caller } else { owner }]);
+}
+
+#[test]
+fn non_agile_proxy_downcast_preserves_reference_ownership() {
+    downcast_marshaling(false);
+}
+
+#[test]
+fn agile_cross_apartment_downcast() {
+    downcast_marshaling(true);
+}

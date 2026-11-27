@@ -148,31 +148,25 @@ pub unsafe trait Interface: Sized + Clone {
     ///
     /// The reference points to the generated outer type, such as `MyApp_Impl`, not `MyApp`.
     ///
-    /// Returns `Err(E_NOINTERFACE)` if the object is not a Rust object, not `T`, or contains
-    /// non-static lifetimes.
+    /// Returns the COM error if the private Rust interface cannot be queried.
     ///
     /// # Safety
     ///
-    /// This uses a private `QueryInterface` protocol identified by `DYNAMIC_CAST_IID`. The
-    /// implementation writes a two-pointer `&dyn Any`, not a COM interface pointer, to the output.
+    /// This queries a private COM interface identified by `DYNAMIC_CAST_IID`, then borrows the
+    /// Rust implementation through that interface. It has no proxy/stub support, so a COM proxy
+    /// cannot provide access to the Rust implementation.
     ///
-    /// The protocol does not call `AddRef`. The returned reference must not outlive `self`, and
-    /// only `#[implement]`-generated objects may recognize this IID.
+    /// The returned reference must not outlive `self`. Only generated Rust objects may recognize
+    /// this IID.
     #[inline(always)]
     fn cast_to_any<T>(&self) -> Result<&dyn Any>
     where
         T: ComObjectInner,
         T::Outer: Any + 'static + IUnknownImpl<Impl = T>,
     {
-        unsafe {
-            let mut any_ref_arg: MaybeUninit<&dyn Any> = MaybeUninit::zeroed();
-            self.query(
-                &DYNAMIC_CAST_IID,
-                any_ref_arg.as_mut_ptr() as *mut *mut c_void,
-            )
-            .ok()?;
-            Ok(any_ref_arg.assume_init())
-        }
+        let object = self.cast::<imp::IRustObject>()?;
+        // The original interface keeps the implementation alive after the private reference drops.
+        unsafe { Ok(&*(object.get_any() as *const dyn Any)) }
     }
 
     /// Returns `true` if the given COM interface refers to an implementation of `T`.
@@ -194,8 +188,8 @@ pub unsafe trait Interface: Sized + Clone {
 
     /// Returns a borrowed reference to the generated outer Rust implementation.
     ///
-    /// Returns `Err(E_NOINTERFACE)` if the object is not a Rust object, not `T`, or contains
-    /// non-static lifetimes.
+    /// Returns `Err(E_NOINTERFACE)` for a type mismatch. Errors querying the private Rust
+    /// interface, including through COM proxies, are propagated.
     ///
     /// The returned value is borrowed; use [`Interface::cast_object`] for an owned (counted)
     /// reference.
@@ -215,12 +209,10 @@ pub unsafe trait Interface: Sized + Clone {
 
     /// Returns an owned reference to the generated outer Rust implementation.
     ///
-    /// Returns `Err(E_NOINTERFACE)` if the object is not a Rust object, not `T`, or contains
-    /// non-static lifetimes.
+    /// Fails under the same conditions as [`Interface::cast_object_ref`].
     ///
     /// The returned value is an owned (counted) reference: this function calls `AddRef`. Use
-    /// [`Interface::cast_object_ref`] to avoid `AddRef` / `Release` overhead if you do not need
-    /// ownership.
+    /// [`Interface::cast_object_ref`] if you do not need to retain an additional reference.
     #[inline(always)]
     fn cast_object<T>(&self) -> Result<ComObject<T>>
     where
@@ -322,8 +314,9 @@ impl<I: Interface> core::ops::Deref for InterfaceRef<'_, I> {
     }
 }
 
-/// This IID identifies a special protocol, used by [`Interface::cast_to_any`]. This is _not_
-/// an ordinary COM interface; it uses special lifetime rules and a larger interface pointer.
-/// See the comments on [`Interface::cast_to_any`].
+/// Identifies the private COM interface used by [`Interface::cast_to_any`].
+///
+/// This interface has no proxy/stub support. Its IID differs from the borrowed-pointer protocol
+/// so incompatible implementations reject the query instead of interpreting the wrong ABI.
 #[doc(hidden)]
-pub const DYNAMIC_CAST_IID: GUID = GUID::from_u128(0xae49d5cb_143f_431c_874c_2729336e4eca);
+pub const DYNAMIC_CAST_IID: GUID = imp::IRustObject::IID;

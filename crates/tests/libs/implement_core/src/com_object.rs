@@ -404,10 +404,10 @@ fn provenance_take() {
 
 #[test]
 fn object_size() {
-    // One vtable pointer per interface chain plus the reference count.
+    // Three interface chains, the private Rust interface, and the reference count.
     assert_eq!(
         size_of::<MyApp_Impl>(),
-        size_of::<MyApp>() + 4 * size_of::<usize>()
+        size_of::<MyApp>() + 5 * size_of::<usize>()
     );
 }
 
@@ -434,6 +434,44 @@ fn dynamic_cast() {
 
     let dyn_app_owned_2: ComObject<MyApp> = ComObject::cast_from(&unknown).unwrap();
     assert_eq!(dyn_app_owned_2.signature, APP_SIGNATURE);
+}
+
+#[test]
+fn dynamic_cast_interface_owns_reference() {
+    let app = MyApp::new(42);
+    let tombstone = app.tombstone.clone();
+    let mut sentinel = 0u8;
+    let sentinel = (&raw mut sentinel).cast();
+    let mut result = [core::ptr::null_mut(), sentinel];
+    unsafe {
+        app.as_interface::<IUnknown>()
+            .query(&windows_core::DYNAMIC_CAST_IID, result.as_mut_ptr())
+            .unwrap();
+    }
+    assert_eq!(result[1], sentinel);
+    let private = unsafe { IUnknown::from_raw(result[0]) };
+    assert_eq!(private, app.to_interface::<IUnknown>());
+    drop(app);
+    assert!(!tombstone.is_dead());
+    assert_eq!(
+        private.cast_object_ref::<MyApp>().unwrap().signature,
+        APP_SIGNATURE
+    );
+    drop(private);
+    assert!(tombstone.is_dead());
+}
+
+#[test]
+fn legacy_dynamic_cast_protocol_is_rejected() {
+    let app = MyApp::new(42);
+    let legacy = windows_core::GUID::from_u128(0xae49d5cb_143f_431c_874c_2729336e4eca);
+    let mut result = [core::ptr::null_mut(); 2];
+    let error = unsafe {
+        app.as_interface::<IUnknown>()
+            .query(&legacy, result.as_mut_ptr())
+    };
+    assert_eq!(error, windows_core::imp::E_NOINTERFACE);
+    assert!(result[0].is_null());
 }
 
 #[test]

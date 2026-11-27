@@ -65,11 +65,19 @@ pub fn test() -> Result<()> {
     assert_eq!(base.Name()?, "Rust");
     assert_eq!(stringable.cast::<Base>()?.Value()?, 7);
     assert_eq!(base.cast::<IUnknown>()?, stringable.cast::<IUnknown>()?);
+    assert!(core::ptr::eq(
+        base.cast_object_ref::<Derived>()?,
+        stringable.cast_object_ref::<Derived>()?
+    ));
+    let derived = base.cast_object::<Derived>()?;
 
     assert_eq!(Base::Instances()?, 1);
     assert_eq!(DERIVED.load(Ordering::Relaxed), 1);
     drop(stringable);
     drop(base);
+    assert_eq!(Base::Instances()?, 1);
+    assert_eq!(DERIVED.load(Ordering::Relaxed), 1);
+    drop(derived);
     assert_eq!(Base::Instances()?, 0);
     assert_eq!(DERIVED.load(Ordering::Relaxed), 0);
 
@@ -78,6 +86,7 @@ pub fn test() -> Result<()> {
     assert_eq!(base.Stringify()?, "");
     assert_eq!(base.Name()?, "Base");
     assert!(base.cast::<IStringable>().is_err());
+    assert!(base.is_object::<Plain>());
     assert_eq!(Base::Instances()?, 1);
     drop(base);
     assert_eq!(Base::Instances()?, 0);

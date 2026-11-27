@@ -17,6 +17,7 @@ mod delegate_box;
 #[cfg(windows_cast_diagnostics)]
 mod live_objects;
 mod ref_count;
+mod rust_object;
 mod sha1;
 mod weak_ref_count;
 
@@ -35,6 +36,7 @@ pub use delegate_box::*;
 #[cfg(windows_cast_diagnostics)]
 pub use live_objects::{LiveObjects, live_objects};
 pub use ref_count::*;
+pub use rust_object::*;
 pub use sha1::*;
 pub use weak_ref_count::*;
 
