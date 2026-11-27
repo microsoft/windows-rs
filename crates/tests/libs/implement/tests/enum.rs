@@ -83,16 +83,22 @@ where
 }
 
 #[test]
-fn generics_and_borrowed_data() -> Result<()> {
+fn generics_and_static_data() -> Result<()> {
     let text = String::from("borrowed");
-    let borrowed: IStringable = GenericValue::<String, 3>::Text(&text).into();
-    assert_eq!(borrowed.ToString()?, "borrowed");
+    let _unpublished = GenericValue::<String, 3>::Text(&text);
+    static TEXT: &str = "static";
+    let borrowed: IStringable = GenericValue::<&str, 3>::Text(&TEXT).into();
+    assert_eq!(borrowed.ToString()?, "static");
     let mut result = [borrowed.as_raw(); 2];
     let error = unsafe { borrowed.query(&DYNAMIC_CAST_IID, result.as_mut_ptr()) };
     assert_eq!(error, E_NOINTERFACE);
     assert!(result[0].is_null());
 
-    let bytes: IStringable = GenericValue::<String, 3>::Bytes([1, 2, 3]).into();
+    let object = ComObject::new(GenericValue::<String, 3>::Bytes([1, 2, 3]));
+    let bytes: IStringable = object.clone().into_interface();
+    let retained = object.as_interface::<IStringable>().to_owned();
+    drop(object);
     assert_eq!(bytes.ToString()?, "[1, 2, 3]");
+    assert_eq!(retained.ToString()?, "[1, 2, 3]");
     Ok(())
 }

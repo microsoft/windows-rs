@@ -33,8 +33,9 @@ mod tests;
 /// let _: IValue = Value(123).into();
 /// ```
 ///
-/// Implementations must be `Send + Sync`: COM calls may overlap, and another thread may release
-/// the final reference. `Agile = false` does not enforce thread affinity in the MTA.
+/// Implementations must be `'static + Send + Sync`: interfaces can outlive their creator, COM
+/// calls may overlap, and another thread may release the final reference. `Agile = false` does
+/// not enforce thread affinity in the MTA.
 ///
 /// A `Send` field that is not `Sync` cannot be published, even with agility disabled:
 ///
@@ -69,6 +70,59 @@ mod tests;
 ///
 /// let _ = Value(None).into_static();
 /// ```
+///
+/// Interfaces can outlive their creator, so implementations cannot borrow stack data:
+///
+/// ```compile_fail,E0597
+/// use windows_core::*;
+/// #[interface("094d70d6-5202-44b8-abb8-43860da5aca2")]
+/// unsafe trait IValue: IUnknown {}
+/// #[implement(IValue, Agile = false)]
+/// struct Value<'a>(&'a u32);
+/// impl IValue_Impl for Value_Impl<'_> {}
+/// fn escape() -> IValue {
+///     let value = 123;
+///     Value(&value).into()
+/// }
+/// ```
+///
+/// Constructing a `ComObject` does not permit borrowed implementation state either:
+///
+/// ```compile_fail,E0597
+/// use windows_core::*;
+/// #[implement(Agile = false)]
+/// struct Value<'a>(&'a u32);
+/// fn escape() -> IUnknown {
+///     let value = 123;
+///     ComObject::new(Value(&value)).into_interface()
+/// }
+/// ```
+///
+/// Requesting only a borrowed interface view still requires `'static` implementation state:
+///
+/// ```compile_fail,E0597
+/// use windows_core::*;
+/// #[implement(Agile = false)]
+/// struct Value<'a>(&'a u32);
+/// fn escape() -> IUnknown {
+///     let value = 123;
+///     let object = ComObject::new(Value(&value));
+///     object.as_interface::<IUnknown>().to_owned()
+/// }
+/// ```
+///
+/// Lifetime-generic types can still refer to static data:
+///
+/// ```
+/// use windows_core::*;
+/// #[implement]
+/// struct Value<'a>(&'a u32);
+/// static VALUE: u32 = 123;
+/// let object = ComObject::new(Value(&VALUE));
+/// assert_eq!(*object.get().0, 123);
+/// let interface: IUnknown = object.clone().into_interface();
+/// assert_eq!(interface, object.as_interface::<IUnknown>().to_owned());
+/// ```
 #[proc_macro_attribute]
 pub fn implement(
     attributes: proc_macro::TokenStream,
@@ -102,11 +156,10 @@ fn implement_core(
         compose: attributes.compose,
         impl_ident: quote::format_ident!("{}_Impl", &original_type.ident),
         constraints: {
-            if let Some(where_clause) = &original_type.generics.where_clause {
-                where_clause.predicates.to_token_stream()
-            } else {
-                quote!()
-            }
+            let ident = &original_type.ident;
+            let (_, ty_generics, where_clause) = original_type.generics.split_for_impl();
+            let predicates = where_clause.map(|clause| &clause.predicates);
+            quote! { #ident #ty_generics: 'static, #predicates }
         },
         generics: if !original_type.generics.params.is_empty() {
             let mut params = quote! {};
