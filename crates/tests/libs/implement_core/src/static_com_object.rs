@@ -2,7 +2,8 @@
 
 use std::sync::atomic::{AtomicU32, Ordering::SeqCst};
 use windows_core::{
-    ComObject, IUnknown, IUnknownImpl, InterfaceRef, StaticComObject, implement, interface,
+    ComObject, IUnknown, IUnknownImpl, Interface, InterfaceRef, StaticComObject, implement,
+    interface,
 };
 
 #[interface("818f2fd1-d479-4398-b286-a93c4c7904d1")]
@@ -49,7 +50,13 @@ fn to_interface() {
     let factory_outer: &MyFactory_Impl = NUMBER_FACTORY_INSTANCE.get();
     let ifactory: INumberFactory = factory_outer.to_interface::<INumberFactory>();
     assert_eq!(unsafe { ifactory.add(333, 444) }, 777);
+    assert!(core::ptr::eq(
+        ifactory.cast_object_ref::<MyFactory>().unwrap(),
+        factory_outer
+    ));
+    let object = ifactory.cast_object::<MyFactory>().unwrap();
     drop(ifactory);
+    assert_eq!(unsafe { object.add(333, 444) }, 777);
 }
 
 #[test]

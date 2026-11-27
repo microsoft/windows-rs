@@ -215,9 +215,48 @@ fn refcount_drops_to_zero() {
     // refcount math is wrong the boxed object would leak (caught by miri) or, if doubly
     // freed, cause a crash. This test is mainly here so that the `Release` path runs.
     let test: ITest = Test.into();
+    let weak = test.downgrade().unwrap();
     let other: IOther = test.cast().unwrap();
     drop(test);
+    assert!(weak.upgrade().is_some());
     drop(other);
+    assert!(weak.upgrade().is_none());
+}
+
+#[test]
+fn static_implementer() {
+    static OBJECT: StaticComObject<Test> = Test.into_static();
+    let other: IOther = OBJECT.get().to_interface();
+    let agile = other.cast::<imp::IAgileObject>().unwrap();
+    assert_eq!(
+        agile.cast::<IUnknown>().unwrap(),
+        other.cast::<IUnknown>().unwrap()
+    );
+    drop(agile);
+    let weak = other.downgrade().unwrap();
+    drop(other);
+    let other = weak.upgrade().unwrap();
+    let mut value = 0;
+    unsafe { other.Sum(20, 22, &mut value).unwrap() };
+    assert_eq!(value, 42);
+}
+
+#[test]
+fn no_dynamic_cast() {
+    let legacy = GUID::from_u128(0xae49d5cb_143f_431c_874c_2729336e4eca);
+    for other in [IOther::from(Test), IOther::from(Generic(10_i32))] {
+        for iid in [DYNAMIC_CAST_IID, legacy] {
+            let mut result = [other.as_raw(); 2];
+            assert_eq!(
+                unsafe { other.query(&iid, result.as_mut_ptr()) },
+                imp::E_NOINTERFACE
+            );
+            assert!(result[0].is_null());
+        }
+    }
+
+    // Three interface pointers and the reference count, without a private interface slot.
+    assert_eq!(size_of::<Test_Impl>(), 4 * size_of::<usize>());
 }
 
 #[test]
@@ -237,18 +276,26 @@ fn iunknown_identity() {
 fn generic_implementer() {
     unsafe {
         // T = i32: the wrapped value adds 10.
-        let other: IOther = Generic(10_i32).into();
+        let object = ComObject::new(Generic(10_i32));
+        let other: IOther = object.to_interface();
         let mut value = 0;
         other.Sum(2, 3, &mut value).unwrap();
         assert_eq!(value, 15);
+        let implementation: &Generic<i32> = other.as_impl();
+        assert_eq!(implementation.0, 10);
 
         // QI across to ITest.
         let test: ITest = other.cast().unwrap();
         test.Void();
+        drop(other);
+        drop(test);
+        assert_eq!(object.0, 10);
 
         // A second monomorphization (T = &str) wires up independently.
         let other: IOther = Generic("abcd").into();
         other.Sum(1, 1, &mut value).unwrap();
         assert_eq!(value, 6);
+        let implementation: &Generic<&'static str> = other.as_impl();
+        assert_eq!(implementation.0, "abcd");
     }
 }

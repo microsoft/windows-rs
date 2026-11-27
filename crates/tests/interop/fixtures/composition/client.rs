@@ -38,6 +38,19 @@ impl IStringable_Impl for Derived_Impl {
 #[implement(Compose = true)]
 struct Plain;
 
+struct Declarative;
+
+implement_decl! {
+    #[compose]
+    impl Declarative as Declarative_Impl: [IBaseOverrides]
+}
+
+impl IBaseOverrides_Impl for Declarative_Impl {
+    fn Name(&self) -> Result<HSTRING> {
+        Ok("Declarative".into())
+    }
+}
+
 pub fn test() -> Result<()> {
     assert_eq!(Base::Instances()?, 0);
 
@@ -65,11 +78,19 @@ pub fn test() -> Result<()> {
     assert_eq!(base.Name()?, "Rust");
     assert_eq!(stringable.cast::<Base>()?.Value()?, 7);
     assert_eq!(base.cast::<IUnknown>()?, stringable.cast::<IUnknown>()?);
+    assert!(core::ptr::eq(
+        base.cast_object_ref::<Derived>()?,
+        stringable.cast_object_ref::<Derived>()?
+    ));
+    let derived = base.cast_object::<Derived>()?;
 
     assert_eq!(Base::Instances()?, 1);
     assert_eq!(DERIVED.load(Ordering::Relaxed), 1);
     drop(stringable);
     drop(base);
+    assert_eq!(Base::Instances()?, 1);
+    assert_eq!(DERIVED.load(Ordering::Relaxed), 1);
+    drop(derived);
     assert_eq!(Base::Instances()?, 0);
     assert_eq!(DERIVED.load(Ordering::Relaxed), 0);
 
@@ -78,8 +99,20 @@ pub fn test() -> Result<()> {
     assert_eq!(base.Stringify()?, "");
     assert_eq!(base.Name()?, "Base");
     assert!(base.cast::<IStringable>().is_err());
+    assert!(base.is_object::<Plain>());
     assert_eq!(Base::Instances()?, 1);
     drop(base);
+    assert_eq!(Base::Instances()?, 0);
+
+    let base = Base::WithValue_compose(9, Declarative)?;
+    assert_eq!(base.Describe()?, "Declarative(9)");
+    assert!(!base.is_object::<Declarative>());
+    let overrides: IBaseOverrides = base.cast()?;
+    assert_eq!(base.cast::<IUnknown>()?, overrides.cast::<IUnknown>()?);
+    drop(base);
+    assert_eq!(Base::Instances()?, 1);
+    assert_eq!(overrides.cast::<Base>()?.Name()?, "Declarative");
+    drop(overrides);
     assert_eq!(Base::Instances()?, 0);
 
     Ok(())

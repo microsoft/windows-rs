@@ -45,11 +45,17 @@ fn identity_type(inputs: &ImplementInputs) -> proc_macro2::TokenStream {
     }
 }
 
+fn supports_dynamic_cast(inputs: &ImplementInputs) -> bool {
+    inputs.original_type.generics.lifetimes().next().is_none()
+}
+
 /// The `ComCell` type wrapped by `Foo_Impl`.
 fn cell_type(inputs: &ImplementInputs) -> proc_macro2::TokenStream {
     let original_ident = &inputs.original_ident;
     let generics_idents = &inputs.generics_idents;
-    let count = proc_macro2::Literal::usize_unsuffixed(inputs.interface_chains.len().max(1));
+    let count = proc_macro2::Literal::usize_unsuffixed(
+        inputs.interface_chains.len().max(1) + usize::from(supports_dynamic_cast(inputs)),
+    );
 
     let base = if inputs.compose {
         quote! { ::windows_core::ComposeBase }
@@ -153,6 +159,17 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
                 #impl_ident::#generics_idents,
                 #offset,
             >();
+        });
+    }
+
+    if supports_dynamic_cast(inputs) {
+        let offset = -(inputs.interface_chains.len().max(1) as isize);
+        output.items.push(parse_quote! {
+            const VTABLE_RUST_OBJECT: ::windows_core::imp::IRustObject_Vtbl =
+                ::windows_core::imp::IRustObject_Vtbl::new::<
+                    #impl_ident::#generics_idents,
+                    #offset,
+                >();
         });
     }
 
@@ -311,8 +328,9 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         });
 
     // Dynamic casting requires that the object not contain non-static lifetimes.
-    let any = if inputs.original_type.generics.lifetimes().count() == 0 {
-        quote! { ::core::option::Option::Some(self as &dyn ::core::any::Any) }
+    let rust_object = if supports_dynamic_cast(inputs) {
+        let index = inputs.interface_chains.len().max(1);
+        quote! { ::core::option::Option::Some(#index) }
     } else {
         quote! { ::core::option::Option::None }
     };
@@ -341,7 +359,7 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
                     iid,
                     interface,
                     #agile,
-                    #any,
+                    #rust_object,
                     #find,
                 )
             }
@@ -355,7 +373,7 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
     let generics_idents = &inputs.generics_idents;
     let impl_ident = &inputs.impl_ident;
 
-    let vtables: Vec<_> = if inputs.interface_chains.is_empty() {
+    let mut vtables: Vec<_> = if inputs.interface_chains.is_empty() {
         vec![quote! {
             ::windows_core::imp::Vtable::new(&#impl_ident::#generics_idents::VTABLE_IDENTITY)
         }]
@@ -372,6 +390,12 @@ fn gen_into_outer(inputs: &ImplementInputs) -> syn::ImplItem {
             })
             .collect()
     };
+
+    if supports_dynamic_cast(inputs) {
+        vtables.push(quote! {
+            ::windows_core::imp::Vtable::new(&#impl_ident::#generics_idents::VTABLE_RUST_OBJECT)
+        });
+    }
 
     let base = if inputs.compose {
         quote! { ::windows_core::ComposeBase::new() }

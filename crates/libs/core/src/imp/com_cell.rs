@@ -2,7 +2,6 @@ use super::*;
 use crate::{
     ComposeBase, DYNAMIC_CAST_IID, GUID, HRESULT, IInspectable, IUnknown, Interface, InterfaceRef,
 };
-use core::any::Any;
 use core::cell::UnsafeCell;
 use core::ffi::c_void;
 use core::ptr::null_mut;
@@ -148,8 +147,8 @@ impl ComBase for ComposeBase {
 impl<const N: usize, B: ComBase, T> ComCell<N, B, T> {
     /// Implements `QueryInterface` for an object whose identity is `Identity`.
     ///
-    /// `find` maps an IID to the index of the interface that implements it. `any` is the outer
-    /// object for dynamic casting, if supported.
+    /// `find` maps an IID to the index of the interface that implements it. `rust_object` is the
+    /// index of the private Rust interface, if supported.
     ///
     /// # Safety
     ///
@@ -160,7 +159,7 @@ impl<const N: usize, B: ComBase, T> ComCell<N, B, T> {
         iid: *const GUID,
         interface: *mut *mut c_void,
         agile: bool,
-        any: Option<&dyn Any>,
+        rust_object: Option<usize>,
         find: impl FnOnce(&GUID) -> Option<usize>,
     ) -> HRESULT {
         unsafe {
@@ -175,6 +174,8 @@ impl<const N: usize, B: ComBase, T> ComCell<N, B, T> {
                 || (agile && *iid == IAgileObject::IID)
             {
                 Some(0)
+            } else if *iid == DYNAMIC_CAST_IID {
+                rust_object
             } else {
                 find(iid)
             };
@@ -189,14 +190,6 @@ impl<const N: usize, B: ComBase, T> ComCell<N, B, T> {
             if agile && *iid == IMarshal::IID {
                 self.count().add_ref();
                 return marshaler(IUnknown::from_raw(self.interface(0)), interface);
-            }
-
-            if *iid == DYNAMIC_CAST_IID {
-                if let Some(any) = any {
-                    // Writes a two-pointer `&dyn Any` without adding a reference.
-                    interface.cast::<*const dyn Any>().write(any);
-                    return HRESULT(0);
-                }
             }
 
             let tear_off = self.count().query(iid, self.interface(0), agile);

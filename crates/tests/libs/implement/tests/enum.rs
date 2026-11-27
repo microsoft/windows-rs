@@ -87,6 +87,10 @@ fn generics_and_borrowed_data() -> Result<()> {
     let text = String::from("borrowed");
     let borrowed: IStringable = GenericValue::<String, 3>::Text(&text).into();
     assert_eq!(borrowed.ToString()?, "borrowed");
+    let mut result = [borrowed.as_raw(); 2];
+    let error = unsafe { borrowed.query(&DYNAMIC_CAST_IID, result.as_mut_ptr()) };
+    assert_eq!(error, E_NOINTERFACE);
+    assert!(result[0].is_null());
 
     let bytes: IStringable = GenericValue::<String, 3>::Bytes([1, 2, 3]).into();
     assert_eq!(bytes.ToString()?, "[1, 2, 3]");
