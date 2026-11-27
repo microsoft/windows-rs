@@ -1,8 +1,8 @@
 //! Implements COM interfaces without the `windows-implement` proc-macro dependency.
 //!
-//! Implementers are always agile and support dynamic casting. Add `#[compose]` before `impl` to
-//! aggregate a composable WinRT class; the first interface must then derive from `IInspectable`.
-//! Per-instance trust levels or opt-outs require `#[implement]`.
+//! Implementers are always agile and do not support checked downcasting. Add `#[compose]` before
+//! `impl` to aggregate a composable WinRT class; the first interface must then derive from
+//! `IInspectable`. Checked downcasting, per-instance trust levels, or opt-outs require `#[implement]`.
 //!
 //! ```
 //! use windows_core::*;
@@ -45,8 +45,8 @@
 //! let interface: IFoo = outer.to_interface();
 //! ```
 //!
-//! Implementations must be `Send + Sync`, since COM calls may overlap and another thread may
-//! release the final reference:
+//! Implementations must be `'static + Send + Sync`, since interfaces can outlive their creator,
+//! COM calls may overlap, and another thread may release the final reference:
 //!
 //! ```compile_fail,E0277
 //! use std::rc::Rc;
@@ -63,9 +63,28 @@
 //!
 //! let _: IFoo = Foo(Rc::new(())).into();
 //! ```
+//!
+//! Generic implementations must also require `'static`:
+//!
+//! ```compile_fail,E0310
+//! use windows_core::*;
+//! interface_decl! {
+//!     unsafe trait IFoo(IFoo_Vtbl, IFoo_Impl): IUnknown
+//!         = 0x094d70d6_5202_44b8_abb8_43860da5aca2 {}
+//! }
+//! struct Foo<T>(T);
+//! implement_decl! { impl<T> Foo as Foo_Impl: [IFoo] where T: Send + Sync }
+//! impl<T: Send + Sync> IFoo_Impl for Foo_Impl<T> {}
+//! ```
 
 /// Declares a Rust type as the COM implementer of one or more interfaces, without using
 /// the `#[implement]` proc-macro.
+///
+/// Implementers are always agile and do not support checked downcasting through
+/// [`Interface::cast_object_ref`](crate::Interface::cast_object_ref) or
+/// [`Interface::cast_object`](crate::Interface::cast_object). Retain a [`ComObject`](crate::ComObject)
+/// to access the Rust implementation, or use [`AsImpl`](crate::AsImpl) when its safety requirements
+/// are satisfied.
 #[macro_export]
 macro_rules! implement_decl {
     (
@@ -119,7 +138,7 @@ macro_rules! __implement_decl {
         #[allow(non_camel_case_types)]
         $vis struct $impl_name<$($gp),*> where $($wc)* {
             __com: $crate::imp::ComCell<
-                { [$($idx),+].len() + 1 },
+                { [$($idx),+].len() },
                 $crate::__implement_decl!(@base $($compose)?),
                 $name<$($gp),*>,
             >,
@@ -132,15 +151,14 @@ macro_rules! __implement_decl {
                     <<$ty as $crate::Interface>::Vtable>::new::<Self, { -$idx }>();
             )+
 
-            const __RUST_OBJECT: $crate::imp::IRustObject_Vtbl =
-                $crate::imp::IRustObject_Vtbl::new::<Self, { -([$($idx),+].len() as isize) }>();
-
             #[inline(always)]
-            $($const)? unsafe fn __new(this: $name<$($gp),*>) -> Self {
+            $($const)? unsafe fn __new(this: $name<$($gp),*>) -> Self
+            where
+                Self: 'static,
+            {
                 Self {
                     __com: unsafe { $crate::imp::ComCell::new(
-                        [$( $crate::imp::Vtable::new(&Self::$id), )+
-                            $crate::imp::Vtable::new(&Self::__RUST_OBJECT)],
+                        [$( $crate::imp::Vtable::new(&Self::$id) ),+],
                         $crate::__implement_decl!(@base_new $($compose)?),
                         this,
                     ) },
@@ -202,7 +220,7 @@ macro_rules! __implement_decl {
                         iid,
                         interface,
                         true,
-                        ::core::option::Option::Some([$($idx),+].len()),
+                        ::core::option::Option::None,
                         |iid| {
                             $(
                                 if <<$ty as $crate::Interface>::Vtable>::matches(iid)

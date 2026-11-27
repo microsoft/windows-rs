@@ -80,7 +80,7 @@ jobs:
         run: >-
           cargo +nightly miri test --target ${{ matrix.target }} -p test_interface_core
           --test macro_rules_decl -- user_fields_not_shadowed test_iother test_iraw
-          refcount_drops_to_zero generic_implementer
+          refcount_drops_to_zero generic_implementer no_dynamic_cast static_implementer
       - name: Check mixed and custom inspectable interfaces
         if: contains(matrix.target, 'windows')
         run: >-
