@@ -47,6 +47,8 @@ fn main() {
         .full()
         .filter("IActivationFactory")
         .filter("IAgileObject")
+        .filter("IWeakReference::Resolve")
+        .filter("IWeakReferenceSource::GetWeakReference")
         .filter("AddDllDirectory")
         .filter("CLASS_E_CLASSNOTAVAILABLE")
         .filter("CoInitializeEx")
