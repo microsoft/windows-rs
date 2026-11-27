@@ -2,6 +2,12 @@ use super::*;
 use core::marker::PhantomData;
 
 /// `Weak` holds a non-owning reference to an object.
+///
+/// This type is not [`Send`] or [`Sync`]. It does not marshal the native weak reference between
+/// apartments. Cross-apartment use requires explicitly marshaling the native `IWeakReference`
+/// interface, for example with [`AgileReference`].
+/// The native weak interfaces are available through `windows-bindgen` or
+/// `windows::Win32::System::WinRT::{IWeakReference, IWeakReferenceSource}`.
 #[derive(Clone, PartialEq, Eq)]
 pub struct Weak<I: Interface>(Option<imp::IWeakReference>, PhantomData<I>);
 
@@ -33,6 +39,3 @@ impl<I: Interface> Weak<I> {
         Self(reference, PhantomData)
     }
 }
-
-unsafe impl<I: Interface> Send for Weak<I> {}
-unsafe impl<I: Interface> Sync for Weak<I> {}

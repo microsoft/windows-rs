@@ -1,14 +1,17 @@
 use std::ffi::c_void;
 use std::ptr::null_mut;
 use std::sync::atomic::{AtomicBool, Ordering::SeqCst};
-use std::sync::{Arc, Barrier};
+use std::sync::{Arc, Barrier, mpsc};
 use std::thread;
+use std::time::Duration;
 use windows_core::*;
 
 #[interface("7a80e456-e4c0-4235-b3b8-55023680721d")]
 unsafe trait IValue: IUnknown {
     fn get(&self) -> u32;
 }
+
+static_assertions::assert_not_impl_any!(Weak<IValue>: Send, Sync);
 
 #[implement(IValue)]
 struct Value(u32, Arc<AtomicBool>);
@@ -53,41 +56,54 @@ fn concurrent_downgrade_upgrade_release() {
         let dropped = Arc::new(AtomicBool::new(false));
         let value: IValue = Value(7, dropped.clone()).into();
 
-        // Race to install the tear-off.
-        let weak: Vec<Weak<IValue>> = (0..4)
+        let (progress, receive_progress) = mpsc::channel();
+        let threads: Vec<_> = (0..4)
             .map(|_| {
                 let agile = Agile(value.clone());
-                thread::spawn(move || {
+                let progress = progress.clone();
+                let (proceed, receive_proceed) = mpsc::channel();
+                let thread = thread::spawn(move || {
                     let agile = agile;
-                    agile.0.downgrade().unwrap()
-                })
-            })
-            .collect::<Vec<_>>()
-            .into_iter()
-            .map(|thread| thread.join().unwrap())
-            .collect();
+                    // Race to install the tear-off, keeping each weak handle on its thread.
+                    let weak = agile.0.downgrade().unwrap();
+                    drop(agile);
+                    progress.send(()).unwrap();
+                    receive_proceed
+                        .recv_timeout(Duration::from_secs(10))
+                        .unwrap();
 
-        // Race upgrades against the final release.
-        let threads: Vec<_> = weak
-            .into_iter()
-            .map(|weak| {
-                thread::spawn(move || {
+                    // Race upgrades against the final release.
                     if let Some(value) = weak.upgrade() {
                         assert_eq!(unsafe { value.get() }, 7);
                     }
-                    weak
-                })
+                    progress.send(()).unwrap();
+                    receive_proceed
+                        .recv_timeout(Duration::from_secs(10))
+                        .unwrap();
+                    assert!(weak.upgrade().is_none());
+                });
+                (proceed, thread)
             })
             .collect();
+        drop(progress);
 
+        for _ in &threads {
+            receive_progress
+                .recv_timeout(Duration::from_secs(10))
+                .unwrap();
+        }
+        for (proceed, _) in &threads {
+            proceed.send(()).unwrap();
+        }
         drop(value);
-
-        let weak: Vec<_> = threads
-            .into_iter()
-            .map(|thread| thread.join().unwrap())
-            .collect();
-        for weak in weak {
-            assert!(weak.upgrade().is_none());
+        for _ in &threads {
+            receive_progress
+                .recv_timeout(Duration::from_secs(10))
+                .unwrap();
+        }
+        for (proceed, thread) in threads {
+            proceed.send(()).unwrap();
+            thread.join().unwrap();
         }
 
         assert!(dropped.load(SeqCst));
