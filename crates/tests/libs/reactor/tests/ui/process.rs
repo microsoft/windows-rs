@@ -192,6 +192,7 @@ pub fn run_to_exit(fixture: &str) -> Result<()> {
     match host.wait(Instant::now() + Duration::from_secs(30)) {
         Ok(_) => host.remove_logs(),
         Err(error) => {
+            probe_windows(host.child.id());
             host.stop()?;
             Err(format!("{fixture}: {error}\n{}", host.output()?).into())
         }
