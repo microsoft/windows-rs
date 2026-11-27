@@ -22,12 +22,28 @@ struct ExplicitAgile;
 impl ITest_Impl for ExplicitAgile_Impl {}
 impl IAgileObject_Impl for ExplicitAgile_Impl {}
 
+fn check_weak_agility(test: &ITest, agile: bool) {
+    let source = test.cast::<IWeakReferenceSource>().unwrap();
+    let weak = unsafe { source.GetWeakReference().unwrap() };
+    if agile {
+        weak.cast::<IAgileObject>().unwrap();
+        weak.cast::<IMarshal>().unwrap();
+    } else {
+        assert_eq!(
+            weak.cast::<IAgileObject>().unwrap_err().code(),
+            E_NOINTERFACE
+        );
+        assert_eq!(weak.cast::<IMarshal>().unwrap_err().code(), E_NOINTERFACE);
+    }
+}
+
 #[test]
 fn test_default() {
     let test: ITest = DefaultAgile.into();
     test.cast::<ITest>().unwrap();
     test.cast::<IAgileObject>().unwrap();
     test.cast::<IMarshal>().unwrap();
+    check_weak_agility(&test, true);
 }
 
 #[test]
@@ -36,6 +52,7 @@ fn test_agile_false() {
     test.cast::<ITest>().unwrap();
     test.cast::<IAgileObject>().unwrap_err();
     test.cast::<IMarshal>().unwrap_err();
+    check_weak_agility(&test, false);
 }
 
 #[test]
@@ -44,6 +61,7 @@ fn test_agile_true() {
     test.cast::<ITest>().unwrap();
     test.cast::<IAgileObject>().unwrap();
     test.cast::<IMarshal>().unwrap();
+    check_weak_agility(&test, true);
 }
 
 #[test]
@@ -52,4 +70,5 @@ fn test_explicit_agile() {
     test.cast::<ITest>().unwrap();
     test.cast::<IAgileObject>().unwrap();
     test.cast::<IMarshal>().unwrap_err();
+    check_weak_agility(&test, false);
 }

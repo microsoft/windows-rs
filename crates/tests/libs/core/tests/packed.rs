@@ -33,7 +33,7 @@ unsafe extern "system" fn query(
             add_ref(this);
             HRESULT(0)
         } else {
-            *result = (*(*this.cast::<Packed>()).refs).query(&*iid, this);
+            *result = (*(*this.cast::<Packed>()).refs).query(&*iid, this, false);
             if (*result).is_null() {
                 HRESULT(0x80004002_u32 as i32)
             } else {

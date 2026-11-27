@@ -80,7 +80,8 @@ impl WeakRefCount {
     ///
     /// `object` must be the COM identity pointer associated with this reference count and remain
     /// valid while the strong count is nonzero.
-    pub unsafe fn query(&self, iid: &GUID, object: *mut c_void) -> *mut c_void {
+    /// `agile` must match the object's configured agility for every query.
+    pub unsafe fn query(&self, iid: &GUID, object: *mut c_void, agile: bool) -> *mut c_void {
         if iid != &IWeakReferenceSource::IID {
             return null_mut();
         }
@@ -100,7 +101,7 @@ impl WeakRefCount {
                 };
 
                 if tear_off.is_null() {
-                    tear_off = TearOff::new(object, count as u32);
+                    tear_off = TearOff::new(object, count as u32, agile);
                 } else {
                     (*tear_off).strong_count = RefCount::new(count as u32);
                 }
@@ -134,12 +135,16 @@ struct TearOff {
 }
 
 impl TearOff {
-    fn new(object: *mut c_void, strong_count: u32) -> *mut Self {
+    fn new(object: *mut c_void, strong_count: u32, agile: bool) -> *mut Self {
         #[cfg(windows_cast_diagnostics)]
         live_objects::WEAK_REFERENCES.add();
         Box::into_raw(Box::new(Self {
             strong_vtable: &Self::STRONG_VTABLE,
-            weak_vtable: &Self::WEAK_VTABLE,
+            weak_vtable: if agile {
+                &Self::WEAK_VTABLE
+            } else {
+                &Self::NON_AGILE_WEAK_VTABLE
+            },
             object,
             strong_count: RefCount::new(strong_count),
             weak_count: RefCount::new(1),
@@ -157,11 +162,19 @@ impl TearOff {
 
     const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl {
         base__: IUnknown_Vtbl {
-            QueryInterface: Self::WeakQueryInterface,
+            QueryInterface: Self::WeakQueryInterface::<true>,
             AddRef: Self::WeakAddRef,
             Release: Self::WeakRelease,
         },
         Resolve: Self::WeakUpgrade,
+    };
+
+    const NON_AGILE_WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl {
+        base__: IUnknown_Vtbl {
+            QueryInterface: Self::WeakQueryInterface::<false>,
+            ..Self::WEAK_VTABLE.base__
+        },
+        ..Self::WEAK_VTABLE
     };
 
     fn strong(this: *mut Self) -> *mut c_void {
@@ -244,7 +257,7 @@ impl TearOff {
         }
     }
 
-    unsafe extern "system" fn WeakQueryInterface(
+    unsafe extern "system" fn WeakQueryInterface<const AGILE: bool>(
         ptr: *mut c_void,
         iid: *const GUID,
         interface: *mut *mut c_void,
@@ -259,12 +272,12 @@ impl TearOff {
             // The weak reference has its own COM identity and does not delegate to the object.
             *interface = if *iid == IWeakReference::IID
                 || *iid == IUnknown::IID
-                || *iid == IAgileObject::IID
+                || (AGILE && *iid == IAgileObject::IID)
             {
                 ptr
             } else {
                 #[cfg(windows)]
-                if *iid == IMarshal::IID {
+                if AGILE && *iid == IMarshal::IID {
                     (*this).weak_count.add_ref();
                     return marshaler(IUnknown::from_raw(ptr), interface);
                 }
